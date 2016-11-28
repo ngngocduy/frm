@@ -1,0 +1,6 @@
+c:\users\user\documents\visual studio 2015\Projects\DuyetLenhChi\DuyetLenhChi\bin\Debug\DuyetLenhChi.dll
+c:\users\user\documents\visual studio 2015\Projects\DuyetLenhChi\DuyetLenhChi\bin\Debug\DuyetLenhChi.pdb
+c:\users\user\documents\visual studio 2015\Projects\DuyetLenhChi\DuyetLenhChi\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\user\documents\visual studio 2015\Projects\DuyetLenhChi\DuyetLenhChi\obj\Debug\DuyetLenhChi.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\DuyetLenhChi\DuyetLenhChi\obj\Debug\DuyetLenhChi.dll
+c:\users\user\documents\visual studio 2015\Projects\DuyetLenhChi\DuyetLenhChi\obj\Debug\DuyetLenhChi.pdb
