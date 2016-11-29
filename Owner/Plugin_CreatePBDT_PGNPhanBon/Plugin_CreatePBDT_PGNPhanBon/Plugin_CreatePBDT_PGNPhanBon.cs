@@ -843,7 +843,6 @@ namespace Plugin_CreatePBDT_PGNPhanBon
                     result = (decimal)bls[i - 1]["new_phantramlaisuat"];
                     break;
                 }
-
                 else if (i == n - 1)
                 {
                     result = (decimal)bls[(i > 0 ? i : 1) - 1]["new_phantramlaisuat"];

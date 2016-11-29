@@ -29,3 +29,8 @@ D:\Work\TTC\Projects\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\bin\D
 D:\Work\TTC\Projects\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\obj\Debug\Plugin_CreatePBDT_PGNThuoc.dll
 D:\Work\TTC\Projects\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\obj\Debug\Plugin_CreatePBDT_PGNThuoc.pdb
 D:\Work\TTC\Projects\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\obj\Debug\Plugin_CreatePBDT_PGNThuoc.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\bin\Debug\Plugin_CreatePBDT_PGNThuoc.dll
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\bin\Debug\Plugin_CreatePBDT_PGNThuoc.pdb
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\obj\Debug\Plugin_CreatePBDT_PGNThuoc.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\obj\Debug\Plugin_CreatePBDT_PGNThuoc.dll
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNThuoc\Plugin_CreatePBDT_PGNThuoc\obj\Debug\Plugin_CreatePBDT_PGNThuoc.pdb
