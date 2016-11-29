@@ -601,7 +601,7 @@ namespace Plugin_PDK_Thuoc
 
             QueryExpression qe = new QueryExpression("new_dinhmucdautu");
             qe.ColumnSet = new ColumnSet(true);
-            qe.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
+            qe.Criteria.AddCondition(new ConditionExpression("new_yeucauphanbon", ConditionOperator.LessEqual, ttNT));
             qe.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
 
             foreach (Entity a in service.RetrieveMultiple(qe).Entities)

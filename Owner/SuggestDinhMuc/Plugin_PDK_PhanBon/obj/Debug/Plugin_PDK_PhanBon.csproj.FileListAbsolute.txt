@@ -9,3 +9,8 @@ C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon
 C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.dll
 C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.pdb
 C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.pdb

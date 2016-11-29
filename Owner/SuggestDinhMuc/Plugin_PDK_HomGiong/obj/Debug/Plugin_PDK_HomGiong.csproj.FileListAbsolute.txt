@@ -13,3 +13,8 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb

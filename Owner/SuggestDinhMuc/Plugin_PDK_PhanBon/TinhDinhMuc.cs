@@ -24,14 +24,14 @@ namespace Plugin_PDK_PhanBon
         {
             Entity pdk = service.Retrieve(pdkRef.LogicalName, pdkRef.Id, new ColumnSet(true));
             if (pdk == null)
-                throw new Exception(string.Format("Phiếu đăng ký hom giống '{0}' không tồn tại hoặc bị xóa!", pdkRef.Name));
+                throw new Exception(string.Format("Phiếu đăng ký phân bón '{0}' không tồn tại hoặc bị xóa!", pdkRef.Name));
             if (!pdk.Contains("new_hopdongdautumia"))
-                throw new Exception(string.Format("Vui lòng chọn hợp đầu tư mía cho phiếu đăng ký hom giống '{0}'!", pdkRef.Name));
+                throw new Exception(string.Format("Vui lòng chọn hợp đầu tư mía cho phiếu đăng ký phân bón '{0}'!", pdkRef.Name));
             string pdk_name = pdk.Contains("new_name") ? (" '" + pdk["new_name"].ToString() + "'") : "";
             if (!pdk.Contains("new_masophieudangky"))
-                throw new Exception(string.Format("Phiếu đăng ký hom giống{0} chưa có mã. Vui lòng cập nhật mã!", pdk_name));
+                throw new Exception(string.Format("Phiếu đăng ký phân bón{0} chưa có mã. Vui lòng cập nhật mã!", pdk_name));
             if (!pdk.Contains("new_apdung"))
-                throw new Exception(string.Format("Vui lòng chọn áp dụng cho phiếu đăng ký '{0}'", pdk_name));
+                throw new Exception(string.Format("Vui lòng chọn áp dụng cho phiếu đăng ký phân bón'{0}'", pdk_name));
 
             EntityReference hdRef = (EntityReference)pdk["new_hopdongdautumia"];
             Entity hd = service.Retrieve(hdRef.LogicalName, hdRef.Id, new ColumnSet(new string[] { "new_dinhmucphanbontoithieu", "new_dinhmucdautukhonghoanlai", "new_dinhmucdautucohoanlai" }));

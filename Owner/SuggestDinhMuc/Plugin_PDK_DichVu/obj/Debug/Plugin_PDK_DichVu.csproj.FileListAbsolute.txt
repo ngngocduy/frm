@@ -14,3 +14,8 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb

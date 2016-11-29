@@ -9,3 +9,8 @@ C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\b
 C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.dll
 C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.pdb
 C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK_Thuoc.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK-Thuoc\bin\Debug\Plugin_PDK-Thuoc.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK-Thuoc\bin\Debug\Plugin_PDK-Thuoc.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK_Thuoc.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.pdb

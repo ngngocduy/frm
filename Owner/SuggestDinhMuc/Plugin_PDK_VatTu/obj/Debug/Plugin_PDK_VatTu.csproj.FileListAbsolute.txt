@@ -12,3 +12,8 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_VatTu\bin\Debug\Plugin_PDK_VatTu.pdb
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_VatTu\obj\Debug\Plugin_PDK_VatTu.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_VatTu\obj\Debug\Plugin_PDK_VatTu.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_VatTu\bin\Debug\Plugin_PDK_VatTu.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_VatTu\bin\Debug\Plugin_PDK_VatTu.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_VatTu\obj\Debug\Plugin_PDK_VatTu.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_VatTu\obj\Debug\Plugin_PDK_VatTu.dll
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_VatTu\obj\Debug\Plugin_PDK_VatTu.pdb
