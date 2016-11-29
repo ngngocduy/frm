@@ -13,3 +13,8 @@ C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\obj\Debug\Plugin_CreatePBDT_PGNVatTuKhac.dll
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\obj\Debug\Plugin_CreatePBDT_PGNVatTuKhac.pdb
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\obj\Debug\Plugin_CreatePBDT_PGNVatTuKhac.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\bin\Debug\Plugin_CreatePBDT_PGNVatTuKhac.dll
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\bin\Debug\Plugin_CreatePBDT_PGNVatTuKhac.pdb
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\obj\Debug\Plugin_CreatePBDT_PGNVatTuKhac.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\obj\Debug\Plugin_CreatePBDT_PGNVatTuKhac.dll
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNVatTuKhac\Plugin_CreatePBDT_PGNVatTuKhac\obj\Debug\Plugin_CreatePBDT_PGNVatTuKhac.pdb

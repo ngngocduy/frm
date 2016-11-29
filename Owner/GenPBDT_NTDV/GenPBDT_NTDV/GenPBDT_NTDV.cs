@@ -55,8 +55,8 @@ namespace GenPBDT_NTDV
                 else if (ntdichvu.Contains("new_canbonongvu"))
                     cbnv = (EntityReference)ntdichvu["new_canbonongvu"];
                 trace.Trace("4");
-                if (ntdichvu.Contains("new_ngayduyet"))
-                    ngayduyet = (DateTime)ntdichvu["new_ngayduyet"];
+                if (ntdichvu.Contains("actualstart"))
+                    ngayduyet = (DateTime)ntdichvu["actualstart"];
                 trace.Trace("5");
                 decimal dinhmuc = ((Money)ntdichvu["new_tongtien"]).Value;
                 if (ntdichvu.Contains("new_vudautu"))
