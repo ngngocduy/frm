@@ -343,7 +343,7 @@ namespace Plugin_CreatePBDT_PGNPhanBon
             Entity thuadatcanhtac = service.Retrieve("new_thuadatcanhtac", tdct,
                 new ColumnSet(new string[] { "new_laisuat",
                     "new_name", "new_loailaisuat", "new_dachihoanlai_phanbon", "new_dachikhonghoanlai_phanbon" }));
-            trace.Trace("start pbdt");
+
             int loailaisuat = ((OptionSetValue)thuadatcanhtac["new_loailaisuat"]).Value;
 
             // type = 1 - hl , type = 2 - khl
@@ -747,7 +747,7 @@ namespace Plugin_CreatePBDT_PGNPhanBon
                             CreatePBDT(hddtmia, KH, key, vudautu.ToEntityReference(), a.vuthuhoi, dinhmuc, idCRE, type = 2,
                                 tram, cbnv, ngaynhan, phieugiaonhan, sophieu, lannhan);
                             tiendaphanbo = tiendaphanbo + dinhmuc;
-                            
+
                             break;
                         }
                         else if (dinhmuc > sotienphanbo)
@@ -755,7 +755,7 @@ namespace Plugin_CreatePBDT_PGNPhanBon
                             CreatePBDT(hddtmia, KH, key, vudautu.ToEntityReference(), a.vuthuhoi, sotienphanbo, idCRE,
                                 type = 2, tram, cbnv, ngaynhan, phieugiaonhan, sophieu, lannhan);
                             tiendaphanbo = tiendaphanbo + sotienphanbo;
-                            dinhmuc = dinhmuc - sotienphanbo;                           
+                            dinhmuc = dinhmuc - sotienphanbo;
                         }
 
                         tilethuhoivon["new_tiendaphanbo"] = new Money(tiendaphanbo);
@@ -822,10 +822,10 @@ namespace Plugin_CreatePBDT_PGNPhanBon
             qbangLai.Criteria.AddCondition(new ConditionExpression("new_mucdichdautu", ConditionOperator.Equal, mucdichdautu));
             qbangLai.AddOrder("new_ngayapdung", OrderType.Ascending);
             EntityCollection bls = service.RetrieveMultiple(qbangLai);
-            //Entity kq = null;
+            Entity kq = null;
             decimal result = 0;
             int n = bls.Entities.Count;
-            trace.Trace(n.ToString());
+
             for (int i = 0; i < n; i++)
             {
                 Entity q = bls[i];
@@ -833,21 +833,18 @@ namespace Plugin_CreatePBDT_PGNPhanBon
                 DateTime dt = (DateTime)q["new_ngayapdung"];
                 if (n == 1 && CompareDate(ngaygiaonhan, dt) == 0)
                 {
-                    trace.Trace("A");
                     result = (decimal)q["new_phantramlaisuat"];
                     break;
                 }
                 else if (n > 1 && CompareDate(ngaygiaonhan, dt) < 0)
                 {
-                    trace.Trace("B");
                     result = (decimal)bls[i - 1]["new_phantramlaisuat"];
                     break;
                 }
-                else if (i == n - 1)
+
+                if (i == n - 1)
                 {
-                    trace.Trace("C");
-                    result = (decimal)bls[(i > 0 ? i : 1) - 1]["new_phantramlaisuat"];
-                    break;
+                    result = (decimal)bls[i - 1]["new_phantramlaisuat"];
                 }
             }
 

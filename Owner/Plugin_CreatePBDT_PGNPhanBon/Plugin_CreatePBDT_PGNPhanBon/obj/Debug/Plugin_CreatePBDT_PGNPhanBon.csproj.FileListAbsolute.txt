@@ -12,3 +12,9 @@ C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\bin\Debug\Plugin_CreatePBDT_PGNPhanBon.pdb
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\obj\Debug\Plugin_CreatePBDT_PGNPhanBon.dll
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\obj\Debug\Plugin_CreatePBDT_PGNPhanBon.pdb
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\bin\Debug\Plugin_CreatePBDT_PGNPhanBon.dll
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\bin\Debug\Plugin_CreatePBDT_PGNPhanBon.pdb
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\obj\Debug\Plugin_CreatePBDT_PGNPhanBon.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\obj\Debug\Plugin_CreatePBDT_PGNPhanBon.dll
+D:\Duy\frm\Owner\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\obj\Debug\Plugin_CreatePBDT_PGNPhanBon.pdb
