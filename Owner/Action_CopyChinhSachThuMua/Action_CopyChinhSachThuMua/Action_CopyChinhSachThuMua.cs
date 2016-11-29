@@ -370,8 +370,8 @@ namespace Action_CopyChinhSachThuMua
                             string ten = (a.Contains("new_name") ? (string)a["new_name"] : "Chính sách ccs thưởng");
                             ccsthuong["new_name"] = ten;
 
-                            int nguontien = ((OptionSetValue)a["new_nguontien"]).Value;
-                            ccsthuong["new_nguontien"] = new OptionSetValue(nguontien);
+                            //int nguontien = ((OptionSetValue)a["new_nguontien"]).Value;
+                            //ccsthuong["new_nguontien"] = new OptionSetValue(nguontien);
 
                             if (a.Attributes.Contains("new_operatortu"))
                             {

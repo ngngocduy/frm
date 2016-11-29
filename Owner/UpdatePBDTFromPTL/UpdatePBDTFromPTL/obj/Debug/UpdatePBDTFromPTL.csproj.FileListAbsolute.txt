@@ -5,3 +5,9 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePB
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.pdb
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\UpdatePBDTFromPTL.dll
+D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\UpdatePBDTFromPTL.pdb
+D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.dll
+D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.pdb

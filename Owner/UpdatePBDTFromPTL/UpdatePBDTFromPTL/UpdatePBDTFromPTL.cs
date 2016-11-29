@@ -29,7 +29,7 @@ namespace UpdatePBDTFromPTL
                 //EntityCollection lstPhieutinhlai = RetrieveNNRecord(service, "new_phieutinhlai", "new_phieudenghithuno",
                 //"new_new_phieudenghithuno_new_phanbodautu", new ColumnSet(true), "new_phieudenghithunoid", target.Id);
 
-                List<Entity> lstPhieutinhlai = RetrieveMultiRecord(service, "new_phieudenghithuno",
+                List<Entity> lstPhieutinhlai = RetrieveMultiRecord(service, "new_phieutinhlai",
                     new ColumnSet(true), "new_phieudenghithuno", target.Id);
 
                 foreach (Entity en in lstPhieutinhlai)
