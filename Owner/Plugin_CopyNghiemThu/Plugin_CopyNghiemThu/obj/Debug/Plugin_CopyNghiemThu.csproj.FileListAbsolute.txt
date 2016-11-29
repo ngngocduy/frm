@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\bin\Debug\Plugin_CopyNghiemThu.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\bin\Debug\Plugin_CopyNghiemThu.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\obj\Debug\Plugin_CopyNghiemThu.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\obj\Debug\Plugin_CopyNghiemThu.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_CopyNghiemThu\Plugin_CopyNghiemThu\obj\Debug\Plugin_CopyNghiemThu.csprojResolveAssemblyReference.cache

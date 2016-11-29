@@ -1,0 +1,18 @@
+C:\Users\7506113\Desktop\FRM_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\7506113\Desktop\FRM_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\7506113\Desktop\FRM_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.csprojResolveAssemblyReference.cache
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\ChinhSach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.csprojResolveAssemblyReference.cache
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb

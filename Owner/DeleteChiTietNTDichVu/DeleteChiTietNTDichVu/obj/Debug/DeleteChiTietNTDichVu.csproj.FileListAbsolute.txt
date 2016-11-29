@@ -1,0 +1,6 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\DeleteChiTietNTDichVu\DeleteChiTietNTDichVu\bin\Debug\DeleteChiTietNTDichVu.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\DeleteChiTietNTDichVu\DeleteChiTietNTDichVu\bin\Debug\DeleteChiTietNTDichVu.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\DeleteChiTietNTDichVu\DeleteChiTietNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\DeleteChiTietNTDichVu\DeleteChiTietNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\DeleteChiTietNTDichVu\DeleteChiTietNTDichVu\obj\Debug\DeleteChiTietNTDichVu.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\DeleteChiTietNTDichVu\DeleteChiTietNTDichVu\obj\Debug\DeleteChiTietNTDichVu.pdb

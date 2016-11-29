@@ -1,0 +1,10 @@
+c:\users\duy\documents\visual studio 2013\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\bin\Debug\CheckThuaDat_NghiemThuTuoiMia.dll
+c:\users\duy\documents\visual studio 2013\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\bin\Debug\CheckThuaDat_NghiemThuTuoiMia.pdb
+c:\users\duy\documents\visual studio 2013\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\obj\Debug\CheckThuaDat_NghiemThuTuoiMia.dll
+c:\users\duy\documents\visual studio 2013\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\obj\Debug\CheckThuaDat_NghiemThuTuoiMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\bin\Debug\CheckThuaDat_NghiemThuTuoiMia.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\bin\Debug\CheckThuaDat_NghiemThuTuoiMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\obj\Debug\CheckThuaDat_NghiemThuTuoiMia.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\obj\Debug\CheckThuaDat_NghiemThuTuoiMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\CheckThuaDat_NghiemThuTuoiMia\CheckThuaDat_NghiemThuTuoiMia\obj\Debug\CheckThuaDat_NghiemThuTuoiMia.csprojResolveAssemblyReference.cache

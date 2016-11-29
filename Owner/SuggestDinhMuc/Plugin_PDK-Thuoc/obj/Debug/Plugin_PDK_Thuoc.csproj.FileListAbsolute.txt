@@ -1,0 +1,11 @@
+D:\backupDesktop\NewFarmCode\Plugin_PDK-Thuoc\bin\Debug\Plugin_PDK-Thuoc.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK-Thuoc\bin\Debug\Plugin_PDK-Thuoc.pdb
+D:\backupDesktop\NewFarmCode\Plugin_PDK-Thuoc\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK_Thuoc.csprojResolveAssemblyReference.cache
+D:\backupDesktop\NewFarmCode\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\bin\Debug\Plugin_PDK-Thuoc.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\bin\Debug\Plugin_PDK-Thuoc.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK-Thuoc.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK-Thuoc\obj\Debug\Plugin_PDK_Thuoc.csprojResolveAssemblyReference.cache

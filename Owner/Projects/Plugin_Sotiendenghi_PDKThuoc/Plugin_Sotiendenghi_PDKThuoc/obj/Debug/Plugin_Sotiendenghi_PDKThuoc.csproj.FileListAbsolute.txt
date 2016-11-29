@@ -1,0 +1,6 @@
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\Plugin_Sotiendenghi_PDKThuoc\Plugin_Sotiendenghi_PDKThuoc\bin\Debug\Plugin_Sotiendenghi_PDKThuoc.dll
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\Plugin_Sotiendenghi_PDKThuoc\Plugin_Sotiendenghi_PDKThuoc\bin\Debug\Plugin_Sotiendenghi_PDKThuoc.pdb
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\Plugin_Sotiendenghi_PDKThuoc\Plugin_Sotiendenghi_PDKThuoc\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\Plugin_Sotiendenghi_PDKThuoc\Plugin_Sotiendenghi_PDKThuoc\obj\Debug\Plugin_Sotiendenghi_PDKThuoc.dll
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\Plugin_Sotiendenghi_PDKThuoc\Plugin_Sotiendenghi_PDKThuoc\obj\Debug\Plugin_Sotiendenghi_PDKThuoc.pdb
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\Plugin_Sotiendenghi_PDKThuoc\Plugin_Sotiendenghi_PDKThuoc\obj\Debug\Plugin_Sotiendenghi_PDKThuoc.csprojResolveAssemblyReference.cache

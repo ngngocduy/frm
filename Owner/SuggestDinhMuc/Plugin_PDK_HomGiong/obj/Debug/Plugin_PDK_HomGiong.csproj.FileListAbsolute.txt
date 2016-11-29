@@ -1,0 +1,15 @@
+D:\backupDesktop\NewFarmCode\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
+D:\backupDesktop\NewFarmCode\Plugin_PDK_HomGiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.csprojResolveAssemblyReference.cache
+D:\backupDesktop\NewFarmCode\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb

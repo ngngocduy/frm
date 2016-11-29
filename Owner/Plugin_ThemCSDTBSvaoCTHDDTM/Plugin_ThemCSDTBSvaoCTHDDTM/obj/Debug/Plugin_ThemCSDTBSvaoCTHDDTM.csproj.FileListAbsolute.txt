@@ -1,0 +1,7 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\bin\Debug\Plugin_ThemCSDTBSvaoCTHDDTM.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\bin\Debug\Plugin_ThemCSDTBSvaoCTHDDTM.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\obj\Debug\Plugin_ThemCSDTBSvaoCTHDDTM.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\obj\Debug\Plugin_ThemCSDTBSvaoCTHDDTM.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_ThemCSDTBSvaoCTHDDTM\Plugin_ThemCSDTBSvaoCTHDDTM\obj\Debug\Plugin_ThemCSDTBSvaoCTHDDTM.pdb

@@ -1,0 +1,5 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_CheckXeInHDVanChuyen\Plugin_CheckXeInHDVanChuyen\bin\Debug\Plugin_CheckXeInHDVanChuyen.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_CheckXeInHDVanChuyen\Plugin_CheckXeInHDVanChuyen\bin\Debug\Plugin_CheckXeInHDVanChuyen.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_CheckXeInHDVanChuyen\Plugin_CheckXeInHDVanChuyen\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_CheckXeInHDVanChuyen\Plugin_CheckXeInHDVanChuyen\obj\Debug\Plugin_CheckXeInHDVanChuyen.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_CheckXeInHDVanChuyen\Plugin_CheckXeInHDVanChuyen\obj\Debug\Plugin_CheckXeInHDVanChuyen.pdb

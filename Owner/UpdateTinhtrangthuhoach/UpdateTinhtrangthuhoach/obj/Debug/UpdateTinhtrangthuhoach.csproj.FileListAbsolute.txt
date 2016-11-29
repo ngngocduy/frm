@@ -1,0 +1,5 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\UpdateTinhtrangthuhoach.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\UpdateTinhtrangthuhoach.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.pdb

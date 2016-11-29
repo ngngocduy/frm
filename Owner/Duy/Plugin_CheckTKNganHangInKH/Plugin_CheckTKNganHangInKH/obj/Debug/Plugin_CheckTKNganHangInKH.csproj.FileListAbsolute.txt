@@ -1,0 +1,5 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckTKNganHangInKH\Plugin_CheckTKNganHangInKH\bin\Debug\Plugin_CheckTKNganHangInKH.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckTKNganHangInKH\Plugin_CheckTKNganHangInKH\bin\Debug\Plugin_CheckTKNganHangInKH.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckTKNganHangInKH\Plugin_CheckTKNganHangInKH\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckTKNganHangInKH\Plugin_CheckTKNganHangInKH\obj\Debug\Plugin_CheckTKNganHangInKH.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckTKNganHangInKH\Plugin_CheckTKNganHangInKH\obj\Debug\Plugin_CheckTKNganHangInKH.pdb

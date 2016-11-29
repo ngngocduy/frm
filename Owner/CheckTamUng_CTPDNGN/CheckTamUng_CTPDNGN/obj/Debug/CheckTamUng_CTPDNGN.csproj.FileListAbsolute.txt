@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\bin\Debug\CheckTamUng_CTPDNGN.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\bin\Debug\CheckTamUng_CTPDNGN.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\obj\Debug\CheckTamUng_CTPDNGN.csprojResolveAssemblyReference.cache
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\obj\Debug\CheckTamUng_CTPDNGN.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTamUng_CTPDNGN\CheckTamUng_CTPDNGN\obj\Debug\CheckTamUng_CTPDNGN.pdb

@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PDKHomGiong_CreateChitiet\PDKHomGiong_CreateChitiet\bin\Debug\PDKHomGiong_CreateChitiet.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PDKHomGiong_CreateChitiet\PDKHomGiong_CreateChitiet\bin\Debug\PDKHomGiong_CreateChitiet.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PDKHomGiong_CreateChitiet\PDKHomGiong_CreateChitiet\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PDKHomGiong_CreateChitiet\PDKHomGiong_CreateChitiet\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PDKHomGiong_CreateChitiet\PDKHomGiong_CreateChitiet\obj\Debug\PDKHomGiong_CreateChitiet.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PDKHomGiong_CreateChitiet\PDKHomGiong_CreateChitiet\obj\Debug\PDKHomGiong_CreateChitiet.pdb

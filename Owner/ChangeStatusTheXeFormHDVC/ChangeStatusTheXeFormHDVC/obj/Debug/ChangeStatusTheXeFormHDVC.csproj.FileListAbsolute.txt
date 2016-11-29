@@ -1,0 +1,6 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFormHDVC\ChangeStatusTheXeFormHDVC\bin\Debug\ChangeStatusTheXeFormHDVC.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFormHDVC\ChangeStatusTheXeFormHDVC\bin\Debug\ChangeStatusTheXeFormHDVC.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFormHDVC\ChangeStatusTheXeFormHDVC\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFormHDVC\ChangeStatusTheXeFormHDVC\obj\Debug\ChangeStatusTheXeFormHDVC.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFormHDVC\ChangeStatusTheXeFormHDVC\obj\Debug\ChangeStatusTheXeFormHDVC.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\ChangeStatusTheXeFormHDVC\ChangeStatusTheXeFormHDVC\obj\Debug\ChangeStatusTheXeFormHDVC.csprojResolveAssemblyReference.cache

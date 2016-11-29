@@ -1,0 +1,9 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.pdb

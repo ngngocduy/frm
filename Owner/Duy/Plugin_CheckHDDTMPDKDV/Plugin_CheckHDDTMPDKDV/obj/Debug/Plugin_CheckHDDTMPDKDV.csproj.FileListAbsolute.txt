@@ -1,0 +1,5 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckHDDTMPDKDV\Plugin_CheckHDDTMPDKDV\bin\Debug\Plugin_CheckHDDTMPDKDV.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckHDDTMPDKDV\Plugin_CheckHDDTMPDKDV\bin\Debug\Plugin_CheckHDDTMPDKDV.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckHDDTMPDKDV\Plugin_CheckHDDTMPDKDV\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckHDDTMPDKDV\Plugin_CheckHDDTMPDKDV\obj\Debug\Plugin_CheckHDDTMPDKDV.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckHDDTMPDKDV\Plugin_CheckHDDTMPDKDV\obj\Debug\Plugin_CheckHDDTMPDKDV.pdb

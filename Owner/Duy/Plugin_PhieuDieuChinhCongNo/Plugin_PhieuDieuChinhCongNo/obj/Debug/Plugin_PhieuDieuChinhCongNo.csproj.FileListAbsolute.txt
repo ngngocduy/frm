@@ -1,0 +1,9 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\bin\Debug\Plugin_PhieuDieuChinhCongNo.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\bin\Debug\Plugin_PhieuDieuChinhCongNo.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\obj\Debug\Plugin_PhieuDieuChinhCongNo.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\obj\Debug\Plugin_PhieuDieuChinhCongNo.pdb
+D:\Duy\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\bin\Debug\Plugin_PhieuDieuChinhCongNo.dll
+D:\Duy\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\bin\Debug\Plugin_PhieuDieuChinhCongNo.pdb
+D:\Duy\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\obj\Debug\Plugin_PhieuDieuChinhCongNo.dll
+D:\Duy\Plugin_PhieuDieuChinhCongNo\Plugin_PhieuDieuChinhCongNo\obj\Debug\Plugin_PhieuDieuChinhCongNo.pdb

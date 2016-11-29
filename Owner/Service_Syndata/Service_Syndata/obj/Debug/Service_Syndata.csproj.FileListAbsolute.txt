@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\bin\Debug\Service_Syndata.exe.config
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\bin\Debug\Service_Syndata.exe
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\bin\Debug\Service_Syndata.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\obj\Debug\Service_Syndata.exe
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\obj\Debug\Service_Syndata.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\obj\Debug\Service_Syndata.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_BienBanGiamHuy\bin\Debug\Plugin_BienBanGiamHuy.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_BienBanGiamHuy\bin\Debug\Plugin_BienBanGiamHuy.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_BienBanGiamHuy\obj\Debug\Plugin_BienBanGiamHuy.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_BienBanGiamHuy\obj\Debug\Plugin_BienBanGiamHuy.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_BienBanGiamHuy\obj\Debug\Plugin_BienBanGiamHuy.csprojResolveAssemblyReference.cache

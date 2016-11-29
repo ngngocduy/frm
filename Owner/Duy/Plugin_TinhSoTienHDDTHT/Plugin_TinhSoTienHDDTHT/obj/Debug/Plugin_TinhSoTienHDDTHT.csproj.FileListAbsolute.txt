@@ -1,0 +1,5 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_TinhSoTienHDDTHT\Plugin_TinhSoTienHDDTHT\bin\Debug\Plugin_TinhSoTienHDDTHT.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_TinhSoTienHDDTHT\Plugin_TinhSoTienHDDTHT\bin\Debug\Plugin_TinhSoTienHDDTHT.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_TinhSoTienHDDTHT\Plugin_TinhSoTienHDDTHT\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_TinhSoTienHDDTHT\Plugin_TinhSoTienHDDTHT\obj\Debug\Plugin_TinhSoTienHDDTHT.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_TinhSoTienHDDTHT\Plugin_TinhSoTienHDDTHT\obj\Debug\Plugin_TinhSoTienHDDTHT.pdb

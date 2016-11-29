@@ -1,0 +1,9 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.pdb

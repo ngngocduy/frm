@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Complete_DanhGiaNangSuat\Complete_DanhGiaNangSuat\bin\Debug\Complete_DanhGiaNangSuat.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Complete_DanhGiaNangSuat\Complete_DanhGiaNangSuat\bin\Debug\Complete_DanhGiaNangSuat.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Complete_DanhGiaNangSuat\Complete_DanhGiaNangSuat\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Complete_DanhGiaNangSuat\Complete_DanhGiaNangSuat\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Complete_DanhGiaNangSuat\Complete_DanhGiaNangSuat\obj\Debug\Complete_DanhGiaNangSuat.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Complete_DanhGiaNangSuat\Complete_DanhGiaNangSuat\obj\Debug\Complete_DanhGiaNangSuat.pdb

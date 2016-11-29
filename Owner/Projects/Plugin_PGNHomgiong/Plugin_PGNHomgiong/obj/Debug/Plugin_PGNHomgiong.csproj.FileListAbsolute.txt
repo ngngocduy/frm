@@ -1,0 +1,6 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PGNHomgiong\Plugin_PGNHomgiong\bin\Debug\Plugin_PGNHomgiong.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PGNHomgiong\Plugin_PGNHomgiong\bin\Debug\Plugin_PGNHomgiong.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PGNHomgiong\Plugin_PGNHomgiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PGNHomgiong\Plugin_PGNHomgiong\obj\Debug\Plugin_PGNHomgiong.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PGNHomgiong\Plugin_PGNHomgiong\obj\Debug\Plugin_PGNHomgiong.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PGNHomgiong\Plugin_PGNHomgiong\obj\Debug\Plugin_PGNHomgiong.csprojResolveAssemblyReference.cache

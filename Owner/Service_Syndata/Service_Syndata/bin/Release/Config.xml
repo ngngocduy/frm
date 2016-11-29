@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <Table synkey="LTNhanvien" type="0" from="new_kiemsoatvien" to="NhanVien">
+    <Mapping from="new_kiemsoatvienid" to="ID" datatype="Key" />
+    <Mapping from="new_username" to="Username" datatype="String"/>
+    <Mapping from="new_password" to="Password" datatype="String"/>
+    <Mapping from="new_chucvu" to="ChucVu" toname="ChucVuName" datatype="Lookup"/>
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+    <Mapping from="createdon" to="CreatedDate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTHopDongDauTuMia" type="0" from="new_hopdongdautumia" to="HopDongDauTuMia">
+    <Mapping from="new_hopdongdautumiaid" to="MaHD" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="new_vudautu" to="VuDauTu" toname="VuDauTuName" datatype="Lookup"/>
+    <Mapping from="new_khachhang" to="Khachhang" toname="KhachhangName" datatype="Lookup"/>
+    <Mapping from="new_khachhangdoanhnghiep" to="Khachhangdoanhnghiep" toname="KhachhangdoanhnghiepName" datatype="Lookup"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTKhachHang" type="0" from="contact" to="KhachHang">
+    <Mapping from="contactid" to="MaKH" datatype="Key" />
+    <Mapping from="fullname" to="FullName" datatype="String"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+    <Mapping from="new_socmnd" to="CMND" datatype="String"/>
+  </Table>
+
+  <Table synkey="LTKhachHangDoanhNghiep" type="0" from="account" to="KhachHangDoanhNghiep">
+    <Mapping from="accountid" to="MaKH" datatype="Key" />
+    <Mapping from="name" to="Name" datatype="String"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTLenhDon" type="0" from="new_lenhdon" to="LenhDon">
+    <Mapping from="new_lenhdonid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="MaLD" datatype="String"/>
+    <Mapping from="new_vudautu" to="Vudautu" toname="VudautuName" datatype="Lookup"/>
+    <Mapping from="new_lichthuhoach" to="LichThuHoach" toname="LichThuHoachName" datatype="Lookup"/>
+    <Mapping from="new_hopdongdautumia" to="HopDongDauTuMia" toname="HopDongDauTuMiaName" datatype="Lookup"/>
+    <Mapping from="new_thuacanhtac" to="Thuadatcanhtac" toname="ThuadatcanhtacName" datatype="Lookup"/>
+    <Mapping from="new_tram" to="Tram" toname="TramName" datatype="Lookup"/>
+    <Mapping from="new_khachhang" to="KH" toname="KHName" datatype="Lookup"/>
+    <Mapping from="new_khachhangdoanhnghiep" to="KHDN" toname="KHDNName" datatype="Lookup"/>
+    <Mapping from="createdon" to="CreatedDate" datatype="Date"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+    <Mapping from="new_xevanchuyen" to="XeVanChuyen" toname="XeVanChuyenName" datatype="Lookup"/>
+    <Mapping from="new_lenhdoncuoi" to="Lenhdoncuoi" datatype="Boolean"/>
+    <Mapping from="new_miachay" to="Miachay" datatype="Boolean"/>
+    <Mapping from="new_uutien" to="Uutien" datatype="Boolean"/>
+    <Mapping from="new_phubat" to="Phubat" datatype="Boolean"/>
+    <Mapping from="new_canbonongvu" to="Canbonongvu" toname="CanbonongvuName" datatype="Lookup"/>
+    <Mapping from="new_phieukiemdinh" to="Phieukiemdinh" datatype="String"/>
+    <Mapping from="new_phieudotapchat" to="Phieudotapchat" toname="PhieudotapchatName" datatype="Lookup"/>
+    <Mapping from="new_phieudoccs" to="Phieudoccs" toname="PhieudoccsName" datatype="Lookup"/>
+    <Mapping from="new_phieucanra" to="Phieucanra" toname="PhieucanraName" datatype="Lookup"/>
+  </Table>
+
+  <Table synkey="LTBienBanMiaChay" type="0" from="new_bienbanmiachay" to="Bienbanmiachay">
+    <Mapping from="new_bienbanmiachayid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="new_hopdongdautumia" to="Hopdongdautumia" toname="HopdongdautumiaName" datatype="Lookup"/>
+    <Mapping from="createdon" to="CreatedDate" datatype="Date"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTChiTietBienBanMiaChay" type="0" from="new_chitietbienbanmiachay" to="chitietbienbanmiachay">
+    <Mapping from="new_chitietbienbanmiachayid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="new_bienbanmiachay" to="Bienbanmiachay" toname="BienbanmiachayName" datatype="Lookup"/>
+    <Mapping from="new_thuadat" to="Thuadat" toname="ThuadatName" datatype="Lookup"/>
+    <Mapping from="new_ngaygiochay" to="Ngaygiochay" datatype="Date"/>
+    <Mapping from="createdon" to="CreatedDate" datatype="Date"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTThuaDat" type="0" from="new_thuadat" to="ThuaDat">
+    <Mapping from="new_thuadatid" to="MaTD" datatype="Key" />
+    <Mapping from="new_chusohuuchinhtd" to="Chusohuu" toname="ChusohuuName" datatype="Lookup"/>
+    <Mapping from="new_chusohuuchinhtdkhdn" to="ChusohuuKHDN" toname="ChusohuuKHDNName" datatype="Lookup"/>
+    <Mapping from="createdon" to="CreatedDate" datatype="Date"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTXeVanChuyen" type="0" from="new_xevanchuyen" to="XeVanChuyen">
+    <Mapping from="new_xevanchuyenid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Maxe" datatype="String" />
+    <Mapping from="new_bienso" to="BienSo" datatype="String"/>
+    <Mapping from="new_loaixe" to="Loaixe" toname="LoaixeName" datatype="OptionSet"/>
+    <Mapping from="new_trongtai" to="TaiTrong" datatype="String"/>
+    <Mapping from="new_chuxe" to="ChuXe" datatype="String"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTThuaDatCanhTac" type="0" from="new_thuadatcanhtac" to="ThuaDatCanhTac">
+    <Mapping from="new_thuadatcanhtacid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="new_hopdongdautumia" to="HDDTM" toname="HDDTMName" datatype="Lookup"/>
+    <Mapping from="new_khachhang" to="KhachHang" toname="KhachHangName" datatype="Lookup"/>
+    <Mapping from="new_khachhangdoanhnghiep" to="Khachhangdoanhnghiep" toname="KhachHangDoanhNghiepName" datatype="Lookup"/>
+    <Mapping from="new_giongmia" to="GiongMia" toname="GiongMiaName" datatype="Lookup"/>
+    <Mapping from="new_thuadat" to="Thuadat" toname="ThuadatName" datatype="Lookup"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTVudautu" type="0" from="new_vudautu" to="Vudautu">
+    <Mapping from="new_vudautuid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+  </Table>
+
+  <Table synkey="LTTheXe" type="0" from="new_thexe" to="Thexe">
+    <Mapping from="new_thexeid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Mathe" datatype="String" />
+    <Mapping from="new_hopdongvanchuyen" to="Hopdongvanchuyen" toname="Hopdongvanchuyenname" datatype="Lookup"/>
+    <Mapping from="new_xevanchuyen" to="Xevanchuyen" toname="XevanchuyenName" datatype="Lookup"/>
+  </Table>
+
+  <Table synkey="LTHopdongvanchuyen" type="0" from="new_hopdongvanchuyen" to="Hopdongvanchuyen">
+    <Mapping from="new_hopdongvanchuyenid" to="Mahopdong" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="new_doitacvanchuyen" to="Doitacvanchuyen" toname="DoitacvanchuyenName" datatype="Lookup"/>
+    <Mapping from="new_doitacvanchuyenkhdn" to="DoiTacVanChuyenKHDN" toname="DoiTacVanChuyenKHDNName" datatype="Lookup"/>
+    <Mapping from="new_tram" to="Tram" toname="TramName" datatype="Lookup"/>
+  </Table>
+
+  <Table synkey="LTThuaDatCanhTac" type="0" from="new_thuadatcanhtac" to="ThuaDatCanhTac">
+    <Mapping from="new_thuadatcanhtacid" to="ID" datatype="Key" />
+    <Mapping from="new_name" to="Name" datatype="String"/>
+    <Mapping from="new_hopdongdautumia" to="HDDTM" toname="HDDTMName" datatype="Lookup"/>
+    <Mapping from="new_khachhang" to="KhachHang" toname="KhachHangName" datatype="Lookup"/>
+    <Mapping from="new_khachhangdoanhnghiep" to="Khachhangdoanhnghiep" toname="KhachHangDoanhNghiepName" datatype="Lookup"/>
+    <Mapping from="new_giongmia" to="GiongMia" toname="GiongMiaName" datatype="Lookup"/>
+    <Mapping from="new_thuadat" to="Thuadat" toname="ThuadatName" datatype="Lookup"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTBrix" type="0" from="new_brix" to="Tytrongbx">
+    <Mapping from="new_name" to="Name" datatype="String" />
+    <Mapping from="new_brixid" to="ID" datatype="Key" />
+    <Mapping from="new_brix0" to="Brix0" datatype="Decimal"/>
+    <Mapping from="new_brix1" to="Brix1" datatype="Decimal"/>
+    <Mapping from="new_brix2" to="Brix2" datatype="Decimal"/>
+    <Mapping from="new_brix3" to="Brix3" datatype="Decimal"/>
+    <Mapping from="new_brix4" to="Brix4" datatype="Decimal"/>
+    <Mapping from="new_brix5" to="Brix5" datatype="Decimal"/>
+    <Mapping from="new_brix6" to="Brix6" datatype="Decimal"/>
+    <Mapping from="new_brix7" to="Brix7" datatype="Decimal"/>
+    <Mapping from="new_brix8" to="Brix8" datatype="Decimal"/>
+    <Mapping from="new_brix9" to="Brix9" datatype="Decimal"/>
+    <Mapping from="modifiedon" to="Modifieddate" datatype="Date"/>
+    <Mapping from="createdon" to="CreatedDate" datatype="Date"/>
+  </Table>
+
+  <Table synkey="LTPhieuDangTai" type="1" from="PhieuDangTai" to="new_phieudangtai">
+    <Mapping from="SoDangTai" to="new_sodangtai" datatype="Number" />
+    <Mapping from="KhachHang" to="new_khachhang" datatype="Lookup" entity="contact"/>
+    <Mapping from="KHDN" to="new_khachhangdoanhnghiep" datatype="Lookup" entity="account" />
+    <Mapping from="NhanVienDangTai" to="new_nhanviendangtai" datatype="Lookup" entity="new_kiemsoatvien"/>
+    <Mapping from="LenhDon" to="new_lenhdon" datatype="Lookup" entity="new_lenhdon"/>
+    <Mapping from="Ngay" to="new_ngay" datatype="Date" />
+    <Mapping from="Maphieu" to="new_name" datatype="String" />
+    <Mapping from="Uutien" to="new_uutien" datatype="Boolean"/>
+    <Mapping from="Loaixe" to="new_loaixe" datatype="OptionSet"/>
+  </Table>
+
+  <Table synkey="LTPhieuDoTapChat" type="1" from="PhieuDoTapChat" to="new_phieudotapchat">
+    <Mapping from="KH" to="new_khachhang" datatype="Lookup" entity="contact"/>
+    <Mapping from="KHDN" to="new_khachhangdoanhnghiep" datatype="Lookup" entity="account" />
+    <Mapping from="LenhDon" to="new_lenhdon" datatype="Lookup" entity="new_lenhdon"/>
+    <Mapping from="SoThuTuCan" to="new_sothutucan" datatype="Number" />
+    <Mapping from="LanDo" to="new_lando" datatype="Number" />
+    <Mapping from="Ngay" to="new_ngay" datatype="Date" />
+    <Mapping from="KLbefore" to="new_khoiluongp1truockhilamxong" datatype="Decimal" />
+    <Mapping from="KLAfter" to="new_khoiluongp2saukhilamsach" datatype="Decimal" />
+    <Mapping from="TapChatThucTe" to="new_tapchatthucte" datatype="Decimal" />
+  </Table>
+
+  <Table synkey="LTPhieudoCCS" type="1" from="PhieudoCCS" to="new_phieudoccs">
+    <Mapping from="KH" to="new_khachhang" datatype="Lookup" entity="contact"/>
+    <Mapping from="KHDN" to="new_khachhangdoanhnghiep" datatype="Lookup" entity="account" />
+    <Mapping from="Lando" to="new_lando" datatype="Number" />
+    <Mapping from="LenhDon" to="new_lenhdon" datatype="Lookup" entity="new_lenhdon"/>
+
+    <Mapping from="STTCan" to="new_sothutucan" datatype="String" />
+    <Mapping from="Ngay" to="new_ngay" datatype="Date" />
+    <Mapping from="Pol" to="new_poldoc" datatype="Decimal" />
+    <Mapping from="Brix" to="new_brix" datatype="Decimal" />
+    <Mapping from="CCSDo" to="new_ccsdo" datatype="Decimal" />
+    <Mapping from="CCSThanhToan" to="new_ccsthanhtoan" datatype="Decimal" />
+    <Mapping from="NhanVienDoCCS" to="new_nhanviendoccs" datatype="Lookup" entity="new_kiemsoatvien" />
+    <Mapping from="Fibre" to="new_chisoxo" datatype="Decimal" />
+  </Table>
+
+  <Table synkey="LTPhieuCan" type="1" from="PhieuCan" to="new_phieucan">
+    <Mapping from="KH" to="new_khachhang" datatype="Lookup" entity="contact"/>
+    <Mapping from="KHDN" to="new_khachhangdoanhnghiep" datatype="Lookup" entity="account" />
+    <Mapping from="LoaiCan" to="new_loaican" datatype="OptionSet" />
+    <Mapping from="LanCan" to="new_lancan" datatype="Number" />
+    <Mapping from="NhanVienCanVao" to="new_nhanviencanvao" datatype="Lookup" entity="new_kiemsoatvien"/>
+    <Mapping from="LenhDon" to="new_lenhdon" datatype="Lookup" entity="new_lenhdon"/>
+    <Mapping from="TrongLuong" to="new_trongluong" datatype="Decimal" />
+    <Mapping from="MaBanCan" to="new_mabancan" datatype="String" />
+    <Mapping from="ThoiGianCanVao" to="new_thoigiancanvao" datatype="Date" />    
+  </Table>
+
+</configuration>

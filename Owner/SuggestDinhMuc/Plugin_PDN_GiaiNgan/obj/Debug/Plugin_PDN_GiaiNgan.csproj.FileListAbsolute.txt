@@ -1,0 +1,9 @@
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.csprojResolveAssemblyReference.cache

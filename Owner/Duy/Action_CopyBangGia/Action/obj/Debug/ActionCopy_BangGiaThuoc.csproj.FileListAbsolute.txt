@@ -1,0 +1,10 @@
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action\bin\Debug\Action.dll
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action\bin\Debug\Action.pdb
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action\obj\Debug\Action.dll
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action\obj\Debug\Action.pdb
+D:\Duy\Action_CopyBangGia\Action\bin\Debug\Action.dll
+D:\Duy\Action_CopyBangGia\Action\bin\Debug\Action.pdb
+D:\Duy\Action_CopyBangGia\Action\obj\Debug\Action.dll
+D:\Duy\Action_CopyBangGia\Action\obj\Debug\Action.pdb
+D:\Duy\Action_CopyBangGia\Action\obj\Debug\ActionCopy_BangGiaThuoc.csprojResolveAssemblyReference.cache

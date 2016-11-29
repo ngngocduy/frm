@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\DuyetNTDichVu.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\DuyetNTDichVu.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.pdb

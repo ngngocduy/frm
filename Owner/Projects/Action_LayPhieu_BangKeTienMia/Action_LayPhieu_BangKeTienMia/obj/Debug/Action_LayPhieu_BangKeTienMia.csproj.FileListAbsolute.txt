@@ -1,0 +1,14 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Action_LayPhieu_BangKeTienMia.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Action_LayPhieu_BangKeTienMia.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.pdb
+F:\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Action_LayPhieu_BangKeTienMia.dll
+F:\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Action_LayPhieu_BangKeTienMia.pdb
+F:\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.csprojResolveAssemblyReference.cache
+F:\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.dll
+F:\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.pdb
+C:\Users\T430\Downloads\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Action_LayPhieu_BangKeTienMia.dll
+C:\Users\T430\Downloads\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\bin\Debug\Action_LayPhieu_BangKeTienMia.pdb
+C:\Users\T430\Downloads\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.dll
+C:\Users\T430\Downloads\Projects\Action_LayPhieu_BangKeTienMia\Action_LayPhieu_BangKeTienMia\obj\Debug\Action_LayPhieu_BangKeTienMia.pdb

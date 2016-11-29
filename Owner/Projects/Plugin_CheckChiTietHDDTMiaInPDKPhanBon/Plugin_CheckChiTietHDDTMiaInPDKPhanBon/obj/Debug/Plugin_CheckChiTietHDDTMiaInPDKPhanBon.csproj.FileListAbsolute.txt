@@ -1,0 +1,5 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\bin\Debug\Plugin_CheckChiTietHDDTMiaInPDKPhanBon.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\bin\Debug\Plugin_CheckChiTietHDDTMiaInPDKPhanBon.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\obj\Debug\Plugin_CheckChiTietHDDTMiaInPDKPhanBon.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\Plugin_CheckChiTietHDDTMiaInPDKPhanBon\obj\Debug\Plugin_CheckChiTietHDDTMiaInPDKPhanBon.pdb

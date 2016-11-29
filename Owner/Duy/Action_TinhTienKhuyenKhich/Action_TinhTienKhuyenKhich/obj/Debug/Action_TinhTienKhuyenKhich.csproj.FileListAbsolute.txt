@@ -1,0 +1,14 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Action_TinhTienKhuyenKhich.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Action_TinhTienKhuyenKhich.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.pdb
+D:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Action_TinhTienKhuyenKhich.dll
+D:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Action_TinhTienKhuyenKhich.pdb
+D:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.dll
+D:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.pdb
+F:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Action_TinhTienKhuyenKhich.dll
+F:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\bin\Debug\Action_TinhTienKhuyenKhich.pdb
+F:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.csprojResolveAssemblyReference.cache
+F:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.dll
+F:\Duy\Action_TinhTienKhuyenKhich\Action_TinhTienKhuyenKhich\obj\Debug\Action_TinhTienKhuyenKhich.pdb

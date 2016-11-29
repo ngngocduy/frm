@@ -1,0 +1,7 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\UpdatePBDTFromPTL.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\UpdatePBDTFromPTL.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.csprojResolveAssemblyReference.cache

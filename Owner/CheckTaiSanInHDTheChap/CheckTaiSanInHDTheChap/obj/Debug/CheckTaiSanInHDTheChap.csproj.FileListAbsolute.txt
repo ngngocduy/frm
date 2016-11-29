@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\CheckTaiSanInHDTheChap.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\CheckTaiSanInHDTheChap.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.csprojResolveAssemblyReference.cache

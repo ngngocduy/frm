@@ -1,0 +1,15 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Plugin_DeNghiDauTu.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Plugin_DeNghiDauTu.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.pdb
+H:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Plugin_DeNghiDauTu.dll
+H:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Plugin_DeNghiDauTu.pdb
+H:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.csprojResolveAssemblyReference.cache
+H:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.dll
+H:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.pdb
+F:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Plugin_DeNghiDauTu.dll
+F:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\bin\Debug\Plugin_DeNghiDauTu.pdb
+F:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.dll
+F:\Projects\Plugin_DeNghiDauTu\Plugin_DeNghiDauTu\obj\Debug\Plugin_DeNghiDauTu.pdb

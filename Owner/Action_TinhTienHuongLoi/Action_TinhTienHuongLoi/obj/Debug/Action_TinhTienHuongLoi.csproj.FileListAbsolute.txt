@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\bin\Debug\Action_TinhTienHuongLoi.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\bin\Debug\Action_TinhTienHuongLoi.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\obj\Debug\Action_TinhTienHuongLoi.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\obj\Debug\Action_TinhTienHuongLoi.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Action_TinhTienHuongLoi\Action_TinhTienHuongLoi\obj\Debug\Action_TinhTienHuongLoi.csprojResolveAssemblyReference.cache

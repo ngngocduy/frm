@@ -1,0 +1,11 @@
+D:\backupDesktop\NewFarmCode\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.pdb
+D:\backupDesktop\NewFarmCode\Plugin_PDK_PhanBon\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.pdb
+D:\backupDesktop\NewFarmCode\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.csprojResolveAssemblyReference.cache
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.csprojResolveAssemblyReference.cache
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.pdb

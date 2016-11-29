@@ -1,0 +1,15 @@
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.dll
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.pdb
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.dll
+C:\Users\Duy\Documents\Visual Studio 2015\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.csprojResolveAssemblyReference.cache

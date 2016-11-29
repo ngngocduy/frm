@@ -1,0 +1,5 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_BangChiTienCuoiVu\Plugin_BangChiTienCuoiVu\bin\Debug\Plugin_BangChiTienCuoiVu.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_BangChiTienCuoiVu\Plugin_BangChiTienCuoiVu\bin\Debug\Plugin_BangChiTienCuoiVu.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_BangChiTienCuoiVu\Plugin_BangChiTienCuoiVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_BangChiTienCuoiVu\Plugin_BangChiTienCuoiVu\obj\Debug\Plugin_BangChiTienCuoiVu.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_BangChiTienCuoiVu\Plugin_BangChiTienCuoiVu\obj\Debug\Plugin_BangChiTienCuoiVu.pdb

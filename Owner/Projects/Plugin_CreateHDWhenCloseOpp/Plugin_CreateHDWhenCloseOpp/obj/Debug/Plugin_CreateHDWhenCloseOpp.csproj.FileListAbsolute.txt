@@ -1,0 +1,21 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Plugin_CreateHDWhenCloseOpp.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Plugin_CreateHDWhenCloseOpp.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.csprojResolveAssemblyReference.cache
+C:\Users\T430\Downloads\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Plugin_CreateHDWhenCloseOpp.dll
+C:\Users\T430\Downloads\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Plugin_CreateHDWhenCloseOpp.pdb
+C:\Users\T430\Downloads\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.csprojResolveAssemblyReference.cache
+C:\Users\T430\Downloads\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.dll
+C:\Users\T430\Downloads\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Plugin_CreateHDWhenCloseOpp.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Plugin_CreateHDWhenCloseOpp.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CreateHDWhenCloseOpp\Plugin_CreateHDWhenCloseOpp\obj\Debug\Plugin_CreateHDWhenCloseOpp.csprojResolveAssemblyReference.cache

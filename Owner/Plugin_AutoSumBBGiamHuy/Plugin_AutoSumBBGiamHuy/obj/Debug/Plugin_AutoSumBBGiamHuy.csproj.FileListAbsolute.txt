@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumBBGiamHuy\Plugin_AutoSumBBGiamHuy\bin\Debug\Plugin_AutoSumBBGiamHuy.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumBBGiamHuy\Plugin_AutoSumBBGiamHuy\bin\Debug\Plugin_AutoSumBBGiamHuy.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumBBGiamHuy\Plugin_AutoSumBBGiamHuy\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumBBGiamHuy\Plugin_AutoSumBBGiamHuy\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumBBGiamHuy\Plugin_AutoSumBBGiamHuy\obj\Debug\Plugin_AutoSumBBGiamHuy.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumBBGiamHuy\Plugin_AutoSumBBGiamHuy\obj\Debug\Plugin_AutoSumBBGiamHuy.pdb

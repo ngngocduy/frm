@@ -1,0 +1,11 @@
+c:\users\duy\documents\visual studio 2015\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\bin\Debug\Plugin_CheckHDDTMInPhieuChuyenno.dll
+c:\users\duy\documents\visual studio 2015\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\bin\Debug\Plugin_CheckHDDTMInPhieuChuyenno.pdb
+c:\users\duy\documents\visual studio 2015\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2015\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\obj\Debug\Plugin_CheckHDDTMInPhieuChuyenno.dll
+c:\users\duy\documents\visual studio 2015\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\obj\Debug\Plugin_CheckHDDTMInPhieuChuyenno.pdb
+c:\users\duy\documents\visual studio 2015\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\obj\Debug\Plugin_CheckHDDTMInPhieuChuyenno.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\bin\Debug\Plugin_CheckHDDTMInPhieuChuyenno.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\bin\Debug\Plugin_CheckHDDTMInPhieuChuyenno.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\obj\Debug\Plugin_CheckHDDTMInPhieuChuyenno.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\obj\Debug\Plugin_CheckHDDTMInPhieuChuyenno.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckHDDTMInPhieuChuyenno\Plugin_CheckHDDTMInPhieuChuyenno\obj\Debug\Plugin_CheckHDDTMInPhieuChuyenno.csprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Tilethuhoivon_SoNamthuhoi\Tilethuhoivon_SoNamthuhoi\bin\Debug\Tilethuhoivon_SoNamthuhoi.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Tilethuhoivon_SoNamthuhoi\Tilethuhoivon_SoNamthuhoi\bin\Debug\Tilethuhoivon_SoNamthuhoi.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Tilethuhoivon_SoNamthuhoi\Tilethuhoivon_SoNamthuhoi\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Tilethuhoivon_SoNamthuhoi\Tilethuhoivon_SoNamthuhoi\obj\Debug\Tilethuhoivon_SoNamthuhoi.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Tilethuhoivon_SoNamthuhoi\Tilethuhoivon_SoNamthuhoi\obj\Debug\Tilethuhoivon_SoNamthuhoi.pdb

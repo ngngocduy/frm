@@ -1,0 +1,15 @@
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache
+D:\Luu tru\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.dll
+D:\Luu tru\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.pdb
+D:\Luu tru\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.dll
+D:\Luu tru\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb
+D:\Luu tru\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache

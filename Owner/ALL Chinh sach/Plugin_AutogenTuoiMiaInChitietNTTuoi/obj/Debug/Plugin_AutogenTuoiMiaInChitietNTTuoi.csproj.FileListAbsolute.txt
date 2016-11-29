@@ -1,0 +1,13 @@
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutogenTuoiMiaInChitietNTTuoi\bin\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutogenTuoiMiaInChitietNTTuoi\bin\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\bin\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.dll
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\bin\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.csprojResolveAssemblyReference.cache
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.dll
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\bin\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\bin\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_AutogenTuoiMiaInChitietNTTuoi\obj\Debug\Plugin_AutogenTuoiMiaInChitietNTTuoi.pdb

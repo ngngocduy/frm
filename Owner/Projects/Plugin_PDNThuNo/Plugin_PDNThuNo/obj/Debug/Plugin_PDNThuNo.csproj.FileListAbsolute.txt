@@ -1,0 +1,5 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PDNThuNo\Plugin_PDNThuNo\bin\Debug\Plugin_PDNThuNo.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PDNThuNo\Plugin_PDNThuNo\bin\Debug\Plugin_PDNThuNo.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PDNThuNo\Plugin_PDNThuNo\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PDNThuNo\Plugin_PDNThuNo\obj\Debug\Plugin_PDNThuNo.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_PDNThuNo\Plugin_PDNThuNo\obj\Debug\Plugin_PDNThuNo.pdb

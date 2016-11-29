@@ -1,0 +1,5 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKVattukhac\Plugin_Sotiendenghi_PDKVattukhac\bin\Debug\Plugin_Sotiendenghi_PDKVattukhac.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKVattukhac\Plugin_Sotiendenghi_PDKVattukhac\bin\Debug\Plugin_Sotiendenghi_PDKVattukhac.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKVattukhac\Plugin_Sotiendenghi_PDKVattukhac\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKVattukhac\Plugin_Sotiendenghi_PDKVattukhac\obj\Debug\Plugin_Sotiendenghi_PDKVattukhac.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKVattukhac\Plugin_Sotiendenghi_PDKVattukhac\obj\Debug\Plugin_Sotiendenghi_PDKVattukhac.pdb

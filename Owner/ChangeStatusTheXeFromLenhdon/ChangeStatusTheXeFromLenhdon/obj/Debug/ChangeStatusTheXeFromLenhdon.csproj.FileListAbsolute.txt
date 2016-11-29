@@ -1,0 +1,6 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFromLenhdon\ChangeStatusTheXeFromLenhdon\bin\Debug\ChangeStatusTheXeFromLenhdon.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFromLenhdon\ChangeStatusTheXeFromLenhdon\bin\Debug\ChangeStatusTheXeFromLenhdon.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFromLenhdon\ChangeStatusTheXeFromLenhdon\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFromLenhdon\ChangeStatusTheXeFromLenhdon\obj\Debug\ChangeStatusTheXeFromLenhdon.csprojResolveAssemblyReference.cache
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFromLenhdon\ChangeStatusTheXeFromLenhdon\obj\Debug\ChangeStatusTheXeFromLenhdon.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\ChangeStatusTheXeFromLenhdon\ChangeStatusTheXeFromLenhdon\obj\Debug\ChangeStatusTheXeFromLenhdon.pdb

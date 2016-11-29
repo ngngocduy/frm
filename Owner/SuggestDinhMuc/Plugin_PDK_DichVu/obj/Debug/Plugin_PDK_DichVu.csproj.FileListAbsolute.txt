@@ -1,0 +1,16 @@
+D:\backupDesktop\NewFarmCode\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.pdb
+D:\backupDesktop\NewFarmCode\Plugin_PDK_DichVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache
+D:\backupDesktop\NewFarmCode\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dll
+D:\backupDesktop\NewFarmCode\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dll
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\New_Plugin\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache

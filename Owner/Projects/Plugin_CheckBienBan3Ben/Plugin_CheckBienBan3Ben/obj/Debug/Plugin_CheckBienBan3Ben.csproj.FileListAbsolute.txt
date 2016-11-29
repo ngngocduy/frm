@@ -1,0 +1,10 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_CheckBienBan3Ben.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_CheckBienBan3Ben.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.pdb
+F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_CheckBienBan3Ben.dll
+F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_CheckBienBan3Ben.pdb
+F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.csprojResolveAssemblyReference.cache
+F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.dll
+F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.pdb

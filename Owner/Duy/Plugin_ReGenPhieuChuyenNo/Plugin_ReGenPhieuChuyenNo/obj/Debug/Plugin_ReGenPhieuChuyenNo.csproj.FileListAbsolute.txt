@@ -1,0 +1,10 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\bin\Debug\Plugin_ReGenPhieuChuyenNo.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\bin\Debug\Plugin_ReGenPhieuChuyenNo.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\obj\Debug\Plugin_ReGenPhieuChuyenNo.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\obj\Debug\Plugin_ReGenPhieuChuyenNo.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\obj\Debug\Plugin_ReGenPhieuChuyenNo.csprojResolveAssemblyReference.cache
+D:\Duy\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\bin\Debug\Plugin_ReGenPhieuChuyenNo.dll
+D:\Duy\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\bin\Debug\Plugin_ReGenPhieuChuyenNo.pdb
+D:\Duy\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\obj\Debug\Plugin_ReGenPhieuChuyenNo.dll
+D:\Duy\Plugin_ReGenPhieuChuyenNo\Plugin_ReGenPhieuChuyenNo\obj\Debug\Plugin_ReGenPhieuChuyenNo.pdb

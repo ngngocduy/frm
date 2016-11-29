@@ -1,0 +1,5 @@
+c:\users\duy\documents\visual studio 2013\Projects\CheckDienTichGiam_ChitietBBGiamhuy\CheckDienTichGiam_ChitietBBGiamhuy\bin\Debug\CheckDienTichGiam_ChitietBBGiamhuy.dll
+c:\users\duy\documents\visual studio 2013\Projects\CheckDienTichGiam_ChitietBBGiamhuy\CheckDienTichGiam_ChitietBBGiamhuy\bin\Debug\CheckDienTichGiam_ChitietBBGiamhuy.pdb
+c:\users\duy\documents\visual studio 2013\Projects\CheckDienTichGiam_ChitietBBGiamhuy\CheckDienTichGiam_ChitietBBGiamhuy\obj\Debug\CheckDienTichGiam_ChitietBBGiamhuy.dll
+c:\users\duy\documents\visual studio 2013\Projects\CheckDienTichGiam_ChitietBBGiamhuy\CheckDienTichGiam_ChitietBBGiamhuy\obj\Debug\CheckDienTichGiam_ChitietBBGiamhuy.pdb
+c:\users\duy\documents\visual studio 2013\Projects\CheckDienTichGiam_ChitietBBGiamhuy\CheckDienTichGiam_ChitietBBGiamhuy\bin\Debug\Microsoft.Xrm.Sdk.dll

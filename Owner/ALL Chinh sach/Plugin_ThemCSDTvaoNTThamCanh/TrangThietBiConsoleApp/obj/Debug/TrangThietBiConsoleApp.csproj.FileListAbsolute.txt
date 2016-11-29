@@ -1,0 +1,63 @@
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDTrangThietBi\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTTuoiMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\USB\Plugin_AQuang\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+C:\Users\Mr Duy\Downloads\USB\Plugin_AQuang\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+C:\Users\Mr Duy\Downloads\USB\Plugin_AQuang\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTThamCanh\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache

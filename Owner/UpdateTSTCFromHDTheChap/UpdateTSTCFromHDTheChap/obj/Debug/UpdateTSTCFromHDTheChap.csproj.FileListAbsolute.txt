@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdateTSTCFromHDTheChap\UpdateTSTCFromHDTheChap\bin\Debug\UpdateTSTCFromHDTheChap.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdateTSTCFromHDTheChap\UpdateTSTCFromHDTheChap\bin\Debug\UpdateTSTCFromHDTheChap.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdateTSTCFromHDTheChap\UpdateTSTCFromHDTheChap\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdateTSTCFromHDTheChap\UpdateTSTCFromHDTheChap\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdateTSTCFromHDTheChap\UpdateTSTCFromHDTheChap\obj\Debug\UpdateTSTCFromHDTheChap.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\UpdateTSTCFromHDTheChap\UpdateTSTCFromHDTheChap\obj\Debug\UpdateTSTCFromHDTheChap.pdb

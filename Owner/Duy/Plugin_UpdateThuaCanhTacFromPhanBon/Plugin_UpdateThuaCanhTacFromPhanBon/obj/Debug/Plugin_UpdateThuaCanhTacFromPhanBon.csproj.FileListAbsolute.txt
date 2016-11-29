@@ -1,0 +1,6 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateThuaCanhTacFromPhanBon\Plugin_UpdateThuaCanhTacFromPhanBon\bin\Debug\Plugin_UpdateThuaCanhTacFromPhanBon.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateThuaCanhTacFromPhanBon\Plugin_UpdateThuaCanhTacFromPhanBon\bin\Debug\Plugin_UpdateThuaCanhTacFromPhanBon.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateThuaCanhTacFromPhanBon\Plugin_UpdateThuaCanhTacFromPhanBon\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateThuaCanhTacFromPhanBon\Plugin_UpdateThuaCanhTacFromPhanBon\obj\Debug\Plugin_UpdateThuaCanhTacFromPhanBon.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateThuaCanhTacFromPhanBon\Plugin_UpdateThuaCanhTacFromPhanBon\obj\Debug\Plugin_UpdateThuaCanhTacFromPhanBon.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_UpdateThuaCanhTacFromPhanBon\Plugin_UpdateThuaCanhTacFromPhanBon\obj\Debug\Plugin_UpdateThuaCanhTacFromPhanBon.csprojResolveAssemblyReference.cache

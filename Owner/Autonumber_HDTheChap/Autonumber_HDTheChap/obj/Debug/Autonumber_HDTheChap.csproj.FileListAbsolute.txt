@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\bin\Debug\Autonumber_HDTheChap.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\bin\Debug\Autonumber_HDTheChap.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\obj\Debug\Autonumber_HDTheChap.csprojResolveAssemblyReference.cache
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\obj\Debug\Autonumber_HDTheChap.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Autonumber_HDTheChap\Autonumber_HDTheChap\obj\Debug\Autonumber_HDTheChap.pdb

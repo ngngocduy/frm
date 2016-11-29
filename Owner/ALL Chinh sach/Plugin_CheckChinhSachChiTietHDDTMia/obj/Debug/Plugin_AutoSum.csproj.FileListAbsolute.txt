@@ -1,0 +1,4 @@
+C:\Users\7506113\Desktop\New folder (2)\Plugin_AutoSum\bin\Debug\Plugin_AutoSum.dll
+C:\Users\7506113\Desktop\New folder (2)\Plugin_AutoSum\bin\Debug\Plugin_AutoSum.pdb
+C:\Users\7506113\Desktop\New folder (2)\Plugin_AutoSum\obj\Debug\Plugin_AutoSum.dll
+C:\Users\7506113\Desktop\New folder (2)\Plugin_AutoSum\obj\Debug\Plugin_AutoSum.pdb

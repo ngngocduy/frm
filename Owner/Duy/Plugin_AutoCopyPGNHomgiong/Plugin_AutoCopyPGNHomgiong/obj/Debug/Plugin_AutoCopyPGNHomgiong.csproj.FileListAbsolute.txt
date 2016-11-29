@@ -1,0 +1,15 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Plugin_AutoCopyPGNHomgiong.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Plugin_AutoCopyPGNHomgiong.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.csprojResolveAssemblyReference.cache
+D:\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Plugin_AutoCopyPGNHomgiong.dll
+D:\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Plugin_AutoCopyPGNHomgiong.pdb
+D:\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.dll
+D:\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Plugin_AutoCopyPGNHomgiong.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\bin\Debug\Plugin_AutoCopyPGNHomgiong.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_AutoCopyPGNHomgiong\Plugin_AutoCopyPGNHomgiong\obj\Debug\Plugin_AutoCopyPGNHomgiong.pdb

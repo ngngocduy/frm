@@ -1,0 +1,10 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\bin\Debug\Plugin_PhieuChuyenNo_PBDT.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\bin\Debug\Plugin_PhieuChuyenNo_PBDT.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\obj\Debug\Plugin_PhieuChuyenNo_PBDT.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\obj\Debug\Plugin_PhieuChuyenNo_PBDT.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\obj\Debug\Plugin_PhieuChuyenNo_PBDT.csprojResolveAssemblyReference.cache
+D:\Duy\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\bin\Debug\Plugin_PhieuChuyenNo_PBDT.dll
+D:\Duy\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\bin\Debug\Plugin_PhieuChuyenNo_PBDT.pdb
+D:\Duy\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\obj\Debug\Plugin_PhieuChuyenNo_PBDT.dll
+D:\Duy\Plugin_PhieuChuyenNo_PBDT\Plugin_PhieuChuyenNo_PBDT\obj\Debug\Plugin_PhieuChuyenNo_PBDT.pdb

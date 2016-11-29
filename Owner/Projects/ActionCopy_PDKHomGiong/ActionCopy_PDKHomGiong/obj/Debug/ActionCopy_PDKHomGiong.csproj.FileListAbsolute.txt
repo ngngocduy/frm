@@ -1,0 +1,11 @@
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\ActionCopy_PDKHomGiong.dll
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\ActionCopy_PDKHomGiong.pdb
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.dll
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\ActionCopy_PDKHomGiong.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\ActionCopy_PDKHomGiong.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.pdb

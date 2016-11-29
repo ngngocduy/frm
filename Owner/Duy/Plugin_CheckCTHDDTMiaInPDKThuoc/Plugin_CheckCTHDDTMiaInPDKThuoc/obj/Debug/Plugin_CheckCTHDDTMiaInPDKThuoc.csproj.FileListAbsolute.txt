@@ -1,0 +1,5 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiaInPDKThuoc\Plugin_CheckCTHDDTMiaInPDKThuoc\bin\Debug\Plugin_CheckCTHDDTMiaInPDKThuoc.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiaInPDKThuoc\Plugin_CheckCTHDDTMiaInPDKThuoc\bin\Debug\Plugin_CheckCTHDDTMiaInPDKThuoc.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiaInPDKThuoc\Plugin_CheckCTHDDTMiaInPDKThuoc\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiaInPDKThuoc\Plugin_CheckCTHDDTMiaInPDKThuoc\obj\Debug\Plugin_CheckCTHDDTMiaInPDKThuoc.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiaInPDKThuoc\Plugin_CheckCTHDDTMiaInPDKThuoc\obj\Debug\Plugin_CheckCTHDDTMiaInPDKThuoc.pdb

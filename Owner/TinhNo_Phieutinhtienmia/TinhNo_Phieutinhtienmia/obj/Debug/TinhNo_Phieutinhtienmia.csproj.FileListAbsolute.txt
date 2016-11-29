@@ -1,0 +1,5 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TinhNo_Phieutinhtienmia\TinhNo_Phieutinhtienmia\bin\Debug\TinhNo_Phieutinhtienmia.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TinhNo_Phieutinhtienmia\TinhNo_Phieutinhtienmia\bin\Debug\TinhNo_Phieutinhtienmia.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TinhNo_Phieutinhtienmia\TinhNo_Phieutinhtienmia\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TinhNo_Phieutinhtienmia\TinhNo_Phieutinhtienmia\obj\Debug\TinhNo_Phieutinhtienmia.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TinhNo_Phieutinhtienmia\TinhNo_Phieutinhtienmia\obj\Debug\TinhNo_Phieutinhtienmia.pdb

@@ -1,0 +1,5 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action_CopyBangGia\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action_CopyBangGia\bin\Debug\ActionCopy_BangGiaCongDon.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action_CopyBangGia\bin\Debug\ActionCopy_BangGiaCongDon.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action_CopyBangGia\obj\Debug\ActionCopy_BangGiaCongDon.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Action_CopyBangGia\Action_CopyBangGia\obj\Debug\ActionCopy_BangGiaCongDon.pdb

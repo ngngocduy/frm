@@ -1,0 +1,14 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\CheckThuaDatInThuaDatCanhTac.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\CheckThuaDatInThuaDatCanhTac.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.pdb
+D:\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\CheckThuaDatInThuaDatCanhTac.dll
+D:\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\CheckThuaDatInThuaDatCanhTac.pdb
+D:\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.dll
+D:\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.pdb
+D:\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.csprojResolveAssemblyReference.cache
+C:\Users\T430\Downloads\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\CheckThuaDatInThuaDatCanhTac.dll
+C:\Users\T430\Downloads\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\bin\Debug\CheckThuaDatInThuaDatCanhTac.pdb
+C:\Users\T430\Downloads\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.dll
+C:\Users\T430\Downloads\Duy\CheckThuaDatInThuaDatCanhTac\CheckThuaDatInThuaDatCanhTac\obj\Debug\CheckThuaDatInThuaDatCanhTac.pdb

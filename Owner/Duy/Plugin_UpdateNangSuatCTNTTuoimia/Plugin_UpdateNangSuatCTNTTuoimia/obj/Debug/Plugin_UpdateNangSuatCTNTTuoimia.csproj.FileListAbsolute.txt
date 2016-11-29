@@ -1,0 +1,6 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateNangSuatCTNTTuoimia\Plugin_UpdateNangSuatCTNTTuoimia\bin\Debug\Plugin_UpdateNangSuatCTNTTuoimia.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateNangSuatCTNTTuoimia\Plugin_UpdateNangSuatCTNTTuoimia\bin\Debug\Plugin_UpdateNangSuatCTNTTuoimia.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateNangSuatCTNTTuoimia\Plugin_UpdateNangSuatCTNTTuoimia\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateNangSuatCTNTTuoimia\Plugin_UpdateNangSuatCTNTTuoimia\obj\Debug\Plugin_UpdateNangSuatCTNTTuoimia.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_UpdateNangSuatCTNTTuoimia\Plugin_UpdateNangSuatCTNTTuoimia\obj\Debug\Plugin_UpdateNangSuatCTNTTuoimia.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_UpdateNangSuatCTNTTuoimia\Plugin_UpdateNangSuatCTNTTuoimia\obj\Debug\Plugin_UpdateNangSuatCTNTTuoimia.csprojResolveAssemblyReference.cache

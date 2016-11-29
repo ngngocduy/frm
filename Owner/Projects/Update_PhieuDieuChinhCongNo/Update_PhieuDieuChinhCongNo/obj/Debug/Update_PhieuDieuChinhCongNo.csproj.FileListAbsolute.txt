@@ -1,0 +1,5 @@
+c:\users\duy\documents\visual studio 2013\Projects\Update_PhieuDieuChinhCongNo\Update_PhieuDieuChinhCongNo\bin\Debug\Update_PhieuDieuChinhCongNo.dll
+c:\users\duy\documents\visual studio 2013\Projects\Update_PhieuDieuChinhCongNo\Update_PhieuDieuChinhCongNo\bin\Debug\Update_PhieuDieuChinhCongNo.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Update_PhieuDieuChinhCongNo\Update_PhieuDieuChinhCongNo\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Update_PhieuDieuChinhCongNo\Update_PhieuDieuChinhCongNo\obj\Debug\Update_PhieuDieuChinhCongNo.dll
+c:\users\duy\documents\visual studio 2013\Projects\Update_PhieuDieuChinhCongNo\Update_PhieuDieuChinhCongNo\obj\Debug\Update_PhieuDieuChinhCongNo.pdb

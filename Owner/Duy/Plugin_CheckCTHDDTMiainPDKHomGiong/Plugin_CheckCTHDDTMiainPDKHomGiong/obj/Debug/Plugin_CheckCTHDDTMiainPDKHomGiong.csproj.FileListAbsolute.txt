@@ -1,0 +1,9 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\bin\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\bin\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\bin\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\bin\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckCTHDDTMiainPDKHomGiong\Plugin_CheckCTHDDTMiainPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMiainPDKHomGiong.pdb

@@ -1,0 +1,14 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Plugin_Khoiluongbonphan.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Plugin_Khoiluongbonphan.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.pdb
+D:\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Plugin_Khoiluongbonphan.dll
+D:\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Plugin_Khoiluongbonphan.pdb
+D:\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.dll
+D:\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.pdb
+D:\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Plugin_Khoiluongbonphan.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\bin\Debug\Plugin_Khoiluongbonphan.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_Khoiluongbonphan\Plugin_Khoiluongbonphan\obj\Debug\Plugin_Khoiluongbonphan.pdb

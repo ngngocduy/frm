@@ -1,0 +1,9 @@
+c:\users\duy\documents\visual studio 2013\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\bin\Debug\UpDateTinhTrangChiTietTuHD.dll
+c:\users\duy\documents\visual studio 2013\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\bin\Debug\UpDateTinhTrangChiTietTuHD.pdb
+c:\users\duy\documents\visual studio 2013\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\obj\Debug\UpDateTinhTrangChiTietTuHD.dll
+c:\users\duy\documents\visual studio 2013\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\obj\Debug\UpDateTinhTrangChiTietTuHD.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\bin\Debug\UpDateTinhTrangChiTietTuHD.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\bin\Debug\UpDateTinhTrangChiTietTuHD.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\obj\Debug\UpDateTinhTrangChiTietTuHD.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\UpDateTinhTrangChiTietTuHD\UpDateTinhTrangChiTietTuHD\obj\Debug\UpDateTinhTrangChiTietTuHD.pdb

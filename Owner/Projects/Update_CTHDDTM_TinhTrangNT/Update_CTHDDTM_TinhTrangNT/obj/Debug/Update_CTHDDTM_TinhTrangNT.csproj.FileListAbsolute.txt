@@ -1,0 +1,5 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Update_CTHDDTM_TinhTrangNT\Update_CTHDDTM_TinhTrangNT\bin\Debug\Update_CTHDDTM_TinhTrangNT.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Update_CTHDDTM_TinhTrangNT\Update_CTHDDTM_TinhTrangNT\bin\Debug\Update_CTHDDTM_TinhTrangNT.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Update_CTHDDTM_TinhTrangNT\Update_CTHDDTM_TinhTrangNT\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Update_CTHDDTM_TinhTrangNT\Update_CTHDDTM_TinhTrangNT\obj\Debug\Update_CTHDDTM_TinhTrangNT.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Update_CTHDDTM_TinhTrangNT\Update_CTHDDTM_TinhTrangNT\obj\Debug\Update_CTHDDTM_TinhTrangNT.pdb

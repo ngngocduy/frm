@@ -1,0 +1,13 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Action_BangChiTienCuoiVu.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Action_BangChiTienCuoiVu.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\obj\Debug\Action_BangChiTienCuoiVu.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\obj\Debug\Action_BangChiTienCuoiVu.pdb
+D:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Action_BangChiTienCuoiVu.dll
+D:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Action_BangChiTienCuoiVu.pdb
+D:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\obj\Debug\Action_BangChiTienCuoiVu.dll
+D:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\obj\Debug\Action_BangChiTienCuoiVu.pdb
+F:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Action_BangChiTienCuoiVu.dll
+F:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\bin\Debug\Action_BangChiTienCuoiVu.pdb
+F:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\obj\Debug\Action_BangChiTienCuoiVu.dll
+F:\Duy\Action_BangChiTienCuoiVu\Action_BangChiTienCuoiVu\obj\Debug\Action_BangChiTienCuoiVu.pdb

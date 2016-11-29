@@ -1,0 +1,6 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKDichVu\Plugin_Sotiendenghi_PDKDichVu\obj\Debug\Plugin_Sotiendenghi_PDKDichVu.csprojResolveAssemblyReference.cache
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKDichVu\Plugin_Sotiendenghi_PDKDichVu\bin\Debug\Plugin_Sotiendenghi_PDKDichVu.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKDichVu\Plugin_Sotiendenghi_PDKDichVu\bin\Debug\Plugin_Sotiendenghi_PDKDichVu.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKDichVu\Plugin_Sotiendenghi_PDKDichVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKDichVu\Plugin_Sotiendenghi_PDKDichVu\obj\Debug\Plugin_Sotiendenghi_PDKDichVu.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_Sotiendenghi_PDKDichVu\Plugin_Sotiendenghi_PDKDichVu\obj\Debug\Plugin_Sotiendenghi_PDKDichVu.pdb

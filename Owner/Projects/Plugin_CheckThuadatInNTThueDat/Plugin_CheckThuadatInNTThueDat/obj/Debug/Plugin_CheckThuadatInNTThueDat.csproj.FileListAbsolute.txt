@@ -1,0 +1,11 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\bin\Debug\Plugin_CheckThuadatInNTThueDat.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\bin\Debug\Plugin_CheckThuadatInNTThueDat.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\obj\Debug\Plugin_CheckThuadatInNTThueDat.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\obj\Debug\Plugin_CheckThuadatInNTThueDat.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\obj\Debug\Plugin_CheckThuadatInNTThueDat.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\bin\Debug\Plugin_CheckThuadatInNTThueDat.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\bin\Debug\Plugin_CheckThuadatInNTThueDat.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\obj\Debug\Plugin_CheckThuadatInNTThueDat.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\obj\Debug\Plugin_CheckThuadatInNTThueDat.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTThueDat\Plugin_CheckThuadatInNTThueDat\obj\Debug\Plugin_CheckThuadatInNTThueDat.pdb

@@ -1,0 +1,6 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMInPDKVatTuKhac\Plugin_CheckCTHDDTMInPDKVatTuKhac\obj\Debug\Plugin_CheckCTHDDTMInPDKVatTuKhac.csprojResolveAssemblyReference.cache
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMInPDKVatTuKhac\Plugin_CheckCTHDDTMInPDKVatTuKhac\bin\Debug\Plugin_CheckCTHDDTMInPDKVatTuKhac.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMInPDKVatTuKhac\Plugin_CheckCTHDDTMInPDKVatTuKhac\bin\Debug\Plugin_CheckCTHDDTMInPDKVatTuKhac.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMInPDKVatTuKhac\Plugin_CheckCTHDDTMInPDKVatTuKhac\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMInPDKVatTuKhac\Plugin_CheckCTHDDTMInPDKVatTuKhac\obj\Debug\Plugin_CheckCTHDDTMInPDKVatTuKhac.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMInPDKVatTuKhac\Plugin_CheckCTHDDTMInPDKVatTuKhac\obj\Debug\Plugin_CheckCTHDDTMInPDKVatTuKhac.pdb

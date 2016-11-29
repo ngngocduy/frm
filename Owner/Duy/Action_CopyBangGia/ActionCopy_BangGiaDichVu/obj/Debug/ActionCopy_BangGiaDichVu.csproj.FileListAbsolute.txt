@@ -1,0 +1,10 @@
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaDichVu.dll
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaDichVu.pdb
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.dll
+C:\Users\Thu Hien\documents\visual studio 2013\Projects\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.pdb
+D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaDichVu.dll
+D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaDichVu.pdb
+D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.dll
+D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.pdb
+D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.csprojResolveAssemblyReference.cache

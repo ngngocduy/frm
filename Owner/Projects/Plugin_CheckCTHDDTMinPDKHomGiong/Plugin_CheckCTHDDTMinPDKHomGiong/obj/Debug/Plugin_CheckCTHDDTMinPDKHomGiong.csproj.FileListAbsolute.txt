@@ -1,0 +1,6 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMinPDKHomGiong\Plugin_CheckCTHDDTMinPDKHomGiong\bin\Debug\Plugin_CheckCTHDDTMinPDKHomGiong.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMinPDKHomGiong\Plugin_CheckCTHDDTMinPDKHomGiong\bin\Debug\Plugin_CheckCTHDDTMinPDKHomGiong.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMinPDKHomGiong\Plugin_CheckCTHDDTMinPDKHomGiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMinPDKHomGiong\Plugin_CheckCTHDDTMinPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMinPDKHomGiong.csprojResolveAssemblyReference.cache
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMinPDKHomGiong\Plugin_CheckCTHDDTMinPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMinPDKHomGiong.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_CheckCTHDDTMinPDKHomGiong\Plugin_CheckCTHDDTMinPDKHomGiong\obj\Debug\Plugin_CheckCTHDDTMinPDKHomGiong.pdb

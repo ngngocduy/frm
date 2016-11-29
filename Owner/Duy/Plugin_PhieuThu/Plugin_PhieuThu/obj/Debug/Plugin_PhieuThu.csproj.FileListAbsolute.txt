@@ -1,0 +1,6 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuThu\Plugin_PhieuThu\bin\Debug\Plugin_PhieuThu.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuThu\Plugin_PhieuThu\bin\Debug\Plugin_PhieuThu.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuThu\Plugin_PhieuThu\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuThu\Plugin_PhieuThu\obj\Debug\Plugin_PhieuThu.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuThu\Plugin_PhieuThu\obj\Debug\Plugin_PhieuThu.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_PhieuThu\Plugin_PhieuThu\obj\Debug\Plugin_PhieuThu.csprojResolveAssemblyReference.cache

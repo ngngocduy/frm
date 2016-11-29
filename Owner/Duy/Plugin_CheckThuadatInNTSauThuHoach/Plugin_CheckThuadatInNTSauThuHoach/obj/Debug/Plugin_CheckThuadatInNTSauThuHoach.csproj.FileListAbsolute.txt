@@ -1,0 +1,5 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTSauThuHoach\Plugin_CheckThuadatInNTSauThuHoach\bin\Debug\Plugin_CheckThuadatInNTSauThuHoach.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTSauThuHoach\Plugin_CheckThuadatInNTSauThuHoach\bin\Debug\Plugin_CheckThuadatInNTSauThuHoach.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTSauThuHoach\Plugin_CheckThuadatInNTSauThuHoach\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTSauThuHoach\Plugin_CheckThuadatInNTSauThuHoach\obj\Debug\Plugin_CheckThuadatInNTSauThuHoach.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuadatInNTSauThuHoach\Plugin_CheckThuadatInNTSauThuHoach\obj\Debug\Plugin_CheckThuadatInNTSauThuHoach.pdb

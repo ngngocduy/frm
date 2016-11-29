@@ -1,0 +1,11 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\bin\Debug\Plugin_CheckThuaDatInHDThueDat.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\bin\Debug\Plugin_CheckThuaDatInHDThueDat.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\obj\Debug\Plugin_CheckThuaDatInHDThueDat.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\obj\Debug\Plugin_CheckThuaDatInHDThueDat.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\obj\Debug\Plugin_CheckThuaDatInHDThueDat.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\bin\Debug\Plugin_CheckThuaDatInHDThueDat.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\bin\Debug\Plugin_CheckThuaDatInHDThueDat.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\obj\Debug\Plugin_CheckThuaDatInHDThueDat.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\obj\Debug\Plugin_CheckThuaDatInHDThueDat.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_CheckThuaDatInHDThueDat\Plugin_CheckThuaDatInHDThueDat\obj\Debug\Plugin_CheckThuaDatInHDThueDat.csprojResolveAssemblyReference.cache

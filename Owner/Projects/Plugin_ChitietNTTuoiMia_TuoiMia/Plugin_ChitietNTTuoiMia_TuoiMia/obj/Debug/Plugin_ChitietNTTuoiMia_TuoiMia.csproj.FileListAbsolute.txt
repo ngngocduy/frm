@@ -1,0 +1,5 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_ChitietNTTuoiMia_TuoiMia\Plugin_ChitietNTTuoiMia_TuoiMia\bin\Debug\Plugin_ChitietNTTuoiMia_TuoiMia.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_ChitietNTTuoiMia_TuoiMia\Plugin_ChitietNTTuoiMia_TuoiMia\bin\Debug\Plugin_ChitietNTTuoiMia_TuoiMia.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_ChitietNTTuoiMia_TuoiMia\Plugin_ChitietNTTuoiMia_TuoiMia\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_ChitietNTTuoiMia_TuoiMia\Plugin_ChitietNTTuoiMia_TuoiMia\obj\Debug\Plugin_ChitietNTTuoiMia_TuoiMia.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_ChitietNTTuoiMia_TuoiMia\Plugin_ChitietNTTuoiMia_TuoiMia\obj\Debug\Plugin_ChitietNTTuoiMia_TuoiMia.pdb

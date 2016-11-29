@@ -1,0 +1,6 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckCTHDDTM_HDThuHoach\CheckCTHDDTM_HDThuHoach\bin\Debug\CheckCTHDDTM_HDThuHoach.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckCTHDDTM_HDThuHoach\CheckCTHDDTM_HDThuHoach\bin\Debug\CheckCTHDDTM_HDThuHoach.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckCTHDDTM_HDThuHoach\CheckCTHDDTM_HDThuHoach\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckCTHDDTM_HDThuHoach\CheckCTHDDTM_HDThuHoach\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckCTHDDTM_HDThuHoach\CheckCTHDDTM_HDThuHoach\obj\Debug\CheckCTHDDTM_HDThuHoach.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\CheckCTHDDTM_HDThuHoach\CheckCTHDDTM_HDThuHoach\obj\Debug\CheckCTHDDTM_HDThuHoach.pdb

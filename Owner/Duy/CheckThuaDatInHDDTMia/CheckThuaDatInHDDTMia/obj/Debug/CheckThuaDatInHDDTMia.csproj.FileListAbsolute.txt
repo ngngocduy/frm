@@ -1,0 +1,14 @@
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\CheckThuaDatInHDDTMia.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\CheckThuaDatInHDDTMia.pdb
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.dll
+C:\Users\Thu Hien\Documents\Visual Studio 2013\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.pdb
+D:\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\CheckThuaDatInHDDTMia.dll
+D:\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\CheckThuaDatInHDDTMia.pdb
+D:\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.dll
+D:\Projects\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\CheckThuaDatInHDDTMia.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\bin\Debug\CheckThuaDatInHDDTMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\CheckThuaDatInHDDTMia\CheckThuaDatInHDDTMia\obj\Debug\CheckThuaDatInHDDTMia.csprojResolveAssemblyReference.cache

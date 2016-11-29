@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\bin\Debug\Plugin_AutoSumPDNGiaiNgan.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\bin\Debug\Plugin_AutoSumPDNGiaiNgan.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\obj\Debug\Plugin_AutoSumPDNGiaiNgan.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\obj\Debug\Plugin_AutoSumPDNGiaiNgan.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_AutoSumPDNGiaiNgan\Plugin_AutoSumPDNGiaiNgan\obj\Debug\Plugin_AutoSumPDNGiaiNgan.csprojResolveAssemblyReference.cache

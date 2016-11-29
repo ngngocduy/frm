@@ -1,0 +1,6 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PbanBo_PhieuGiaoNhanHomGiong\PbanBo_PhieuGiaoNhanHomGiong\bin\Debug\PbanBo_PhieuGiaoNhanHomGiong.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PbanBo_PhieuGiaoNhanHomGiong\PbanBo_PhieuGiaoNhanHomGiong\bin\Debug\PbanBo_PhieuGiaoNhanHomGiong.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PbanBo_PhieuGiaoNhanHomGiong\PbanBo_PhieuGiaoNhanHomGiong\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PbanBo_PhieuGiaoNhanHomGiong\PbanBo_PhieuGiaoNhanHomGiong\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PbanBo_PhieuGiaoNhanHomGiong\PbanBo_PhieuGiaoNhanHomGiong\obj\Debug\PbanBo_PhieuGiaoNhanHomGiong.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\PbanBo_PhieuGiaoNhanHomGiong\PbanBo_PhieuGiaoNhanHomGiong\obj\Debug\PbanBo_PhieuGiaoNhanHomGiong.pdb

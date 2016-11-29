@@ -1,0 +1,13 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\UpdateNo_PDNThanhToan.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\UpdateNo_PDNThanhToan.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\obj\Debug\UpdateNo_PDNThanhToan.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\obj\Debug\UpdateNo_PDNThanhToan.pdb
+D:\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\UpdateNo_PDNThanhToan.dll
+D:\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\UpdateNo_PDNThanhToan.pdb
+D:\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\obj\Debug\UpdateNo_PDNThanhToan.dll
+D:\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\obj\Debug\UpdateNo_PDNThanhToan.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\UpdateNo_PDNThanhToan.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\bin\Debug\UpdateNo_PDNThanhToan.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\obj\Debug\UpdateNo_PDNThanhToan.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\UpdateNo_PDNThanhToan\UpdateNo_PDNThanhToan\obj\Debug\UpdateNo_PDNThanhToan.pdb

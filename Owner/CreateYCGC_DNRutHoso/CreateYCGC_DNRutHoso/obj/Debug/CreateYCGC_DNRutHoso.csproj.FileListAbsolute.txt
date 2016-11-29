@@ -1,0 +1,7 @@
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\CreateYCGC_DNRutHoso.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\CreateYCGC_DNRutHoso.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.dll
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.csprojResolveAssemblyReference.cache

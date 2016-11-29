@@ -1,0 +1,7 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Update_DienTichMiaToGoc.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Update_DienTichMiaToGoc.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.dll
+c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.csprojResolveAssemblyReference.cache

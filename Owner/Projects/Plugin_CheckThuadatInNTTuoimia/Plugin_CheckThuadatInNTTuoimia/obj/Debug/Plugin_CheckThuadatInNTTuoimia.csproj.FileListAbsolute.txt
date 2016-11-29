@@ -1,0 +1,10 @@
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\bin\Debug\Plugin_CheckThuadatInNTTuoimia.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\bin\Debug\Plugin_CheckThuadatInNTTuoimia.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\obj\Debug\Plugin_CheckThuadatInNTTuoimia.dll
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\obj\Debug\Plugin_CheckThuadatInNTTuoimia.pdb
+C:\Users\Duy\Documents\Visual Studio 2013\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\obj\Debug\Plugin_CheckThuadatInNTTuoimia.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\bin\Debug\Plugin_CheckThuadatInNTTuoimia.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\bin\Debug\Plugin_CheckThuadatInNTTuoimia.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\obj\Debug\Plugin_CheckThuadatInNTTuoimia.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\Plugin_CheckThuadatInNTTuoimia\Plugin_CheckThuadatInNTTuoimia\obj\Debug\Plugin_CheckThuadatInNTTuoimia.pdb

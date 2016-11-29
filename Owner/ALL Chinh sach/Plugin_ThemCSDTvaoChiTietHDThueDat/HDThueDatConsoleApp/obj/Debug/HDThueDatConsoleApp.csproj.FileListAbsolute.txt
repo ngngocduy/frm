@@ -1,0 +1,39 @@
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.pdb
+D:\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe.config
+D:\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.exe
+D:\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.pdb
+D:\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.csprojResolveAssemblyReference.cache
+H:\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe.config
+C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.exe
+C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.csprojResolveAssemblyReference.cache
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe.config
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.pdb
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.xml
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.exe
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe.config
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.exe
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\obj\Debug\HDThueDatConsoleApp.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.exe
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoChiTietHDThueDat\HDThueDatConsoleApp\bin\Debug\HDThueDatConsoleApp.pdb

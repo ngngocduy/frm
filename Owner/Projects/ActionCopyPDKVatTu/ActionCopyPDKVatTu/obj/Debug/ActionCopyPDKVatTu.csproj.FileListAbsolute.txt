@@ -1,0 +1,10 @@
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.dll
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.pdb
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.dll
+c:\users\duy\documents\visual studio 2013\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.dll
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.pdb
+C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.csprojResolveAssemblyReference.cache

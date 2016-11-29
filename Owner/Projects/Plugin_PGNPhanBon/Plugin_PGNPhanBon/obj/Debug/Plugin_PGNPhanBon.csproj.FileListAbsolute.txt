@@ -1,0 +1,6 @@
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_PGNPhanBon\Plugin_PGNPhanBon\bin\Debug\Plugin_PGNPhanBon.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_PGNPhanBon\Plugin_PGNPhanBon\bin\Debug\Plugin_PGNPhanBon.pdb
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_PGNPhanBon\Plugin_PGNPhanBon\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_PGNPhanBon\Plugin_PGNPhanBon\obj\Debug\Plugin_PGNPhanBon.csprojResolveAssemblyReference.cache
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_PGNPhanBon\Plugin_PGNPhanBon\obj\Debug\Plugin_PGNPhanBon.dll
+c:\users\duy\documents\visual studio 2013\Projects\Plugin_PGNPhanBon\Plugin_PGNPhanBon\obj\Debug\Plugin_PGNPhanBon.pdb

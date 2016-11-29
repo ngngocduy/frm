@@ -1,0 +1,10 @@
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\bin\Debug\Plugin_PDNGiaiNgan.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\bin\Debug\Plugin_PDNGiaiNgan.pdb
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\obj\Debug\Plugin_PDNGiaiNgan.dll
+c:\users\thu hien\documents\visual studio 2013\Projects\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\obj\Debug\Plugin_PDNGiaiNgan.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\bin\Debug\Plugin_PDNGiaiNgan.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\bin\Debug\Plugin_PDNGiaiNgan.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\obj\Debug\Plugin_PDNGiaiNgan.dll
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\obj\Debug\Plugin_PDNGiaiNgan.pdb
+C:\Users\Mr Duy\Downloads\Duy\Duy\Plugin_PDNGiaiNgan\Plugin_PDNGiaiNgan\obj\Debug\Plugin_PDNGiaiNgan.csprojResolveAssemblyReference.cache

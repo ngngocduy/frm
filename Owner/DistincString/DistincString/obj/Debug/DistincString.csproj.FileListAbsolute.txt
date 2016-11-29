@@ -1,0 +1,6 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\DistincString\DistincString\bin\Debug\DistincString.exe.config
+c:\users\mr duy\documents\visual studio 2015\Projects\DistincString\DistincString\bin\Debug\DistincString.exe
+c:\users\mr duy\documents\visual studio 2015\Projects\DistincString\DistincString\bin\Debug\DistincString.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\DistincString\DistincString\obj\Debug\DistincString.csprojResolveAssemblyReference.cache
+c:\users\mr duy\documents\visual studio 2015\Projects\DistincString\DistincString\obj\Debug\DistincString.exe
+c:\users\mr duy\documents\visual studio 2015\Projects\DistincString\DistincString\obj\Debug\DistincString.pdb

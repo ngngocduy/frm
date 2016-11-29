@@ -1,0 +1,6 @@
+c:\users\mr duy\documents\visual studio 2015\Projects\TestCom\TestCom\bin\Release\TestCom.exe.config
+c:\users\mr duy\documents\visual studio 2015\Projects\TestCom\TestCom\bin\Release\TestCom.exe
+c:\users\mr duy\documents\visual studio 2015\Projects\TestCom\TestCom\bin\Release\TestCom.pdb
+c:\users\mr duy\documents\visual studio 2015\Projects\TestCom\TestCom\obj\Release\TestCom.exe
+c:\users\mr duy\documents\visual studio 2015\Projects\TestCom\TestCom\obj\Release\TestCom.pdb
+C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TestCom\TestCom\obj\Release\TestCom.csprojResolveAssemblyReference.cache
