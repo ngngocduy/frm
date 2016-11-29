@@ -1,0 +1,12 @@
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.dll
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.pdb
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.dll
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.pdb
+C:\Users\binhht\Desktop\Plugin\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.dll
+C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.pdb
+C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.dll
+C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.pdb
+C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.csprojResolveAssemblyReference.cache

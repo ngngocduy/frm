@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xrm.Sdk">
-      <HintPath>..\..\..\..\..\Downloads\Duy\SDK\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
+      <HintPath>..\..\..\Documents\Visual Studio 2015\Projects\Service_Syndata\Service_Syndata\bin\Debug\Microsoft.Xrm.Sdk.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
