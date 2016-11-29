@@ -844,9 +844,9 @@ namespace Plugin_CreatePBDT_PGNPhanBon
                     break;
                 }
 
-                if (i == n - 1)
+                else if (i == n - 1)
                 {
-                    result = (decimal)bls[i - 1]["new_phantramlaisuat"];
+                    result = (decimal)bls[(i > 0 ? i : 1) - 1]["new_phantramlaisuat"];
                 }
             }
 
