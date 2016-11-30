@@ -3,3 +3,9 @@ c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\Up
 c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\Microsoft.Xrm.Sdk.dll
 c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.dll
 c:\users\mr duy\documents\visual studio 2015\Projects\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.pdb
+D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\UpdateTinhtrangthuhoach.dll
+D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\UpdateTinhtrangthuhoach.pdb
+D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.dll
+D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.pdb
