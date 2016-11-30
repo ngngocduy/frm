@@ -35,7 +35,7 @@ namespace ActionCopyPDKVatTu
 
                 string tenkhachhang = "";
                 string p3 = "";
-                string count = lstPGNVatTu.Count.ToString();
+                int count = lstPGNVatTu.Count + 1;
 
                 Entity pgnvattu = new Entity("new_phieugiaonhanvattu");
 
@@ -65,6 +65,7 @@ namespace ActionCopyPDKVatTu
                     pgnvattu["new_nhacungcapkhdn"] = phieudkvattu["new_nhacungcapkhdn"];
                 }
 
+                pgnvattu["new_lannhan"] = count;
                 pgnvattu["new_name"] = "PGNVT-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-" + "L" + count;
                 pgnvattu["new_hopdongdautumia"] = phieudkvattu.Contains("new_hopdongdautumia") ? phieudkvattu["new_hopdongdautumia"] : "";
                 pgnvattu["new_vudautu"] = phieudkvattu.Contains("new_vudautu") ? phieudkvattu["new_vudautu"] : "";

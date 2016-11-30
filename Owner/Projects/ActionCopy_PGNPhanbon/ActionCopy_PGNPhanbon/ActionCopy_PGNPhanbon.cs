@@ -35,7 +35,7 @@ namespace ActionCopy_PGNPhanbon
 
                 string tenkhachhang = "";
                 string p3 = "";
-                string count = lstPGNHG.Count.ToString();
+                int count = lstPGNHG.Count + 1;
 
                 pgnphanbon["new_vudautu"] = phieudkphanbon["new_vudautu"];
                 pgnphanbon["new_ngaylapphieu"] = phieudkphanbon["new_ngaylapphieu"];
@@ -67,6 +67,7 @@ namespace ActionCopy_PGNPhanbon
                     pgnphanbon["new_nhacungcapkhdn"] = phieudkphanbon["new_doitaccungcapdichvukhdn"];
                 }
 
+                pgnphanbon["new_lannhan"] = count;
                 pgnphanbon["new_name"] = "PGNPB-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-" + "L" + count;
                 pgnphanbon["new_phieudangkyphanbon"] = new EntityReference(phieudkphanbon.LogicalName, phieudkphanbon.Id);
                 pgnphanbon["new_hopdongdautumia"] = phieudkphanbon.Contains("new_hopdongdautumia") ? phieudkphanbon["new_hopdongdautumia"] : "";

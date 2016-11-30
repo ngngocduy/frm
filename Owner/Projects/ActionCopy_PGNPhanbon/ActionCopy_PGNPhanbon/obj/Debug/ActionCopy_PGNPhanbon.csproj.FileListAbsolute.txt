@@ -7,3 +7,8 @@ C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanb
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.pdb
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.dll
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.pdb
+D:\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.dll
+D:\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.pdb
+D:\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.dll
+D:\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.pdb

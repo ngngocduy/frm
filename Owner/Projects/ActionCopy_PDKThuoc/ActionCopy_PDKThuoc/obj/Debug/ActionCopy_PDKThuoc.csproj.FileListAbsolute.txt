@@ -7,3 +7,8 @@ C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\b
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.pdb
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.dll
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.pdb
+D:\Duy\frm\Owner\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.dll
+D:\Duy\frm\Owner\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\bin\Debug\ActionCopy_PDKThuoc.pdb
+D:\Duy\frm\Owner\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.dll
+D:\Duy\frm\Owner\Projects\ActionCopy_PDKThuoc\ActionCopy_PDKThuoc\obj\Debug\ActionCopy_PDKThuoc.pdb

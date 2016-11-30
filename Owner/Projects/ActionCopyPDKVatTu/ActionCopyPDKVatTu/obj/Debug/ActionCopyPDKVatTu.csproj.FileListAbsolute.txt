@@ -8,3 +8,8 @@ C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.dll
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.pdb
 C:\Users\Mr Duy\Downloads\Duy\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.dll
+D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.pdb
+D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.dll
+D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.pdb

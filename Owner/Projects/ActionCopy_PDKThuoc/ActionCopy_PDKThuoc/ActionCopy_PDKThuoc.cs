@@ -35,7 +35,7 @@ namespace ActionCopy_PDKThuoc
 
                 string tenkhachhang = "";
                 string p3 = "";
-                string count = lstPGNT.Count.ToString();
+                int count = lstPGNT.Count +1;
 
                 if (phieudkthuoc.Contains("new_khachhang"))
                 {
@@ -63,7 +63,8 @@ namespace ActionCopy_PDKThuoc
                     pgnthuoc["new_nhacungcapkhdn"] = phieudkthuoc["new_nhacungcapkhdn"];
                 }
 
-                pgnthuoc["new_name"] = "PGNT-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-" + "L" + (count == "0" ? "" : count.ToString());
+                pgnthuoc["new_lannhan"] = count;
+                pgnthuoc["new_name"] = "PGNT-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-" + "L" + count;
                 pgnthuoc["new_hopdongdautumia"] = phieudkthuoc.Contains("new_hopdongdautumia") ? phieudkthuoc["new_hopdongdautumia"] : "";
                 pgnthuoc["new_vudautu"] = phieudkthuoc.Contains("new_vudautu") ? phieudkthuoc["new_vudautu"] : "";
                 pgnthuoc["new_tram"] = phieudkthuoc.Contains("new_tram") ? phieudkthuoc["new_tram"] : "";
@@ -71,7 +72,6 @@ namespace ActionCopy_PDKThuoc
                 pgnthuoc["new_ngaylapphieu"] = phieudkthuoc.Contains("new_ngaylapphieu") ? phieudkthuoc["new_ngaylapphieu"] : "";
                 pgnthuoc["new_phieudangkythuoc"] = new EntityReference(phieudkthuoc.LogicalName, phieudkthuoc.Id);
                 pgnthuoc["new_ngayduyet"] = phieudkthuoc.Contains("new_ngayduyet") ? phieudkthuoc["new_ngayduyet"] : "";
-
                 pgnthuoc["new_dinhmuc_khonghoanlai"] = phieudkthuoc.Contains("new_denghi_khonghoanlai") ? phieudkthuoc["new_denghi_khonghoanlai"] : new Money(0);
                 pgnthuoc["new_dinhmuc_hoanlai_vattu"] = phieudkthuoc.Contains("new_denghi_hoanlai_vattu") ? phieudkthuoc["new_denghi_hoanlai_vattu"] : new Money(0);
                 pgnthuoc["new_dinhmuc_hoanlai_tienmat"] = phieudkthuoc.Contains("new_denghi_hoanlai_tienmat") ? phieudkthuoc["new_denghi_hoanlai_tienmat"] : new Money(0);

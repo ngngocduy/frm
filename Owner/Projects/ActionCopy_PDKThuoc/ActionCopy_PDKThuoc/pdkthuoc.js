@@ -33,3 +33,5 @@ function btn_GiaoNhan() {
         window.top.$ui.Dialog("Lỗi", e.message, null);
     }
 }
+
+

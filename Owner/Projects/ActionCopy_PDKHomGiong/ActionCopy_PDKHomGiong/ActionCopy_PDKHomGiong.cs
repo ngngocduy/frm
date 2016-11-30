@@ -36,7 +36,7 @@ namespace ActionCopy_PDKHomGiong
                 Entity pgnhomgiong = new Entity("new_phieugiaonhanhomgiong");
                 string tenkhachhang = "";
                 string p3 = "";
-                string count = lstPGNHG.Count.ToString();
+                int count = lstPGNHG.Count;
 
                 pgnhomgiong["new_vudautu"] = phieudkhomgiong.Contains("new_vudautu") ? phieudkhomgiong["new_vudautu"] : "";
                 pgnhomgiong["new_ngaylapphieu"] = phieudkhomgiong.Contains("new_ngaylapphieu") ? phieudkhomgiong["new_ngaylapphieu"] : "";
@@ -58,6 +58,7 @@ namespace ActionCopy_PDKHomGiong
                     p3 = khdn.Contains("new_sogpkd") ? (string)khdn["new_sogpkd"] : "";
                 }
 
+                pgnhomgiong["new_lannhan"] = count;
                 pgnhomgiong["new_name"] = "PGNHG-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-L" + count;
                 pgnhomgiong["new_hopdongdautumia"] = phieudkhomgiong["new_hopdongdautumia"];
                 pgnhomgiong["new_tram"] = phieudkhomgiong.Contains("new_tram") ? phieudkhomgiong["new_tram"] : "";
