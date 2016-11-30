@@ -40,7 +40,7 @@ namespace ConsoleAppTest
             {
                 IOrganizationService service = (IOrganizationService)serviceProxy;
 
-                Guid entityId = new Guid("70E506AD-783B-E611-93EF-98BE942A7E2D");
+                Guid entityId = new Guid("517DC7E5-3D32-E611-93EF-98BE942A7E2D");
 
 
                 Entity CSDautu = null;
@@ -264,7 +264,7 @@ namespace ConsoleAppTest
                             if (csNhomNangSuat.Entities.Count > 0)
                             {
                                 decimal nsbinhquan = (KhachHang.Contains("new_nangsuatbinhquan") ? (decimal)KhachHang["new_nangsuatbinhquan"] : 0);
-                                bool check = false;                  
+                                bool check = false;
                                 foreach (Entity t in csNhomNangSuat.Entities)
                                     if (t.Contains("new_nangsuattu") && t.Contains("new_nangsuatden"))
                                     {
@@ -370,7 +370,7 @@ namespace ConsoleAppTest
 
                             #endregion
                         }
-
+                        
                         DateTime maxdate0 = new DateTime(1, 1, 1);
                         DateTime maxdate1 = new DateTime(1, 1, 1);
                         DateTime maxdate4 = new DateTime(1, 1, 1);
@@ -426,16 +426,15 @@ namespace ConsoleAppTest
                     //set chính sách
                     Entity up = new Entity(CTHDMia.LogicalName);
                     up.Id = CTHDMia.Id;
-                    up["new_chinhsachdautu"] = CSDautu.ToEntityReference();
-                    if (CSTamUng != null) up["new_chinhsachtamung"] = CSTamUng.ToEntityReference();
-                    else up["new_chinhsachtamung"] = null;
-                    if (CSThamCanh != null) up["new_chinhsachthamcanh"] = CSThamCanh.ToEntityReference();
-                    else up["new_chinhsachthamcanh"] = null;
+                    //up["new_chinhsachdautu"] = CSDautu.ToEntityReference();
+                    //if (CSTamUng != null) up["new_chinhsachtamung"] = CSTamUng.ToEntityReference();
+                    //else up["new_chinhsachtamung"] = null;
+                    //if (CSThamCanh != null) up["new_chinhsachthamcanh"] = CSThamCanh.ToEntityReference();
+                    //else up["new_chinhsachthamcanh"] = null;
 
-                    if (CSDautu.Contains("new_loailaisuatcodinhthaydoi"))
-                        up["new_loailaisuat"] = ((bool)CSDautu["new_loailaisuatcodinhthaydoi"] == true ? new OptionSetValue(100000000) : new OptionSetValue(100000001));
-                    else up["new_loailaisuat"] = null;
-
+                    //if (CSDautu.Contains("new_loailaisuatcodinhthaydoi"))
+                    //    up["new_loailaisuat"] = ((bool)CSDautu["new_loailaisuatcodinhthaydoi"] == true ? new OptionSetValue(100000000) : new OptionSetValue(100000001));
+                    //else up["new_loailaisuat"] = null;
                     //if (CSDautu.Contains("new_muclaisuatdautu"))
                     //    up["new_laisuat"] = CSDautu["new_muclaisuatdautu"];
                     //else
@@ -449,62 +448,34 @@ namespace ConsoleAppTest
                     //            }
                     //if (!up.Contains("new_laisuat")) up["new_laisuat"] = null;
 
-                    // Gan lai suat
-                    Entity lsthaydoiEn = new Entity();
-                    lsthaydoiEn = FindLSthaydoi(service, CSDautu);
-                    if (lsthaydoiEn != null && lsthaydoiEn.Id != Guid.Empty)
-                    {
-                        if (lsthaydoiEn.Contains("new_phantramlaisuat"))
-                            up["new_laisuat"] = lsthaydoiEn["new_phantramlaisuat"];
-                    }
-                    else
-                    {
-                        if (CSDautu.Contains("new_muclaisuatdautu"))
-                            up["new_laisuat"] = CSDautu["new_muclaisuatdautu"];
-                        else
-                        {
-                            foreach (Entity TSVDT in dsTSVDT.Entities)
-                                if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000001)
-                                    if (TSVDT.Attributes.Contains("new_giatri"))
-                                    {
-                                        decimal mucls = (TSVDT.Contains("new_giatri") ? TSVDT.GetAttributeValue<decimal>("new_giatri") : 0);
-                                        up["new_laisuat"] = mucls;
-                                        break;
-                                    }
-                        }
-                    }
-                    if (!up.Contains("new_laisuat")) up["new_laisuat"] = null;
+                    //if (CSDautu.Contains("new_cachtinhlai"))
+                    //    up["new_cachtinhlai"] = CSDautu["new_cachtinhlai"];
+                    //else up["new_cachtinhlai"] = null; //traceService.Trace("new_cachtinhlai null");
 
-                    // End gan lai suat
+                    //foreach (Entity TSVDT in dsTSVDT.Entities)
+                    //    if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000004)
+                    //        if (TSVDT.Attributes.Contains("new_giatien"))
+                    //        {
+                    //            Money giamiadk = TSVDT.GetAttributeValue<Money>("new_giatien");
+                    //            up["new_giamiadukien"] = giamiadk;
+                    //            //traceService.Trace("new_giamiadukien");
+                    //            break;
+                    //        }
+                    //if (!up.Contains("new_giamiadukien"))
+                    //    up["new_giamiadukien"] = null;
+                    ////traceService.Trace("new_giamiadukien null");
 
-                    if (CSDautu.Contains("new_cachtinhlai"))
-                        up["new_cachtinhlai"] = CSDautu["new_cachtinhlai"];
-                    else up["new_cachtinhlai"] = null; //traceService.Trace("new_cachtinhlai null");
+                    //// Set thu tu uu tien
+                    //if (CSDautu.Contains("new_thutuuutien"))
+                    //{
+                    //    EntityReference ttutRef = CSDautu.GetAttributeValue<EntityReference>("new_thutuuutien");
+                    //    up["new_thutuuutien"] = ttutRef;
+                    //}
 
-                    foreach (Entity TSVDT in dsTSVDT.Entities)
-                        if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000004)
-                            if (TSVDT.Attributes.Contains("new_giatien"))
-                            {
-                                Money giamiadk = TSVDT.GetAttributeValue<Money>("new_giatien");
-                                up["new_giamiadukien"] = giamiadk;
-                                //traceService.Trace("new_giamiadukien");
-                                break;
-                            }
-                    if (!up.Contains("new_giamiadukien"))
-                        up["new_giamiadukien"] = null;
-                    //traceService.Trace("new_giamiadukien null");
+                    //// Set ty le can tru toi thieu
 
-                    // Set thu tu uu tien
-                    if (CSDautu.Contains("new_thutuuutien"))
-                    {
-                        EntityReference ttutRef = CSDautu.GetAttributeValue<EntityReference>("new_thutuuutien");
-                        up["new_thutuuutien"] = ttutRef;
-                    }
-
-                    // Set ty le can tru toi thieu
-
-                    up["new_cantrutoithieu"] = (CSDautu.Contains("new_cantrutoithieu") ? CSDautu["new_cantrutoithieu"] : new decimal(0));
-                    // traceService.Trace("new_cantrutoithieu");
+                    //up["new_cantrutoithieu"] = (CSDautu.Contains("new_cantrutoithieu") ? CSDautu["new_cantrutoithieu"] : new decimal(0));
+                    //// traceService.Trace("new_cantrutoithieu");
 
                     #region Get Chinh Sach Bo Sung
 
@@ -551,7 +522,7 @@ namespace ConsoleAppTest
                     }
                     else qCSBS.AppendFormat("<condition attribute='new_nhomkhachhang' operator='null' />");
 
-                    if (CTHDMia.Contains("new_thamgiamohinhkhuyennong"))
+                    if (CTHDMia.Contains("new_mohinhkhuyennong"))
                     {
                         qCSBS.AppendFormat("<filter type='or'>");
                         qCSBS.AppendFormat("     <condition attribute='new_mohinhkhuyennong' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_thamgiamohinhkhuyennong"]).Id);
@@ -807,31 +778,31 @@ namespace ConsoleAppTest
                         }
                     }
 
-                    up["new_dinhmuctoida"] = new Money(bsBSHL + bsBSKHL + bsPB);
-                    //traceService.Trace("new_dinhmuctoida");
+                    //up["new_dinhmuctoida"] = new Money(bsBSHL + bsBSKHL + bsPB);
+                    ////traceService.Trace("new_dinhmuctoida");
 
-                    //////////// END --- Lay CSDT bổ sung điền field Định mức bổ sung tối đa
+                    ////////////// END --- Lay CSDT bổ sung điền field Định mức bổ sung tối đa
 
-                    up["new_dongiadautukhonghoanlai"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
-                    //traceService.Trace("new_dongiadautukhonghoanlai");
-                    up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
-                    //traceService.Trace("new_dinhmucdautukhonghoanlai");
+                    //up["new_dongiadautukhonghoanlai"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
+                    ////traceService.Trace("new_dongiadautukhonghoanlai");
+                    //up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
+                    ////traceService.Trace("new_dinhmucdautukhonghoanlai");
 
-                    up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
-                    //traceService.Trace("new_dongiadautuhoanlai");
-                    up["new_dinhmucdautuhoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautuhoanlai"]).Value);
-                    //traceService.Trace("new_dinhmucdautuhoanlai");
+                    //up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
+                    ////traceService.Trace("new_dongiadautuhoanlai");
+                    //up["new_dinhmucdautuhoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautuhoanlai"]).Value);
+                    ////traceService.Trace("new_dinhmucdautuhoanlai");
 
-                    if (!(HDDTMia.Contains("new_chinhantienmat") && (bool)HDDTMia["new_chinhantienmat"]))
-                    {
-                        up["new_dongiaphanbontoithieu"] = new Money(tPB + (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0));
-                        //  traceService.Trace("new_dongiaphanbontoithieu");
-                        up["new_dinhmucphanbontoithieu"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiaphanbontoithieu"]).Value);
-                        // traceService.Trace("new_dinhmucphanbontoithieu");
-                    }
+                    //if (!(HDDTMia.Contains("new_chinhantienmat") && (bool)HDDTMia["new_chinhantienmat"]))
+                    //{
+                    //    up["new_dongiaphanbontoithieu"] = new Money(tPB + (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0));
+                    //    //  traceService.Trace("new_dongiaphanbontoithieu");
+                    //    up["new_dinhmucphanbontoithieu"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiaphanbontoithieu"]).Value);
+                    //    // traceService.Trace("new_dinhmucphanbontoithieu");
+                    //}
 
-                    up["new_dinhmucdautu"] = new Money(((Money)up["new_dinhmucdautukhonghoanlai"]).Value + ((Money)up["new_dinhmucdautuhoanlai"]).Value);
-                    // traceService.Trace("new_dinhmucdautu");
+                    //up["new_dinhmucdautu"] = new Money(((Money)up["new_dinhmucdautukhonghoanlai"]).Value + ((Money)up["new_dinhmucdautuhoanlai"]).Value);
+                    //// traceService.Trace("new_dinhmucdautu");
 
                     // Gen ty le thu hoi von du kien
                     #region Gen ty le thu hoi von du kien
@@ -1014,33 +985,6 @@ namespace ConsoleAppTest
             EntityCollection entc = crmservices.RetrieveMultiple(new FetchExpression(fetchXml));
 
             return entc;
-        }
-
-        public static Entity FindLSthaydoi(IOrganizationService crmservices, Entity CSDT)
-        {
-            string fetchXml =
-                   @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
-                      <entity name='new_banglaisuatthaydoi'>
-                        <attribute name='new_name' />
-                        <attribute name='createdon' />
-                        <attribute name='new_ma' />
-                        <attribute name='new_ngayapdung' />
-                        <attribute name='new_chinhsachdautu' />
-                        <attribute name='new_phantramlaisuat' />
-                        <attribute name='new_banglaisuatthaydoiid' />
-                        <order attribute='createdon' descending='false' />
-                        <filter type='and'>
-                          <condition attribute='new_chinhsachdautu' operator='eq' uitype='new_chinhsachdautu' value='{0}' />
-                        </filter>
-                      </entity>
-                    </fetch>";
-
-            fetchXml = string.Format(fetchXml, CSDT.Id);
-            EntityCollection entc = crmservices.RetrieveMultiple(new FetchExpression(fetchXml));
-            if (entc != null && entc.Entities.Count > 0)
-                return entc[0];
-            else
-                return null;
         }
     }
 }

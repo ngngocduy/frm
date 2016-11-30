@@ -12,7 +12,8 @@ E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTi
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.csprojResolveAssemblyReference.cache
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
-C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
-C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
-C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
-C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.csprojResolveAssemblyReference.cache

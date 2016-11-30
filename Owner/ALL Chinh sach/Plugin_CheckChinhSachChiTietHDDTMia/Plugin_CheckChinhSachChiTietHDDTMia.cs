@@ -4,20 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xrm.Sdk.Messages;
+
 
 namespace Plugin_CheckChinhSachChiTietHDDTMia
 {
     public class Plugin_CheckChinhSachChiTietHDDTMia : IPlugin
     {
+        // moi nhat
         IOrganizationService service = null;
         IOrganizationServiceFactory factory = null;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="serviceProvider"></param>
         void IPlugin.Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
@@ -63,8 +59,6 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                 Entity CSDautu = null;
                 Entity CSTamUng = null;
                 Entity CSThamCanh = null;
-                //Entity CSTuoi = null;
-                //Entity CSbocla = null;
 
                 Entity CTHDMia = service.Retrieve("new_thuadatcanhtac", target.Id, new ColumnSet(new string[] {
                     "new_hopdongdautumia","new_giongmia","new_thuadat","new_khachhang","new_khachhangdoanhnghiep","createdon","new_vutrong","new_mucdichsanxuatmia",
@@ -85,18 +79,16 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
                 EntityCollection CSThoa = GetCSDTFromHDMia(service, "new_chinhsachdautu", "new_hopdongdautumia",
                     "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(new string[] { "new_ngayapdung", "new_thutuuutien",
-                        "new_cantrutoithieu", "new_dinhmucdautukhonghoanlai", "new_dinhmucdautuhoanlai", "new_dinhmuctamung", "new_dinhmucphanbontoithieu" }),
+                        "new_cantrutoithieu", "new_dinhmucdautukhonghoanlai", "new_dinhmuctamung", "new_dinhmucphanbontoithieu" }),
                     "new_hopdongdautumiaid", HDDTMia.Id, "new_ngayapdung", ((EntityReference)HDDTMia["new_vudautu"]).Id);
 
                 if (CSThoa.Entities.Count > 0)
                 {
                     traceService.Trace("co csdt thoa " + CSThoa.Entities.Count);
 
-                    DateTime maxdate0 = new DateTime(1, 1, 1);  // cs trong cham soc mia
-                    DateTime maxdate1 = new DateTime(1, 1, 1);  // cs tham canh
-                    //DateTime maxdate2 = new DateTime(1, 1, 1);  // cs tuoi
-                    //DateTime maxdate3 = new DateTime(1, 1, 1);  // cs boc la
-                    DateTime maxdate4 = new DateTime(1, 1, 1);  // cs tam ung
+                    DateTime maxdate0 = new DateTime(1, 1, 1);
+                    DateTime maxdate1 = new DateTime(1, 1, 1);
+                    DateTime maxdate4 = new DateTime(1, 1, 1);
 
                     traceService.Trace("maxdate ");
 
@@ -104,29 +96,19 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     {
                         traceService.Trace("csdt co muc dich dt " + m.Id);
 
-                        if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000000)    // cs trong cham soc mia
+                        if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000000)    // new_mucdichdautu
                         {
                             traceService.Trace("csdt co muc dich dt Trong mia");
                             if ((DateTime)m["new_ngayapdung"] >= maxdate0)
                                 CSDautu = m;
                         }
-                        else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000001)  // cs tham canh
+                        else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000001)
                         {
                             traceService.Trace("csdt co muc dich Tham canh  " + m["new_mucdichdautu"].ToString());
                             if ((DateTime)m["new_ngayapdung"] >= maxdate1)
                                 CSThamCanh = m;
                         }
-                        //else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000002)  // cs tuoi
-                        //{
-                        //    if ((DateTime)m["new_ngayapdung"] >= maxdate2)
-                        //        CSTamUng = m;
-                        //}
-                        //else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000003)  // cs boc la
-                        //{
-                        //    if ((DateTime)m["new_ngayapdung"] >= maxdate3)
-                        //        CSTamUng = m;
-                        //}
-                        else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000004)  // cs tam ung
+                        else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000004)
                         {
                             if ((DateTime)m["new_ngayapdung"] >= maxdate4)
                                 CSTamUng = m;
@@ -134,14 +116,13 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     }
                 }
 
-                traceService.Trace("csdt vi tri 1");
-
                 if (CSDautu == null || CSTamUng == null || CSThamCanh == null)
                 {
                     StringBuilder qChinhSach = new StringBuilder();
                     qChinhSach.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
                     qChinhSach.AppendFormat("<entity name='new_chinhsachdautu'>");
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_chinhsachdautuid");
+                    qChinhSach.AppendFormat("<attribute name='{0}' />", "new_name");
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_ngayapdung");
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_thutuuutien");
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_cantrutoithieu");
@@ -151,7 +132,6 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_dinhmucphanbontoithieu");
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_mucdichdautu");
                     qChinhSach.AppendFormat("<attribute name='{0}' />", "new_loailaisuatcodinhthaydoi");
-                    qChinhSach.AppendFormat("<attribute name='{0}' />", "new_name");
                     //qChinhSach.AppendFormat("<attribute name='{0}' />", "new_muclaisuatdautu");
 
                     qChinhSach.AppendFormat("<filter type='and'>");
@@ -236,8 +216,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     qChinhSach.AppendFormat("</fetch>");
 
                     EntityCollection result = service.RetrieveMultiple(new FetchExpression(qChinhSach.ToString()));
-                    Entity arr = null;
-
+                    traceService.Trace("Số lượng chính sach tìm được trước khi kiểm tra dk : " + result.Entities.Count.ToString());
                     if (result.Entities.Count <= 0 && CSDautu == null)
                         throw new Exception("Không tìm thấy chính sách nào phù hợp !");
                     else
@@ -246,15 +225,12 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                         {
                             #region check chinh sach
                             Entity cs = result.Entities[i];
-                            traceService.Trace("start: " + cs["new_name"].ToString());
+                            traceService.Trace("Check " + cs["new_name"].ToString());
+
                             EntityCollection csNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", cs.Id);
                             if (csNhomKH.Entities.Count > 0)
                             {
-                                if (!KhachHang.Contains("new_nhomkhachhang"))
-                                {
-                                    throw new Exception("Khách hàng trên thửa đất " + ThuaDat["new_name"].ToString() + " chưa có thông tin nhóm khách hàng !");
-                                }
-
+                                if (!KhachHang.Contains("new_nhomkhachhang")) throw new Exception("Khách hàng trên thửa đất " + ThuaDat["new_name"].ToString() + "chưa có thông tin nhóm khách hàng !");
                                 bool check = false;
                                 foreach (Entity t in csNhomKH.Entities)
                                     if (t.Id == ((EntityReference)KhachHang["new_nhomkhachhang"]).Id)
@@ -269,38 +245,32 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-                            traceService.Trace("Nhom khach hang");
+                            traceService.Trace("Pass nhom khách hàng");
 
                             EntityCollection csVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid", cs.Id);
                             if (csVungDL.Entities.Count > 0)
                             {
-
                                 bool check = false;
                                 List<Guid> dsvung = new List<Guid>();
                                 foreach (Entity n in csVungDL.Entities)
                                     dsvung.Add(n.Id);
 
                                 Entity diachi = service.Retrieve("new_diachi", ((EntityReference)ThuaDat["new_diachi"]).Id, new ColumnSet(new string[] { "new_path" }));
-
                                 QueryExpression qe = new QueryExpression("new_vungdialy_hanhchinh");
                                 qe.NoLock = true;
                                 qe.ColumnSet = new ColumnSet(new string[] { "new_vungdialy_hanhchinhid", "new_vungdialy", "new_path" });
                                 qe.Criteria.AddCondition(new ConditionExpression("new_vungdialy", ConditionOperator.In, dsvung.ToArray()));
-
-                                if (diachi.Contains("new_path"))
+                                traceService.Trace(diachi["new_path"].ToString());
+                                foreach (Entity n in service.RetrieveMultiple(qe).Entities)
                                 {
-                                    foreach (Entity n in service.RetrieveMultiple(qe).Entities)
+                                    traceService.Trace(n["new_path"].ToString() + " -" + diachi["new_path"].ToString().Contains(n["new_path"].ToString()));
+                                    
+                                    if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
                                     {
-                                        traceService.Trace(n["new_path"].ToString());
-                                        if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
-                                        {
-                                            check = true;
-                                            break;
-                                        }
+                                        check = true;
+                                        break;
                                     }
                                 }
-                                else
-                                    check = false;
 
                                 if (!check)
                                 {
@@ -309,19 +279,16 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-                            traceService.Trace("dia chi");
+                            traceService.Trace("Pass vùng dia li");
 
                             EntityCollection csNhomNangSuat = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_name", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", cs.Id);
                             if (csNhomNangSuat.Entities.Count > 0)
                             {
                                 decimal nsbinhquan = (KhachHang.Contains("new_nangsuatbinhquan") ? (decimal)KhachHang["new_nangsuatbinhquan"] : 0);
-                                traceService.Trace("nsbinhquan  " + nsbinhquan);
                                 bool check = false;
                                 foreach (Entity t in csNhomNangSuat.Entities)
                                     if (t.Contains("new_nangsuattu") && t.Contains("new_nangsuatden"))
                                     {
-                                        traceService.Trace("new_nangsuattu  " + (decimal)t["new_nangsuattu"]);
-                                        traceService.Trace("new_nangsuatden  " + (decimal)t["new_nangsuatden"]);
                                         if (nsbinhquan >= (decimal)t["new_nangsuattu"] && nsbinhquan <= (decimal)t["new_nangsuatden"])
                                         {
                                             check = true;
@@ -337,7 +304,8 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-                            traceService.Trace("nang suat");
+
+                            traceService.Trace("Pass nhom năng suất");
 
                             EntityCollection csGiong = RetrieveNNRecord(service, "new_giongmia", "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia", new ColumnSet(new string[] { "new_giongmiaid" }), "new_chinhsachdautuid", cs.Id);
                             if (csGiong.Entities.Count > 0)
@@ -356,7 +324,8 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-                            traceService.Trace("giong mia");
+
+                            traceService.Trace("Pass giống mía");
 
                             EntityCollection csNHomCL = RetrieveNNRecord(service, "new_nhomculy", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy", new ColumnSet(new string[] { "new_nhomculyid" }), "new_chinhsachdautuid", cs.Id);
                             if (csNHomCL.Entities.Count > 0)
@@ -376,7 +345,8 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-                            traceService.Trace("nhom cu ly");
+
+                            traceService.Trace("Pass nhom cự li");
 
                             EntityCollection csKKPT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_chinhsachdautu", "new_new_chinhsachdautu_new_khuyenkhichphatt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_chinhsachdautuid", cs.Id);
                             if (csKKPT.Entities.Count > 0)
@@ -403,7 +373,8 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-                            traceService.Trace("khuyen khich phat trien");
+
+                            traceService.Trace("Pass KKPT");
 
                             EntityCollection csKhuyenNong = RetrieveNNRecord(service, "new_mohinhkhuyennong", "new_chinhsachdautu", "new_new_chinhsachdautu_new_mohinhkhuyennong", new ColumnSet(new string[] { "new_mohinhkhuyennongid" }), "new_chinhsachdautuid", cs.Id);
                             if (csKhuyenNong.Entities.Count > 0)
@@ -426,48 +397,32 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                 }
                             }
 
-                            traceService.Trace("KKPT");
-                            arr = cs;
-                            break;
+                            traceService.Trace("Pass mô hình khuyến nông");
+
                             #endregion
                         }
-                        
+
                         DateTime maxdate0 = new DateTime(1, 1, 1);
                         DateTime maxdate1 = new DateTime(1, 1, 1);
                         DateTime maxdate4 = new DateTime(1, 1, 1);
-
-                        //foreach (Entity m in result.Entities)
-                        //{
-                        //    if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000000)
-                        //    {
-                        //        if ((DateTime)m["new_ngayapdung"] >= maxdate0)
-                        //            CSDautu = m;
-                        //    }
-                        //    else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000001)
-                        //    {
-                        //        if ((DateTime)m["new_ngayapdung"] >= maxdate1)
-                        //            CSThamCanh = m;
-                        //    }
-                        //    else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000004)
-                        //    {
-                        //        if ((DateTime)m["new_ngayapdung"] >= maxdate4)
-                        //            CSTamUng = m;
-                        //    }
-                        //}
-                        if (((OptionSetValue)arr["new_mucdichdautu"]).Value == 100000000)
+                        //throw new Exception(((OptionSetValue)result[0]["new_mucdichdautu"]).Value.ToString());
+                        foreach (Entity m in result.Entities)
                         {
-                            if ((DateTime)arr["new_ngayapdung"] >= maxdate0)
-                                CSDautu = arr;
-                        }
-                        else if (((OptionSetValue)arr["new_mucdichdautu"]).Value == 100000001)
-                        {
-                            if ((DateTime)arr["new_ngayapdung"] >= maxdate1)
-                                CSThamCanh = arr;
-                        }
-                        else if (((OptionSetValue)arr["new_mucdichdautu"]).Value == 100000004)
-                        {
-                            if ((DateTime)arr["new_ngayapdung"] >= maxdate4)
-                                CSTamUng = arr;
+                            if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000000) // cs dau tu 
+                            {
+                                if ((DateTime)m["new_ngayapdung"] >= maxdate0)
+                                    CSDautu = m;
+                            }
+                            else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000001)//CSDautu tham thanh
+                            {
+                                if ((DateTime)m["new_ngayapdung"] >= maxdate1)
+                                    CSThamCanh = m;
+                            }
+                            else if (((OptionSetValue)m["new_mucdichdautu"]).Value == 100000004)//cs tam ứng
+                            {
+                                if ((DateTime)m["new_ngayapdung"] >= maxdate4)
+                                    CSTamUng = m;
+                            }
                         }
                     }
                 }
@@ -513,52 +468,26 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     Entity up = new Entity(CTHDMia.LogicalName);
                     up.Id = CTHDMia.Id;
                     up["new_chinhsachdautu"] = CSDautu.ToEntityReference();
-
                     if (CSTamUng != null) up["new_chinhsachtamung"] = CSTamUng.ToEntityReference();
                     else up["new_chinhsachtamung"] = null;
-
-                    if (CSThamCanh != null)
-                    {
-                        up["new_chinhsachthamcanh"] = CSThamCanh.ToEntityReference();
-
-                        decimal thamcanhKHL = (CSThamCanh.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSThamCanh["new_dinhmucdautukhonghoanlai"]).Value : new decimal(0));
-                        decimal thamcanhHL = (CSThamCanh.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSThamCanh["new_dinhmucdautuhoanlai"]).Value : new decimal(0));
-
-                        up["new_dinhmuctoida"] = new Money(thamcanhKHL + thamcanhHL);
-                    }
+                    if (CSThamCanh != null) up["new_chinhsachthamcanh"] = CSThamCanh.ToEntityReference();
                     else up["new_chinhsachthamcanh"] = null;
 
                     if (CSDautu.Contains("new_loailaisuatcodinhthaydoi"))
                         up["new_loailaisuat"] = ((bool)CSDautu["new_loailaisuatcodinhthaydoi"] == true ? new OptionSetValue(100000000) : new OptionSetValue(100000001));
                     else up["new_loailaisuat"] = null;
-
-                    // Gan lai suat
-                    //Entity lsthaydoiEn = new Entity();
-                    //lsthaydoiEn = FindLSthaydoi(service, CSDautu);
-                    //if (lsthaydoiEn != null && lsthaydoiEn.Id != Guid.Empty)
-                    //{
-                    //    if (lsthaydoiEn.Contains("new_phantramlaisuat"))
-                    //        up["new_laisuat"] = lsthaydoiEn["new_phantramlaisuat"];
-                    //}
-                    //else
-                    //{
-                    //    if (CSDautu.Contains("new_muclaisuatdautu"))
-                    //        up["new_laisuat"] = CSDautu["new_muclaisuatdautu"];
-                    //    else
-                    //    {
-                    //        foreach (Entity TSVDT in dsTSVDT.Entities)
-                    //            if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000001)
-                    //                if (TSVDT.Attributes.Contains("new_giatri"))
-                    //                {
-                    //                    decimal mucls = (TSVDT.Contains("new_giatri") ? TSVDT.GetAttributeValue<decimal>("new_giatri") : 0);
-                    //                    up["new_laisuat"] = mucls;
-                    //                    break;
-                    //                }
-                    //    }
-                    //}
-                    //if (!up.Contains("new_laisuat")) up["new_laisuat"] = null;
-
-                    // End gan lai suat
+                    if (CSDautu.Contains("new_muclaisuatdautu"))
+                        up["new_laisuat"] = CSDautu["new_muclaisuatdautu"];
+                    else
+                        foreach (Entity TSVDT in dsTSVDT.Entities)
+                            if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000001)
+                                if (TSVDT.Attributes.Contains("new_giatri"))
+                                {
+                                    decimal mucls = (TSVDT.Contains("new_giatri") ? TSVDT.GetAttributeValue<decimal>("new_giatri") : 0);
+                                    up["new_laisuat"] = mucls;
+                                    break;
+                                }
+                    if (!up.Contains("new_laisuat")) up["new_laisuat"] = null;
 
                     if (CSDautu.Contains("new_cachtinhlai"))
                         up["new_cachtinhlai"] = CSDautu["new_cachtinhlai"];
@@ -590,12 +519,14 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     traceService.Trace("new_cantrutoithieu");
 
                     #region Get Chinh Sach Bo Sung
-
+                    traceService.Trace("start get chinh sach bo sung");
+                    traceService.Trace(((DateTime)CTHDMia["createdon"]).ToString());
                     StringBuilder qCSBS = new StringBuilder();
                     qCSBS.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
                     qCSBS.AppendFormat("<entity name='new_chinhsachdautuchitiet'>");
                     qCSBS.AppendFormat("<attribute name='{0}' />", "new_sotienbosung_khl");
                     qCSBS.AppendFormat("<attribute name='{0}' />", "new_sotienbosung");
+                    qCSBS.AppendFormat("<attribute name='{0}' />", "new_machinhsach");
                     qCSBS.AppendFormat("<attribute name='{0}' />", "new_bosungphanbon");
                     qCSBS.AppendFormat("<attribute name='{0}' />", "new_bosungtienmat");
                     qCSBS.AppendFormat("<attribute name='{0}' />", "new_nhomnangsuat");
@@ -606,7 +537,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     qCSBS.AppendFormat("<condition attribute='new_nghiemthu' operator='eq' value='0' />");
                     qCSBS.AppendFormat("<condition attribute='new_tungay' operator='le' value='{0}' />", ((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
                     qCSBS.AppendFormat("<condition attribute='new_denngay' operator='ge' value='{0}' />", ((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
-
+                    traceService.Trace(((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
                     if (CTHDMia.Contains("new_loaisohuudat"))
                     {
                         qCSBS.AppendFormat("<filter type='or'>");
@@ -625,6 +556,15 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     }
                     else qCSBS.AppendFormat("<condition attribute='new_giongmia' operator='null' />");
 
+                    if(CTHDMia.Contains("new_loaigocmia"))
+                    {
+                        qCSBS.AppendFormat("<filter type='or'>");
+                        qCSBS.AppendFormat("     <condition attribute='new_loaigocmia' operator='eq' value='{0}' />", ((OptionSetValue)CTHDMia["new_loaigocmia"]).Value);
+                        qCSBS.AppendFormat("     <condition attribute='new_loaigocmia' operator='null' />");
+                        qCSBS.AppendFormat("</filter>");
+                    }
+                    else qCSBS.AppendFormat("<condition attribute='new_loaigocmia' operator='null' />");
+
                     if (KhachHang.Contains("new_nhomkhachhang"))
                     {
                         qCSBS.AppendFormat("<filter type='or'>");
@@ -634,7 +574,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     }
                     else qCSBS.AppendFormat("<condition attribute='new_nhomkhachhang' operator='null' />");
 
-                    if (CTHDMia.Contains("new_thamgiamohinhkhuyennong"))
+                    if (CTHDMia.Contains("new_mohinhkhuyennong"))
                     {
                         qCSBS.AppendFormat("<filter type='or'>");
                         qCSBS.AppendFormat("     <condition attribute='new_mohinhkhuyennong' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_thamgiamohinhkhuyennong"]).Id);
@@ -656,8 +596,13 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     qCSBS.AppendFormat("</entity>");
                     qCSBS.AppendFormat("</fetch>");
 
-                    EntityCollection dsKKPTThuaDat = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_khuyenkhichpt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_thuadatcanhtacid", CTHDMia.Id);
+                    EntityCollection dsKKPTThuaDat = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_khuyenkhichpt",
+                        new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_thuadatcanhtacid", CTHDMia.Id);
+                    traceService.Trace("DSKKTPT: " + dsKKPTThuaDat.Entities.Count.ToString());
+
                     EntityCollection dsCSBS = service.RetrieveMultiple(new FetchExpression(qCSBS.ToString()));
+                    traceService.Trace("so CSBS :" + dsCSBS.Entities.Count.ToString());
+                    //traceService.Trace(dsCSBS[0]["new_machinhsach"].ToString());
                     if (dsCSBS != null && dsCSBS.Entities.Count > 0)
                     {
                         for (int i = 0; i < dsCSBS.Entities.Count; i++)
@@ -676,7 +621,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     continue;
                                 }
                             }
-
+                            traceService.Trace("pass nhom nang suat");
                             if (cs.Contains("new_khuyenkhichphattrien"))
                             {
                                 bool check = false;
@@ -690,6 +635,164 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                 if (!check)
                                 {
                                     dsCSBS.Entities.RemoveAt(i);
+                                    i--;
+                                    continue;
+                                }
+                            }
+                            traceService.Trace("pass KKPT");
+                            EntityCollection csVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautuchitiet", "new_new_chinhsachdautuchitiet_new_vung",
+                                new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuchitietid", cs.Id);
+
+                            if (csVungDL.Entities.Count > 0)
+                            {
+                                bool check = false;
+                                List<Guid> dsvung = new List<Guid>();
+                                foreach (Entity n in csVungDL.Entities)
+                                    dsvung.Add(n.Id);
+
+                                Entity diachi = service.Retrieve("new_diachi", ((EntityReference)ThuaDat["new_diachi"]).Id,
+                                    new ColumnSet(new string[] { "new_path" }));
+
+                                if (!diachi.Contains("new_path"))
+                                    throw new Exception("Thông tin địa chỉ trên thửa đất thiếu thông tin, vui lòng cập nhật !");
+                                QueryExpression qe = new QueryExpression("new_vungdialy_hanhchinh");
+                                qe.NoLock = true;
+                                qe.ColumnSet = new ColumnSet(new string[] { "new_vungdialy_hanhchinhid", "new_vungdialy", "new_path" });
+                                qe.Criteria.AddCondition(new ConditionExpression("new_vungdialy", ConditionOperator.In, dsvung.ToArray()));
+
+                                foreach (Entity n in service.RetrieveMultiple(qe).Entities)
+                                    if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
+                                    {
+                                        check = true;
+                                        break;
+                                    }
+                                if (!check)
+                                {
+                                    dsCSBS.Entities.RemoveAt(i);
+                                    i--;
+                                    continue;
+                                }
+                            }
+
+                            traceService.Trace("Pass dia chi");
+                        }
+                    }
+                    decimal tBSHL = 0;
+                    decimal tBSKHL = 0;
+                    decimal tPB = 0;
+                    EntityReferenceCollection fCSBS = new EntityReferenceCollection();
+                    traceService.Trace("số CSBS lấy dc :" + dsCSBS.Entities.Count.ToString());
+                    foreach (Entity a in dsCSBS.Entities)
+                    {
+                        traceService.Trace("Mã chinh sách: " + a["new_machinhsach"].ToString());
+                        fCSBS.Add(a.ToEntityReference());
+                        tBSHL += (a.Contains("new_sotienbosung") ? ((Money)a["new_sotienbosung"]).Value : 0);
+                        tBSKHL += (a.Contains("new_sotienbosung_khl") ? ((Money)a["new_sotienbosung_khl"]).Value : 0);
+                        tPB += (a.Contains("new_bosungphanbon") ? ((Money)a["new_bosungphanbon"]).Value : 0);
+                    }
+                    if (dsCSBS.Entities.Count > 0)
+                        service.Associate("new_thuadatcanhtac", CTHDMia.Id, new Relationship("new_new_thuadatcanhtac_new_chinhsachdautuct"), fCSBS);
+
+                    #endregion
+
+                    /////////////// Lay CSDT bổ sung điền field Định mức bổ sung tối đa, không xét đk nghiệm thu
+                    StringBuilder qCSBS_bstoida = new StringBuilder();
+                    qCSBS_bstoida.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
+                    qCSBS_bstoida.AppendFormat("<entity name='new_chinhsachdautuchitiet'>");
+                    qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_sotienbosung_khl");
+                    qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_sotienbosung");
+                    qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_bosungphanbon");
+                    qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_bosungtienmat");
+                    qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_nhomnangsuat");
+                    qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_khuyenkhichphattrien");
+                    qCSBS_bstoida.AppendFormat("<filter type='and'>");
+                    qCSBS_bstoida.AppendFormat("<condition attribute='new_vudautu' operator='eq' value='{0}' />", ((EntityReference)HDDTMia["new_vudautu"]).Id.ToString());
+                    qCSBS_bstoida.AppendFormat("<condition attribute='statecode' operator='eq' value='{0}' />", 0);
+                    qCSBS_bstoida.AppendFormat("<condition attribute='new_tungay' operator='le' value='{0}' />", ((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
+                    qCSBS_bstoida.AppendFormat("<condition attribute='new_denngay' operator='ge' value='{0}' />", ((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
+
+                    if (CTHDMia.Contains("new_loaisohuudat"))
+                    {
+                        qCSBS_bstoida.AppendFormat("<filter type='or'>");
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_loaisohuudat' operator='eq' value='{0}' />", ((OptionSetValue)CTHDMia["new_loaisohuudat"]).Value);
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_loaisohuudat' operator='null' />");
+                        qCSBS_bstoida.AppendFormat("</filter>");
+                    }
+                    else qCSBS_bstoida.AppendFormat("<condition attribute='new_loaisohuudat' operator='null' />");
+
+                    if (CTHDMia.Contains("new_giongmia"))
+                    {
+                        qCSBS_bstoida.AppendFormat("<filter type='or'>");
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_giongmia' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_giongmia"]).Id);
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_giongmia' operator='null' />");
+                        qCSBS_bstoida.AppendFormat("</filter>");
+                    }
+                    else qCSBS_bstoida.AppendFormat("<condition attribute='new_giongmia' operator='null' />");
+
+                    if (KhachHang.Contains("new_nhomkhachhang"))
+                    {
+                        qCSBS_bstoida.AppendFormat("<filter type='or'>");
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomkhachhang' operator='eq' value='{0}' />", ((EntityReference)KhachHang["new_nhomkhachhang"]).Id);
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomkhachhang' operator='null' />");
+                        qCSBS_bstoida.AppendFormat("</filter>");
+                    }
+                    else qCSBS_bstoida.AppendFormat("<condition attribute='new_nhomkhachhang' operator='null' />");
+
+                    if (CTHDMia.Contains("new_mohinhkhuyennong"))
+                    {
+                        qCSBS_bstoida.AppendFormat("<filter type='or'>");
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_mohinhkhuyennong' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_thamgiamohinhkhuyennong"]).Id);
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_mohinhkhuyennong' operator='null' />");
+                        qCSBS_bstoida.AppendFormat("</filter>");
+                    }
+                    else qCSBS_bstoida.AppendFormat("<condition attribute='new_mohinhkhuyennong' operator='null' />");
+
+                    if (CTHDMia.Contains("new_nhomculy"))
+                    {
+                        qCSBS_bstoida.AppendFormat("<filter type='or'>");
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomculy' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_nhomculy"]).Id);
+                        qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomculy' operator='null' />");
+                        qCSBS_bstoida.AppendFormat("</filter>");
+                    }
+                    else qCSBS_bstoida.AppendFormat("<condition attribute='new_nhomculy' operator='null' />");
+
+                    qCSBS_bstoida.AppendFormat("</filter>");
+                    qCSBS_bstoida.AppendFormat("</entity>");
+                    qCSBS_bstoida.AppendFormat("</fetch>");
+
+                    EntityCollection dsCSBS_bstoida = service.RetrieveMultiple(new FetchExpression(qCSBS_bstoida.ToString()));
+                    if (dsCSBS_bstoida != null && dsCSBS_bstoida.Entities.Count > 0)
+                    {
+                        for (int i = 0; i < dsCSBS_bstoida.Entities.Count; i++)
+                        {
+                            Entity cs = dsCSBS_bstoida.Entities[i];
+
+                            if (cs.Contains("new_nhomnangsuat"))
+                            {
+                                decimal nsbinhquan = (KhachHang.Contains("new_nangsuatbinhquan") ? (decimal)KhachHang["new_nangsuatbinhquan"] : 0);
+                                Entity NhomNS = service.Retrieve("new_nhomnangsuat", ((EntityReference)cs["new_nhomnangsuat"]).Id, new ColumnSet(new string[] { "new_name", "new_nangsuattu", "new_nangsuatden" }));
+                                if (!NhomNS.Contains("new_nangsuattu") || !NhomNS.Contains("new_nangsuatden")) throw new Exception("Thông tin chi tiết về nhóm năng suất " + NhomNS["new_name"].ToString() + " chưa có, vui lòng cập nhật !");
+                                if (!(nsbinhquan >= (decimal)NhomNS["new_nangsuattu"] && nsbinhquan <= (decimal)NhomNS["new_nangsuatden"]))
+                                {
+                                    dsCSBS_bstoida.Entities.RemoveAt(i);
+                                    i--;
+                                    continue;
+                                }
+                            }
+
+                            if (cs.Contains("new_khuyenkhichphattrien"))
+                            {
+                                bool check = false;
+                                if (dsKKPTThuaDat.Entities.Count > 0)
+                                    foreach (Entity t2 in dsKKPTThuaDat.Entities)
+                                        if (((EntityReference)cs["new_khuyenkhichphattrien"]).Id == t2.Id)
+                                        {
+                                            check = true;
+                                            break;
+                                        }
+                                if (!check)
+                                {
+                                    dsCSBS_bstoida.Entities.RemoveAt(i);
                                     i--;
                                     continue;
                                 }
@@ -719,189 +822,40 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     }
                                 if (!check)
                                 {
-                                    dsCSBS.Entities.RemoveAt(i);
+                                    dsCSBS_bstoida.Entities.RemoveAt(i);
                                     i--;
                                     continue;
                                 }
                             }
                         }
                     }
-                    decimal tBSHL = 0;
-                    decimal tBSKHL = 0;
-                    decimal tPB = 0;
-                    EntityReferenceCollection fCSBS = new EntityReferenceCollection();
-                    foreach (Entity a in dsCSBS.Entities)
+                    decimal bsBSHL = 0;
+                    decimal bsBSKHL = 0;
+                    decimal bsPB = 0;
+
+                    if (dsCSBS_bstoida != null && dsCSBS_bstoida.Entities.Count > 0)
                     {
-                        fCSBS.Add(a.ToEntityReference());
-                        tBSHL += (a.Contains("new_sotienbosung") ? ((Money)a["new_sotienbosung"]).Value : 0);
-                        tBSKHL += (a.Contains("new_sotienbosung_khl") ? ((Money)a["new_sotienbosung_khl"]).Value : 0);
-                        tPB += (a.Contains("new_bosungphanbon") ? ((Money)a["new_bosungphanbon"]).Value : 0);
+                        foreach (Entity a in dsCSBS_bstoida.Entities)
+                        {
+                            bsBSHL += (a.Contains("new_sotienbosung") ? ((Money)a["new_sotienbosung"]).Value : 0);
+                            bsBSKHL += (a.Contains("new_sotienbosung_khl") ? ((Money)a["new_sotienbosung_khl"]).Value : 0);
+                            bsPB += (a.Contains("new_bosungphanbon") ? ((Money)a["new_bosungphanbon"]).Value : 0);
+                        }
                     }
 
-                    if (dsCSBS.Entities.Count > 0)
-                        service.Associate("new_thuadatcanhtac", CTHDMia.Id, new Relationship("new_new_thuadatcanhtac_new_chinhsachdautuct"), fCSBS);
+                    up["new_dinhmuctoida"] = new Money(bsBSHL + bsBSKHL + bsPB);
+                    traceService.Trace("new_dinhmuctoida");
 
-                    #endregion
-
-                    ///////////////// Lay CSDT bổ sung điền field Định mức bổ sung tối đa, không xét đk nghiệm thu
-                    //StringBuilder qCSBS_bstoida = new StringBuilder();
-                    //qCSBS_bstoida.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
-                    //qCSBS_bstoida.AppendFormat("<entity name='new_chinhsachdautuchitiet'>");
-                    //qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_sotienbosung_khl");
-                    //qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_sotienbosung");
-                    //qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_bosungphanbon");
-                    //qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_bosungtienmat");
-                    //qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_nhomnangsuat");
-                    //qCSBS_bstoida.AppendFormat("<attribute name='{0}' />", "new_khuyenkhichphattrien");
-                    //qCSBS_bstoida.AppendFormat("<filter type='and'>");
-                    //qCSBS_bstoida.AppendFormat("<condition attribute='new_vudautu' operator='eq' value='{0}' />", ((EntityReference)HDDTMia["new_vudautu"]).Id.ToString());
-                    //qCSBS_bstoida.AppendFormat("<condition attribute='statecode' operator='eq' value='{0}' />", 0);
-                    //qCSBS_bstoida.AppendFormat("<condition attribute='new_tungay' operator='le' value='{0}' />", ((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
-                    //qCSBS_bstoida.AppendFormat("<condition attribute='new_denngay' operator='ge' value='{0}' />", ((DateTime)CTHDMia["createdon"]).AddHours(7).ToString("yyyy/MM/dd HH:mm:ss"));
-
-                    //if (CTHDMia.Contains("new_loaisohuudat"))
-                    //{
-                    //    qCSBS_bstoida.AppendFormat("<filter type='or'>");
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_loaisohuudat' operator='eq' value='{0}' />", ((OptionSetValue)CTHDMia["new_loaisohuudat"]).Value);
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_loaisohuudat' operator='null' />");
-                    //    qCSBS_bstoida.AppendFormat("</filter>");
-                    //}
-                    //else qCSBS_bstoida.AppendFormat("<condition attribute='new_loaisohuudat' operator='null' />");
-
-                    //if (CTHDMia.Contains("new_giongmia"))
-                    //{
-                    //    qCSBS_bstoida.AppendFormat("<filter type='or'>");
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_giongmia' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_giongmia"]).Id);
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_giongmia' operator='null' />");
-                    //    qCSBS_bstoida.AppendFormat("</filter>");
-                    //}
-                    //else qCSBS_bstoida.AppendFormat("<condition attribute='new_giongmia' operator='null' />");
-
-                    //if (KhachHang.Contains("new_nhomkhachhang"))
-                    //{
-                    //    qCSBS_bstoida.AppendFormat("<filter type='or'>");
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomkhachhang' operator='eq' value='{0}' />", ((EntityReference)KhachHang["new_nhomkhachhang"]).Id);
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomkhachhang' operator='null' />");
-                    //    qCSBS_bstoida.AppendFormat("</filter>");
-                    //}
-                    //else qCSBS_bstoida.AppendFormat("<condition attribute='new_nhomkhachhang' operator='null' />");
-
-                    //if (CTHDMia.Contains("new_thamgiamohinhkhuyennong"))
-                    //{
-                    //    qCSBS_bstoida.AppendFormat("<filter type='or'>");
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_mohinhkhuyennong' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_thamgiamohinhkhuyennong"]).Id);
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_mohinhkhuyennong' operator='null' />");
-                    //    qCSBS_bstoida.AppendFormat("</filter>");
-                    //}
-                    //else qCSBS_bstoida.AppendFormat("<condition attribute='new_mohinhkhuyennong' operator='null' />");
-
-                    //if (CTHDMia.Contains("new_nhomculy"))
-                    //{
-                    //    qCSBS_bstoida.AppendFormat("<filter type='or'>");
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomculy' operator='eq' value='{0}' />", ((EntityReference)CTHDMia["new_nhomculy"]).Id);
-                    //    qCSBS_bstoida.AppendFormat("     <condition attribute='new_nhomculy' operator='null' />");
-                    //    qCSBS_bstoida.AppendFormat("</filter>");
-                    //}
-                    //else qCSBS_bstoida.AppendFormat("<condition attribute='new_nhomculy' operator='null' />");
-
-                    //qCSBS_bstoida.AppendFormat("</filter>");
-                    //qCSBS_bstoida.AppendFormat("</entity>");
-                    //qCSBS_bstoida.AppendFormat("</fetch>");
-
-                    //EntityCollection dsCSBS_bstoida = service.RetrieveMultiple(new FetchExpression(qCSBS_bstoida.ToString()));
-                    //if (dsCSBS_bstoida != null && dsCSBS_bstoida.Entities.Count > 0)
-                    //{
-                    //    for (int i = 0; i < dsCSBS_bstoida.Entities.Count; i++)
-                    //    {
-                    //        Entity cs = dsCSBS_bstoida.Entities[i];
-
-                    //        if (cs.Contains("new_nhomnangsuat"))
-                    //        {
-                    //            decimal nsbinhquan = (KhachHang.Contains("new_nangsuatbinhquan") ? (decimal)KhachHang["new_nangsuatbinhquan"] : 0);
-                    //            Entity NhomNS = service.Retrieve("new_nhomnangsuat", ((EntityReference)cs["new_nhomnangsuat"]).Id, new ColumnSet(new string[] { "new_name", "new_nangsuattu", "new_nangsuatden" }));
-                    //            if (!NhomNS.Contains("new_nangsuattu") || !NhomNS.Contains("new_nangsuatden")) throw new Exception("Thông tin chi tiết về nhóm năng suất " + NhomNS["new_name"].ToString() + " chưa có, vui lòng cập nhật !");
-                    //            if (!(nsbinhquan >= (decimal)NhomNS["new_nangsuattu"] && nsbinhquan <= (decimal)NhomNS["new_nangsuatden"]))
-                    //            {
-                    //                dsCSBS_bstoida.Entities.RemoveAt(i);
-                    //                i--;
-                    //                continue;
-                    //            }
-                    //        }
-
-                    //        if (cs.Contains("new_khuyenkhichphattrien"))
-                    //        {
-                    //            bool check = false;
-                    //            if (dsKKPTThuaDat.Entities.Count > 0)
-                    //                foreach (Entity t2 in dsKKPTThuaDat.Entities)
-                    //                    if (((EntityReference)cs["new_khuyenkhichphattrien"]).Id == t2.Id)
-                    //                    {
-                    //                        check = true;
-                    //                        break;
-                    //                    }
-                    //            if (!check)
-                    //            {
-                    //                dsCSBS_bstoida.Entities.RemoveAt(i);
-                    //                i--;
-                    //                continue;
-                    //            }
-                    //        }
-
-                    //        EntityCollection csVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautuchitiet", "new_new_chinhsachdautuchitiet_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuchitietid", cs.Id);
-                    //        if (csVungDL.Entities.Count > 0)
-                    //        {
-                    //            bool check = false;
-                    //            List<Guid> dsvung = new List<Guid>();
-                    //            foreach (Entity n in csVungDL.Entities)
-                    //                dsvung.Add(n.Id);
-
-                    //            Entity diachi = service.Retrieve("new_diachi", ((EntityReference)ThuaDat["new_diachi"]).Id, new ColumnSet(new string[] { "new_path" }));
-                    //            if (!diachi.Contains("new_path"))
-                    //                throw new Exception("Thông tin địa chỉ trên thửa đất thiếu thông tin, vui lòng cập nhật !");
-                    //            QueryExpression qe = new QueryExpression("new_vungdialy_hanhchinh");
-                    //            qe.NoLock = true;
-                    //            qe.ColumnSet = new ColumnSet(new string[] { "new_vungdialy_hanhchinhid", "new_vungdialy", "new_path" });
-                    //            qe.Criteria.AddCondition(new ConditionExpression("new_vungdialy", ConditionOperator.In, dsvung.ToArray()));
-
-                    //            foreach (Entity n in service.RetrieveMultiple(qe).Entities)
-                    //                if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
-                    //                {
-                    //                    check = true;
-                    //                    break;
-                    //                }
-                    //            if (!check)
-                    //            {
-                    //                dsCSBS_bstoida.Entities.RemoveAt(i);
-                    //                i--;
-                    //                continue;
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                    //decimal bsBSHL = 0;
-                    //decimal bsBSKHL = 0;
-                    //decimal bsPB = 0;
-
-                    //if (dsCSBS_bstoida != null && dsCSBS_bstoida.Entities.Count > 0)
-                    //{
-                    //    foreach (Entity a in dsCSBS_bstoida.Entities)
-                    //    {
-                    //        bsBSHL += (a.Contains("new_sotienbosung") ? ((Money)a["new_sotienbosung"]).Value : 0);
-                    //        bsBSKHL += (a.Contains("new_sotienbosung_khl") ? ((Money)a["new_sotienbosung_khl"]).Value : 0);
-                    //        bsPB += (a.Contains("new_bosungphanbon") ? ((Money)a["new_bosungphanbon"]).Value : 0);
-                    //    }
-                    //}
-
-                    //up["new_dinhmuctoida"] = new Money(bsBSHL + bsBSKHL + bsPB);
-                    //traceService.Trace("new_dinhmuctoida");
-
-                    ////////////// END --- Lay CSDT bổ sung điền field Định mức bổ sung tối đa
+                    //////////// END --- Lay CSDT bổ sung điền field Định mức bổ sung tối đa
 
                     up["new_dongiadautukhonghoanlai"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
                     traceService.Trace("new_dongiadautukhonghoanlai");
+                    up["new_dongiahopdong"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
+                    up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
+                    up["new_dongiahopdongkhl"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
                     up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautukhonghoanlai");
-
-                    up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
+                    
                     traceService.Trace("new_dongiadautuhoanlai");
                     up["new_dinhmucdautuhoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautuhoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautuhoanlai");
@@ -909,8 +863,9 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     if (!(HDDTMia.Contains("new_chinhantienmat") && (bool)HDDTMia["new_chinhantienmat"]))
                     {
                         up["new_dongiaphanbontoithieu"] = new Money(tPB + (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0));
+                        up["new_dongiaphanbonhd"] = new Money(tPB + (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0));
                         traceService.Trace("new_dongiaphanbontoithieu");
-                        up["new_dinhmucphanbontoithieu"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiaphanbontoithieu"]).Value);
+                        up["new_dinhmucphanbontoithieu"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : new decimal(0)) * ((Money)up["new_dongiaphanbontoithieu"]).Value);
                         traceService.Trace("new_dinhmucphanbontoithieu");
                     }
 
@@ -1000,7 +955,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
         public bool CheckRunUpdate(Entity target)
         {
             string[] list = new string[] { "new_vutrong", "new_mucdichsanxuatmia","new_loaisohuudat","new_loaigocmia",
-                "new_luugoc","new_giongmia","new_thuadat","new_khachhang", "new_khachhangdoanhnghiep","new_thamgiamohinhkhuyennong"};
+                "new_luugoc","new_giongmia","new_thuadat","new_thamgiamohinhkhuyennong"};
             foreach (string a in list)
             {
                 if (target.Contains(a))
@@ -1025,7 +980,6 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
             linkEntity2.LinkCriteria.AddCondition(new ConditionExpression(condition, ConditionOperator.Equal, value));
             query.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
             query.Criteria.AddCondition(new ConditionExpression("new_vudautu", ConditionOperator.Equal, vudautu));
-
             EntityCollection collRecords = crmservices.RetrieveMultiple(query);
 
             return collRecords;
@@ -1099,33 +1053,6 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
             EntityCollection entc = crmservices.RetrieveMultiple(new FetchExpression(fetchXml));
 
             return entc;
-        }
-
-        public static Entity FindLSthaydoi(IOrganizationService crmservices, Entity CSDT)
-        {
-            string fetchXml =
-                   @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
-                      <entity name='new_banglaisuatthaydoi'>
-                        <attribute name='new_name' />
-                        <attribute name='createdon' />
-                        <attribute name='new_ma' />
-                        <attribute name='new_ngayapdung' />
-                        <attribute name='new_chinhsachdautu' />
-                        <attribute name='new_phantramlaisuat' />
-                        <attribute name='new_banglaisuatthaydoiid' />
-                        <order attribute='createdon' descending='false' />
-                        <filter type='and'>
-                          <condition attribute='new_chinhsachdautu' operator='eq' uitype='new_chinhsachdautu' value='{0}' />
-                        </filter>
-                      </entity>
-                    </fetch>";
-
-            fetchXml = string.Format(fetchXml, CSDT.Id);
-            EntityCollection entc = crmservices.RetrieveMultiple(new FetchExpression(fetchXml));
-            if (entc != null && entc.Entities.Count > 0)
-                return entc[0];
-            else
-                return null;
         }
     }
 }
