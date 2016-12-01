@@ -258,7 +258,7 @@ namespace PDNTamUng_ETLTranSaction
                     phanbodautuKHL["new_sotien"] = new Money(sotien);
                     phanbodautuKHL["new_conlai"] = new Money(sotien);
                     phanbodautuKHL["new_tram"] = tram;
-                    phanbodautuKHL["new_vbnv"] = cbnv;
+                    phanbodautuKHL["new_cbnv"] = cbnv;
                     phanbodautuKHL["new_ngayphatsinh"] = ngayduyet;
                     phanbodautuKHL["new_phieutamung"] = target.ToEntityReference();
                     phanbodautuKHL["new_loailaisuat"] = new OptionSetValue(loailaisuat);
@@ -309,7 +309,7 @@ namespace PDNTamUng_ETLTranSaction
                 phanbodautuKHL["new_sotien"] = new Money(sotien);
                 phanbodautuKHL["new_conlai"] = new Money(sotien);
                 phanbodautuKHL["new_tram"] = tram;
-                phanbodautuKHL["new_vbnv"] = cbnv;
+                phanbodautuKHL["new_cbnv"] = cbnv;
                 phanbodautuKHL["new_ngayphatsinh"] = ngayduyet;
                 phanbodautuKHL["new_phieutamung"] = target.ToEntityReference();
                 phanbodautuKHL["new_mucdichdautu"] = new OptionSetValue(100000004);
@@ -353,7 +353,7 @@ namespace PDNTamUng_ETLTranSaction
                 phanbodautuKHL["new_sotien"] = new Money(sotien);
                 phanbodautuKHL["new_conlai"] = new Money(sotien);
                 phanbodautuKHL["new_tram"] = tram;
-                phanbodautuKHL["new_vbnv"] = cbnv;
+                phanbodautuKHL["new_cbnv"] = cbnv;
                 phanbodautuKHL["new_ngayphatsinh"] = ngayduyet;
                 phanbodautuKHL["new_phieutamung"] = target.ToEntityReference();
                 phanbodautuKHL["new_mucdichdautu"] = new OptionSetValue(100000004);
@@ -396,7 +396,7 @@ namespace PDNTamUng_ETLTranSaction
                 phanbodautuKHL["new_sotien"] = new Money(sotien);
                 phanbodautuKHL["new_conlai"] = new Money(sotien);
                 phanbodautuKHL["new_tram"] = tram;
-                phanbodautuKHL["new_vbnv"] = cbnv;
+                phanbodautuKHL["new_cbnv"] = cbnv;
                 phanbodautuKHL["new_ngayphatsinh"] = ngayduyet;
                 phanbodautuKHL["new_phieutamung"] = target.ToEntityReference();
                 phanbodautuKHL["new_mucdichdautu"] = new OptionSetValue(100000004);

@@ -65,9 +65,4 @@ D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\obj\Debug\ConsoleAppT
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
-D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
-D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
-D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
-D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
-D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache

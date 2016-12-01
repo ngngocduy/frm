@@ -52,8 +52,9 @@ namespace GenPBDT_NTDV
                 trace.Trace("3");
                 if (ntdichvu.Contains("new_tram"))
                     tram = (EntityReference)ntdichvu["new_tram"];
-                else if (ntdichvu.Contains("new_canbonongvu"))
+                if (ntdichvu.Contains("new_canbonongvu"))
                     cbnv = (EntityReference)ntdichvu["new_canbonongvu"];
+                
                 trace.Trace("4");
                 if (ntdichvu.Contains("actualstart"))
                     ngayduyet = (DateTime)ntdichvu["actualstart"];
@@ -63,14 +64,14 @@ namespace GenPBDT_NTDV
                     vudautu = (EntityReference)ntdichvu["new_vudautu"];
 
                 List<Entity> lstChitietntdichvu = RetrieveMultiRecord(service, "new_chitietnghiemthudichvu",
-                    new ColumnSet(new string[] {"new_thuadat" }), "new_nghiemthudichvu", ntdichvu.Id);
+                    new ColumnSet(new string[] { "new_thuadat" }), "new_nghiemthudichvu", ntdichvu.Id);
 
                 trace.Trace(lstChitietntdichvu.Count.ToString());
                 foreach (Entity en in lstChitietntdichvu)
                 {
                     EntityReference thuadat = (EntityReference)en["new_thuadat"];
                     Entity thuadatcanhtac = GetThuadatcanhtacfromthuadat(thuadat, hdmiaRef);
-
+                    throw  new Exception(thuadatcanhtac["new_name"].ToString());
                     List<Entity> lstTylethuhoi = RetrieveMultiRecord(service, "new_tylethuhoivondukien",
                     new ColumnSet(new string[] { "new_sotienthuhoi", "new_tiendaphanbo", "new_vudautu" }), "new_chitiethddtmia", thuadatcanhtac.Id);
                     trace.Trace("A");
@@ -106,13 +107,12 @@ namespace GenPBDT_NTDV
                 }
             }
         }
-
         public void CreatePBDT(Entity hddtmia, Entity KH, Guid tdct,
            EntityReference vudautu, EntityReference vuthanhtoan, decimal sotien, EntityReference tram,
            EntityReference cbnv, DateTime ngayduyet, Entity ntdichvu, string sophieu)
         {
             Entity thuadatcanhtac = service.Retrieve("new_thuadatcanhtac", tdct,
-                new ColumnSet(new string[] { "new_laisuat", "new_name", "new_loailaisuat", "new_dachihoanlai_homgiong", "new_dachikhonghoanlai_homgiong" }));
+                new ColumnSet(new string[] { "new_laisuat", "new_name", "new_loailaisuat", "new_dachihoanlai_dichvu", "new_dachikhonghoanlai_dichvu" }));
 
             int loailaisuat = ((OptionSetValue)thuadatcanhtac["new_loailaisuat"]).Value;
 
@@ -141,11 +141,9 @@ namespace GenPBDT_NTDV
                 else if (KH.LogicalName == "account")
                     phanbodautuKHL["new_khachhangdoanhnghiep"] = KH.ToEntityReference();
 
-                //phanbodautuKHL["new_etltransaction"] = new EntityReference("new_etltransaction", etlID);
+                decimal dachihoanlai = thuadatcanhtac.Contains("new_dachihoanlai_dichvu") ? ((Money)thuadatcanhtac["new_dachihoanlai_dichvu"]).Value : new decimal(0);
 
-                decimal dachihoanlai = thuadatcanhtac.Contains("new_dachihoanlai_phanbon") ? ((Money)thuadatcanhtac["new_dachihoanlai_phanbon"]).Value : new decimal(0);
-                decimal dachikhonghoanlai = thuadatcanhtac.Contains("new_dachikhonghoanlai_phanbon") ? ((Money)thuadatcanhtac["new_dachikhonghoanlai_phanbon"]).Value : new decimal(0);
-
+                thuadatcanhtac["new_dachihoanlai_dichvu"] = new Money(sotien + dachihoanlai);
                 phanbodautuKHL["new_loaihopdong"] = new OptionSetValue(100000000);
                 phanbodautuKHL["new_hopdongdautumia"] = hddtmia.ToEntityReference();
                 phanbodautuKHL["new_thuacanhtac"] = new EntityReference("new_thuadatcanhtac", tdct);
@@ -154,7 +152,7 @@ namespace GenPBDT_NTDV
                 phanbodautuKHL["new_sotien"] = new Money(sotien);
                 phanbodautuKHL["new_conlai"] = new Money(sotien);
                 phanbodautuKHL["new_tram"] = tram;
-                phanbodautuKHL["new_vbnv"] = cbnv;
+                phanbodautuKHL["new_cbnv"] = cbnv;
                 phanbodautuKHL["new_loaidautu"] = new OptionSetValue(100000000);
                 phanbodautuKHL["new_ngayphatsinh"] = ngayduyet;
                 phanbodautuKHL["new_nghiemthudichvu"] = ntdichvu.ToEntityReference();
@@ -236,17 +234,31 @@ namespace GenPBDT_NTDV
             qbangLai.Criteria.AddCondition(new ConditionExpression("new_mucdichdautu", ConditionOperator.Equal, mucdichdautu));
             qbangLai.AddOrder("new_ngayapdung", OrderType.Ascending);
             EntityCollection bls = service.RetrieveMultiple(qbangLai);
-            Entity kq = null;
+            //Entity kq = null;
             decimal result = 0;
-
-            for (int i = 0; i < bls.Entities.Count; i++)
+            int n = bls.Entities.Count;
+            trace.Trace(n.ToString());
+            for (int i = 0; i < n; i++)
             {
                 Entity q = bls[i];
 
-                if (CompareDate(ngaygiaonhan, (DateTime)q["new_ngayapdung"]) < 0)
+                DateTime dt = (DateTime)q["new_ngayapdung"];
+                if (n == 1 && CompareDate(ngaygiaonhan, dt) == 0)
                 {
-                    kq = bls[i - 1];
-                    result = (decimal)kq["new_phantramlaisuat"];
+                    trace.Trace("A");
+                    result = (decimal)q["new_phantramlaisuat"];
+                    break;
+                }
+                else if (n > 1 && CompareDate(ngaygiaonhan, dt) < 0)
+                {
+                    trace.Trace("B");
+                    result = (decimal)bls[i - 1]["new_phantramlaisuat"];
+                    break;
+                }
+                else if (i == n - 1)
+                {
+                    trace.Trace("C");
+                    result = (decimal)bls[(i > 0 ? i : 1) - 1]["new_phantramlaisuat"];
                     break;
                 }
             }
@@ -282,7 +294,7 @@ namespace GenPBDT_NTDV
             Entity rs = null;
 
             QueryExpression q = new QueryExpression("new_thuadatcanhtac");
-            q.ColumnSet = new ColumnSet(new string[] { "new_thuadatcanhtacid" });
+            q.ColumnSet = new ColumnSet(new string[] { "new_thuadatcanhtacid","new_name" });
             q.Criteria = new FilterExpression();
             q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, thuadat.Id));
             q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hdmia.Id));

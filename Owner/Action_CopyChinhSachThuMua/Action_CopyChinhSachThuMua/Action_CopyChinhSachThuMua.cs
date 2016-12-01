@@ -645,7 +645,7 @@ namespace Action_CopyChinhSachThuMua
                       <entity name='new_chinhsachthumua_ccsthuong'>
                         <attribute name='new_tu' />
                         <attribute name='new_tienthuong' />
-                        <attribute name='new_nguontien' />
+                        
                         <attribute name='new_operatortu' />
                         <attribute name='new_operatorden' />
                         <attribute name='new_den' />

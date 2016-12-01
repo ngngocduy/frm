@@ -240,7 +240,7 @@ namespace Plugin_PDK_HomGiong
                     sum_pdkNT(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl, 100000003, "new_nghiemthukhac", NT.Id);
                 }
             }
-
+            
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
@@ -251,7 +251,7 @@ namespace Plugin_PDK_HomGiong
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            throw new Exception(dmhlvt.ToString() + "-" + gnhlvt.ToString());
+            
             decimal dmcTmHl = dmhl - dmhlvt - gnhltm;
             decimal dmcHlVt = dmhlvt - gnhlvt;
             decimal dmcKhl = dm0hl - gn0hl;
