@@ -23,10 +23,15 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
             Entity target = null;
 
             bool co = false;
+
             if (context.MessageName == "Create")
             {
                 target = (Entity)context.InputParameters["Target"];
-                co = true;
+
+                if (target.Contains("new_phuluchopdongid"))
+                    co = false;
+                else
+                    co = true;
             }
             else if (context.MessageName == "Update")
             {
@@ -264,7 +269,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                 foreach (Entity n in service.RetrieveMultiple(qe).Entities)
                                 {
                                     traceService.Trace(n["new_path"].ToString() + " -" + diachi["new_path"].ToString().Contains(n["new_path"].ToString()));
-                                    
+
                                     if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
                                     {
                                         check = true;
@@ -556,7 +561,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     }
                     else qCSBS.AppendFormat("<condition attribute='new_giongmia' operator='null' />");
 
-                    if(CTHDMia.Contains("new_loaigocmia"))
+                    if (CTHDMia.Contains("new_loaigocmia"))
                     {
                         qCSBS.AppendFormat("<filter type='or'>");
                         qCSBS.AppendFormat("     <condition attribute='new_loaigocmia' operator='eq' value='{0}' />", ((OptionSetValue)CTHDMia["new_loaigocmia"]).Value);
@@ -855,7 +860,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     up["new_dongiahopdongkhl"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
                     up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautukhonghoanlai");
-                    
+
                     traceService.Trace("new_dongiadautuhoanlai");
                     up["new_dinhmucdautuhoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautuhoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautuhoanlai");
@@ -954,6 +959,9 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
         public bool CheckRunUpdate(Entity target)
         {
+            if (target.Contains("new_phuluchopdongid"))
+                return false;
+
             string[] list = new string[] { "new_vutrong", "new_mucdichsanxuatmia","new_loaisohuudat","new_loaigocmia",
                 "new_luugoc","new_giongmia","new_thuadat","new_thamgiamohinhkhuyennong"};
             foreach (string a in list)
@@ -1054,5 +1062,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
             return entc;
         }
+
+
     }
 }

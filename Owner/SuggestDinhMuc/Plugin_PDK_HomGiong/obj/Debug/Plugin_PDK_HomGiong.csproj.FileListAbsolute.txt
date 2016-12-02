@@ -17,3 +17,4 @@ D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGion
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb
+D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.csprojResolveAssemblyReference.cache

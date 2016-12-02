@@ -1,0 +1,5 @@
+c:\users\t430\documents\visual studio 2013\Projects\CheckThuaDat_Phuluchopdongtangdientich\CheckThuaDat_Phuluchopdongtangdientich\bin\Debug\CheckThuaDat_Phuluchopdongtangdientich.dll
+c:\users\t430\documents\visual studio 2013\Projects\CheckThuaDat_Phuluchopdongtangdientich\CheckThuaDat_Phuluchopdongtangdientich\bin\Debug\CheckThuaDat_Phuluchopdongtangdientich.pdb
+c:\users\t430\documents\visual studio 2013\Projects\CheckThuaDat_Phuluchopdongtangdientich\CheckThuaDat_Phuluchopdongtangdientich\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\t430\documents\visual studio 2013\Projects\CheckThuaDat_Phuluchopdongtangdientich\CheckThuaDat_Phuluchopdongtangdientich\obj\Debug\CheckThuaDat_Phuluchopdongtangdientich.dll
+c:\users\t430\documents\visual studio 2013\Projects\CheckThuaDat_Phuluchopdongtangdientich\CheckThuaDat_Phuluchopdongtangdientich\obj\Debug\CheckThuaDat_Phuluchopdongtangdientich.pdb

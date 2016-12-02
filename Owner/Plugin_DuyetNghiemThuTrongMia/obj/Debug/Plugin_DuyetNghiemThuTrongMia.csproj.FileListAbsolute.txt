@@ -1,0 +1,18 @@
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.csprojResolveAssemblyReference.cache
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.csprojResolveAssemblyReference.cache
+D:\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+D:\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+D:\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+D:\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb

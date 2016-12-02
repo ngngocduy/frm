@@ -1,0 +1,5 @@
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutoCopyNghiemThuDichVu\bin\Debug\Plugin_AutoCopyNghiemThuDichVu.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutoCopyNghiemThuDichVu\bin\Debug\Plugin_AutoCopyNghiemThuDichVu.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutoCopyNghiemThuDichVu\obj\Debug\Plugin_AutoCopyNghiemThuDichVu.dll
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutoCopyNghiemThuDichVu\obj\Debug\Plugin_AutoCopyNghiemThuDichVu.pdb
+C:\Users\7506113\Desktop\FRM_Plugin\Plugin_AutoCopyNghiemThuDichVu\obj\Debug\Plugin_AutoCopyNghiemThuDichVu.csprojResolveAssemblyReference.cache

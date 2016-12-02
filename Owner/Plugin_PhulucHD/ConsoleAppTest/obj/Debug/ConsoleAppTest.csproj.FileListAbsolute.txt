@@ -1,0 +1,97 @@
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_ThemCSDTvaoChiTietHDDTMia\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_DieuChinhHopDongVanChuyen\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachThuMua\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Client.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
