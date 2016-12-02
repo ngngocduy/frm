@@ -255,7 +255,7 @@ namespace Plugin_PDK_PhanBon
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            throw new Exception(dmhlvt.ToString() + gnhlvt.ToString());
+            //throw new Exception(dmhlvt.ToString() + gnhlvt.ToString());
             decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
             decimal deNghiVt = dmhlvt - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;

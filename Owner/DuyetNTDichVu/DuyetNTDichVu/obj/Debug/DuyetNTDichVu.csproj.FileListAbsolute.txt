@@ -4,3 +4,9 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichV
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.xml
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.pdb
+D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\DuyetNTDichVu.dll
+D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\DuyetNTDichVu.pdb
+D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.dll
+D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.pdb

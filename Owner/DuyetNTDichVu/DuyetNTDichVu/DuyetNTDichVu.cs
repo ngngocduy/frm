@@ -150,38 +150,25 @@ namespace DuyetNTDichVu
                             temp["new_name"] = str.ToString();
 
                             if (t.Contains("new_dichvu"))
-                            {
                                 temp["new_dichvu"] = t["new_dichvu"];
-                            }
 
                             temp["new_nghiemthudichvu"] = ntdichvu.ToEntityReference();
 
                             if (t.Contains("new_uom")) // don vi tinh
-                            {
                                 temp["new_uom"] = t["new_uom"];
-                            }
 
                             if (t.Contains("new_dongia")) // don gia
-                            {
                                 temp["new_dongia"] = t["new_dongia"];
-                            }
+                            
 
                             if (t.Contains("new_soluong")) // so luong
-                            {
                                 temp["new_khoiluongthuchien"] = t["new_soluong"];
-                            }
 
                             if (t.Contains("new_thanhtien")) // thanh tien
-                            {
-
                                 temp["new_thanhtien"] = t["new_thanhtien"];
-                            }
 
                             if (t.Contains("new_thuadat")) // thua dat
-                            {
-
                                 temp["new_thuadat"] = t["new_thuadat"];
-                            }
 
                             int solan = 0;
 
