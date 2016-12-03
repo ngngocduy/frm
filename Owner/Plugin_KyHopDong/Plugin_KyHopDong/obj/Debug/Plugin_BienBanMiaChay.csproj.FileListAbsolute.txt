@@ -1,0 +1,5 @@
+C:\Users\7506113\Desktop\New folder (2)\Plugin_BienBanMiaChay\bin\Debug\Plugin_BienBanMiaChay.dll
+C:\Users\7506113\Desktop\New folder (2)\Plugin_BienBanMiaChay\bin\Debug\Plugin_BienBanMiaChay.pdb
+C:\Users\7506113\Desktop\New folder (2)\Plugin_BienBanMiaChay\obj\Debug\Plugin_BienBanMiaChay.csprojResolveAssemblyReference.cache
+C:\Users\7506113\Desktop\New folder (2)\Plugin_BienBanMiaChay\obj\Debug\Plugin_BienBanMiaChay.dll
+C:\Users\7506113\Desktop\New folder (2)\Plugin_BienBanMiaChay\obj\Debug\Plugin_BienBanMiaChay.pdb

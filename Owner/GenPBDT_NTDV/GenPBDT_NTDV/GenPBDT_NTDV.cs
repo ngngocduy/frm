@@ -67,6 +67,7 @@ namespace GenPBDT_NTDV
                     new ColumnSet(new string[] { "new_thuadat" }), "new_nghiemthudichvu", ntdichvu.Id);
 
                 trace.Trace(lstChitietntdichvu.Count.ToString());
+
                 foreach (Entity en in lstChitietntdichvu)
                 {
                     EntityReference thuadat = (EntityReference)en["new_thuadat"];

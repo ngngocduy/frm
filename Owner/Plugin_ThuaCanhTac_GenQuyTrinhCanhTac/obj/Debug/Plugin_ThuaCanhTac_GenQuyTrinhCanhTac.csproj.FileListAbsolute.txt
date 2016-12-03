@@ -1,0 +1,30 @@
+D:\Thoai\Thoai\Farm\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+D:\Thoai\Thoai\Farm\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+D:\Thoai\Thoai\Farm\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\Thoai\Thoai\Farm\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+D:\Thoai\Thoai\Farm\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\crmservices\Desktop\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\crmservices\Desktop\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\crmservices\Desktop\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\crmservices\Desktop\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\Thu Hien\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+D:\Thoai\Thoai\Farm\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.csprojResolveAssemblyReference.cache
+E:\backup desktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+E:\backup desktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+E:\backup desktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Microsoft.Xrm.Sdk.dll
+E:\backup desktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.csprojResolveAssemblyReference.cache
+E:\backup desktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+E:\backup desktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+E:\backupDesktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+E:\backupDesktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+E:\backupDesktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Microsoft.Xrm.Sdk.dll
+E:\backupDesktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.csprojResolveAssemblyReference.cache
+E:\backupDesktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+E:\backupDesktop\NewFarmCode\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb

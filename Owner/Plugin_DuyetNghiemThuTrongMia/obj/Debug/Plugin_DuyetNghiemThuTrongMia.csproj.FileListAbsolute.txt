@@ -16,3 +16,8 @@ C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNgh
 C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
 C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
 C:\Users\Mr Duy\Downloads\Duy\My Skype Received Files\FRM_Plugin\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.csprojResolveAssemblyReference.cache
+D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
