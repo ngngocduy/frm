@@ -30,12 +30,12 @@ namespace Plugin_PDN_GiaiNgan
                     tinhDm.CalculateTrongMia(target);
                 }
             }
-            else if (context.MessageName == "Update")
+            else if (context.MessageName == "Update" && context.Depth < 2)
             {
                 target = context.InputParameters["Target"] as Entity;
                 fullEntity = context.PostEntityImages["PostImg"] as Entity;
 
-                if (target.LogicalName == "new_chitietphieudenghigiaingan" && target.Contains("new_hopdongdautumia"))
+                if (target.LogicalName == "new_chitietphieudenghigiaingan")
                 {
                     //int statuscode = ((OptionSetValue)fullEntity["new_noidunggiaingan"]).Value;
                     //if (statuscode != 100000000)// đầu tư mía

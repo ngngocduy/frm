@@ -25,7 +25,7 @@ namespace Plugin_PDN_GiaiNgan
                 new ColumnSet(true));
             if (!PDNGN.Contains("new_hopdongdautumia") && !PDNGN.Contains("new_hopdongdaututhuedat") && !PDNGN.Contains("new_hopdongdautummtb"))
                 throw new Exception("Vui lòng chọn loại hợp đồng trên phiếu đề nghị giải ngân !");
-
+            traceService.Trace(((OptionSetValue)PDNGN["new_loaihopdong"]).Value.ToString());
             if (pdk == null)
                 throw new Exception(string.Format("Chi tiết đề nghị giải ngân không tồn tại hoặc bị xóa!", pdkRef.Name));
 
@@ -301,7 +301,7 @@ namespace Plugin_PDN_GiaiNgan
             else if (((OptionSetValue)PDNGN["new_loaihopdong"]).Value == 100000001) //HD thue dat
             {
                 #region NT thuê đất
-
+                traceService.Trace("hd thue dat");
                 EntityReference hdRef = (EntityReference)PDNGN["new_hopdongdaututhuedat"];
                 Entity hd = service.Retrieve(hdRef.LogicalName, hdRef.Id, new ColumnSet(true));
 
@@ -326,9 +326,9 @@ namespace Plugin_PDN_GiaiNgan
                     ct_pdk["new_dm0hl"] = new Money(0);
                     service.Create(ct_pdk);
                 }
-
+                
                 dmhl = NT.Contains("new_tongtien") ? ((Money)NT["new_tongtien"]).Value : (decimal)0;
-
+                traceService.Trace(dmhl.ToString());
                 //dm0hl = NT.Contains("new_dautukhl") ? ((Money)NT["new_dautukhl"]).Value : (decimal)0;
                 Sum_pdnNT(ref gnhltm, ref gn0hl, "new_hopdongdaututhuedat", hdRef, -1, "new_nghiemthuthuedat", NT.Id);
                 //sum_pdkNT(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl, 100000000, "new_nghiemthutuoimia", NT.Id);
@@ -403,7 +403,7 @@ namespace Plugin_PDN_GiaiNgan
 
                 Sum_pdnNT(ref gnhltm, ref gn0hl, "new_hopdongdautummtb", hdRef, -1, "new_chitiethopdongtrangthietbi", CT.Id);
             }
-
+            //throw new Exception("a");
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
