@@ -91,7 +91,7 @@ namespace Plugin_PDK_HomGiong
                 foreach (Entity cthd in cthds.Entities)
                 {
                     decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id, ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet") ? (bool)cthd["new_yeucaudacbiet"] : false));
-
+                    traceService.Trace(tyle.ToString() + "-" + dmhl.ToString());
                     dmhl += tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     dmhlvt += tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                     dm0hl += tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);

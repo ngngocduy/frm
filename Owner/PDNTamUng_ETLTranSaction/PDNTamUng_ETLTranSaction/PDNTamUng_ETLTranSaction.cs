@@ -495,15 +495,29 @@ namespace PDNTamUng_ETLTranSaction
             EntityCollection bls = service.RetrieveMultiple(qbangLai);
             Entity kq = null;
             decimal result = 0;
+            int n = bls.Entities.Count;
 
-            for (int i = 0; i < bls.Entities.Count; i++)
+            for (int i = 0; i < n; i++)
             {
                 Entity q = bls[i];
 
-                if (CompareDate(ngaygiaonhan, (DateTime)q["new_ngayapdung"]) < 0)
+                DateTime dt = (DateTime)q["new_ngayapdung"];
+                if (n == 1 && CompareDate(ngaygiaonhan, dt) == 0)
                 {
-                    kq = bls[i - 1];
-                    result = (decimal)kq["new_phantramlaisuat"];
+                    trace.Trace("A");
+                    result = (decimal)q["new_phantramlaisuat"];
+                    break;
+                }
+                else if (n > 1 && CompareDate(ngaygiaonhan, dt) < 0)
+                {
+                    trace.Trace("B");
+                    result = (decimal)bls[i - 1]["new_phantramlaisuat"];
+                    break;
+                }
+                else if (i == n - 1)
+                {
+                    trace.Trace("C");
+                    result = (decimal)bls[(i > 0 ? i : 1) - 1]["new_phantramlaisuat"];
                     break;
                 }
             }
