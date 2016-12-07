@@ -28,3 +28,7 @@ C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
 C:\Users\Mr Duy\AppData\Roaming\Skype\My Skype Received Files\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\bin\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac\obj\Debug\Plugin_ThuaCanhTac_GenQuyTrinhCanhTac.pdb

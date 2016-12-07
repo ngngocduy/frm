@@ -13,3 +13,7 @@ D:\Work\TTC\Projects\FRM\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\bin\D
 D:\Work\TTC\Projects\FRM\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\obj\Debug\PDNTamUng_ETLTranSaction.csprojResolveAssemblyReference.cache
 D:\Work\TTC\Projects\FRM\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\obj\Debug\PDNTamUng_ETLTranSaction.dll
 D:\Work\TTC\Projects\FRM\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\obj\Debug\PDNTamUng_ETLTranSaction.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\bin\Debug\PDNTamUng_ETLTranSaction.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\bin\Debug\PDNTamUng_ETLTranSaction.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\obj\Debug\PDNTamUng_ETLTranSaction.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\PDNTamUng_ETLTranSaction\PDNTamUng_ETLTranSaction\obj\Debug\PDNTamUng_ETLTranSaction.pdb

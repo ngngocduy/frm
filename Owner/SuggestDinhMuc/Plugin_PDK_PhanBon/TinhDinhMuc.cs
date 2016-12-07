@@ -32,7 +32,7 @@ namespace Plugin_PDK_PhanBon
                 throw new Exception(string.Format("Phiếu đăng ký phân bón{0} chưa có mã. Vui lòng cập nhật mã!", pdk_name));
             if (!pdk.Contains("new_apdung"))
                 throw new Exception(string.Format("Vui lòng chọn áp dụng cho phiếu đăng ký phân bón'{0}'", pdk_name));
-
+            
             EntityReference hdRef = (EntityReference)pdk["new_hopdongdautumia"];
             Entity hd = service.Retrieve(hdRef.LogicalName, hdRef.Id, new ColumnSet(new string[] { "new_dinhmucphanbontoithieu", "new_dinhmucdautukhonghoanlai", "new_dinhmucdautucohoanlai" }));
             if (hd == null)
@@ -91,11 +91,11 @@ namespace Plugin_PDK_PhanBon
                 cthds = service.RetrieveMultiple(query);
                 if (cthds.Entities.Count == 0)
                     return;
-
+                
                 foreach (Entity cthd in cthds.Entities)
                 {
                     decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id, ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet") ? (bool)cthd["new_yeucaudacbiet"] : false));
-
+                    traceService.Trace(tyle.ToString() + "-" + dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + dm0hl.ToString());
                     dmhl += tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     dmhlvt += tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                     dm0hl += tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
@@ -122,11 +122,12 @@ namespace Plugin_PDK_PhanBon
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-
+                    
                 }
 
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
+                
             }
             else
             {
@@ -243,7 +244,7 @@ namespace Plugin_PDK_PhanBon
                     sum_pdkNT(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl, 100000003, "new_nghiemthukhac", NT.Id);
                 }
             }
-
+            
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
@@ -611,7 +612,7 @@ namespace Plugin_PDK_PhanBon
 
             QueryExpression qe = new QueryExpression("new_dinhmucdautu");
             qe.ColumnSet = new ColumnSet(true);
-            qe.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
+            qe.Criteria.AddCondition(new ConditionExpression("new_yeucauphanbon", ConditionOperator.LessEqual, ttNT));
             qe.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
 
             foreach (Entity a in service.RetrieveMultiple(qe).Entities)

@@ -35,6 +35,7 @@ namespace Plugin_PDK_PhanBon
             {
                 target = context.InputParameters["Target"] as Entity;
                 fullEntity = context.PostEntityImages["PostImg"] as Entity;
+
                 if (target.LogicalName == "new_chitietdangkyphanbon")
                 {
                     factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));

@@ -21,17 +21,20 @@ namespace PDNTamUng_ETLTranSaction
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             service = factory.CreateOrganizationService(context.UserId);
+            trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
 
             Entity target = (Entity)context.InputParameters["Target"];
-
+            
             if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // da duyet
-            {
+            {                              
                 Entity fullEntity = (Entity)context.PostEntityImages["PostImg"];
+                
                 string masohopdong = null;
                 Entity HDMia = null;
                 Entity Hdthuhoach = null;
                 Entity Hdvanchuyen = null;
                 Entity Hdmuabanmiangoai = null;
+                
                 trace.Trace("a");
                 Entity Vudautu = service.Retrieve("new_vudautu", ((EntityReference)fullEntity["new_vudautu"]).Id, new ColumnSet(new string[] { "new_mavudautu" }));
                 var listVuThuHoach = RetrieveMultiRecord(service, "new_vuthuhoach", new ColumnSet(true), "new_vudautu", ((EntityReference)fullEntity["new_vudautu"]).Id);
@@ -57,7 +60,7 @@ namespace PDNTamUng_ETLTranSaction
                 {
                     HDMia = service.Retrieve("new_hopdongdautumia", ((EntityReference)fullEntity["new_hopdongdautumia"]).Id,
                     new ColumnSet(new string[] { "new_masohopdong", "new_tram", "new_canbonongvu" }));
-                    masohopdong = HDMia["new_masohopdong"].ToString();
+                    masohopdong = HDMia["new_masohopdong"].ToString();                    
                 }
                 else if (loaihopdong == 100000004) // hd van chuyen
                 {
@@ -90,19 +93,20 @@ namespace PDNTamUng_ETLTranSaction
                 else
                     KH = service.Retrieve("account", ((EntityReference)fullEntity["new_khachhangdoanhnghiep"]).Id,
                         new ColumnSet(new string[] { "new_makhachhang", "new_masothue", "new_phuongthucthanhtoan" }));
-
+                trace.Trace("A");
                 if (fullEntity.Contains("new_sotienung") && ((Money)fullEntity["new_sotienung"]).Value > 0)
                 {
                     #region begin
 
                     Entity etl_ND = new Entity("new_etltransaction");
                     etl_ND["new_name"] = fullEntity["new_masophieutamung"].ToString() + "_PRE";
+                    trace.Trace("B");
                     etl_ND["new_vouchernumber"] = "DTND";
                     etl_ND["new_transactiontype"] = "1.2.5.a";
                     etl_ND["new_customertype"] = new OptionSetValue(fullEntity.Contains("new_khachhang") ? 1 : 2); // ???
                     etl_ND["new_season"] = vuMua;//Vudautu["new_mavudautu"].ToString();
                     etl_ND["new_sochungtu"] = fullEntity["new_masophieutamung"].ToString();
-                    etl_ND["new_contractnumber"] = HDMia["new_masohopdong"].ToString();
+                    etl_ND["new_contractnumber"] = masohopdong;
                     etl_ND["new_tradingpartner"] = (KH.LogicalName.ToLower().Trim() == "contact" ?
                         ((KH.Contains("new_makhachhang") ? KH["new_makhachhang"].ToString() : "") + "_" + (KH.Contains("new_socmnd") ? KH["new_socmnd"].ToString() : ""))
                         :
@@ -114,17 +118,18 @@ namespace PDNTamUng_ETLTranSaction
                     etl_ND["new_descriptionheader"] = "Tạm ứng tiền mặt cho nông dân";
                     etl_ND["new_terms"] = "Tra Ngay";
                     etl_ND["new_taxtype"] = "";
+                    trace.Trace("C");
                     decimal sotien = ((Money)fullEntity["new_sotienung"]).Value;
                     etl_ND["new_invoiceamount"] = new Money(sotien);
                     etl_ND["new_gldate"] = fullEntity["new_ngayduyet"];
                     etl_ND["new_invoicetype"] = "PRE";
                     etl_ND["new_paymenttype"] = "TM";
-
+                    trace.Trace("D");
                     if (fullEntity.Contains("new_khachhang"))
                         etl_ND["new_khachhang"] = fullEntity["new_khachhang"];
                     else if (fullEntity.Contains("new_khachhangdoanhnghiep"))
                         etl_ND["new_khachhangdoanhnghiep"] = fullEntity["new_khachhangdoanhnghiep"];
-
+                    trace.Trace("E");
                     Guid etl_NDID = service.Create(etl_ND);
 
                     etl_ND["new_makhachhang"] = KH.Contains("new_makhachhang") ? KH["new_makhachhang"].ToString() : "";
@@ -144,7 +149,6 @@ namespace PDNTamUng_ETLTranSaction
                         Entity paytamung = new Entity("new_applytransaction");
                         //apply_PGNPhanbon["new_documentsequence"] = value++;
                         paytamung["new_suppliersitecode"] = "Tây Ninh";
-
 
                         List<Entity> taikhoannganhang = RetrieveMultiRecord(service, "new_taikhoannganhang",
                             new ColumnSet(new string[] { "new_sotaikhoan", "new_giaodichchinh" }),
@@ -166,7 +170,6 @@ namespace PDNTamUng_ETLTranSaction
 
                         paytamung["new_supplierbankname"] = (taikhoanchinh == null ? "" : taikhoanchinh["new_sotaikhoan"]);
                         paytamung["new_bankcccountnum"] = "CTXL-VND-0";
-
                         paytamung["new_paymentamount"] = fullEntity["new_sotienung"];
                         paytamung["new_paymentdate"] = fullEntity["new_ngayduyet"];
                         paytamung["new_paymentdocumentname"] = "CANTRU_03";

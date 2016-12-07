@@ -11,3 +11,9 @@ D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\Microsoft.Xrm.Sdk
 D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.dll
 D:\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\UpdatePBDTFromPTL.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\UpdatePBDTFromPTL.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdatePBDTFromPTL\UpdatePBDTFromPTL\obj\Debug\UpdatePBDTFromPTL.pdb

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AutoNumber</RootNamespace>
     <AssemblyName>AutoNumber</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,13 +39,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Crm.Sdk.Proxy">
-      <HintPath>D:\Thoai\Thoai\Banking\BankingPlugins2015\DLL\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+      <HintPath>..\..\ALL Chinh sach\Plugin_ThemCSDTvaoCTGiaiNgan\Plugin_ThemCSDTvaoCTGiaiNgan\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xrm.Client">
-      <HintPath>D:\Thoai\Thoai\Banking\BankingPlugins2015\DLL\Microsoft.Xrm.Client.dll</HintPath>
+      <HintPath>..\..\ALL Chinh sach\Plugin_ThemCSDTvaoCTGiaiNgan\Plugin_ThemCSDTvaoCTGiaiNgan\bin\Debug\Microsoft.Xrm.Client.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xrm.Sdk">
-      <HintPath>D:\Thoai\Thoai\Banking\BankingPlugins2015\DLL\Microsoft.Xrm.Sdk.dll</HintPath>
+      <HintPath>..\..\Plugin_CreatePBDT_PGNPhanBon\Plugin_CreatePBDT_PGNPhanBon\bin\Debug\Microsoft.Xrm.Sdk.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

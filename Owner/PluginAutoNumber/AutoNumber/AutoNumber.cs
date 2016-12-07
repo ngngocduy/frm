@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
-using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Sdk.Query;
+
 namespace AutoNumber
 {
     public class AutoNumber : IPlugin
@@ -204,6 +204,7 @@ namespace AutoNumber
                             throw new Exception("Vui lòng chọn ngày bắt đầu!");
                         if (!eField.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception("Vui lòng chọ ngày kết thúc!");
+
                         DateTime begin_date = (DateTime)eField["new_ngaybatdau"];
                         DateTime en_date = (DateTime)eField["new_ngayketthuc"];
                         string prefix = begin_date.Year + "-" + en_date.Year;
@@ -211,6 +212,7 @@ namespace AutoNumber
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             string middle = "";
@@ -478,18 +480,20 @@ namespace AutoNumber
                 #region new_hopdongthechap
                 case "new_hopdongthechap":
                     {
-                        int year = DateTime.Now.Year;
+                        if (!eField.Attributes.Contains("new_vudautu"))
+                            throw new Exception("Vui lòng chọn vụ đầu tư!");
+                        EntityReference dtRef = (EntityReference)eField["new_vudautu"];
+                        Entity vdt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
 
-                        Entity vudautuhientai = null;
-                        vudautuhientai = Vuhientai();
+                        int year = ((DateTime)vdt["new_ngaybatdau"]).Year;
 
                         //get key
-                        string key = (string)vudautuhientai["new_mavudautu"];
+                        string key = (string)vdt["new_mavudautu"];
                         Entity Autonumberdetail = RetrieveBsdAutonumberdetail(key, eAu);
 
                         string prefix = "";
                         string sufix = String.Format("/TC/{0}/HĐ-TTCS", year);
-
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
@@ -1338,7 +1342,6 @@ namespace AutoNumber
 
                         string prefix = string.Format("GNHG{0:yy}{1:yy}-", begin, end);
                         string sufix = "";
-
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
@@ -1360,9 +1363,10 @@ namespace AutoNumber
                                     middle += "0";
 
                                 eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
-                                eAu["bsd_currentposition"] = currentPos.ToString();
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
                                 flag = true;
-                                service.Update(eAu);
+                                //service.Update(eAu);
+                                CreateAutoNumberdetail(currentPos, eAu, key);
                             }
                         }
                         else
@@ -1386,6 +1390,8 @@ namespace AutoNumber
                                 eAu["bsd_currentposition"] = currentPos.ToString();
                                 flag = true;
                                 service.Update(eAu);
+
+                                UpdateAutoNumberdetail(Autonumberdetail, currentPos);
                             }
                         }
                     }
@@ -1422,12 +1428,13 @@ namespace AutoNumber
 
                         string prefix = string.Format("NTTUOI{0:yy}{1:yy}-", begin, end);
                         string sufix = "";
-                        ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
                         if (Autonumberdetail == null)
                         {
+                            ulong currentPos = 0;
+
                             if (!string.IsNullOrWhiteSpace(field))
                             {
                                 currentPos++;
@@ -1450,6 +1457,8 @@ namespace AutoNumber
                         }
                         else
                         {
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
+
                             if (!string.IsNullOrWhiteSpace(field))
                             {
                                 currentPos++;
@@ -1504,12 +1513,14 @@ namespace AutoNumber
 
                         string prefix = string.Format("NTTM{0:yy}{1:yy}-", begin, end);
                         string sufix = "";
-                        ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
+
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
                         if (Autonumberdetail == null)
                         {
+                            ulong currentPos = 0;
+
                             if (!string.IsNullOrWhiteSpace(field))
                             {
                                 currentPos++;
@@ -1532,6 +1543,8 @@ namespace AutoNumber
                         }
                         else
                         {
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
+
                             if (!string.IsNullOrWhiteSpace(field))
                             {
                                 currentPos++;
@@ -1738,6 +1751,7 @@ namespace AutoNumber
                         string sufix = String.Format("/TM/{0:yy}{1:yy}", begin, end);
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;
@@ -4011,6 +4025,7 @@ namespace AutoNumber
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;
@@ -4217,7 +4232,7 @@ namespace AutoNumber
                         }
                         else
                         {
-                            ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
 
                             if (!string.IsNullOrWhiteSpace(field))
                             {

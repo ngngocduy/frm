@@ -11,11 +11,13 @@ namespace UpdatePBDTFromPTL
     {
         IOrganizationService service = null;
         IOrganizationServiceFactory factory = null;
+        ITracingService trace = null;
 
         void IPlugin.Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             service = factory.CreateOrganizationService(context.UserId);
 
             Entity target = (Entity)context.InputParameters["Target"];
@@ -58,6 +60,8 @@ namespace UpdatePBDTFromPTL
                     datralaiPBDT += datralai;
                     nolaiPBDt += 0;
                     conlaiPBDT = sotienPBDT - datragocPBDT;
+
+                    trace.Trace(sotienPBDT.ToString() + "-" + datragocPBDT.ToString());
 
                     pbdt["new_datra"] = new Money(datragocPBDT);
                     pbdt["new_datralai"] = new Money(datralaiPBDT);

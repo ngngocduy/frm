@@ -37,17 +37,17 @@ namespace Plugin_PDN_GiaiNgan
 
                 if (target.LogicalName == "new_chitietphieudenghigiaingan")
                 {
-                    //int statuscode = ((OptionSetValue)fullEntity["new_noidunggiaingan"]).Value;
-                    //if (statuscode != 100000000)// đầu tư mía
-                    //{
-                    factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+                    int statuscode = ((OptionSetValue)fullEntity["new_noidunggiaingan"]).Value;
+                    if (statuscode != 100000000)// đầu tư mía
+                    {
+                        factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
                     service = factory.CreateOrganizationService(context.UserId);
                     trace = serviceProvider.GetService(typeof(ITracingService)) as ITracingService;
                     EntityReference pdkRef = target.ToEntityReference();
 
                     TinhDinhMuc tinhDm = new TinhDinhMuc(service, trace, pdkRef);
                     tinhDm.CalculateTrongMia(fullEntity);
-                    //}
+                    }
                 }
             }
         }

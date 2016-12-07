@@ -11,3 +11,7 @@ D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNga
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.pdb
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.dll
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.pdb

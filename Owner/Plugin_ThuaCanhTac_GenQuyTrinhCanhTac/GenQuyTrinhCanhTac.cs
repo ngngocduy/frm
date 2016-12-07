@@ -81,7 +81,6 @@ namespace Plugin_ThuaCanhTac_GenQuyTrinhCanhTac
                                 Gen(chitiethddtm, false, true);
 
                             }
-
                         }
                     }
                     else
@@ -389,7 +388,8 @@ namespace Plugin_ThuaCanhTac_GenQuyTrinhCanhTac
             {
                 if (!target.Contains("new_quitrinhcanhtac"))
                 {
-                    throw new Exception(target["new_name"].ToString() + " không có quy trình canh tác !!");
+                    //throw new Exception(target["new_name"].ToString() + " không có quy trình canh tác !!");
+                    return;
                 }
 
                 EntityReference eRef = (EntityReference)target["new_quitrinhcanhtac"];
