@@ -36,7 +36,7 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
                     {
                         traceService.Trace("chay plugin");
 
-                        ChiTietPDNTamUng = service.Retrieve("new_chitietphieudenghitamung", entityId, new ColumnSet(new string[] { "new_loaihopdong", "new_hopdongdautumia", "new_chitiethddtmia", "new_hopdongdaututhuedat", "new_chitiethddtthuedat", "createdon", "new_hopdongdaututrangthietbi", "new_chitiethddttrangthietbi", "new_phieudenghitamung" }));
+                        ChiTietPDNTamUng = service.Retrieve("new_chitietphieudenghitamung", entityId, new ColumnSet(true));
                         DateTime ngaytao = ChiTietPDNTamUng.GetAttributeValue<DateTime>("createdon");
 
                         Entity mCSDT = new Entity();
@@ -987,11 +987,12 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
                                             ChiTietPDNTamUng.Attributes.Add("new_chinhsachdautu", csdtRef);
 
                                             // Gan Tạm  ứng %
-                                            Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id, new ColumnSet(new string[] { "new_dinhmuctamung", "new_name" }));
+                                            Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id,
+                                                new ColumnSet(new string[] { "new_dinhmuctamung", "new_name" }));
 
                                             decimal tamung = (csdtKQEntity.Contains("new_dinhmuctamung") ? (decimal)csdtKQEntity["new_dinhmuctamung"] : 0);
 
-                                            en["new_tamungcs"] = tamung;
+                                            en["new_dongiadinhmucung"] = tamung;
 
                                             // Tinh Đinh muc Tạm  ứng
                                             //decimal tongDMDT = (hddtTTBObj.Contains("new_tonggiatrihopdong") ? hddtTTBObj.GetAttributeValue<Money>("new_tonggiatrihopdong").Value : 0) * tamung;

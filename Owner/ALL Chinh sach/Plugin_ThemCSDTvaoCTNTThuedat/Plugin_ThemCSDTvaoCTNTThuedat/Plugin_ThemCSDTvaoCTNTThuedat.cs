@@ -22,7 +22,7 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
             factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             service = factory.CreateOrganizationService(context.UserId);
             ITracingService traceService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
-
+            
             traceService.Trace(string.Format("Context Depth {0}", context.Depth));
             if (context.Depth > 1)
                 return;
@@ -33,13 +33,12 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                 Guid targetId = target.Id;
 
                 if (target.LogicalName == "new_chitietnghiemthuthuedat")
-                {
-                    //traceService.Trace("Begin plugin");
+                {                    
                     if (context.MessageName.ToUpper() == "CREATE" || context.MessageName.ToUpper() == "UPDATE")
                     {
                         Entity ChiTietNTTD = service.Retrieve("new_chitietnghiemthuthuedat", targetId, new ColumnSet(true));
                         DateTime ngaytao = ChiTietNTTD.GetAttributeValue<DateTime>("createdon");
-
+                        
                         EntityReference ThuadatRef = ChiTietNTTD.GetAttributeValue<EntityReference>("new_thuadat");
                         Entity thuadatObj = service.Retrieve("new_thuadat", ThuadatRef.Id, new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy", "new_nhomculy", "new_diachi", "new_dientich" }));
 

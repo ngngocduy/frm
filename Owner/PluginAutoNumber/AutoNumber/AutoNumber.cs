@@ -14,10 +14,13 @@ namespace AutoNumber
         // moi nhat
         private IOrganizationServiceFactory serviceProxy;
         private IOrganizationService service;
+        public ITracingService tracingService;
         public void Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
-            ITracingService tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+            //ITracingService tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+            tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+
             if (context.MessageName == "Create")
             {
                 if (context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity)
@@ -319,7 +322,9 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
-                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
+
                         if (dt == null)
                             throw new Exception("Vụ đầu tư '" + dtRef.Name + "' không tồn tại hoặc bị xóa!");
 
@@ -328,30 +333,68 @@ namespace AutoNumber
                         if (!dt.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception("Vui lòng chọ ngày kết thúc tại vụ đầu tư:'" + dtRef.Name + "'!");
 
+                        //get key
+                        string key = (string)dt["new_mavudautu"];
+                        Entity Autonumberdetail = RetrieveBsdAutonumberdetail(key, eAu);
+
                         DateTime bDate = (DateTime)dt["new_ngaybatdau"];
                         DateTime eDate = (DateTime)dt["new_ngayketthuc"];
 
                         string prefix = "";
                         string sufix = "/CD/" + String.Format("{0:yy}-{1:yy}", bDate, eDate);
-                        ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
-                        string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
-                        if (!string.IsNullOrWhiteSpace(field))
-                        {
-                            currentPos++;
-                            var crLength = length - currentPos.ToString().Length;
-                            if (crLength < 0)
-                            {
-                                currentPos = 1;
-                                crLength = length - 1;
-                            }
-                            string middle = "";
-                            for (int i = 0; i < crLength; i++)
-                                middle += "0";
 
-                            eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
-                            eAu["bsd_currentposition"] = currentPos.ToString();
-                            flag = true;
-                            service.Update(eAu);
+                        string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+                        string middle = "";
+
+                        if (Autonumberdetail == null)
+                        {
+                            ulong currentPos = 0;
+
+                            if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                currentPos++;
+                                var crLength = length - currentPos.ToString().Length;
+                                if (crLength < 0)
+                                {
+                                    currentPos = 1;
+                                    crLength = length - 1;
+                                }
+
+                                for (int i = 0; i < crLength; i++)
+                                    middle += "0";
+
+                                eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
+                                flag = true;
+                                //service.Update(eAu);
+                                CreateAutoNumberdetail(currentPos, eAu, key);
+
+                            }
+                        }
+                        else
+                        {
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
+
+                            if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                currentPos++;
+                                var crLength = length - currentPos.ToString().Length;
+                                if (crLength < 0)
+                                {
+                                    currentPos = 1;
+                                    crLength = length - 1;
+                                }
+
+                                for (int i = 0; i < crLength; i++)
+                                    middle += "0";
+
+                                eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
+                                flag = true;
+                                //service.Update(eAu);
+                                UpdateAutoNumberdetail(Autonumberdetail, currentPos);
+
+                            }
                         }
                     }
                     break;
@@ -440,7 +483,8 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
-                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
                         if (dt == null)
                             throw new Exception("Vụ đầu tư '" + dtRef.Name + "' không tồn tại hoặc bị xóa!");
 
@@ -449,31 +493,67 @@ namespace AutoNumber
                         if (!dt.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception("Vui lòng chọ ngày kết thúc tại vụ đầu tư:'" + dtRef.Name + "'!");
 
+                        //get key
+                        string key = (string)dt["new_mavudautu"];
+                        Entity Autonumberdetail = RetrieveBsdAutonumberdetail(key, eAu);
+
                         DateTime bDate = (DateTime)dt["new_ngaybatdau"];
                         DateTime eDate = (DateTime)dt["new_ngayketthuc"];
 
                         string prefix = "";
                         string sufix = "/VC/" + String.Format("{0:yy}-{1:yy}", bDate, eDate);
-                        ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
+                        
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
-                        if (!string.IsNullOrWhiteSpace(field))
-                        {
-                            currentPos++;
-                            var crLength = length - currentPos.ToString().Length;
-                            if (crLength < 0)
-                            {
-                                currentPos = 1;
-                                crLength = length - 1;
-                            }
-                            string middle = "";
-                            for (int i = 0; i < crLength; i++)
-                                middle += "0";
+                        string middle = "";
 
-                            eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
-                            eAu["bsd_currentposition"] = currentPos.ToString();
-                            flag = true;
-                            service.Update(eAu);
+                        if(Autonumberdetail == null)
+                        {
+                            ulong currentPos = 0;
+
+                            if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                currentPos++;
+                                var crLength = length - currentPos.ToString().Length;
+                                if (crLength < 0)
+                                {
+                                    currentPos = 1;
+                                    crLength = length - 1;
+                                }
+
+                                for (int i = 0; i < crLength; i++)
+                                    middle += "0";
+
+                                eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
+                                flag = true;
+                                //service.Update(eAu);
+                                CreateAutoNumberdetail(currentPos, eAu, key);
+                            }
                         }
+                        else
+                        {
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
+
+                            if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                currentPos++;
+                                var crLength = length - currentPos.ToString().Length;
+                                if (crLength < 0)
+                                {
+                                    currentPos = 1;
+                                    crLength = length - 1;
+                                }
+
+                                for (int i = 0; i < crLength; i++)
+                                    middle += "0";
+
+                                eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
+                                flag = true;
+                                //service.Update(eAu);
+                                UpdateAutoNumberdetail(Autonumberdetail, currentPos);
+                            }
+                        }                        
                     }
                     break;
                 #endregion
@@ -483,13 +563,13 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
-                        Entity vdt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
-                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
+                        //Entity vdt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            //new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
 
-                        int year = ((DateTime)vdt["new_ngaybatdau"]).Year;
+                        int year = DateTime.Now.Year;
 
                         //get key
-                        string key = (string)vdt["new_mavudautu"];
+                        string key = year.ToString();
                         Entity Autonumberdetail = RetrieveBsdAutonumberdetail(key, eAu);
 
                         string prefix = "";
@@ -554,38 +634,77 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference vdtRef = (EntityReference)eField["new_vudautu"];
-                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+
                         if (vdt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc đã bị xóa!", vdtRef.Name));
                         if (!vdt.Attributes.Contains("new_ngaybatdau"))
                             throw new Exception(string.Format("Vui lòng chọn ngày bắt đầu trên vụ đầu tư '{0}'!", vdtRef.Name));
                         if (!vdt.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception(string.Format("Vui lòng chọn ngày kết thúc trên vụ đầu tư '{0}'!", vdtRef.Name));
+
+                        //get key
+                        string key = (string)vdt["new_mavudautu"];
+                        Entity Autonumberdetail = RetrieveBsdAutonumberdetail(key, eAu);
+
                         DateTime begin = (DateTime)vdt["new_ngaybatdau"];
                         DateTime end = (DateTime)vdt["new_ngayketthuc"];
 
                         string prefix = "";
                         string sufix = String.Format("/ĐT/{0:yy}-{1:yy}", begin, end);
-                        ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
+                        
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
-                        if (!string.IsNullOrWhiteSpace(field))
-                        {
-                            currentPos++;
-                            var crLength = length - currentPos.ToString().Length;
-                            if (crLength < 0)
-                            {
-                                currentPos = 1;
-                                crLength = length - 1;
-                            }
-                            string middle = "";
-                            for (int i = 0; i < crLength; i++)
-                                middle += "0";
+                        string middle = "";
 
-                            eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
-                            eAu["bsd_currentposition"] = currentPos.ToString();
-                            flag = true;
-                            service.Update(eAu);
+                        if(Autonumberdetail == null)
+                        {
+                            ulong currentPos = 0;
+
+                            if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                currentPos++;
+                                var crLength = length - currentPos.ToString().Length;
+                                if (crLength < 0)
+                                {
+                                    currentPos = 1;
+                                    crLength = length - 1;
+                                }
+
+                                for (int i = 0; i < crLength; i++)
+                                    middle += "0";
+
+                                eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
+                                flag = true;
+                                //service.Update(eAu);
+                                CreateAutoNumberdetail(currentPos, eAu, key);
+                            }
                         }
+                        else
+                        {
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
+
+                            if (!string.IsNullOrWhiteSpace(field))
+                            {
+                                currentPos++;
+                                var crLength = length - currentPos.ToString().Length;
+                                if (crLength < 0)
+                                {
+                                    currentPos = 1;
+                                    crLength = length - 1;
+                                }
+
+                                for (int i = 0; i < crLength; i++)
+                                    middle += "0";
+
+                                eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                                //eAu["bsd_currentposition"] = currentPos.ToString();
+                                flag = true;
+                                //service.Update(eAu);
+                                UpdateAutoNumberdetail(Autonumberdetail, currentPos);
+                            }
+                        }                        
                     }
                     break;
                 #endregion
@@ -795,7 +914,7 @@ namespace AutoNumber
                         }
                         else
                         {
-                            ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
+                            ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
 
                             if (!string.IsNullOrWhiteSpace(field))
                             {
@@ -1737,7 +1856,9 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference vdtRef = (EntityReference)eField["new_vudautu"];
-                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+
                         if (vdt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc đã bị xóa!", vdtRef.Name));
                         if (!vdt.Attributes.Contains("new_ngaybatdau"))
@@ -1779,7 +1900,9 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
+                        tracingService.Trace("1");
                         Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+
                         if (dt == null)
                             throw new Exception("Vụ đầu tư không tồn tại hoặc bị xóa!");
                         if (!dt.Attributes.Contains("new_ngaybatdau"))
@@ -1788,28 +1911,32 @@ namespace AutoNumber
                         if (!dt.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception("Vui lòng chọn ngày kết thúc tại vụ đầu tư:'" + dtRef.Name + "'!");
                         DateTime eDate = (DateTime)dt["new_ngayketthuc"];
-
+                        tracingService.Trace("2");
                         string prefix = string.Format("LD{0:yy}{1:yy}-", bDate, eDate);
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+                        tracingService.Trace("3");
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;
                             var crLength = length - currentPos.ToString().Length;
+
                             if (crLength < 0)
                             {
                                 currentPos = 1;
                                 crLength = length - 1;
                             }
+
                             string middle = "";
                             for (int i = 0; i < crLength; i++)
                                 middle += "0";
-
+                            tracingService.Trace("4");
                             eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
                             eAu["bsd_currentposition"] = currentPos.ToString();
                             flag = true;
                             service.Update(eAu);
+                            tracingService.Trace("5");
                         }
                     }
                     break;
@@ -2905,13 +3032,20 @@ namespace AutoNumber
                         if (!eField.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
-                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+
                         if (dt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc bị xóa!", dtRef.Name));
                         if (!dt.Attributes.Contains("new_ngaybatdau"))
                             throw new Exception(string.Format("Vui lòng chọn ngày bắt đầu trên vụ đầu tư '{0}'!", dtRef.Name));
                         if (!dt.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception(string.Format("Vui lòng chọn ngày kết thúc đầu trên vụ đầu tư '{0}'!", dtRef.Name));
+
+                        //get key
+                        string key = (string)dt["new_mavudautu"];
+                        Entity Autonumberdetail = RetrieveBsdAutonumberdetail(key, eAu);
+
                         DateTime bDate = (DateTime)dt["new_ngaybatdau"];
                         DateTime eDate = (DateTime)dt["new_ngayketthuc"];
 
@@ -4004,23 +4138,28 @@ namespace AutoNumber
                         if (!eField.Attributes.Contains("new_hopdongthechap"))
                             throw new Exception("Vui lòng chọn hợp đồng tư mía!");
                         EntityReference hdref = (EntityReference)eField["new_hopdongthechap"];
-                        Entity hd = service.Retrieve(hdref.LogicalName, hdref.Id, new ColumnSet(new string[] { "new_vudautu" }));
+                        Entity hd = service.Retrieve(hdref.LogicalName, hdref.Id,
+                            new ColumnSet(new string[] { "new_vudautu" }));
+                        tracingService.Trace("get hd");
                         if (hd == null)
                             throw new Exception(string.Format("Hợp đồng đầu tư mía '{0}' không tồn tại hoặc bị xóa!", hdref.Name));
                         if (!hd.Attributes.Contains("new_vudautu"))
                             throw new Exception(string.Format("Vui lòng chọn vụ đầu tư trên hợp đồng đầu tư mía '{0}'!", hdref.Name));
                         EntityReference vdtRef = (EntityReference)hd["new_vudautu"];
-                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+
+                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        tracingService.Trace("get vdt");
                         if (vdt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' trên hợp đồng đầu tư mía '{1}' không tồn tại hoặc đã bị xóa!", vdtRef.Name, hdref.Name));
                         if (!vdt.Attributes.Contains("new_ngaybatdau"))
                             throw new Exception(string.Format("Vui lòng chọn ngày bắt đầu trên vụ đầu tư '{0}'!", vdtRef.Name));
                         if (!vdt.Attributes.Contains("new_ngayketthuc"))
                             throw new Exception(string.Format("Vui lòng chọn ngày kết thúc trên vụ đầu tư '{0}'!", vdtRef.Name));
+                        tracingService.Trace("c");
                         DateTime begin = (DateTime)vdt["new_ngaybatdau"];
                         DateTime end = (DateTime)vdt["new_ngayketthuc"];
-
-
+                        tracingService.Trace("d");
                         string prefix = string.Format("TSTC{0:yy}{1:yy}-", begin, end);
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
@@ -4029,6 +4168,7 @@ namespace AutoNumber
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;
+                            tracingService.Trace("a");
                             var crLength = length - currentPos.ToString().Length;
                             if (crLength < 0)
                             {
@@ -4038,7 +4178,7 @@ namespace AutoNumber
                             string middle = "";
                             for (int i = 0; i < crLength; i++)
                                 middle += "0";
-
+                            tracingService.Trace("b");
                             eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
                             eAu["bsd_currentposition"] = currentPos.ToString();
                             flag = true;
@@ -4100,7 +4240,9 @@ namespace AutoNumber
                         if (!eField.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
-                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+
                         if (dt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc bị xóa!", dtRef.Name));
                         if (!dt.Attributes.Contains("new_ngaybatdau"))

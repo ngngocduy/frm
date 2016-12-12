@@ -10,3 +10,8 @@ C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.pdb
 C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.dll
 C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.pdb
 C:\Users\Mr Duy\Desktop\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PDNGN\Plugin_PDNGN\bin\Debug\Plugin_PDNGN.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PDNGN\Plugin_PDNGN\obj\Debug\Plugin_PDNGN.csprojResolveAssemblyReference.cache

@@ -26,10 +26,14 @@ namespace Update_DienTichMiaToGoc
             else if(context.MessageName == "Delete")
                 target = (Entity)context.PreEntityImages["PreImg"];
 
-            if (target.Contains("new_hopdongdautumia"))
+            if (target.Contains("new_hopdongdautumia") || target.Contains("new_loaigocmia"))
             {
+                Entity chitiet = service.Retrieve(target.LogicalName, target.Id,
+                    new ColumnSet(new string[] {"new_hopdongdautumia" }));
+
                 Entity hopdongdautumia = service.Retrieve("new_hopdongdautumia",
-                    ((EntityReference)target["new_hopdongdautumia"]).Id, new ColumnSet(new string[] { "new_dientichmiato", "new_dientichmiagoc" }));
+                    ((EntityReference)chitiet["new_hopdongdautumia"]).Id,
+                    new ColumnSet(new string[] { "new_dientichmiato", "new_dientichmiagoc" }));
 
                 decimal dientichmiato = 0;
                 decimal dientichmiagoc = 0;

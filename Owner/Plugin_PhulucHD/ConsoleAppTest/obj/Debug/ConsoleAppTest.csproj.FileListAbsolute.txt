@@ -95,3 +95,9 @@ D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
 D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
 D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
 D:\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache

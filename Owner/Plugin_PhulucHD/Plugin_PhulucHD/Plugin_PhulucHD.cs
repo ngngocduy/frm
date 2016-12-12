@@ -48,9 +48,10 @@ namespace Plugin_PhulucHD
 
                         EntityReference vudautuRef = HDDTmia.GetAttributeValue<EntityReference>("new_vudautu");
                         Guid vuDTId = vudautuRef.Id;
-                        Entity VuDT = service.Retrieve("new_vudautu", vuDTId, new ColumnSet(new string[] { "new_name" }));
+                        Entity VuDT = service.Retrieve("new_vudautu", vuDTId,
+                            new ColumnSet(new string[] { "new_name" }));
 
-                        if (PhulucHD.Contains("new_tinhtrangduyet") && PhulucHD.GetAttributeValue<OptionSetValue>("new_tinhtrangduyet").Value.ToString() == "100000005" && PhulucHD.Contains("new_loaiphuluc"))
+                        if (PhulucHD.Contains("new_tinhtrangduyet") && PhulucHD.GetAttributeValue<OptionSetValue>("new_tinhtrangduyet").Value.ToString() == "100000005")
                         {
                             //Loại phụ lục Tăng diện tích
                             if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000000")

@@ -54,7 +54,7 @@ namespace GenPBDT_NTDV
                     tram = (EntityReference)ntdichvu["new_tram"];
                 if (ntdichvu.Contains("new_canbonongvu"))
                     cbnv = (EntityReference)ntdichvu["new_canbonongvu"];
-                
+
                 trace.Trace("4");
                 if (ntdichvu.Contains("actualstart"))
                     ngayduyet = (DateTime)ntdichvu["actualstart"];
@@ -72,38 +72,45 @@ namespace GenPBDT_NTDV
                 {
                     EntityReference thuadat = (EntityReference)en["new_thuadat"];
                     Entity thuadatcanhtac = GetThuadatcanhtacfromthuadat(thuadat, hdmiaRef);
-                    throw  new Exception(thuadatcanhtac["new_name"].ToString());
+
                     List<Entity> lstTylethuhoi = RetrieveMultiRecord(service, "new_tylethuhoivondukien",
-                    new ColumnSet(new string[] { "new_sotienthuhoi", "new_tiendaphanbo", "new_vudautu" }), "new_chitiethddtmia", thuadatcanhtac.Id);
+                    new ColumnSet(new string[] { "new_sotienthuhoi", "new_tiendaphanbo", "new_vudautu", "new_tylephantram" }), "new_chitiethddtmia", thuadatcanhtac.Id);
                     trace.Trace("A");
                     foreach (Entity tylethuhoivon in lstTylethuhoi)
                     {
                         trace.Trace("B");
                         EntityReference vuthuhoi = (EntityReference)tylethuhoivon["new_vudautu"];
+
+                        dinhmuc = dinhmuc * (decimal)tylethuhoivon["new_tylephantram"] / 100;
                         decimal tiendaphanbo = tylethuhoivon.Contains("new_tiendaphanbo") ?
                              ((Money)tylethuhoivon["new_tiendaphanbo"]).Value : new decimal(0);
+
                         decimal sotienthuhoi = tylethuhoivon.Contains("new_sotienthuhoi") ?
                             ((Money)tylethuhoivon["new_sotienthuhoi"]).Value : 0;
+
                         decimal sotienphanbo = sotienthuhoi - tiendaphanbo;
 
-                        if (dinhmuc < sotienphanbo)
+                        while (true)
                         {
-                            CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, dinhmuc,
-                                tram, cbnv, ngayduyet, ntdichvu, sophieu);
-                            tiendaphanbo = tiendaphanbo + dinhmuc;
+                            if (dinhmuc < sotienphanbo)
+                            {
+                                CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, dinhmuc,
+                                    tram, cbnv, ngayduyet, ntdichvu, sophieu);
+                                tiendaphanbo = tiendaphanbo + dinhmuc;
 
-                            break;
-                        }
-                        else if (dinhmuc > sotienphanbo)
-                        {
-                            CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, sotienphanbo,
-                                tram, cbnv, ngayduyet, ntdichvu, sophieu);
-                            tiendaphanbo = tiendaphanbo + sotienphanbo;
-                            dinhmuc = dinhmuc - sotienphanbo;
-                        }
+                                break;
+                            }
+                            else if (dinhmuc > sotienphanbo)
+                            {
+                                CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, sotienphanbo,
+                                    tram, cbnv, ngayduyet, ntdichvu, sophieu);
+                                tiendaphanbo = tiendaphanbo + sotienphanbo;
+                                dinhmuc = dinhmuc - sotienphanbo;
+                            }
 
-                        tylethuhoivon["new_tiendaphanbo"] = new Money(tiendaphanbo);
-                        //service.Update(tilethuhoivon);
+                            tylethuhoivon["new_tiendaphanbo"] = new Money(tiendaphanbo);
+                            //service.Update(tilethuhoivon);
+                        }
                     }
                 }
             }
@@ -295,7 +302,7 @@ namespace GenPBDT_NTDV
             Entity rs = null;
 
             QueryExpression q = new QueryExpression("new_thuadatcanhtac");
-            q.ColumnSet = new ColumnSet(new string[] { "new_thuadatcanhtacid","new_name" });
+            q.ColumnSet = new ColumnSet(new string[] { "new_thuadatcanhtacid", "new_name" });
             q.Criteria = new FilterExpression();
             q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, thuadat.Id));
             q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hdmia.Id));

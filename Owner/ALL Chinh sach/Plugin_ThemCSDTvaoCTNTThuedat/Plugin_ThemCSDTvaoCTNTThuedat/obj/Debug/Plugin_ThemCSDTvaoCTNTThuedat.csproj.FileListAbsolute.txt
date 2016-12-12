@@ -44,3 +44,7 @@ C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\P
 C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\bin\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb
 C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.dll
 C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\bin\Debug\Plugin_ThemCSDTvaoCTNTThuedat.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\bin\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb

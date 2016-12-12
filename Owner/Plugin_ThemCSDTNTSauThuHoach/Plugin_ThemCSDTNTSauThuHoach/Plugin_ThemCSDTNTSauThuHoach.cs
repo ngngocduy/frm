@@ -42,8 +42,8 @@ namespace Plugin_ThemCSDTNTSauThuHoach
             if (!target.Contains("new_thuadat"))
                 throw new Exception("Thửa đất không có giá trị");
 
-            if (!target.Contains("new_doitacthuhoachkh") && !target.Contains("new_doitacthuhoachkhdn"))
-                throw new Exception("Đối tác thu hoạch không có giá trị");
+            //if (!target.Contains("new_doitacthuhoachkh") && !target.Contains("new_doitacthuhoachkhdn"))
+            //    throw new Exception("Đối tác thu hoạch không có giá trị");
 
             Entity nghiemthusauthuhoach = service.Retrieve("new_nghiemthuchatsatgoc", ((EntityReference)target["new_nghiemthusauthuhoach"]).Id,
                 new ColumnSet(new string[] { "new_hopdongdautumia" }));
@@ -69,16 +69,20 @@ namespace Plugin_ThemCSDTNTSauThuHoach
             q.LinkEntities.Add(l);
 
             EntityCollection entc = service.RetrieveMultiple(q);
-            Entity lenhdon = entc.Entities.FirstOrDefault();
-            
-            if (lenhdon.Contains("new_chinhsachthumua"))
-            {
-                Entity chitietnghiemthusauthuhoach = service.Retrieve(target.LogicalName, target.Id,
-                new ColumnSet(new string[] { "new_chinhsachthumua" }));
 
-                chitietnghiemthusauthuhoach["new_chinhsachthumua"] = lenhdon["new_chinhsachthumua"];
-                service.Update(chitietnghiemthusauthuhoach);
-            }
+            if (entc.Entities.Count > 0)
+            {
+                Entity lenhdon = entc.Entities.FirstOrDefault();
+
+                if (lenhdon.Contains("new_chinhsachthumua"))
+                {
+                    Entity chitietnghiemthusauthuhoach = service.Retrieve(target.LogicalName, target.Id,
+                    new ColumnSet(new string[] { "new_chinhsachthumua" }));
+
+                    chitietnghiemthusauthuhoach["new_chinhsachthumua"] = lenhdon["new_chinhsachthumua"];
+                    service.Update(chitietnghiemthusauthuhoach);
+                }
+            }            
         }
     }
 }

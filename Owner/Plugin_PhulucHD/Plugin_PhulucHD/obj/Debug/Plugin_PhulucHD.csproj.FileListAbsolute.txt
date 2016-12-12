@@ -29,3 +29,8 @@ D:\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\bin\Debug\Plugin_PhulucHD.dll
 D:\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\bin\Debug\Plugin_PhulucHD.pdb
 D:\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\obj\Debug\Plugin_PhulucHD.dll
 D:\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\obj\Debug\Plugin_PhulucHD.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\bin\Debug\Plugin_PhulucHD.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\bin\Debug\Plugin_PhulucHD.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\obj\Debug\Plugin_PhulucHD.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\obj\Debug\Plugin_PhulucHD.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_PhulucHD\Plugin_PhulucHD\obj\Debug\Plugin_PhulucHD.pdb

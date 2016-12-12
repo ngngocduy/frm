@@ -4,3 +4,7 @@ c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_ThemCSDTNTSauThuHoa
 c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\bin\Debug\Microsoft.Xrm.Sdk.xml
 c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.dll
 c:\users\mr duy\documents\visual studio 2015\Projects\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\bin\Debug\Plugin_ThemCSDTNTSauThuHoach.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\bin\Debug\Plugin_ThemCSDTNTSauThuHoach.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.pdb
