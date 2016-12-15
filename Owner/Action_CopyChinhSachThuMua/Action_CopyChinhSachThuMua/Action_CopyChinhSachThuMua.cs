@@ -40,11 +40,12 @@ namespace Action_CopyChinhSachThuMua
                 Entity newCSTM = new Entity("new_chinhsachthumua");
 
                 //Thông tin chính sách
-                EntityReference vudautuRef = CSTM.GetAttributeValue<EntityReference>("new_vudautu");
-                Guid vuDTId = vudautuRef.Id;
-                Entity vuDT = service.Retrieve("new_vudautu", vuDTId, new ColumnSet(new string[] { "new_name", "new_ngaybatdau" }));
+                string input = (string)context.InputParameters["VudautuID"];
+                Guid vudautuid = new Guid(input);
 
-                Entity newvuDT = FindvuDT(service, vuDT);
+                Entity newvuDT = service.Retrieve("new_vudautu", vudautuid, new ColumnSet(true));
+
+                //Entity newvuDT = service.Retrieve(vuda);
                 if (newvuDT != null && newvuDT.Id != Guid.Empty)
                 {
                     newCSTM["new_vudautu"] = newvuDT.ToEntityReference();
@@ -57,6 +58,12 @@ namespace Action_CopyChinhSachThuMua
 
                     DateTime thoidiemapdung = DateTime.Now;
                     newCSTM["new_thoidiemapdung"] = thoidiemapdung;
+
+                    //phuong thuc tinh
+                    if (CSTM.Contains("new_phuongthuctinh"))
+                    {
+                        newCSTM["new_phuongthuctinh"] = CSTM["new_phuongthuctinh"]; 
+                    }
 
                     // Chi tiết
                     if (CSTM.Attributes.Contains("new_vutrong_vl"))   // vu trong
@@ -463,7 +470,7 @@ namespace Action_CopyChinhSachThuMua
                             }
                             if (a.Attributes.Contains("new_cachtru"))
                             {
-                                int cachtru = ((OptionSetValue)a["new_operatorden"]).Value;
+                                int cachtru = ((OptionSetValue)a["new_cachtru"]).Value;
                                 tctru["new_cachtru"] = new OptionSetValue(cachtru);
                             }
                             
@@ -626,6 +633,7 @@ namespace Action_CopyChinhSachThuMua
                         <attribute name='new_name' />
                         <attribute name='new_chinhsachthumua' />
                         <attribute name='new_chinhsachthumua_ccsbaoid' />
+                        <attribute name='new_giatriccs' />
                         <order attribute='new_tu' descending='false' />
                         <filter type='and'>
                           <condition attribute='statecode' operator='eq' value='0' />

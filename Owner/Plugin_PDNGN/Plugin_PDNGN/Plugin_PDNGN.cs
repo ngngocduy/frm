@@ -477,7 +477,7 @@ namespace Plugin_PDNGN
 
                     switch (noidunggiaingan)
                     {
-                        case 100000000:
+                        case 100000000: // trong va cham soc mia 
                             {
 
                             }

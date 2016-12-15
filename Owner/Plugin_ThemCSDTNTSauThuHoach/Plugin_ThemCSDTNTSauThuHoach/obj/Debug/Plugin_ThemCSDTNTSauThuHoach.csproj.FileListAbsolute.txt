@@ -8,3 +8,4 @@ C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSD
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\bin\Debug\Plugin_ThemCSDTNTSauThuHoach.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_ThemCSDTNTSauThuHoach\Plugin_ThemCSDTNTSauThuHoach\obj\Debug\Plugin_ThemCSDTNTSauThuHoach.csprojResolveAssemblyReference.cache

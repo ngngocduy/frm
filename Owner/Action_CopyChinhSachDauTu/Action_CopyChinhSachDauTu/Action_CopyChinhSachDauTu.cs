@@ -42,11 +42,12 @@ namespace Action_CopyChinhSachDauTu
                 Entity newCSDT = new Entity("new_chinhsachdautu");
 
                 //Thông tin chính sách
-                EntityReference vudautuRef = CSDT.GetAttributeValue<EntityReference>("new_vudautu");
-                Guid vuDTId = vudautuRef.Id;
-                Entity vuDT = service.Retrieve("new_vudautu", vuDTId, new ColumnSet(new string[] { "new_name", "new_ngaybatdau" }));
+                string input = (string)context.InputParameters["VudautuID"];
+                Guid vudautuid = new Guid(input);
 
-                Entity newvuDT = FindvuDT(service, vuDT);
+                Entity newvuDT = service.Retrieve("new_vudautu", vudautuid, new ColumnSet(true));
+
+                //Entity newvuDT = FindvuDT(service, vuDT);
                 if (newvuDT != null && newvuDT.Id != Guid.Empty)
                 {
                     newCSDT["new_vudautu"] = newvuDT.ToEntityReference();

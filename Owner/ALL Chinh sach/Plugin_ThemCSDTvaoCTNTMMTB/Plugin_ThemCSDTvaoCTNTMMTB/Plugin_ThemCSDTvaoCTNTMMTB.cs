@@ -33,7 +33,8 @@ namespace Plugin_ThemCSDTvaoCTNTMMTB
                     if (context.MessageName.ToUpper() == "CREATE" || context.MessageName.ToUpper() == "UPDATE")
                     {
                         Entity ChiTietNTMMTB = service.Retrieve("new_chitietnghiemthummtb", targetId,
-                            new ColumnSet(new string[] { "createdon", "new_nghiemthummtb" , "new_maymocthietbi", "new_giamua", "new_giamua" }));
+                            new ColumnSet(new string[] { "createdon", "new_nghiemthummtb" , "new_maymocthietbi",
+                                "new_giamua", "new_giamua" }));
 
                         DateTime ngaytao = ChiTietNTMMTB.GetAttributeValue<DateTime>("createdon");
                         decimal giatrithietbi = (ChiTietNTMMTB.Contains("new_giamua") ? ChiTietNTMMTB.GetAttributeValue<Money>("new_giamua").Value : 0);

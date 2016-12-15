@@ -17,3 +17,8 @@ D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\bin\Debug
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\obj\Debug\Action_CopyChinhSachThuMua.dll
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\obj\Debug\Action_CopyChinhSachThuMua.pdb
 D:\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\obj\Debug\Action_CopyChinhSachThuMua.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\bin\Debug\Action_CopyChinhSachThuMua.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\bin\Debug\Action_CopyChinhSachThuMua.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\obj\Debug\Action_CopyChinhSachThuMua.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\obj\Debug\Action_CopyChinhSachThuMua.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachThuMua\Action_CopyChinhSachThuMua\obj\Debug\Action_CopyChinhSachThuMua.pdb

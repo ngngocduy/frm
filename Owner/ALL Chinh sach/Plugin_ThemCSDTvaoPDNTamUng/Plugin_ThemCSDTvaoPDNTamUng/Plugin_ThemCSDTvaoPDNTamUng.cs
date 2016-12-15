@@ -55,9 +55,21 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
 
                                 EntityReference chitietHDDTRef = ChiTietPDNTamUng.GetAttributeValue<EntityReference>("new_chitiethddtmia");
                                 Guid chitietDHDTId = chitietHDDTRef.Id;
-                                Entity ChiTietHD = service.Retrieve("new_thuadatcanhtac", chitietDHDTId, new ColumnSet(new string[] { "new_vutrong", "new_loaisohuudat", "new_loaigocmia", "new_mucdichsanxuatmia", "new_giongmia", "new_thuadat", "createdon", "new_hopdongdautumia", "new_khachhang", "new_khachhangdoanhnghiep", "new_thamgiamohinhkhuyennong", "new_tuoimia" }));
+                                Entity ChiTietHD = service.Retrieve("new_thuadatcanhtac", chitietDHDTId,
+                                    new ColumnSet(new string[] { "new_vutrong", "new_loaisohuudat",
+                                        "new_loaigocmia", "new_mucdichsanxuatmia", "new_giongmia", "new_thuadat",
+                                        "createdon", "new_hopdongdautumia", "new_khachhang", "new_khachhangdoanhnghiep",
+                                        "new_thamgiamohinhkhuyennong", "new_tuoimia","new_dientichconlai" }));
 
                                 //DateTime ngaytao = ChiTietHD.GetAttributeValue<DateTime>("createdon");
+                                List<Entity> lstLenhdon = RetrieveMultiRecord(service, "new_lenhdon",
+                                    new ColumnSet(new string[] {"new_lenhdoncuoi"}), "new_thuacanhtac", chitietDHDTId);
+
+                                foreach (Entity a in lstLenhdon)
+                                {
+                                    if(a.Contains("new_lenhdoncuoi") && (bool)a["new_lenhdoncuoi"] == true)
+                                        throw  new Exception("Thửa đất đã có lệnh đốn cuối");
+                                }
 
                                 EntityReference thuadatEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_thuadat");
                                 Guid thuadatId = thuadatEntityRef.Id;
@@ -68,6 +80,11 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
                                 Entity giongmiaObj = service.Retrieve("new_giongmia", giongmiaId, new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
 
                                 EntityReference vudautuRef = HDDTmia.GetAttributeValue<EntityReference>("new_vudautu");
+
+                                decimal dientichconlai = ChiTietHD.Contains("new_dientichconlai")
+                                    ? (decimal) ChiTietHD["new_dientichconlai"]
+                                    : 0;
+
                                 if (vudautuRef == null || vudautuRef.Id == Guid.Empty)
                                 {
                                     throw new InvalidPluginExecutionException("Trong HĐĐT mía chưa có Vụ đầu tư !");
@@ -519,18 +536,21 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
                                         {
 
                                             traceService.Trace("Tim duoc CSDT tam ung");
+                                            traceService.Trace("1");
 
                                             // ------Gan vao Chi tiet Tam ung
                                             EntityReference csdtRef = new EntityReference("new_chinhsachdautu", mCSDT.Id);
                                             en.Attributes.Add("new_chinhsachdautu", csdtRef);
-
+                                            traceService.Trace("2");
                                             // Gan Tạm  ứng %
-                                            Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id, new ColumnSet(new string[] { "new_dinhmuctamung", "new_name" }));
+                                            Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id,
+                                                new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name" }));
 
-                                            decimal tamung = (csdtKQEntity.Contains("new_dinhmuctamung") ? (decimal)csdtKQEntity["new_dinhmuctamung"] : 0);
-
-                                            en["new_tamungcs"] = tamung;
-
+                                            decimal tamung = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? ((Money)csdtKQEntity["new_dinhmucdautuhoanlai"]).Value : 0);
+                                            traceService.Trace("3");
+                                            en["new_dongiadinhmucung"] = new Money(tamung);
+                                            en["new_dientichconlai"] =dientichconlai;
+                                            traceService.Trace("4");
                                             traceService.Trace("gan xonf " + tamung);
 
                                             // Tinh Đinh muc Tạm  ứng
@@ -571,6 +591,7 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
                                     new ColumnSet(new string[] { "createdon", "new_hopdongthuedat", "new_benchothuedatkh", "new_benchothuedatkhdn", "new_dientichthucthue" }));
 
                                 EntityReference vuDTRef = HDDTThuedat.GetAttributeValue<EntityReference>("new_vudautu");
+
                                 if (vuDTRef == null || vuDTRef.Id == Guid.Empty)
                                 {
                                     throw new InvalidPluginExecutionException("Trong HĐ thuê đất chưa có Vụ đầu tư !");
@@ -766,11 +787,13 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
                                             ChiTietPDNTamUng.Attributes.Add("new_chinhsachdautu", csdtRef);
 
                                             // Gan Tạm  ứng %
-                                            Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id, new ColumnSet(new string[] { "new_dinhmuctamung", "new_name" }));
+                                            Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id,
+                                                new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name" }));
 
-                                            decimal tamung = (csdtKQEntity.Contains("new_dinhmuctamung") ? (decimal)csdtKQEntity["new_dinhmuctamung"] : 0);
+                                            decimal tamung = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? ((Money)csdtKQEntity["new_dinhmucdautuhoanlai"]).Value : 0);
 
-                                            en["new_tamungcs"] = tamung;
+                                            en["new_dongiadinhmucung"] = tamung;
+                                           
 
                                             // Tinh Đinh muc Tạm  ứng
                                             //decimal tongDMDT = (HDDTThuedat.Contains("new_tongtienthuedat") ? HDDTThuedat.GetAttributeValue<Money>("new_tongtienthuedat").Value : 0) * tamung;
@@ -988,9 +1011,9 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
 
                                             // Gan Tạm  ứng %
                                             Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", mCSDT.Id,
-                                                new ColumnSet(new string[] { "new_dinhmuctamung", "new_name" }));
+                                                new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name" }));
 
-                                            decimal tamung = (csdtKQEntity.Contains("new_dinhmuctamung") ? (decimal)csdtKQEntity["new_dinhmuctamung"] : 0);
+                                            decimal tamung = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? ((Money)csdtKQEntity["new_dinhmucdautuhoanlai"]).Value : 0);
 
                                             en["new_dongiadinhmucung"] = tamung;
 
@@ -1088,6 +1111,17 @@ namespace Plugin_ThemCSDTvaoPDNTamUng
 
             EntityCollection entc = crmservices.RetrieveMultiple(q);
             return entc;
+        }
+
+        List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column, string condition, object value)
+        {
+            QueryExpression q = new QueryExpression(entity);
+            q.ColumnSet = column;
+            q.Criteria = new FilterExpression();
+            q.Criteria.AddCondition(new ConditionExpression(condition, ConditionOperator.Equal, value));
+            EntityCollection entc = service.RetrieveMultiple(q);
+
+            return entc.Entities.ToList<Entity>();
         }
     }
 }

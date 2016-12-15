@@ -249,7 +249,7 @@ namespace Plugin_PDK_DichVu
                     sum_pdkNT(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl, 100000003, "new_nghiemthukhac", NT.Id);
                 }
             }
-
+            //throw new Exception(dmhl.ToString());
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             //throw new Exception(dmhl.ToString() + "-" + dmhlvt.ToString());

@@ -36,7 +36,7 @@ namespace CheckThuaDat_Phuluchopdongtangdientich
                 Guid vdtID = ((EntityReference)hopdongmia["new_vudautu"]).Id;
 
                 QueryExpression q = new QueryExpression("new_thuadatcanhtac");
-                q.ColumnSet = new ColumnSet(new string[] { "new_hopdongdautumia", "new_thuadat" });
+                q.ColumnSet = new ColumnSet(new string[] { "new_hopdongdautumia", "new_thuadat","statuscode" });
                 int count = 0;
 
                 EntityCollection entc = service.RetrieveMultiple(q);

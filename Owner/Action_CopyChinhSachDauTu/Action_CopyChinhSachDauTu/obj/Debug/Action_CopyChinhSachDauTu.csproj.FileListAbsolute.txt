@@ -26,3 +26,13 @@ E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\Action_CopyChin
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\obj\Debug\Action_CopyChinhSachDauTu.csprojResolveAssemblyReference.cache
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\obj\Debug\Action_CopyChinhSachDauTu.dll
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\obj\Debug\Action_CopyChinhSachDauTu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Action_CopyChinhSachDauTu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Action_CopyChinhSachDauTu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\obj\Debug\Action_CopyChinhSachDauTu.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\obj\Debug\Action_CopyChinhSachDauTu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Action_CopyChinhSachDauTu\Action_CopyChinhSachDauTu\obj\Debug\Action_CopyChinhSachDauTu.pdb
