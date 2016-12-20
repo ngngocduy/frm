@@ -8,3 +8,8 @@ F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_Che
 F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.csprojResolveAssemblyReference.cache
 F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.dll
 F:\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_CheckBienBan3Ben.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\bin\Debug\Plugin_CheckBienBan3Ben.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Plugin_CheckBienBan3Ben\Plugin_CheckBienBan3Ben\obj\Debug\Plugin_CheckBienBan3Ben.pdb

@@ -20,21 +20,29 @@ namespace Update_DienTichMiaToGoc
             service = factory.CreateOrganizationService(context.UserId);
             ITracingService traceService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             Entity target = null;
+            Entity hopdongdautumia = null;
 
-            if(context.MessageName == "Create" || context.MessageName == "Update")
+            if (context.MessageName == "Create" || context.MessageName == "Update")
+            {
                 target = (Entity)context.InputParameters["Target"];
-            else if(context.MessageName == "Delete")
+
+                Entity chitiet = service.Retrieve(target.LogicalName, target.Id,
+                    new ColumnSet(new string[] { "new_hopdongdautumia" }));
+
+                hopdongdautumia = service.Retrieve("new_hopdongdautumia",
+                   ((EntityReference)chitiet["new_hopdongdautumia"]).Id,
+                   new ColumnSet(new string[] { "new_dientichmiato", "new_dientichmiagoc" }));
+            }
+            else if (context.MessageName == "Delete")
+            {
                 target = (Entity)context.PreEntityImages["PreImg"];
+                hopdongdautumia = service.Retrieve("new_hopdongdautumia",
+                   ((EntityReference)target["new_hopdongdautumia"]).Id,
+                   new ColumnSet(new string[] { "new_dientichmiato", "new_dientichmiagoc" }));
+            }
 
             if (target.Contains("new_hopdongdautumia") || target.Contains("new_loaigocmia"))
             {
-                Entity chitiet = service.Retrieve(target.LogicalName, target.Id,
-                    new ColumnSet(new string[] {"new_hopdongdautumia" }));
-
-                Entity hopdongdautumia = service.Retrieve("new_hopdongdautumia",
-                    ((EntityReference)chitiet["new_hopdongdautumia"]).Id,
-                    new ColumnSet(new string[] { "new_dientichmiato", "new_dientichmiagoc" }));
-
                 decimal dientichmiato = 0;
                 decimal dientichmiagoc = 0;
 
@@ -54,7 +62,7 @@ namespace Update_DienTichMiaToGoc
                     else if (loaigocmia == 100000001) // mia goc
                         dientichmiagoc += dientichconlai;
                 }
-
+                //throw new Exception(dientichmiagoc.ToString() + "-" + dientichmiato.ToString());
                 hopdongdautumia["new_dientichmiato"] = dientichmiato;
                 hopdongdautumia["new_dientichmiagoc"] = dientichmiagoc;
 

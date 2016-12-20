@@ -156,7 +156,7 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                                     if (NTTD.Contains("new_khachhangdoanhnghiep"))
                                     {
                                         Guid khId = ((EntityReference)NTTD["new_khachhangdoanhnghiep"]).Id;
-                                        Entity khObj = service.Retrieve("acCount", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
+                                        Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
 
                                         EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
 
@@ -432,7 +432,7 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                                 en["new_tyle"] = tyle;
                                 en["new_dinhmuc"] = new Money(tienHL);
                                 en["new_sotiendautu"] = new Money(sotiendautu);
-
+                                
                                 service.Update(en);
                             }
                             else

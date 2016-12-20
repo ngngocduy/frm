@@ -5,3 +5,9 @@ c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\Che
 c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.dll
 c:\users\mr duy\documents\visual studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.pdb
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\CheckTaiSanInHDTheChap.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\CheckTaiSanInHDTheChap.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\CheckTaiSanInHDTheChap\CheckTaiSanInHDTheChap\obj\Debug\CheckTaiSanInHDTheChap.pdb

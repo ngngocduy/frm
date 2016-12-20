@@ -1,0 +1,18 @@
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.csprojResolveAssemblyReference.cache
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.pdb
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Xrm.Client.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Xrm.Portal.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\AntiXssLibrary.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.dll
+D:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.pdb

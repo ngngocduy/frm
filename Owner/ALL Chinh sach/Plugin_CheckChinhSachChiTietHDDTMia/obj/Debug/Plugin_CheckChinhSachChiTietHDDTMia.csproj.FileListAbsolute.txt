@@ -22,3 +22,8 @@ D:\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Pl
 D:\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
 D:\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\bin\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_CheckChinhSachChiTietHDDTMia\obj\Debug\Plugin_CheckChinhSachChiTietHDDTMia.pdb

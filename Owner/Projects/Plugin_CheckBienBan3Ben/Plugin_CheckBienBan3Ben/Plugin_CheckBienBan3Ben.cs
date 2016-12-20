@@ -24,38 +24,40 @@ namespace Plugin_CheckBienBan3Ben
             {
                 Entity lenhchi = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(true));
 
-                EntityCollection lstLenhdon = RetrieveNNRecord(service, "new_lenhdon", "new_bangketienmia", "new_new_bangketienmia_new_lenhdon", new ColumnSet(true), "new_bangketienmiaid", lenhchi.Id);
+                EntityCollection lstLenhdon = RetrieveNNRecord(service, "new_lenhdon", "new_bangketienmia",
+                    "new_new_bangketienmia_new_lenhdon", new ColumnSet(true), "new_bangketienmiaid", lenhchi.Id);
                 foreach (Entity en in lstLenhdon.Entities)
                 {
-                    Entity KH = null;
-                    Entity KHDN = null;
-                    
-                    if (en.Contains("new_khachhang"))
+                    if (en.Contains("new_hopdongthuhoach"))
                     {
-                        KH = service.Retrieve("contact", ((EntityReference)en["new_khachhang"]).Id, new ColumnSet(new string[] { "contactid" }));
-                    }
-                    else if (en.Contains("new_khachhangdoanhnghiep"))
-                    {
-                        KHDN = service.Retrieve("account", ((EntityReference)en["new_khachhangdoanhnghiep"]).Id, new ColumnSet(new string[] { "accountid" }));
-                    }
-                    
-                    if (en.Contains("new_hopdongdautumia") && en.Contains("new_vudautu"))
-                    {
-                        Entity HD = service.Retrieve("new_hopdongdautumia", ((EntityReference)en["new_hopdongdautumia"]).Id, new ColumnSet(new string[] { "new_hopdongdautumiaid" }));
-                        Entity VDT = service.Retrieve("new_vudautu", ((EntityReference)en["new_vudautu"]).Id, new ColumnSet(new string[] { "new_vudautuid" }));
+                        Entity KH = null;
+                        Entity KHDN = null;
 
-                        Entity BBCongdon = KH != null ? FindBBCongDon(service, KH, HD, VDT) : FindBBCongDonKHDN(service, KHDN, HD, VDT);
-                        if (BBCongdon == null)
+                        if (en.Contains("new_khachhang"))
+                            KH = service.Retrieve("contact", ((EntityReference)en["new_khachhang"]).Id,
+                                new ColumnSet(new string[] { "contactid" }));
+                        else if (en.Contains("new_khachhangdoanhnghiep"))
+                            KHDN = service.Retrieve("account", ((EntityReference)en["new_khachhangdoanhnghiep"]).Id,
+                                new ColumnSet(new string[] { "accountid" }));
+
+                        if (en.Contains("new_hopdongdautumia") && en.Contains("new_vudautu"))
                         {
-                            throw new Exception(en["new_name"].ToString() + " chưa có biên bản 3 bên !!!");
+                            Entity HD = service.Retrieve("new_hopdongdautumia", ((EntityReference)en["new_hopdongdautumia"]).Id, new ColumnSet(new string[] { "new_hopdongdautumiaid" }));
+                            Entity VDT = service.Retrieve("new_vudautu", ((EntityReference)en["new_vudautu"]).Id, new ColumnSet(new string[] { "new_vudautuid" }));
+
+                            Entity BBCongdon = KH != null ? FindBBCongDon(service, KH, HD, VDT) : FindBBCongDonKHDN(service, KHDN, HD, VDT);
+                            if (BBCongdon == null)
+                            {
+                                throw new Exception(en["new_name"].ToString() + " chưa có biên bản 3 bên !!!");
+                            }
                         }
+
+                        Entity newLenhdon = new Entity(en.LogicalName);
+                        newLenhdon = service.Retrieve(en.LogicalName, en.Id, new ColumnSet(new string[] { "statuscode" }));
+
+                        newLenhdon["statuscode"] = new OptionSetValue(100000002);
+                        service.Update(newLenhdon);
                     }
-
-                    Entity newLenhdon = new Entity(en.LogicalName);
-                    newLenhdon = service.Retrieve(en.LogicalName,en.Id,new ColumnSet(new string[] { "statuscode"}));
-
-                    newLenhdon["statuscode"] = new OptionSetValue(100000002);
-                    service.Update(newLenhdon);
                 }
             }
         }

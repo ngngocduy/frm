@@ -15,6 +15,7 @@ namespace AutoNumber
         private IOrganizationServiceFactory serviceProxy;
         private IOrganizationService service;
         public ITracingService tracingService;
+        private System.Threading.Mutex mtx = null;
         public void Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
@@ -28,6 +29,7 @@ namespace AutoNumber
                     serviceProxy = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
                     service = serviceProxy.CreateOrganizationService(context.UserId);
                     Entity en = (Entity)context.InputParameters["Target"];
+                    string mutexName = string.Format("{0}{1}", en.LogicalName, "Autonumber");
                     if (en.LogicalName == "bsd_autonumber")
                     {
                         if (en["bsd_entitylogical"].ToString() == "bsd_autonumber")
@@ -373,6 +375,7 @@ namespace AutoNumber
                         }
                         else
                         {
+                            service.Update(Autonumberdetail);
                             ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
 
                             if (!string.IsNullOrWhiteSpace(field))
@@ -484,7 +487,7 @@ namespace AutoNumber
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
                         Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
-                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
                         if (dt == null)
                             throw new Exception("Vụ đầu tư '" + dtRef.Name + "' không tồn tại hoặc bị xóa!");
 
@@ -502,11 +505,11 @@ namespace AutoNumber
 
                         string prefix = "";
                         string sufix = "/VC/" + String.Format("{0:yy}-{1:yy}", bDate, eDate);
-                        
+
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
-                        if(Autonumberdetail == null)
+                        if (Autonumberdetail == null)
                         {
                             ulong currentPos = 0;
 
@@ -553,18 +556,18 @@ namespace AutoNumber
                                 //service.Update(eAu);
                                 UpdateAutoNumberdetail(Autonumberdetail, currentPos);
                             }
-                        }                        
+                        }
                     }
                     break;
                 #endregion
                 #region new_hopdongthechap
                 case "new_hopdongthechap":
                     {
-                        if (!eField.Attributes.Contains("new_vudautu"))
-                            throw new Exception("Vui lòng chọn vụ đầu tư!");
-                        EntityReference dtRef = (EntityReference)eField["new_vudautu"];
+                        //if (!eField.Attributes.Contains("new_vudautu"))
+                        //    throw new Exception("Vui lòng chọn vụ đầu tư!");
+                        //EntityReference dtRef = (EntityReference)eField["new_vudautu"];
                         //Entity vdt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
-                            //new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
+                        //new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
 
                         int year = DateTime.Now.Year;
 
@@ -635,7 +638,7 @@ namespace AutoNumber
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference vdtRef = (EntityReference)eField["new_vudautu"];
                         Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id,
-                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
 
                         if (vdt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc đã bị xóa!", vdtRef.Name));
@@ -653,11 +656,11 @@ namespace AutoNumber
 
                         string prefix = "";
                         string sufix = String.Format("/ĐT/{0:yy}-{1:yy}", begin, end);
-                        
+
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
-                        if(Autonumberdetail == null)
+                        if (Autonumberdetail == null)
                         {
                             ulong currentPos = 0;
 
@@ -704,7 +707,7 @@ namespace AutoNumber
                                 //service.Update(eAu);
                                 UpdateAutoNumberdetail(Autonumberdetail, currentPos);
                             }
-                        }                        
+                        }
                     }
                     break;
                 #endregion
@@ -1857,7 +1860,7 @@ namespace AutoNumber
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference vdtRef = (EntityReference)eField["new_vudautu"];
                         Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id,
-                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
 
                         if (vdt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc đã bị xóa!", vdtRef.Name));
@@ -2407,6 +2410,8 @@ namespace AutoNumber
                         }
                         else
                         {
+                            service.Update(Autonumberdetail);
+
                             ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
 
                             if (!string.IsNullOrWhiteSpace(field))
@@ -2517,6 +2522,14 @@ namespace AutoNumber
 
                         if (!eField.Attributes.Contains("new_lenhdon"))
                             throw new Exception("Vui lòng chọn lệnh đốn!");
+
+                        int loaican = eField.Contains("new_loaican")
+                            ? ((OptionSetValue)eField["new_loaican"]).Value
+                            : 0;
+
+                        if (loaican == 100000001 || loaican == 0)
+                            return;
+
                         EntityReference ldRef = (EntityReference)eField["new_lenhdon"];
                         Entity ldE = service.Retrieve(ldRef.LogicalName, ldRef.Id, new ColumnSet(new string[] { "new_vudautu" }));
                         if (ldE == null)
@@ -2525,7 +2538,9 @@ namespace AutoNumber
                             throw new Exception(string.Format("Vui lòng chọn vụ đầu tư trên lệnh đốn '{0}'!", ldRef.Name));
 
                         EntityReference dtRef = (EntityReference)ldE["new_vudautu"];
-                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id, new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+                        Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
+
                         if (dt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc bị xóa!", dtRef.Name));
                         if (!dt.Attributes.Contains("new_ngaybatdau"))
@@ -3033,7 +3048,7 @@ namespace AutoNumber
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
                         Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
-                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc","new_mavudautu" }));
+                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc", "new_mavudautu" }));
 
                         if (dt == null)
                             throw new Exception(string.Format("Vụ đầu tư '{0}' không tồn tại hoặc bị xóa!", dtRef.Name));
@@ -4135,32 +4150,7 @@ namespace AutoNumber
                 #region new_taisanthechap
                 case "new_taisanthechap":
                     {
-                        if (!eField.Attributes.Contains("new_hopdongthechap"))
-                            throw new Exception("Vui lòng chọn hợp đồng tư mía!");
-                        EntityReference hdref = (EntityReference)eField["new_hopdongthechap"];
-                        Entity hd = service.Retrieve(hdref.LogicalName, hdref.Id,
-                            new ColumnSet(new string[] { "new_vudautu" }));
-                        tracingService.Trace("get hd");
-                        if (hd == null)
-                            throw new Exception(string.Format("Hợp đồng đầu tư mía '{0}' không tồn tại hoặc bị xóa!", hdref.Name));
-                        if (!hd.Attributes.Contains("new_vudautu"))
-                            throw new Exception(string.Format("Vui lòng chọn vụ đầu tư trên hợp đồng đầu tư mía '{0}'!", hdref.Name));
-                        EntityReference vdtRef = (EntityReference)hd["new_vudautu"];
-
-                        Entity vdt = service.Retrieve(vdtRef.LogicalName, vdtRef.Id,
-                            new ColumnSet(new string[] { "new_ngaybatdau", "new_ngayketthuc" }));
-                        tracingService.Trace("get vdt");
-                        if (vdt == null)
-                            throw new Exception(string.Format("Vụ đầu tư '{0}' trên hợp đồng đầu tư mía '{1}' không tồn tại hoặc đã bị xóa!", vdtRef.Name, hdref.Name));
-                        if (!vdt.Attributes.Contains("new_ngaybatdau"))
-                            throw new Exception(string.Format("Vui lòng chọn ngày bắt đầu trên vụ đầu tư '{0}'!", vdtRef.Name));
-                        if (!vdt.Attributes.Contains("new_ngayketthuc"))
-                            throw new Exception(string.Format("Vui lòng chọn ngày kết thúc trên vụ đầu tư '{0}'!", vdtRef.Name));
-                        tracingService.Trace("c");
-                        DateTime begin = (DateTime)vdt["new_ngaybatdau"];
-                        DateTime end = (DateTime)vdt["new_ngayketthuc"];
-                        tracingService.Trace("d");
-                        string prefix = string.Format("TSTC{0:yy}{1:yy}-", begin, end);
+                        string prefix = "TSTC";
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;

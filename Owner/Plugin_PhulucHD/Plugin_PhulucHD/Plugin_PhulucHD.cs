@@ -129,8 +129,11 @@ namespace Plugin_PhulucHD
                                     thuadatcanhtac["new_ngaytrongdukien"] = en["new_ngaytrongdukien"];
                                     thuadatcanhtac["new_loaisohuudat"] = en["new_nguongocdat"];
                                     thuadatcanhtac["new_dientichhopdong"] = en["new_dientichhopdong"];
+                                    thuadatcanhtac["new_dientichconlai"] = en["new_dientichhopdong"];
+                                    thuadatcanhtac["statuscode"] = new OptionSetValue(100000000);
 
                                     service.Create(thuadatcanhtac);
+                                    traceService.Trace("updated tdct");
                                 }
                             } // End if Loại phụ lục Tăng diện tích
 
@@ -165,6 +168,7 @@ namespace Plugin_PhulucHD
                             // Loại phụ lục Gốc sang Tơ
                             if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000002")
                             {
+                                traceService.Trace("start goc sang to");
                                 EntityCollection dsPLGocsangTo = FindPLHDGocsangTo(service, PhulucHD);
                                 if (dsPLGocsangTo != null && dsPLGocsangTo.Entities.Count > 0)
                                 {
@@ -173,7 +177,13 @@ namespace Plugin_PhulucHD
                                         Entity plgocsangto = service.Retrieve("new_phuluchopdong_gocsangto", plgocto.Id, new ColumnSet(true));
 
                                         EntityReference ctHDDTmiaRef = plgocsangto.GetAttributeValue<EntityReference>("new_chitiethopdongdautumia");
-                                        Entity ChiTietHD = service.Retrieve("new_thuadatcanhtac", ctHDDTmiaRef.Id, new ColumnSet(new string[] { "new_vutrong", "new_loaigocmia", "new_mucdichsanxuatmia", "new_giongmia", "new_thuadat", "createdon", "new_hopdongdautumia", "new_khachhang", "new_khachhangdoanhnghiep", "new_thamgiamohinhkhuyennong", "new_dientichthucte", "new_tuoimia", "new_dientichhopdong", "new_dinhmucphanbontoithieu", "new_chinhsachdautu", "new_luugoc" }));
+                                        Entity ChiTietHD = service.Retrieve("new_thuadatcanhtac", ctHDDTmiaRef.Id,
+                                            new ColumnSet(new string[] { "new_vutrong", "new_loaigocmia", "new_mucdichsanxuatmia",
+                                                "new_giongmia", "new_thuadat", "createdon", "new_hopdongdautumia", "new_khachhang",
+                                                "new_khachhangdoanhnghiep", "new_thamgiamohinhkhuyennong", "new_dientichthucte",
+                                                "new_tuoimia", "new_dientichhopdong", "new_dinhmucphanbontoithieu", "new_chinhsachdautu",
+                                                "new_luugoc" }));
+
                                         DateTime ngaytao = DateTime.Now;
 
                                         if (ChiTietHD.Contains("createdon"))
@@ -2436,11 +2446,16 @@ namespace Plugin_PhulucHD
             q.AddOrder("new_current", OrderType.Descending);
 
             EntityCollection entc = service.RetrieveMultiple(q);
-            Entity first = entc.Entities[0];
 
-            int currentpos = first.Contains("new_current") ? (int)first["new_current"] : 0;
+            if (entc.Entities.Count > 0)
+            {
+                Entity first = entc.Entities[0];
 
-            return ++currentpos;
+                int currentpos = first.Contains("new_current") ? (int) first["new_current"] : 0;
+
+                return ++currentpos;
+            }
+            else return 1;
         }
     }
 }

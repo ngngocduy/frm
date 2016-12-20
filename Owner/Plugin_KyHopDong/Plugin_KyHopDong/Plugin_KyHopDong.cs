@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xrm.Sdk.Messages;
@@ -80,6 +81,14 @@ namespace Plugin_KyHopDong
                             KH.Id = ((EntityReference)HD["new_chuhopdongdoanhnghiep"]).Id;
                             KH["statuscode"] = new OptionSetValue(100000000);
                             service.Update(KH);
+                        }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykihopdong" }));
+
+                        if (!upHD.Contains("new_ngaykihopdong"))
+                        {
+                            upHD["new_ngaykihopdong"] = DateTime.Now;
+                            service.Update(upHD);
                         }
                     }
             }
@@ -240,6 +249,15 @@ namespace Plugin_KyHopDong
                             KH["statuscode"] = new OptionSetValue(100000000);
                             service.Update(KH);
                         }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                        if (!upHD.Contains("new_ngaykyhopdong"))
+                        {
+                            upHD["new_ngaykyhopdong"] = DateTime.Now;
+                            service.Update(upHD);
+                        }
+
                     }
             }
             else if (target.LogicalName.Trim().ToLower() == "new_hopdongthuhoach")
@@ -265,6 +283,14 @@ namespace Plugin_KyHopDong
                             KH.Id = ((EntityReference)HD["new_doitacthuhoachkhdn"]).Id;
                             KH["statuscode"] = new OptionSetValue(100000000);
                             service.Update(KH);
+                        }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                        if (!upHD.Contains("new_ngaykyhopdong"))
+                        {
+                            upHD["new_ngaykyhopdong"] = DateTime.Now;
+                            service.Update(upHD);
                         }
                     }
             }
@@ -292,6 +318,14 @@ namespace Plugin_KyHopDong
                             KH["statuscode"] = new OptionSetValue(100000000);
                             service.Update(KH);
                         }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                        if (!upHD.Contains("new_ngaykyhopdong"))
+                        {
+                            upHD["new_ngaykyhopdong"] = DateTime.Now;
+                            service.Update(upHD);
+                        }
                     }
             }
             else if (target.LogicalName.Trim().ToLower() == "new_hopdongcungungdichvu")
@@ -317,6 +351,14 @@ namespace Plugin_KyHopDong
                             KH.Id = ((EntityReference)HD["new_doitaccungcapkhdn"]).Id;
                             KH["statuscode"] = new OptionSetValue(100000000);
                             service.Update(KH);
+                        }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                        if (!upHD.Contains("new_ngaykyhopdong"))
+                        {
+                            upHD["new_ngaykyhopdong"] = DateTime.Now;
+                            service.Update(upHD);
                         }
                     }
             }
@@ -353,6 +395,14 @@ namespace Plugin_KyHopDong
                             en["statuscode"] = new OptionSetValue(100000000);
                             service.Update(en);
                         }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngayduyet" }));
+
+                        if (!upHD.Contains("new_ngayduyet"))
+                        {
+                            upHD["new_ngayduyet"] = DateTime.Now;
+                            service.Update(upHD);
+                        }
                     }
             }
             else if (target.LogicalName == "new_hopdongdautuhatang")
@@ -386,6 +436,14 @@ namespace Plugin_KyHopDong
                             KH["statuscode"] = new OptionSetValue(100000000);
                             traceService.Trace("5");
                             service.Update(KH);
+                        }
+
+                        Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                        if (!upHD.Contains("new_ngaykyhopdong"))
+                        {
+                            upHD["new_ngaykyhopdong"] = DateTime.Now;
+                            service.Update(upHD);
                         }
                     }
                 }
@@ -461,7 +519,7 @@ namespace Plugin_KyHopDong
                    || target.LogicalName == "new_phieudenghithuno"
                    || target.LogicalName == "new_phieutamung"
                    || target.LogicalName == "new_nghiemthuboclamia"
-                   || target.LogicalName == "new_bangketienmia"
+                   //|| target.LogicalName == "new_bangketienmia"
                    || target.LogicalName == "new_nghiemthukhac"
                    || target.LogicalName == "new_nghiemthuchatsatgoc"
                    || target.LogicalName == "new_nghiemthudichvu"
@@ -477,7 +535,7 @@ namespace Plugin_KyHopDong
                         uHD["statuscode"] = new OptionSetValue(100000000);
                         service.Update(uHD);
                     }
-                    
+
                     if (tinhtrangduyet == 100000006 && target.LogicalName == "new_nghiemthumaymocthietbi")
                     {
                         List<Entity> lstChitietNTMMTB = RetrieveMultiRecord(service, "new_chitietnghiemthummtb",
@@ -490,7 +548,7 @@ namespace Plugin_KyHopDong
                             throw new Exception("Nghiệm thu máy móc thiết bị không có hợp đồng trang thiết bị");
 
                         EntityReference hdtrangthietbi = (EntityReference)ntmmtb["new_hopdongdaututrangthietbi"];
-                        
+
                         foreach (Entity en in lstChitietNTMMTB)
                         {
                             if (!en.Contains("new_maymocthietbi"))
@@ -499,14 +557,14 @@ namespace Plugin_KyHopDong
                             EntityReference mmtb = (EntityReference)en["new_maymocthietbi"];
 
                             QueryExpression q = new QueryExpression("new_hopdongdaututrangthietbichitiet");
-                            q.ColumnSet = new ColumnSet(new string[] { "new_trangthainghiemthu","new_name" });
+                            q.ColumnSet = new ColumnSet(new string[] { "new_trangthainghiemthu", "new_name" });
                             q.Criteria = new FilterExpression();
                             q.Criteria.AddCondition(new ConditionExpression("new_hopdongdaututrangthietbi", ConditionOperator.Equal, hdtrangthietbi.Id));
                             q.Criteria.AddCondition(new ConditionExpression("new_maymocthietbi", ConditionOperator.Equal, mmtb.Id));
                             EntityCollection entc = service.RetrieveMultiple(q);
 
                             if (entc.Entities.Count > 0)
-                            {                                
+                            {
                                 entc.Entities[0]["new_trangthainghiemthu"] = new OptionSetValue(100000002);
                                 service.Update(entc.Entities[0]);
                             }
@@ -607,7 +665,105 @@ namespace Plugin_KyHopDong
                         service.Update(uHD);
                     }
             }
+            else if (target.LogicalName == "new_bangketienmia")
+            {
+                //throw new Exception("fdsfdsf");
+                if (target.Contains("new_tinhtrangduyet"))
+                {
+                    if (((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000006)
+                    {
+                        traceService.Trace("1");
+                        Entity uHD = new Entity(target.LogicalName);
+                        uHD.Id = HD.Id;
+                        uHD["statuscode"] = new OptionSetValue(100000000);
+                        service.Update(uHD);
 
+                        // lệnh chi
+                        EntityCollection listlenhdon = RetrieveNNRecord("new_lenhdon", target.LogicalName,
+                            "new_new_bangketienmia_new_lenhdon", new ColumnSet(new string[] { "statuscode" }),
+                            "new_bangketienmiaid", target.Id);
+                        if (listlenhdon != null && listlenhdon.Entities.Count > 0)
+                        {
+                            foreach (var item in listlenhdon.Entities)
+                            {
+                                Entity lenhdon = new Entity("new_lenhdon");
+                                lenhdon.Id = item.Id;
+                                lenhdon["statuscode"] = new OptionSetValue(100000003);
+                                service.Update(lenhdon);
+                            }
+                        }
+                        // phiếu tính tiền mía
+                        List<Entity> listphieutinhtienmia = RetrieveMultiRecord(service, "new_phieutinhtienmia",
+                            new ColumnSet(new String[] { "statuscode", "new_pdnthuno", "new_pdnthuno_thuhoach",
+                                "new_pdnthuno_vanchuyen" }), "new_bangke", target.Id);
+                        if (listphieutinhtienmia != null && listphieutinhtienmia.Count > 0)
+                        {
+                            foreach (var lst in listphieutinhtienmia)
+                            {
+                                Entity phieutinhtienmia = new Entity("new_phieutinhtienmia");
+                                phieutinhtienmia.Id = lst.Id;
+                                phieutinhtienmia["statuscode"] = new OptionSetValue(100000000);
+                                traceService.Trace("Phieu tinh tien mia");
+                                service.Update(phieutinhtienmia);
+
+                                if (lst.Contains("new_pdnthuno"))
+                                {
+                                    Entity chumia = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno"]).Id, new ColumnSet(new string[] { "statuscode" }));
+                                    Entity cm = new Entity("new_phieudenghithuno");
+                                    cm.Id = chumia.Id;
+                                    cm["statuscode"] = new OptionSetValue(100000000);
+                                    traceService.Trace("chu mia");
+                                    service.Update(cm);
+                                }
+                                if (lst.Contains("new_pdnthuno_thuhoach"))
+                                {
+                                    Entity thuhoach = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno_thuhoach"]).Id, new ColumnSet(new string[] { "statuscode" }));
+                                    Entity th = new Entity("new_phieudenghithuno");
+                                    th.Id = thuhoach.Id;
+                                    th["statuscode"] = new OptionSetValue(100000000);
+                                    traceService.Trace("thu hoach");
+                                    service.Update(th);
+                                }
+                                if (lst.Contains("new_pdnthuno_vanchuyen"))
+                                {
+                                    Entity vanchuyen = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno_vanchuyen"]).Id, new ColumnSet(new string[] { "statuscode" }));
+                                    Entity vc = new Entity("new_phieudenghithuno");
+                                    vc.Id = vanchuyen.Id;
+                                    vc["statuscode"] = new OptionSetValue(100000000);
+                                    traceService.Trace("van chuyen");
+                                    service.Update(vc);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (target.LogicalName == "new_hopdongdautumia")
+            {
+                if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000003) // ky hd
+                {
+                    Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                    if (!upHD.Contains("new_ngaykyhopdong"))
+                    {
+                        upHD["new_ngaykyhopdong"] = DateTime.Now;
+                        service.Update(upHD);
+                    }
+                }
+            }
+            else if (target.LogicalName == "new_hopdongthuedat")
+            {
+                if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // ky hd
+                {
+                    Entity upHD = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngaykyhopdong" }));
+
+                    if (!upHD.Contains("new_ngaykyhopdong"))
+                    {
+                        upHD["new_ngaykyhopdong"] = DateTime.Now;
+                        service.Update(upHD);
+                    }
+                }
+            }
         }
 
         public static EntityCollection FindCTHDDTmia(IOrganizationService crmservices, Entity HD)
@@ -690,6 +846,22 @@ namespace Plugin_KyHopDong
             return entc.Entities.ToList<Entity>();
         }
 
+        EntityCollection RetrieveNNRecord(string entity1, string entity2, string relateName, ColumnSet column, string entity2condition, object entity2value)
+        {
+            EntityReferenceCollection result = new EntityReferenceCollection();
+            QueryExpression query = new QueryExpression(entity1);
+            query.ColumnSet = column;
+            LinkEntity linkEntity1 = new LinkEntity(entity1, relateName, entity1 + "id", entity1 + "id", JoinOperator.Inner);
+            LinkEntity linkEntity2 = new LinkEntity(relateName, entity2, entity2 + "id", entity2 + "id", JoinOperator.Inner);
 
+            linkEntity1.LinkEntities.Add(linkEntity2);
+            query.LinkEntities.Add(linkEntity1);
+
+            linkEntity2.LinkCriteria = new FilterExpression();
+            linkEntity2.LinkCriteria.AddCondition(new ConditionExpression(entity2condition, ConditionOperator.Equal, entity2value));
+            EntityCollection collRecords = service.RetrieveMultiple(query);
+
+            return collRecords;
+        }
     }
 }

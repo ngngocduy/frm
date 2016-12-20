@@ -37,6 +37,8 @@ namespace CheckThuaDat_Phuluchopdongtangdientich
 
                 QueryExpression q = new QueryExpression("new_thuadatcanhtac");
                 q.ColumnSet = new ColumnSet(new string[] { "new_hopdongdautumia", "new_thuadat","statuscode" });
+                q.Criteria = new FilterExpression();
+                q.Criteria.AddCondition(new ConditionExpression("statuscode",ConditionOperator.Equal, 100000000));
                 int count = 0;
 
                 EntityCollection entc = service.RetrieveMultiple(q);
@@ -47,13 +49,12 @@ namespace CheckThuaDat_Phuluchopdongtangdientich
                         continue;
 
                     Entity tdct = service.Retrieve(en.LogicalName, en.Id, new ColumnSet(new string[] { "new_hopdongdautumia" }));
+
                     Entity hd = service.Retrieve("new_hopdongdautumia", ((EntityReference)tdct["new_hopdongdautumia"]).Id,
                         new ColumnSet(new string[] { "new_vudautu" }));
 
                     if (thuadatID == ((EntityReference)en["new_thuadat"]).Id && ((EntityReference)hd["new_vudautu"]).Id == vdtID)
-                    {
                         count++;
-                    }
                 }
 
                 if (count > 0)

@@ -7,7 +7,6 @@ c:\users\mr duy\documents\visual studio 2015\Projects\Update_DienTichMiaToGoc\Up
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Update_DienTichMiaToGoc.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Update_DienTichMiaToGoc.pdb
-C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\bin\Debug\Microsoft.Xrm.Sdk.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Update_DienTichMiaToGoc\Update_DienTichMiaToGoc\obj\Debug\Update_DienTichMiaToGoc.csprojResolveAssemblyReference.cache

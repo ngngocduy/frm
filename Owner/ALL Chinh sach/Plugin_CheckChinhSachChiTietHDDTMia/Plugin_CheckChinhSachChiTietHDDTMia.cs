@@ -253,6 +253,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                             traceService.Trace("Pass nhom khách hàng");
 
                             EntityCollection csVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid", cs.Id);
+                            traceService.Trace(csVungDL.Entities.Count.ToString());
                             if (csVungDL.Entities.Count > 0)
                             {
                                 bool check = false;
@@ -260,16 +261,19 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                 foreach (Entity n in csVungDL.Entities)
                                     dsvung.Add(n.Id);
 
-                                Entity diachi = service.Retrieve("new_diachi", ((EntityReference)ThuaDat["new_diachi"]).Id, new ColumnSet(new string[] { "new_path" }));
+                                Entity diachi = service.Retrieve("new_diachi", ((EntityReference)ThuaDat["new_diachi"]).Id,
+                                    new ColumnSet(new string[] { "new_path" }));
                                 QueryExpression qe = new QueryExpression("new_vungdialy_hanhchinh");
                                 qe.NoLock = true;
                                 qe.ColumnSet = new ColumnSet(new string[] { "new_vungdialy_hanhchinhid", "new_vungdialy", "new_path" });
                                 qe.Criteria.AddCondition(new ConditionExpression("new_vungdialy", ConditionOperator.In, dsvung.ToArray()));
-                                traceService.Trace(diachi["new_path"].ToString());
+                                //traceService.Trace(diachi["new_path"].ToString());
                                 foreach (Entity n in service.RetrieveMultiple(qe).Entities)
                                 {
-                                    traceService.Trace(n["new_path"].ToString() + " -" + diachi["new_path"].ToString().Contains(n["new_path"].ToString()));
-
+                                    //traceService.Trace(n["new_path"].ToString() + " -" + diachi["new_path"].ToString().Contains(n["new_path"].ToString()));
+                                    if (!diachi.Contains("new_path"))
+                                        continue;
+                                    
                                     if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
                                     {
                                         check = true;
