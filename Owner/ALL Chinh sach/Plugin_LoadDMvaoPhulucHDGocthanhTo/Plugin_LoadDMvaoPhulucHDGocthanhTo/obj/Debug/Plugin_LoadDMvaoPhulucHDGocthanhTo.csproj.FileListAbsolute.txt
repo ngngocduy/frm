@@ -16,3 +16,4 @@ C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGoct
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\bin\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_LoadDMvaoPhulucHDGocthanhTo\Plugin_LoadDMvaoPhulucHDGocthanhTo\obj\Debug\Plugin_LoadDMvaoPhulucHDGocthanhTo.csprojResolveAssemblyReference.cache

@@ -22,3 +22,4 @@ C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debu
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\bin\Debug\Plugin_PDK_HomGiong.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_HomGiong\obj\Debug\Plugin_PDK_HomGiong.csprojResolveAssemblyReference.cache

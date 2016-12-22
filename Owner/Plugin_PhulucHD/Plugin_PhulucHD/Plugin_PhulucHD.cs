@@ -44,7 +44,7 @@ namespace Plugin_PhulucHD
                         EntityReference HDDTmiaRef = PhulucHD.GetAttributeValue<EntityReference>("new_hopdongdautumia");
                         Guid HDDTmiaId = HDDTmiaRef.Id;
                         Entity HDDTmia = service.Retrieve("new_hopdongdautumia", HDDTmiaId,
-                            new ColumnSet(new string[] { "new_vudautu", "new_masohopdong","new_tram","new_canbonongvu" }));
+                            new ColumnSet(new string[] { "new_vudautu", "new_masohopdong", "new_tram", "new_canbonongvu" }));
 
                         EntityReference vudautuRef = HDDTmia.GetAttributeValue<EntityReference>("new_vudautu");
                         Guid vuDTId = vudautuRef.Id;
@@ -53,7 +53,7 @@ namespace Plugin_PhulucHD
 
                         if (PhulucHD.Contains("new_tinhtrangduyet") && PhulucHD.GetAttributeValue<OptionSetValue>("new_tinhtrangduyet").Value.ToString() == "100000005")
                         {
-                            //Loại phụ lục Tăng diện tích
+                            #region tang dien tich
                             if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000000")
                             {
                                 List<Entity> lstPhuluctangdientich = RetrieveMultiRecord(service, "new_phuluchopdong_tangdientich",
@@ -68,7 +68,7 @@ namespace Plugin_PhulucHD
                                     if (!en.Contains("new_chinhsachdautu"))
                                         throw new Exception("Phụ lục HĐ không có chính sách");
 
-                                    thuadatcanhtac["new_name"] = "CTHDDT - " + HDDTmia["new_masohopdong"].ToString() + " - " + GetCurrentPos(HDDTmia).ToString();
+                                    thuadatcanhtac["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + GetCurrentPos(HDDTmia).ToString();
                                     thuadatcanhtac["new_thuadat"] = en["new_thuadat"];
                                     thuadatcanhtac["new_chinhsachdautu"] = en["new_chinhsachdautu"];
                                     thuadatcanhtac["new_phuluchopdongid"] = new EntityReference(PhulucHD.LogicalName, PhulucHD.Id);
@@ -136,7 +136,9 @@ namespace Plugin_PhulucHD
                                     traceService.Trace("updated tdct");
                                 }
                             } // End if Loại phụ lục Tăng diện tích
+                            #endregion
 
+                            #region tang dinh muc
                             //Loại phụ lục Tăng định mức
                             if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000001")
                             {
@@ -164,6 +166,7 @@ namespace Plugin_PhulucHD
                                     }
                                 }
                             } // End if Loại phụ lục Tăng định mức
+                            #endregion
 
                             // Loại phụ lục Gốc sang Tơ
                             if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000002")
@@ -182,7 +185,8 @@ namespace Plugin_PhulucHD
                                                 "new_giongmia", "new_thuadat", "createdon", "new_hopdongdautumia", "new_khachhang",
                                                 "new_khachhangdoanhnghiep", "new_thamgiamohinhkhuyennong", "new_dientichthucte",
                                                 "new_tuoimia", "new_dientichhopdong", "new_dinhmucphanbontoithieu", "new_chinhsachdautu",
-                                                "new_luugoc" }));
+                                                "new_luugoc","new_name","new_culy","new_nhomdat","new_nhomculy","new_sonamthuedatconlai",
+                                                "new_loaitrong" }));
 
                                         DateTime ngaytao = DateTime.Now;
 
@@ -197,7 +201,9 @@ namespace Plugin_PhulucHD
                                         {
                                             thuadatEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_thuadat");
                                             thuadatId = thuadatEntityRef.Id;
-                                            thuadatObj = service.Retrieve("new_thuadat", thuadatId, new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy", "new_nhomculy" }));
+                                            thuadatObj = service.Retrieve("new_thuadat", thuadatId,
+                                                new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy",
+                                                    "new_nhomculy","new_culyvanchuyen" }));
                                         }
 
                                         EntityReference giongmiaEntityRef = new EntityReference();
@@ -208,19 +214,33 @@ namespace Plugin_PhulucHD
                                         {
                                             giongmiaEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_giongmia");
                                             giongmiaId = giongmiaEntityRef.Id;
-                                            giongmiaObj = service.Retrieve("new_giongmia", giongmiaId, new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
+                                            giongmiaObj = service.Retrieve("new_giongmia", giongmiaId,
+                                                new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
                                         }
-
+                                        
                                         EntityReference CSDTRef = plgocsangto.GetAttributeValue<EntityReference>("new_chinhsachdautu");
                                         Guid csdtKQ = CSDTRef.Id;
-                                        Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ, new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name", "new_loailaisuatcodinhthaydoi", "new_muclaisuatdautu", "new_cachtinhlai", "new_dinhmucdautukhonghoanlai", "new_dinhmucphanbontoithieu" }));
+                                        Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ,
+                                            new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name", "new_loailaisuatcodinhthaydoi", "new_muclaisuatdautu", "new_cachtinhlai", "new_dinhmucdautukhonghoanlai", "new_dinhmucphanbontoithieu" }));
 
                                         Entity en = new Entity(ChiTietHD.LogicalName);
                                         en.Id = ChiTietHD.Id;
 
+                                        en["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + GetCurrentPos(HDDTmia).ToString();
+
+                                        traceService.Trace("gan nhom cu li , nhom dat, cu li ");
+                                        //gan nhom cu li , nhom dat , cu li 
+
+                                        if (thuadatObj != null && thuadatObj.Id != Guid.Empty)
+                                        {
+                                            en["new_culy"] = thuadatObj["new_culyvanchuyen"];
+                                            en["new_nhomdat"] = thuadatObj["new_nhomdat"];
+                                            en["new_nhomculy"] = thuadatObj["new_nhomculy"];
+                                        }
+
                                         // -------Gan ty le thu hoi von du kien
                                         // Lay nhung tylethuhoivon trong chinh sach dau tu
-
+                                        traceService.Trace("Start find ty le thu hoi von");
                                         EntityCollection collTLTHV = FindtyleTHV(service, csdtKQEntity);
 
                                         if (collTLTHV != null && collTLTHV.Entities.Count > 0)
@@ -238,7 +258,7 @@ namespace Plugin_PhulucHD
                                                     decimal dientichtt = (ChiTietHD.Contains("new_dientichthucte") ? (decimal)ChiTietHD["new_dientichthucte"] : 0);
                                                     decimal dinhmucDThl = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautuhoanlai").Value : 0);
                                                     decimal sotien = 0;
-
+                                                    traceService.Trace("1");
                                                     sotien = (dinhmucDThl * dientichtt * tyle) / 100;
 
                                                     Money sotienM = new Money(sotien);
@@ -257,7 +277,7 @@ namespace Plugin_PhulucHD
                                         // ------End Gan vao ty le thu hoi von du kien
 
                                         // Lay thong so vu dau tu
-
+                                        traceService.Trace("Thong so vu dau tu");
                                         EntityCollection collTSVDT = FindthongsoVDT(service, VuDT);
 
                                         // ------ Gan NHom du lieu Lai suat
@@ -274,6 +294,7 @@ namespace Plugin_PhulucHD
                                                     en["new_loailaisuat"] = new OptionSetValue(100000000);
                                             }
 
+                                            traceService.Trace("muc lai suat co dinh thay doi");
                                             // Muc lai suat
                                             if (csdtKQEntity.Attributes.Contains("new_loailaisuatcodinhthaydoi"))
                                             {
@@ -301,6 +322,7 @@ namespace Plugin_PhulucHD
                                                     }
                                                 }
                                             }
+                                            traceService.Trace("cach tinh lai");
                                             if (csdtKQEntity.Attributes.Contains("new_cachtinhlai"))
                                             {
                                                 OptionSetValue cachlinhlai = csdtKQEntity.GetAttributeValue<OptionSetValue>("new_cachtinhlai");
@@ -684,14 +706,27 @@ namespace Plugin_PhulucHD
                                         en["new_loaigocmia"] = new OptionSetValue(100000000);
                                         // Gán CSDT
                                         en["new_chinhsachdautu"] = CSDTRef;
-
+                                        traceService.Trace("2");
                                         // ------------- Load Đầu tư
-                                        en["new_dongiahopdong"] = (Money)plgocsangto["new_dongiahopdong"];
-                                        en["new_dongiahopdongkhl"] = (Money)plgocsangto["new_dongiahopdongkhl"];
-                                        en["new_dongiaphanbonhd"] = (Money)plgocsangto["new_dongiaphanbonhd"];
-                                        en["new_dautuhoanlai"] = (Money)plgocsangto["new_dautuhoanlai"];
-                                        en["new_dautukhonghoanlai"] = (Money)plgocsangto["new_dautukhonghoanlai"];
-                                        en["new_tongchiphidautu"] = (Money)plgocsangto["new_tongchiphidautu"];
+                                        en["new_sonamthuedatconlai"] = plgocsangto.Contains("new_thoihanthuedatconlai")
+                                            ? (int) plgocsangto["new_thoihanthuedatconlai"]
+                                            : 0;
+                                        en["new_loaitrong"] = plgocsangto.Contains("new_loaitrong")
+                                            ? plgocsangto["new_loaitrong"]
+                                            : null;
+                                        en["new_mucdichsanxuatmia"] = plgocsangto.Contains("new_mucdichsanxuatmia") ? plgocsangto["new_mucdichsanxuatmia"] : null;
+                                        en["new_giongmia"] = plgocsangto.Contains("new_giongmiadangky") ?  plgocsangto["new_giongmiadangky"] : null;
+                                        en["new_dongiahopdong"] = plgocsangto.Contains("new_dongiahopdong") ? (Money)plgocsangto["new_dongiahopdong"] : new Money(0);
+                                        traceService.Trace("3");
+                                        en["new_dongiahopdongkhl"] = plgocsangto.Contains("new_dongiahopdongkhl") ? (Money)plgocsangto["new_dongiahopdongkhl"] : new Money(0);
+                                        traceService.Trace("4");
+                                        en["new_dongiaphanbonhd"] = plgocsangto.Contains("new_dongiaphanbonhd") ? (Money)plgocsangto["new_dongiaphanbonhd"] : new Money(0);
+                                        traceService.Trace("5");
+                                        en["new_dautuhoanlai"] = plgocsangto.Contains("new_dautuhoanlai") ? (Money)plgocsangto["new_dautuhoanlai"] : new Money(0);
+                                        traceService.Trace("6");
+                                        en["new_dautukhonghoanlai"] = plgocsangto.Contains("new_dautukhonghoanlai") ? (Money)plgocsangto["new_dautukhonghoanlai"] : new Money(0);
+                                        traceService.Trace("7");
+                                        en["new_tongchiphidautu"] = plgocsangto.Contains("new_tongchiphidautu") ? (Money)plgocsangto["new_tongchiphidautu"] : new Money(0);
                                         en["new_sotienphanbontoithieu"] = (Money)plgocsangto["new_sotienphanbontoithieu"];
 
                                         // --- End ----  Load Đầu tư
@@ -704,7 +739,8 @@ namespace Plugin_PhulucHD
                                             OldlistCSDTRef.Add(oldCSDT.ToEntityReference());
                                         }
 
-                                        service.Disassociate("new_thuadatcanhtac", ChiTietHD.Id, new Relationship("new_new_chitiethddtmia_new_chinhsachdautu"), OldlistCSDTRef);
+                                        service.Disassociate("new_thuadatcanhtac", ChiTietHD.Id,
+                                            new Relationship("new_new_chitiethddtmia_new_chinhsachdautu"), OldlistCSDTRef);
 
                                         EntityReferenceCollection listCSDT = new EntityReferenceCollection();
                                         listCSDT.Add(csdtKQEntity.ToEntityReference());
@@ -2310,6 +2346,10 @@ namespace Plugin_PhulucHD
                         <attribute name='new_dinhmucdautukhonghoanlai' />
                         <attribute name='new_dinhmucdautuhoanlai' />
                         <attribute name='new_chitiethopdongdautumia' />
+                        <attribute name='new_thoihanthuedatconlai' />
+<attribute name='new_loaitrong' />
+<attribute name='new_mucdichsanxuatmia' />
+<attribute name='new_giongmiadangky' />
                         <attribute name='new_phuluchopdong_gocsangtoid' />
                         <order attribute='new_name' descending='false' />
                         <filter type='and'>
@@ -2451,7 +2491,7 @@ namespace Plugin_PhulucHD
             {
                 Entity first = entc.Entities[0];
 
-                int currentpos = first.Contains("new_current") ? (int) first["new_current"] : 0;
+                int currentpos = first.Contains("new_current") ? (int)first["new_current"] : 0;
 
                 return ++currentpos;
             }

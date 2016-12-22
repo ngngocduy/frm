@@ -59,7 +59,7 @@ namespace GenPBDT_NTDV
                 if (ntdichvu.Contains("actualstart"))
                     ngayduyet = (DateTime)ntdichvu["actualstart"];
                 trace.Trace("5");
-                decimal dinhmuc = ((Money)ntdichvu["new_tongtien"]).Value;
+                decimal sotien = ((Money)ntdichvu["new_tongtien"]).Value;
                 if (ntdichvu.Contains("new_vudautu"))
                     vudautu = (EntityReference)ntdichvu["new_vudautu"];
 
@@ -78,22 +78,22 @@ namespace GenPBDT_NTDV
                     trace.Trace("A");
                     foreach (Entity tylethuhoivon in lstTylethuhoi)
                     {
-                        trace.Trace("B");
                         EntityReference vuthuhoi = (EntityReference)tylethuhoivon["new_vudautu"];
 
-                        dinhmuc = dinhmuc * (decimal)tylethuhoivon["new_tylephantram"] / 100;
+                        decimal dinhmuc = sotien * (decimal)tylethuhoivon["new_tylephantram"] / 100;
                         decimal tiendaphanbo = tylethuhoivon.Contains("new_tiendaphanbo") ?
                              ((Money)tylethuhoivon["new_tiendaphanbo"]).Value : new decimal(0);
-
+                        trace.Trace("tien da pb : " + tiendaphanbo.ToString());
                         decimal sotienthuhoi = tylethuhoivon.Contains("new_sotienthuhoi") ?
                             ((Money)tylethuhoivon["new_sotienthuhoi"]).Value : 0;
-
+                        trace.Trace("so tien thu hoi : " + sotienthuhoi.ToString());
                         decimal sotienphanbo = sotienthuhoi - tiendaphanbo;
-
+                        trace.Trace("so tien pb : " + sotienphanbo.ToString());
                         while (true)
                         {
                             if (dinhmuc < sotienphanbo)
                             {
+                                trace.Trace("phan bo:" + dinhmuc.ToString());
                                 CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, dinhmuc,
                                     tram, cbnv, ngayduyet, ntdichvu, sophieu);
                                 tiendaphanbo = tiendaphanbo + dinhmuc;
@@ -102,6 +102,7 @@ namespace GenPBDT_NTDV
                             }
                             else if (dinhmuc > sotienphanbo)
                             {
+                                trace.Trace("phan bo:" + sotienphanbo.ToString());
                                 CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, sotienphanbo,
                                     tram, cbnv, ngayduyet, ntdichvu, sophieu);
                                 tiendaphanbo = tiendaphanbo + sotienphanbo;

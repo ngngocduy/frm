@@ -243,22 +243,26 @@ namespace Plugin_PDK_HomGiong
             
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
-            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
-            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
+            //tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
+            //tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
+            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(0);
+            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhl);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
             tmpPdk["new_giaingan_hoanlai_tienmat"] = new Money(gnhltm);
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            
-            decimal dmcTmHl = dmhl - dmhlvt - gnhltm;
-            decimal dmcHlVt = dmhlvt - gnhlvt;
-            decimal dmcKhl = dm0hl - gn0hl;
 
-            tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(dmcTmHl);
-            tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(dmcHlVt);
-            tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(dmcKhl);
+            //decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
+            //decimal deNghiVt = dmhlvt - gnhlvt;
+            decimal deNghiTmHl = 0;
+            decimal deNghiVt = dmhl - gnhlvt;
+            decimal deNghiKhl = dm0hl - gn0hl;
+
+            tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
+            tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);
+            tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);
 
             decimal dkhl = 0;
             decimal dkkhl = 0;
@@ -266,23 +270,23 @@ namespace Plugin_PDK_HomGiong
 
             if (dkkhl > 0)
             {
-                if (dkkhl <= dmcKhl)
+                if (dkkhl <= deNghiKhl)
                     tmpPdk["new_denghi_khonghoanlai"] = new Money(dkkhl);
                 else
-                    tmpPdk["new_denghi_khonghoanlai"] = new Money(dmcKhl);
+                    tmpPdk["new_denghi_khonghoanlai"] = new Money(deNghiKhl);
             }
             if (dkhl > 0)
             {
-                if (dkhl <= dmcHlVt)
+                if (dkhl <= deNghiVt)
                     tmpPdk["new_denghi_hoanlai_vattu"] = new Money(dkhl);
                 else
                 {
-                    decimal t1 = dkhl - dmcHlVt;
-                    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(dmcHlVt);
-                    if (t1 <= dmcTmHl)
+                    decimal t1 = dkhl - deNghiVt;
+                    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(deNghiVt);
+                    if (t1 <= deNghiTmHl)
                         tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(t1);
                     else
-                        tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(dmcTmHl);
+                        tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
                 }
             }
 

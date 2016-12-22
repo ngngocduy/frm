@@ -247,8 +247,10 @@ namespace Plugin_PDK_VatTu
 
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
-            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
-            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
+            //tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
+            //tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
+            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(0);
+            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhl);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
 
@@ -256,10 +258,11 @@ namespace Plugin_PDK_VatTu
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
-            decimal deNghiVt = dmhlvt - gnhlvt;
+            //decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
+            //decimal deNghiVt = dmhlvt - gnhlvt;
+            decimal deNghiTmHl = 0;
+            decimal deNghiVt = dmhl - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
-
 
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);

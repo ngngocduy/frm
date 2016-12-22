@@ -32,6 +32,11 @@ namespace Plugin_LoadDMvaoPhulucHDGocthanhTo
                 Entity PhulucHDGocthanhTo = (Entity)context.InputParameters["Target"];
                 Guid entityId = PhulucHDGocthanhTo.Id;
 
+                if (PhulucHDGocthanhTo.Contains("new_chitiethopdongdautumia") && (EntityReference)PhulucHDGocthanhTo["new_chitiethopdongdautumia"] == null)
+                {
+                    return;
+                }
+
                 if (PhulucHDGocthanhTo.LogicalName == "new_phuluchopdong_gocsangto")
                 {
                     traceService.Trace("Begin plugin");

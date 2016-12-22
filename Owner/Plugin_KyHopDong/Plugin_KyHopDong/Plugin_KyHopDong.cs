@@ -672,11 +672,12 @@ namespace Plugin_KyHopDong
                 {
                     if (((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000006)
                     {
-                        traceService.Trace("1");
-                        Entity uHD = new Entity(target.LogicalName);
-                        uHD.Id = HD.Id;
-                        uHD["statuscode"] = new OptionSetValue(100000000);
-                        service.Update(uHD);
+                        
+                        Entity t = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_ngayduyet", "statuscode" }));
+
+                        t["statuscode"] = new OptionSetValue(100000000);
+                        t["new_ngayduyet"] = DateTime.Now;
+                        service.Update(t);
 
                         // lệnh chi
                         EntityCollection listlenhdon = RetrieveNNRecord("new_lenhdon", target.LogicalName,
@@ -708,30 +709,36 @@ namespace Plugin_KyHopDong
 
                                 if (lst.Contains("new_pdnthuno"))
                                 {
-                                    Entity chumia = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno"]).Id, new ColumnSet(new string[] { "statuscode" }));
-                                    Entity cm = new Entity("new_phieudenghithuno");
-                                    cm.Id = chumia.Id;
-                                    cm["statuscode"] = new OptionSetValue(100000000);
+                                    Entity chumia = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno"]).Id,
+                                        new ColumnSet(new string[] { "statuscode", "new_ngayduyet","new_tinhtrangduyet" }));
+
+                                    chumia["new_tinhtrangduyet"] = new OptionSetValue(100000006);
+                                    chumia["new_ngayduyet"] = DateTime.Now;
+                                    chumia["statuscode"] = new OptionSetValue(100000000);
                                     traceService.Trace("chu mia");
-                                    service.Update(cm);
+                                    service.Update(chumia);
                                 }
                                 if (lst.Contains("new_pdnthuno_thuhoach"))
                                 {
-                                    Entity thuhoach = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno_thuhoach"]).Id, new ColumnSet(new string[] { "statuscode" }));
-                                    Entity th = new Entity("new_phieudenghithuno");
-                                    th.Id = thuhoach.Id;
-                                    th["statuscode"] = new OptionSetValue(100000000);
+                                    Entity thuhoach = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno_thuhoach"]).Id,
+                                        new ColumnSet(new string[] { "statuscode","new_ngayduyet", "new_tinhtrangduyet" }));
+
+                                    thuhoach["new_tinhtrangduyet"] = new OptionSetValue(100000006);
+                                    thuhoach["new_ngayduyet"] = DateTime.Now;
+                                    thuhoach["statuscode"] = new OptionSetValue(100000000);
                                     traceService.Trace("thu hoach");
-                                    service.Update(th);
+                                    service.Update(thuhoach);
                                 }
                                 if (lst.Contains("new_pdnthuno_vanchuyen"))
                                 {
-                                    Entity vanchuyen = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno_vanchuyen"]).Id, new ColumnSet(new string[] { "statuscode" }));
-                                    Entity vc = new Entity("new_phieudenghithuno");
-                                    vc.Id = vanchuyen.Id;
-                                    vc["statuscode"] = new OptionSetValue(100000000);
+                                    Entity vanchuyen = service.Retrieve("new_phieudenghithuno", ((EntityReference)lst["new_pdnthuno_vanchuyen"]).Id,
+                                        new ColumnSet(new string[] { "statuscode", "new_ngayduyet", "new_tinhtrangduyet" }));
+
+                                    vanchuyen["new_tinhtrangduyet"] = new OptionSetValue(100000006);
+                                    vanchuyen["new_ngayduyet"] = DateTime.Now;
+                                    vanchuyen["statuscode"] = new OptionSetValue(100000000);
                                     traceService.Trace("van chuyen");
-                                    service.Update(vc);
+                                    service.Update(vanchuyen);
                                 }
                             }
                         }

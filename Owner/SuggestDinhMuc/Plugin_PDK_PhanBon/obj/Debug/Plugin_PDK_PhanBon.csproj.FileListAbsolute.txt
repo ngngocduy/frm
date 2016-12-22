@@ -18,3 +18,4 @@ C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\bin\Debug
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\bin\Debug\Plugin_PDK_PhanBon.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_PhanBon\obj\Debug\Plugin_PDK_PhanBon.csprojResolveAssemblyReference.cache

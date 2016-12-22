@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Plugin_PDK_PhanBon
 {
@@ -91,15 +92,17 @@ namespace Plugin_PDK_PhanBon
                 cthds = service.RetrieveMultiple(query);
                 if (cthds.Entities.Count == 0)
                     return;
-                
+                traceService.Trace("so chi tiet : " + cthds.Entities.Count.ToString());
                 foreach (Entity cthd in cthds.Entities)
                 {
-                    decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id, ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet") ? (bool)cthd["new_yeucaudacbiet"] : false));
-                    traceService.Trace(tyle.ToString() + "-" + dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + dm0hl.ToString());
+                    decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
+                        ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet") ?
+                        (bool)cthd["new_yeucaudacbiet"] : false));
+                    
                     dmhl += tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     dmhlvt += tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                     dm0hl += tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
-
+                    traceService.Trace(tyle.ToString() + "-" + dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + dm0hl.ToString());
                     #region Them chi tiet hop va phieu dang ky
                     string ct_name = cthd.Contains("new_name") ? (cthd["new_name"].ToString() + "-") : "";
 
@@ -124,7 +127,7 @@ namespace Plugin_PDK_PhanBon
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
                     
                 }
-
+                
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
                 
@@ -247,8 +250,10 @@ namespace Plugin_PDK_PhanBon
             
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
-            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
-            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
+            //tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
+            //tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
+            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(0);
+            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhl);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
 
@@ -256,9 +261,11 @@ namespace Plugin_PDK_PhanBon
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            //throw new Exception(dmhlvt.ToString() + gnhlvt.ToString());
-            decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
-            decimal deNghiVt = dmhlvt - gnhlvt;
+
+            //decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
+            //decimal deNghiVt = dmhlvt - gnhlvt;
+            decimal deNghiTmHl = 0;
+            decimal deNghiVt = dmhl - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
 
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
