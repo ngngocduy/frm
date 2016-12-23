@@ -98,11 +98,16 @@ namespace Plugin_PDK_PhanBon
                     decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
                         ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet") ?
                         (bool)cthd["new_yeucaudacbiet"] : false));
-                    
-                    dmhl += tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
-                    dmhlvt += tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
-                    dm0hl += tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
-                    traceService.Trace(tyle.ToString() + "-" + dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + dm0hl.ToString());
+                    traceService.Trace(cthd["new_name"].ToString());
+                    decimal dmhlT = tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    decimal dmhlvtT = tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
+                    decimal dm0hlT = tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
+
+                    dmhl += dmhlT;
+                    dmhlvt += dmhlvtT;
+                    dm0hl += dm0hlT;
+
+                    traceService.Trace(tyle.ToString() + "-" + dmhlT.ToString() + "-" + dmhlvtT.ToString() + "-" + dm0hlT.ToString());
                     #region Them chi tiet hop va phieu dang ky
                     string ct_name = cthd.Contains("new_name") ? (cthd["new_name"].ToString() + "-") : "";
 
@@ -110,16 +115,15 @@ namespace Plugin_PDK_PhanBon
                     ct_pdk["new_chitiethopdong"] = new EntityReference(cthd.LogicalName, cthd.Id);
                     ct_pdk["new_phieudangky"] = pdkRef;
                     ct_pdk["new_name"] = string.Format("{0}-{1}", ct_name, pdk["new_masophieudangky"]);
-                    ct_pdk["new_dmhltm"] = new Money(dmhl);
-                    ct_pdk["new_dmhlvt"] = new Money(dmhlvt);
-                    ct_pdk["new_dm0hl"] = new Money(dm0hl);
+                    ct_pdk["new_dmhltm"] = new Money(dmhlT);
+                    ct_pdk["new_dmhlvt"] = new Money(dmhlvtT);
+                    ct_pdk["new_dm0hl"] = new Money(dm0hlT);
                     service.Create(ct_pdk);
 
                     #endregion
 
                     gnhltm += cthd.Contains("new_dachihoanlai_tienmat") ? ((Money)cthd["new_dachihoanlai_tienmat"]).Value : 0;
                     gnhltm += cthd.Contains("new_dachihoanlai_dichvu") ? ((Money)cthd["new_dachihoanlai_dichvu"]).Value : 0;
-
                     gnhlvt = cthd.Contains("new_dachihoanlai_homgiong") ? ((Money)cthd["new_dachihoanlai_homgiong"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_phanbon") ? ((Money)cthd["new_dachihoanlai_phanbon"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
@@ -130,7 +134,6 @@ namespace Plugin_PDK_PhanBon
                 
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-                
             }
             else
             {
@@ -574,6 +577,12 @@ namespace Plugin_PDK_PhanBon
             fetch.AppendFormat("<entity name='new_chitietdangkyphanbon'>");
             fetch.AppendFormat("<attribute name='new_sotienkhl' alias='khl' aggregate='sum' />");
             fetch.AppendFormat("<attribute name='new_sotienhl' alias='hl' aggregate='sum' />");
+            fetch.AppendFormat("<link-entity name='new_phieudangkyphanbon' from='new_phieudangkyphanbonid' to='new_phieudangkyphanbon' link-type='inner'>");
+            fetch.AppendFormat("<attribute name='statuscode' groupby='true' alias='statuscode' />");
+            fetch.AppendFormat("<filter type='and'>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("</filter>");
+            fetch.AppendFormat("</link-entity>");
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_phieudangkyphanbon' operator='eq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");

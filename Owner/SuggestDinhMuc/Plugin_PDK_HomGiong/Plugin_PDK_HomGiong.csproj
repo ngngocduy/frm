@@ -58,11 +58,6 @@
     <Folder Include="Doc\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="xml.xml">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
