@@ -9,18 +9,29 @@ namespace Plugin_PDK_VatTu
     {
         private IOrganizationService service;
         private IOrganizationServiceFactory factory;
-        private ITracingService trace;
-        Entity target = null;
+        
         Entity fullEntity = null;
         void IPlugin.Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             ITracingService trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+            Entity target = context.InputParameters["Target"] as Entity;
 
-            if (context.MessageName == "Create")
+            if (context.MessageName == "Create" && target.LogicalName == "new_phieudangkyvattu")
+            {
+                trace = serviceProvider.GetService(typeof(ITracingService)) as ITracingService;
+                factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+                service = factory.CreateOrganizationService(context.UserId);
+                EntityReference pdkRef = target.ToEntityReference();
+
+                TinhDinhMuc tinhDm = new TinhDinhMuc(service, trace, pdkRef);
+                tinhDm.CalculateTrongMia();
+            }
+
+            if (context.MessageName == "Create" && target.LogicalName != "new_phieudangkyvattu")
             {
                 trace.Trace("1");
-                target = context.InputParameters["Target"] as Entity;
+                
                 if (target.LogicalName == "new_chitietdangkyvattu" && target.Contains("new_phieudangkyvattu"))
                 {
                     factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
@@ -36,7 +47,7 @@ namespace Plugin_PDK_VatTu
             else if (context.MessageName == "Update")
             {
                 trace.Trace("2");
-                target = context.InputParameters["Target"] as Entity;
+                
                 fullEntity = context.PostEntityImages["PostImg"] as Entity;
                 if (target.LogicalName == "new_chitietdangkyvattu")
                 {

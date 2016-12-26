@@ -68,7 +68,17 @@ namespace Plugin_PhulucHD
                                     if (!en.Contains("new_chinhsachdautu"))
                                         throw new Exception("Phụ lục HĐ không có chính sách");
 
-                                    thuadatcanhtac["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + GetCurrentPos(HDDTmia).ToString();
+                                    Entity td = service.Retrieve("new_thuadat", ((EntityReference)en["new_thuadat"]).Id,
+                                        new ColumnSet(new string[] { "new_name", "new_culyvanchuyen",
+                                            "new_nhomdat", "new_nhomculy", "new_chusohuuchinhtd","new_chusohuuchinhtdkhdn","new_loaisohuudat" }));
+
+                                    thuadatcanhtac["new_culy"] = td["new_culyvanchuyen"];
+                                    thuadatcanhtac["new_nhomdat"] = td["new_nhomdat"];
+                                    thuadatcanhtac["new_nhomculy"] = td["new_nhomculy"];
+                                    thuadatcanhtac["new_chusohuuchinhtd"] = td["new_chusohuuchinhtd"];
+                                    thuadatcanhtac["new_chusohuuchinhtdkhdn"] = td["new_chusohuuchinhtdkhdn"];
+                                    thuadatcanhtac["new_loaisohuudat"] = td["new_loaisohuudat"];
+                                    thuadatcanhtac["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + td["new_name"].ToString();
                                     thuadatcanhtac["new_thuadat"] = en["new_thuadat"];
                                     thuadatcanhtac["new_chinhsachdautu"] = en["new_chinhsachdautu"];
                                     thuadatcanhtac["new_phuluchopdongid"] = new EntityReference(PhulucHD.LogicalName, PhulucHD.Id);
@@ -77,7 +87,6 @@ namespace Plugin_PhulucHD
                                     thuadatcanhtac["new_canbonongvu"] = HDDTmia["new_canbonongvu"];
                                     thuadatcanhtac["new_dongiadautuhoanlai"] =
                                         en.Contains("new_dongiadautuhoanlai") ? en["new_dongiadautuhoanlai"] : new Money(0);
-
                                     thuadatcanhtac["new_dongiadautukhonghoanlai"] =
                                         en.Contains("new_dongiadautukhonghoanlai") ? en["new_dongiadautukhonghoanlai"] : new Money(0);
 
@@ -131,6 +140,8 @@ namespace Plugin_PhulucHD
                                     thuadatcanhtac["new_dientichhopdong"] = en["new_dientichhopdong"];
                                     thuadatcanhtac["new_dientichconlai"] = en["new_dientichhopdong"];
                                     thuadatcanhtac["statuscode"] = new OptionSetValue(100000000);
+                                    thuadatcanhtac["new_trangthainghiemthu"] = new OptionSetValue(100000001);
+                                    thuadatcanhtac["new_sonamthuedatconlai"] = en.Contains("new_thoihanthuedatconlai") ? en["new_thoihanthuedatconlai"] : null;
 
                                     service.Create(thuadatcanhtac);
                                     traceService.Trace("updated tdct");
@@ -203,7 +214,7 @@ namespace Plugin_PhulucHD
                                             thuadatId = thuadatEntityRef.Id;
                                             thuadatObj = service.Retrieve("new_thuadat", thuadatId,
                                                 new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy",
-                                                    "new_nhomculy","new_culyvanchuyen" }));
+                                                    "new_nhomculy","new_culyvanchuyen","new_name" }));
                                         }
 
                                         EntityReference giongmiaEntityRef = new EntityReference();
@@ -217,7 +228,7 @@ namespace Plugin_PhulucHD
                                             giongmiaObj = service.Retrieve("new_giongmia", giongmiaId,
                                                 new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
                                         }
-                                        
+
                                         EntityReference CSDTRef = plgocsangto.GetAttributeValue<EntityReference>("new_chinhsachdautu");
                                         Guid csdtKQ = CSDTRef.Id;
                                         Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ,
@@ -226,17 +237,21 @@ namespace Plugin_PhulucHD
                                         Entity en = new Entity(ChiTietHD.LogicalName);
                                         en.Id = ChiTietHD.Id;
 
-                                        en["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + GetCurrentPos(HDDTmia).ToString();
+                                        string masothua = "";
 
-                                        traceService.Trace("gan nhom cu li , nhom dat, cu li ");
                                         //gan nhom cu li , nhom dat , cu li 
-
                                         if (thuadatObj != null && thuadatObj.Id != Guid.Empty)
                                         {
                                             en["new_culy"] = thuadatObj["new_culyvanchuyen"];
                                             en["new_nhomdat"] = thuadatObj["new_nhomdat"];
                                             en["new_nhomculy"] = thuadatObj["new_nhomculy"];
+                                            masothua = " - " + thuadatObj["new_name"].ToString();
                                         }
+
+                                        en["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + masothua;
+
+                                        traceService.Trace("gan nhom cu li , nhom dat, cu li ");
+
 
                                         // -------Gan ty le thu hoi von du kien
                                         // Lay nhung tylethuhoivon trong chinh sach dau tu
@@ -709,13 +724,13 @@ namespace Plugin_PhulucHD
                                         traceService.Trace("2");
                                         // ------------- Load Đầu tư
                                         en["new_sonamthuedatconlai"] = plgocsangto.Contains("new_thoihanthuedatconlai")
-                                            ? (int) plgocsangto["new_thoihanthuedatconlai"]
+                                            ? (int)plgocsangto["new_thoihanthuedatconlai"]
                                             : 0;
                                         en["new_loaitrong"] = plgocsangto.Contains("new_loaitrong")
                                             ? plgocsangto["new_loaitrong"]
                                             : null;
                                         en["new_mucdichsanxuatmia"] = plgocsangto.Contains("new_mucdichsanxuatmia") ? plgocsangto["new_mucdichsanxuatmia"] : null;
-                                        en["new_giongmia"] = plgocsangto.Contains("new_giongmiadangky") ?  plgocsangto["new_giongmiadangky"] : null;
+                                        en["new_giongmia"] = plgocsangto.Contains("new_giongmiadangky") ? plgocsangto["new_giongmiadangky"] : null;
                                         en["new_dongiahopdong"] = plgocsangto.Contains("new_dongiahopdong") ? (Money)plgocsangto["new_dongiahopdong"] : new Money(0);
                                         traceService.Trace("3");
                                         en["new_dongiahopdongkhl"] = plgocsangto.Contains("new_dongiahopdongkhl") ? (Money)plgocsangto["new_dongiahopdongkhl"] : new Money(0);
@@ -2486,10 +2501,11 @@ namespace Plugin_PhulucHD
             q.AddOrder("new_current", OrderType.Descending);
 
             EntityCollection entc = service.RetrieveMultiple(q);
+            int n = entc.Entities.Count;
 
-            if (entc.Entities.Count > 0)
+            if (n > 0)
             {
-                Entity first = entc.Entities[0];
+                Entity first = entc.Entities[n - 1];
 
                 int currentpos = first.Contains("new_current") ? (int)first["new_current"] : 0;
 

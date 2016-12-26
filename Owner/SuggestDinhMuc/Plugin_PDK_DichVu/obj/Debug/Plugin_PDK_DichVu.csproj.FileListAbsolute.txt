@@ -21,6 +21,6 @@ D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dl
 D:\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\bin\Debug\Plugin_PDK_DichVu.pdb
-C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDK_DichVu\obj\Debug\Plugin_PDK_DichVu.csprojResolveAssemblyReference.cache

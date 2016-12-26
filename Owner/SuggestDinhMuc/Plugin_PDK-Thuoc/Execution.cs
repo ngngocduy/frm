@@ -9,15 +9,28 @@ namespace Plugin_PDK_Thuoc
     {
         private IOrganizationService service;
         private IOrganizationServiceFactory factory;
-        private ITracingService trace;
-        Entity target = null;
+        
         Entity fullEntity = null;
         void IPlugin.Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
-            if (context.MessageName == "Create")
+            ITracingService trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+            Entity target = context.InputParameters["Target"] as Entity;
+
+            if (context.MessageName == "Create" && target.LogicalName == "new_phieudangkythuoc")
             {
-                target = context.InputParameters["Target"] as Entity;
+                trace = serviceProvider.GetService(typeof(ITracingService)) as ITracingService;
+                factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+                service = factory.CreateOrganizationService(context.UserId);
+                EntityReference pdkRef = target.ToEntityReference();
+
+                TinhDinhMuc tinhDm = new TinhDinhMuc(service, trace, pdkRef);
+                tinhDm.CalculateTrongMia();
+            }
+
+            if (context.MessageName == "Create" && target.LogicalName != "new_phieudangkythuoc")
+            {
+                
                 if (target.LogicalName == "new_chitietdangkythuoc" && target.Contains("new_phieudangkythuoc"))
                 {
                     factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
@@ -32,7 +45,7 @@ namespace Plugin_PDK_Thuoc
             }
             else if (context.MessageName == "Update")
             {
-                target = context.InputParameters["Target"] as Entity;
+                
                 fullEntity = context.PostEntityImages["PostImg"] as Entity;
                 if (target.LogicalName == "new_chitietdangkythuoc")
                 {
@@ -76,8 +89,7 @@ namespace Plugin_PDK_Thuoc
                         }
                     }
                 }
-
-                target = context.InputParameters["Target"] as Entity;
+                
                 fullEntity = context.PostEntityImages["PostImg"] as Entity;
                 if (target.LogicalName == "new_phieudangkythuoc" && target.Contains("new_tinhtrangduyet"))
                 {

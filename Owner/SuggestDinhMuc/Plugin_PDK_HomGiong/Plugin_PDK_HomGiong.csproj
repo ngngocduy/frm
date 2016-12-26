@@ -54,9 +54,7 @@
     <Compile Include="TinhDinhMuc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Doc\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="key.snk" />
   </ItemGroup>

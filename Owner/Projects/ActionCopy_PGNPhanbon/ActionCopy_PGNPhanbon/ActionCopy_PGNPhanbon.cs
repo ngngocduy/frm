@@ -139,6 +139,11 @@ namespace ActionCopy_PGNPhanbon
                     entcRef1.Add(a.ToEntityReference());
                 }
 
+                //Entity t = service.Retrieve(phieudkphanbon.LogicalName, phieudkphanbon.Id,
+                //    new ColumnSet(new string[] { "statuscode" }));
+                //t["statuscode"] = new OptionSetValue(100000002);
+                //service.Update(t);
+
                 service.Associate("new_phieugiaonhanphanbon", idPGNPB, new Relationship("new_new_pgnphanbon_new_chitiethddtmia"), entcRef1);
 
                 context.OutputParameters["ReturnId"] = idPGNPB.ToString();

@@ -13,3 +13,8 @@ D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\Action
 D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.dll
 D:\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\bin\Debug\ActionCopyPDKVatTu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopyPDKVatTu\ActionCopyPDKVatTu\obj\Debug\ActionCopyPDKVatTu.pdb

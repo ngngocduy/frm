@@ -74,11 +74,11 @@ namespace ActionCopyPDKVatTu
                 pgnvattu["new_ngaylapphieu"] = phieudkvattu.Contains("new_ngaylapphieu") ? phieudkvattu["new_ngaylapphieu"] : "";
                 pgnvattu["new_phieudangkyvattu"] = new EntityReference(phieudkvattu.LogicalName, phieudkvattu.Id);
                 pgnvattu["new_ngayduyet"] = phieudkvattu.Contains("new_ngayduyet") ? phieudkvattu["new_ngayduyet"] : "";
-
                 pgnvattu["new_dinhmuc_khonghoanlai"] = phieudkvattu.Contains("new_denghi_khonghoanlai") ? phieudkvattu["new_denghi_khonghoanlai"] : new Money(0);
                 pgnvattu["new_dinhmuc_hoanlai_vattu"] = phieudkvattu.Contains("new_denghi_hoanlai_vattu") ? phieudkvattu["new_denghi_hoanlai_vattu"] : new Money(0);
                 pgnvattu["new_dinhmuc_hoanlai_tienmat"] = phieudkvattu.Contains("new_denghi_hoanlai_tienmat") ? phieudkvattu["new_denghi_hoanlai_tienmat"] : new Money(0);
                 pgnvattu["new_laytupdk"] = true;
+
                 Guid idPGNVT = service.Create(pgnvattu);
 
                 List<Entity> DSchitietcu = RetrieveMultiRecord(service, "new_chitietgiaonhanvattu", new ColumnSet(true), "new_phieugiaonhanvattu", idPGNVT);
@@ -90,6 +90,7 @@ namespace ActionCopyPDKVatTu
                 Entity temp = service.Retrieve(pgnvattu.LogicalName, idPGNVT, new ColumnSet(new string[] { "new_masophieu" }));
                 string maphieu = temp["new_masophieu"].ToString();
                 decimal i = 0;
+
                 foreach (Entity a in DSChitietdangkyVattu)
                 {
                     i++;
@@ -134,6 +135,11 @@ namespace ActionCopyPDKVatTu
                 {
                     entcRef1.Add(a.ToEntityReference());
                 }
+
+                //Entity t = service.Retrieve(phieudkvattu.LogicalName, phieudkvattu.Id,
+                //    new ColumnSet(new string[] { "statuscode" }));
+                //t["statuscode"] = new OptionSetValue(100000002);
+                //service.Update(t);
 
                 service.Associate("new_phieugiaonhanvattu", idPGNVT, new Relationship("new_new_pgnvattu_new_chitiethddtmia"), entcRef1);
 

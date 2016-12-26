@@ -92,13 +92,26 @@ namespace Plugin_PDK_Thuoc
 
                 foreach (Entity cthd in cthds.Entities)
                 {
-                    decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
-                        ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet")
-                        ? (bool)cthd["new_yeucaudacbiet"] : false));
+                    decimal tyleGNVattu = 0;
+                    decimal tyleGNtienmat = 0;
 
-                    dmhl += tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
-                    dmhlvt += tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
-                    dm0hl += tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
+                    GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
+                        ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value,
+                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNtienmat, ref tyleGNVattu);
+
+                    decimal dmhlT = tyleGNtienmat / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    decimal dmhlvtT = tyleGNVattu / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
+                    decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
+
+                    if (tyleGNtienmat == 100)
+                    {
+                        dmhlvtT = dmphanbontoithieu;
+                    }
+
+                    dmhl += (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    dmhlvt += dmhlvtT;
+                    dm0hl += dm0hlT;
 
                     #region Them chi tiet hop va phieu dang ky
 
@@ -324,7 +337,7 @@ namespace Plugin_PDK_Thuoc
             fetch.AppendFormat("<attribute name='new_denghi_khonghoanlai' alias='khl' aggregate='sum' />");
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkyhomgiong")
                 fetch.AppendFormat("<condition attribute='new_phieudangkyhomgiongid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -362,7 +375,7 @@ namespace Plugin_PDK_Thuoc
             fetch.AppendFormat("<attribute name='new_denghi_khonghoanlai' alias='khl' aggregate='sum' />");
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkyphanbon")
                 fetch.AppendFormat("<condition attribute='new_phieudangkyphanbonid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -402,7 +415,7 @@ namespace Plugin_PDK_Thuoc
 
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkythuoc")
                 fetch.AppendFormat("<condition attribute='new_phieudangkythuocid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -443,7 +456,7 @@ namespace Plugin_PDK_Thuoc
 
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkyvattu")
                 fetch.AppendFormat("<condition attribute='new_phieudangkyvattuid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -483,7 +496,7 @@ namespace Plugin_PDK_Thuoc
 
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkydichvu")
                 fetch.AppendFormat("<condition attribute='new_phieudangkydichvuid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -599,26 +612,39 @@ namespace Plugin_PDK_Thuoc
             khl = tmp0hl;
         }
 
-        private decimal GetTyle(Guid chinhsach, int ttNT, bool yeucau)
+        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNtienmat, ref decimal tyleGNvattu)
         {
-            decimal tyle = 0;
+            //decimal tyle = 0;
 
-            QueryExpression qe = new QueryExpression("new_dinhmucdautu");
-            qe.ColumnSet = new ColumnSet(true);
-            qe.Criteria.AddCondition(new ConditionExpression("new_yeucauphanbon", ConditionOperator.LessEqual, ttNT));
-            qe.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
+            QueryExpression q1 = new QueryExpression("new_dinhmucdautu");
+            q1.ColumnSet = new ColumnSet(true);
+            q1.Criteria.AddCondition(new ConditionExpression("new_yeucauphanbon", ConditionOperator.LessEqual, ttNT));
+            q1.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
 
-            foreach (Entity a in service.RetrieveMultiple(qe).Entities)
+            foreach (Entity a in service.RetrieveMultiple(q1).Entities)
             {
                 if (!yeucau)
-                    tyle += (decimal)a["new_phantramtilegiaingan"];
+                    tyleGNvattu += (decimal)a["new_phantramtilegiaingan"];
                 else
                 {
-                    tyle += (decimal)a["new_tyleyc"];
+                    tyleGNvattu += (decimal)a["new_tyleyc"];
                 }
             }
 
-            return tyle;
+            QueryExpression q2 = new QueryExpression("new_dinhmucdautu");
+            q2.ColumnSet = new ColumnSet(true);
+            q2.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
+            q2.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
+
+            foreach (Entity a in service.RetrieveMultiple(q2).Entities)
+            {
+                if (!yeucau)
+                    tyleGNtienmat += (decimal)a["new_phantramtilegiaingan"];
+                else
+                {
+                    tyleGNtienmat += (decimal)a["new_tyleyc"];
+                }
+            }
         }
 
         private void sum_pdkNT(EntityReference hd, EntityReference pdkRef, ref decimal hlTM, ref decimal hlVT, ref decimal KHL, int type, string fieldNT, Guid pNT)

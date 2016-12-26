@@ -24,6 +24,6 @@ C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong
 C:\Users\Mr Duy\Downloads\Compressed\MIA DUONG\PLUGIN-CUSTOM_WF\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.pdb
-C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache
