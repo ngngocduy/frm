@@ -64,35 +64,41 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
 
                             Guid vuDTId = vudautuRef.Id;
 
-                            string fetchXml =
-                                      @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
-                                      <entity name='new_chinhsachdautu'>
-                                        <attribute name='new_name' />
-                                        <attribute name='new_vudautu' />
-                                        <attribute name='new_ngayapdung' />
-                                        <attribute name='new_mucdichdautu' />
-                                        <attribute name='new_loaihopdong' />
-                                        <attribute name='new_dinhmucdautuhoanlai' />
-                                        <attribute name='new_loaigocmia_vl' />
-                                        <attribute name='new_nhomgiongmia_vl' />
-                                        <attribute name='new_nhomdat_vl' />
-                                        <attribute name='new_vutrong_vl' />
-                                        <attribute name='new_mucdichsanxuatmia_vl' />
-                                        <attribute name='new_loaisohuudat_vl' />
-                                        <attribute name='new_chinhsachdautuid' />
-                                        <order attribute='new_ngayapdung' descending='true' />
-                                        <filter type='and'>
-                                          <condition attribute='statecode' operator='eq' value='0' />
-                                          <condition attribute='new_loaihopdong' operator='eq' value='100000000' />
-                                          <condition attribute='new_mucdichdautu' operator='eq' value='100000000' />
-                                          <condition attribute='new_ngayapdung' operator='on-or-before' value='{0}' />    
-                                          <condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{1}' />                                   
-                                        </filter>
-                                      </entity>
-                                    </fetch>";
+                            StringBuilder qChinhSach = new StringBuilder();
+                            qChinhSach.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
+                            qChinhSach.AppendFormat("<entity name='new_chinhsachdautu'>");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_name");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_vudautu");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_ngayapdung");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_mucdichdautu");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_loaihopdong");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_dinhmucdautuhoanlai");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_loaigocmia_vl");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_nhomgiongmia_vl");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_vutrong_vl");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_mucdichsanxuatmia_vl");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_loaisohuudat_vl");
+                            qChinhSach.AppendFormat("<attribute name='{0}' />", "new_chinhsachdautuid");
+                            qChinhSach.AppendFormat("<order attribute='new_ngayapdung' descending='true' />");
 
-                            fetchXml = string.Format(fetchXml, ngaytao, vuDTId);
-                            EntityCollection result = service.RetrieveMultiple(new FetchExpression(fetchXml));
+                            qChinhSach.AppendFormat("<filter type='and'>");
+                            qChinhSach.AppendFormat("     <condition attribute='statecode' operator='eq' value='0' />");
+                            qChinhSach.AppendFormat("     <condition attribute='new_mucdichdautu' operator='eq' value='100000000' />");
+                            qChinhSach.AppendFormat("     <condition attribute='new_loaihopdong' operator='eq' value='100000000' />");
+                            qChinhSach.AppendFormat("     <condition attribute='new_ngayapdung' operator='on-or-before' value='{0}' />  ", ngaytao);
+                            qChinhSach.AppendFormat("     <condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{1}' />   ", vuDTId);
+
+                            if (ChiTietNTTrongMia.Contains("new_mucdichsanxuatmia"))
+                            {
+                                qChinhSach.AppendFormat("<filter type='or'>");
+                                qChinhSach.AppendFormat("     <condition attribute='new_mucdichsanxuatmia_vl' operator='like' value='%{0}%' />", ((OptionSetValue)ChiTietNTTrongMia["new_mucdichsanxuatmia"]).Value);
+                                qChinhSach.AppendFormat("     <condition attribute='new_mucdichsanxuatmia_vl' operator='null' />");
+                                qChinhSach.AppendFormat("</filter>");
+                            }
+
+                            qChinhSach.AppendFormat("</filter>");
+
+                            EntityCollection result = service.RetrieveMultiple(new FetchExpression(qChinhSach.ToString()));
                             List<Entity> CSDT = result.Entities.ToList<Entity>();
 
                             Entity mCSDT = null;

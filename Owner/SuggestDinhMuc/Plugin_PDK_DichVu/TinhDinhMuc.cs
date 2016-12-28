@@ -144,12 +144,13 @@ namespace Plugin_PDK_DichVu
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                    
+                    traceService.Trace("gnhltm " + gnhltm.ToString());
                 }
                 
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
+                traceService.Trace("gnhltm " + gnhltm.ToString());
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-
+                traceService.Trace("gnhltm " + gnhltm.ToString());
                 #endregion
             }
             else
@@ -271,7 +272,7 @@ namespace Plugin_PDK_DichVu
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             
-            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString());
+            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + gnhltm.ToString());
             tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
             tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
@@ -284,6 +285,13 @@ namespace Plugin_PDK_DichVu
             decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
             decimal deNghiVt = dmhlvt - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
+
+            if (deNghiTmHl < 0)
+                throw new Exception("Giải ngân hoàn lại tiền mặt vượt quá định mức hl tiền mặt");
+            if (deNghiVt < 0)
+                throw new Exception("Giải ngân hoàn lại vật tư vượt quá định mức hl vật tư");
+            if (deNghiKhl < 0)
+                throw new Exception("Giải ngân không hoàn lại vượt quá định mức khl");
 
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);

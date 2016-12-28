@@ -12,7 +12,7 @@ namespace Plugin_PDK_PhanBon
         private IOrganizationService service = null;
         private ITracingService traceService = null;
         private EntityReference pdkRef = null;
- 
+
         private Dictionary<Guid, DataCollection<Entity>> css = new Dictionary<Guid, DataCollection<Entity>>();
         public TinhDinhMuc(IOrganizationService service, ITracingService traceService, EntityReference pdkRef)
         {
@@ -141,11 +141,14 @@ namespace Plugin_PDK_PhanBon
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                    
+                    traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + tyleGNVattu.ToString() + tyleGNtienmat.ToString());
                 }
                 
+                traceService.Trace(gn0hl.ToString());
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
+                traceService.Trace(gn0hl.ToString());
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
+                traceService.Trace(gn0hl.ToString());
             }
             else
             {
@@ -293,8 +296,13 @@ namespace Plugin_PDK_PhanBon
             if (dkkhl > 0)
             {
                 if (dkkhl <= deNghiKhl)
+                {
                     tmpPdk["new_denghi_khonghoanlai"] = new Money(dkkhl);
-                else {
+                    traceService.Trace("1");
+                }
+                else
+                {
+                    throw new Exception("Số tiền không được vượt quá định mức chi");
                     tmpPdk["new_denghi_khonghoanlai"] = new Money(deNghiKhl);
                     t1 = dkkhl - deNghiKhl;
                 }
@@ -306,6 +314,7 @@ namespace Plugin_PDK_PhanBon
                     tmpPdk["new_denghi_hoanlai_vattu"] = new Money(dkhl);
                 else
                 {
+                    throw new Exception("Số tiền không được vượt quá định mức chi");
                     decimal t2 = dkhl - deNghiVt;
                     tmpPdk["new_denghi_hoanlai_vattu"] = new Money(deNghiVt);
                     if (t2 <= deNghiTmHl)
@@ -587,12 +596,6 @@ namespace Plugin_PDK_PhanBon
             fetch.AppendFormat("<entity name='new_chitietdangkyphanbon'>");
             fetch.AppendFormat("<attribute name='new_sotienkhl' alias='khl' aggregate='sum' />");
             fetch.AppendFormat("<attribute name='new_sotienhl' alias='hl' aggregate='sum' />");
-            fetch.AppendFormat("<link-entity name='new_phieudangkyphanbon' from='new_phieudangkyphanbonid' to='new_phieudangkyphanbon' link-type='inner'>");
-            fetch.AppendFormat("<attribute name='statuscode' groupby='true' alias='statuscode' />");
-            fetch.AppendFormat("<filter type='and'>");
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
-            fetch.AppendFormat("</filter>");
-            fetch.AppendFormat("</link-entity>");
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_phieudangkyphanbon' operator='eq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -602,6 +605,7 @@ namespace Plugin_PDK_PhanBon
             if (etnc.Entities.Count > 0)
             {
                 Entity tmp = etnc.Entities[0];
+
                 if (tmp.Contains("hl"))
                 {
                     AliasedValue als = (AliasedValue)tmp["hl"];

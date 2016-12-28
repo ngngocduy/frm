@@ -5,3 +5,9 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\Creat
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.pdb
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\CreateYCGC_DNRutHoso.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\CreateYCGC_DNRutHoso.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\CreateYCGC_DNRutHoso\CreateYCGC_DNRutHoso\obj\Debug\CreateYCGC_DNRutHoso.pdb

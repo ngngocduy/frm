@@ -81,7 +81,7 @@ namespace Plugin_PDK_HomGiong
                 });
                 query.Criteria = new FilterExpression(LogicalOperator.And);
                 query.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hd.Id));
-                query.Criteria.AddCondition(new ConditionExpression("new_loaigocmia", ConditionOperator.Equal, 100000000));//mia to
+                //query.Criteria.AddCondition(new ConditionExpression("new_loaigocmia", ConditionOperator.Equal, 100000000));//mia to
                 query.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));//đã ký
                 query.Criteria.AddCondition(new ConditionExpression("new_trangthainghiemthu", ConditionOperator.GreaterThan, 100000000));//khác nháp
                 cthds = service.RetrieveMultiple(query);
@@ -141,9 +141,9 @@ namespace Plugin_PDK_HomGiong
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-
+                    traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + tyleGNVattu.ToString() + tyleGNtienmat.ToString());
                 }
-
+                
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
             }
@@ -265,10 +265,8 @@ namespace Plugin_PDK_HomGiong
             
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
-            //tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
-            //tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
-            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(0);
-            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhl);
+            tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
+            tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
             tmpPdk["new_giaingan_hoanlai_tienmat"] = new Money(gnhltm);

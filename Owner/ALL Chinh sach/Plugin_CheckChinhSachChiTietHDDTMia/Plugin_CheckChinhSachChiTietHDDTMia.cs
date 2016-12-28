@@ -34,7 +34,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     co = true;
             }
             else if (context.MessageName == "Update")
-            {
+            {F
                 target = (Entity)context.InputParameters["Target"];
                 co = CheckRunUpdate(target);
             }
@@ -879,6 +879,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     }
 
                     up["new_dinhmucdautu"] = new Money(((Money)up["new_dinhmucdautukhonghoanlai"]).Value + ((Money)up["new_dinhmucdautuhoanlai"]).Value);
+                    
                     traceService.Trace("new_dinhmucdautu");
 
                     // Gen ty le thu hoi von du kien

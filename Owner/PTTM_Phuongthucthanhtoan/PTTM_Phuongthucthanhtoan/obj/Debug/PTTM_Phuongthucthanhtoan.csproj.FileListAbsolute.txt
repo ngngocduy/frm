@@ -1,0 +1,7 @@
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\PTTM_Phuongthucthanhtoan.dll
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\PTTM_Phuongthucthanhtoan.pdb
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\Microsoft.Xrm.Sdk.dll
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\Microsoft.Xrm.Sdk.xml
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.csprojResolveAssemblyReference.cache
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.dll
+c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.pdb

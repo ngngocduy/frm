@@ -14,3 +14,8 @@ D:\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debu
 D:\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.dll
 D:\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\ActionCopy_PDKHomGiong.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\bin\Debug\ActionCopy_PDKHomGiong.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PDKHomGiong\ActionCopy_PDKHomGiong\obj\Debug\ActionCopy_PDKHomGiong.pdb

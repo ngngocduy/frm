@@ -69,9 +69,14 @@ namespace ActionCopy_PDKHomGiong
                 pgnhomgiong["new_dinhmuc_hoanlai_vattu"] = phieudkhomgiong.Contains("new_denghi_hoanlai_vattu") ? phieudkhomgiong["new_denghi_hoanlai_vattu"] : new Money(0);
                 pgnhomgiong["new_dinhmuc_hoanlai_tienmat"] = phieudkhomgiong.Contains("new_denghi_hoanlai_tienmat") ? phieudkhomgiong["new_denghi_hoanlai_tienmat"] : new Money(0);
                 pgnhomgiong["new_laytupdk"] = true;
-                //pgnhomgiong["new_denghi_khonghoanlai"] = phieudkhomgiong["new_denghi_khonghoanlai"];
-                //pgnhomgiong["new_denghi_hoanlai_vattu"] = phieudkhomgiong["new_denghi_hoanlai_vattu"];
-                //pgnhomgiong["new_denghi_hoanlai_tienmat"] = phieudkhomgiong["new_denghi_hoanlai_tienmat"];
+                pgnhomgiong["new_hopdongdautumia_doitac"] = phieudkhomgiong.Contains("new_hopdongdautumia_doitac") ? phieudkhomgiong["new_hopdongdautumia_doitac"] : "";
+                pgnhomgiong["new_chitiethddtmia_doitac"] = phieudkhomgiong.Contains("new_chitiethddtmia_doitac") ? phieudkhomgiong["new_chitiethddtmia_doitac"] : "";
+                pgnhomgiong["new_doitacgiaohom"] = phieudkhomgiong.Contains("new_doitacgiaogiong")
+                    ? phieudkhomgiong["new_doitacgiaogiong"] : null;
+                pgnhomgiong["new_doitacgiaohomkhdn"] = phieudkhomgiong.Contains("new_doitacgiaogiongkhdn")
+                    ? phieudkhomgiong["new_doitacgiaogiongkhdn"]
+                    : null;
+                pgnhomgiong["new_loaigiaonhanhom"] = new OptionSetValue(100000001);
 
                 Guid idPGNHG = service.Create(pgnhomgiong);
 
@@ -102,14 +107,14 @@ namespace ActionCopy_PDKHomGiong
                     rs["new_giongmia"] = a.Attributes.Contains("new_giongmia") ? a["new_giongmia"] : null;
                     rs["new_loaihom"] = a.Attributes.Contains("new_loaihom") ? a["new_loaihom"] : null;
                     rs["new_dongia"] = a.Attributes.Contains("new_dongia") ? a["new_dongia"] : new Money(0);
-                    rs["new_soluong"] = a.Attributes.Contains("new_soluong") ? a["new_soluong"] : 0;                    
+                    rs["new_soluong"] = a.Attributes.Contains("new_soluong") ? a["new_soluong"] : 0;
                     rs["new_ngaynhan"] = DateTime.Now;
                     rs["new_sotiendthoanlai"] = a.Contains("new_sotienhl") ? a["new_sotienhl"] : new Money(0);
                     rs["new_sotiendtkhonghoanlai"] = a.Contains("new_sotienkhl") ? a["new_sotienkhl"] : new Money(0);
                     rs["new_tongthanhtien"] = new Money((a.Attributes.Contains("new_dongia") ? ((Money)a["new_dongia"]).Value : 0) * (a.Attributes.Contains("new_soluong") ? (decimal)a["new_soluong"] : 0));
 
                     service.Create(rs);
-                    
+
                 }
 
                 EntityCollection nnrecord = RetrieveNNRecord(service, "new_thuadatcanhtac", "new_phieugiaonhanhomgiong",

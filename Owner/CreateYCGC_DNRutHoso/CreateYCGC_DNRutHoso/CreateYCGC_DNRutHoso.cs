@@ -31,24 +31,27 @@ namespace CreateYCGC_DNRutHoso
                 foreach (Entity en in lstctDenghiruthoso)
                 {
                     if (!en.Contains("new_taisanthechap"))
-                    {
                         continue;
-                    }
 
                     if (!en.Contains("new_hopdongthechap"))
-                    {
                         continue;
-                    }
+
+                    Entity updateDenghi = service.Retrieve(en.LogicalName, en.Id,
+                        new ColumnSet(new string[] {"statuscode"}));
+
+                    updateDenghi["statuscode"] = new OptionSetValue(100000001);
 
                     Entity k = new Entity("new_yeucaugiaichap");
                     k["new_name"] = "Yêu cầu giải chấp - " + DateTime.Now.Date.ToString();
                     k["new_hopdauthechap"] = en["new_hopdongthechap"];
 
-                    Entity taisanthechap = service.Retrieve("new_taisanthechap", ((EntityReference)en["new_taisanthechap"]).Id, new ColumnSet(new string[] { "new_taisan", "new_name" }));
+                    Entity taisanthechap = service.Retrieve("new_taisanthechap", ((EntityReference)en["new_taisanthechap"]).Id,
+                        new ColumnSet(new string[] { "new_taisan", "new_name" }));
                     Entity taisan = service.Retrieve("new_taisan", ((EntityReference)taisanthechap["new_taisan"]).Id, new ColumnSet(true));
                     k["new_taisan"] = taisan.ToEntityReference();
                     k["new_ngaylapphieu"] = DateTime.Now;
                     service.Create(k);
+                    service.Update(updateDenghi);
                 }
             }
 

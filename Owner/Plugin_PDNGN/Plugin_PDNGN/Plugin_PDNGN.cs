@@ -69,9 +69,11 @@ namespace Plugin_PDNGN
                     Entity KH = null;
 
                     if (PDNGN.Contains("new_khachhang"))
-                        KH = service.Retrieve("contact", ((EntityReference)PDNGN["new_khachhang"]).Id, new ColumnSet(new string[] { "new_makhachhang", "new_socmnd" }));
+                        KH = service.Retrieve("contact", ((EntityReference)PDNGN["new_khachhang"]).Id,
+                            new ColumnSet(new string[] { "new_makhachhang", "new_socmnd" }));
                     else
-                        KH = service.Retrieve("account", ((EntityReference)PDNGN["new_khachhangdoanhnghiep"]).Id, new ColumnSet(new string[] { "new_makhachhang", "new_masothue" }));
+                        KH = service.Retrieve("account", ((EntityReference)PDNGN["new_khachhangdoanhnghiep"]).Id,
+                            new ColumnSet(new string[] { "new_makhachhang", "new_masothue" }));
 
                     #region begin
                     // TH so tien hoan lai > 0 PRE => GEN ETL
@@ -268,9 +270,8 @@ namespace Plugin_PDNGN
                         }
                     }
                     #endregion
-                    
-                }
 
+                }
             }
             catch (Exception ex)
             {
@@ -799,7 +800,7 @@ namespace Plugin_PDNGN
                                 EntityReference thuadatcanhtacEnf = (EntityReference)chitiet["new_chitiethddtmia"];
                                 Entity thuadatcanhtac = service.Retrieve(thuadatcanhtacEnf.LogicalName, thuadatcanhtacEnf.Id,
                                     new ColumnSet(new string[] { "new_chinhsachdautu", "new_name" }));
-                                
+
                                 EntityReference thuadat = null;
 
                                 if (!thuadatcanhtac.Contains("new_chinhsachdautu"))
@@ -807,10 +808,10 @@ namespace Plugin_PDNGN
 
                                 Entity CSDT = service.Retrieve("new_chinhsachdautu", ((EntityReference)thuadatcanhtac["new_chinhsachdautu"]).Id,
                         new ColumnSet(new string[] { "new_new_thoihanthuhoivon_khl", "new_machinhsach" }));
-                                
+
                                 int sonamthuhoiKHL = CSDT.Contains("new_new_thoihanthuhoivon_khl") ? (int)CSDT["new_new_thoihanthuhoivon_khl"] : 0;
                                 decimal sotienphanboKHL = 0;
-                                
+
                                 if (sonamthuhoiKHL != 0)
                                     sotienphanboKHL = tongtiendautu / sonamthuhoiKHL;
                                 else
@@ -818,7 +819,7 @@ namespace Plugin_PDNGN
 
                                 List<Entity> lst = RetrieveVudautu().Entities.OrderBy(p => p.GetAttributeValue<DateTime>("new_ngaybatdau")).ToList<Entity>();
                                 int curr = lst.FindIndex(p => p.Id == vudautu.Id);
-                                
+
                                 for (int k = 0; k < sonamthuhoiKHL; k++)
                                 {
                                     Entity vudaututhuhoi = lst[++curr];
@@ -845,13 +846,13 @@ namespace Plugin_PDNGN
                                 decimal sotien = ((Money)chitiet["new_denghikhl"]).Value;
                                 EntityReference thuadat = (EntityReference)chitiet["new_thuadat"];
                                 Entity thuadatcanhtac = GetThuadatcanhtacfromthuadat(thuadat, hdmia.ToEntityReference());
-                                
+
                                 if (!thuadatcanhtac.Contains("new_chinhsachdautu"))
                                     throw new Exception(thuadatcanhtac["new_name"].ToString() + " không có chính sách đầu tư");
 
                                 Entity CSDT = service.Retrieve("new_chinhsachdautu", ((EntityReference)thuadatcanhtac["new_chinhsachdautu"]).Id,
                         new ColumnSet(new string[] { "new_new_thoihanthuhoivon_khl", "new_machinhsach" }));
-                                
+
                                 int sonamthuhoiKHL = CSDT.Contains("new_new_thoihanthuhoivon_khl") ? (int)CSDT["new_new_thoihanthuhoivon_khl"] : 0;
                                 decimal sotienphanboKHL = 0;
 

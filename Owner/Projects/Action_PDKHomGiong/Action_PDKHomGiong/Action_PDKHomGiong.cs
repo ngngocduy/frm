@@ -31,7 +31,8 @@ namespace Action_PDKHomGiong
                     throw new Exception("Chi tiết pdk hom giống không có phiếu đăng ký hôm giống !!! ");
                 }
 
-                Entity pdkhomgiong = service.Retrieve("new_phieudangkyhomgiong", ((EntityReference)chitietpdkhomgiong["new_phieudangkyhomgiong"]).Id, new ColumnSet(true));
+                Entity pdkhomgiong = service.Retrieve("new_phieudangkyhomgiong",
+                    ((EntityReference)chitietpdkhomgiong["new_phieudangkyhomgiong"]).Id, new ColumnSet(true));
 
                 decimal thanhtien = 0;
                 decimal TongDMDTHL = 0;

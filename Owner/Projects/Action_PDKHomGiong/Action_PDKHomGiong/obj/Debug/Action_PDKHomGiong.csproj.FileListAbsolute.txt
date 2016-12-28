@@ -9,3 +9,8 @@ C:\Users\Duy\Documents\Visual Studio 2015\Projects\Action_PDKHomGiong\Action_PDK
 C:\Users\Duy\Documents\Visual Studio 2015\Projects\Action_PDKHomGiong\Action_PDKHomGiong\obj\Debug\Action_PDKHomGiong.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Visual Studio 2015\Projects\Action_PDKHomGiong\Action_PDKHomGiong\obj\Debug\Action_PDKHomGiong.dll
 C:\Users\Duy\Documents\Visual Studio 2015\Projects\Action_PDKHomGiong\Action_PDKHomGiong\obj\Debug\Action_PDKHomGiong.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Action_PDKHomGiong\Action_PDKHomGiong\bin\Debug\Action_PDKHomGiong.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Action_PDKHomGiong\Action_PDKHomGiong\bin\Debug\Action_PDKHomGiong.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Action_PDKHomGiong\Action_PDKHomGiong\obj\Debug\Action_PDKHomGiong.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Action_PDKHomGiong\Action_PDKHomGiong\obj\Debug\Action_PDKHomGiong.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\Action_PDKHomGiong\Action_PDKHomGiong\obj\Debug\Action_PDKHomGiong.pdb

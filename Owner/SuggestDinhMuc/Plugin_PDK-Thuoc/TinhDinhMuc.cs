@@ -504,9 +504,11 @@ namespace Plugin_PDK_Thuoc
             fetch.AppendFormat("</entity>");
             fetch.AppendFormat("</fetch>");
             etnc = service.RetrieveMultiple(new FetchExpression(fetch.ToString()));
+
             if (etnc.Entities.Count > 0)
             {
                 Entity tmp = etnc.Entities[0];
+
                 if (tmp.Contains("hlTm"))
                 {
                     AliasedValue als = (AliasedValue)tmp["hlTm"];
