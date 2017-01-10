@@ -28,15 +28,17 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
 
             if (context.InputParameters.Contains("Target") && (context.InputParameters["Target"] is Entity))
             {
-                Entity target = (Entity)context.InputParameters["Target"];
-                Guid entityId = target.Id;
+                Entity ChiTietNTTrongMia = (Entity)context.InputParameters["Target"];
+                Guid entityId = ChiTietNTTrongMia.Id;
 
-                if (target.LogicalName == "new_chitietnghiemthutrongmia")
+                if (ChiTietNTTrongMia.LogicalName == "new_chitietnghiemthutrongmia")
                 {
                     //traceService.Trace("Begin plugin");
                     if (context.MessageName.ToUpper() == "UPDATE")
                     {
-                        Entity ChiTietNTTrongMia = service.Retrieve("new_chitietnghiemthutrongmia", entityId, new ColumnSet(new string[] { "new_name", "new_nghiemthutrongmia", "new_thuadat", "new_vutrong", "new_giongmia", "createdon", "new_loaigocmia" }));
+                        ChiTietNTTrongMia = service.Retrieve("new_chitietnghiemthutrongmia", entityId,
+                            new ColumnSet(new string[] { "new_name", "new_nghiemthutrongmia", "new_thuadat",
+                                "new_vutrong", "new_giongmia", "createdon","new_mucdichsanxuatmia","new_loaigocmia" }));
                         DateTime ngaytao = ChiTietNTTrongMia.GetAttributeValue<DateTime>("createdon");
 
                         if (!ChiTietNTTrongMia.Contains("new_nghiemthutrongmia"))
@@ -58,12 +60,14 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                             EntityReference vudautuRef = HDDTmia.GetAttributeValue<EntityReference>("new_vudautu");
 
                             Guid thuadatId = thuadatEntityRef.Id;
-                            Entity thuadatObj = service.Retrieve("new_thuadat", thuadatId, new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy", "new_nhomculy","new_diachi" }));
+                            Entity thuadatObj = service.Retrieve("new_thuadat", thuadatId,
+                                new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy", "new_nhomculy", "new_diachi" }));
                             Guid giongmiaId = giongmiaEntityRef.Id;
-                            Entity giongmiaObj = service.Retrieve("new_giongmia", giongmiaId, new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
+                            Entity giongmiaObj = service.Retrieve("new_giongmia", giongmiaId,
+                                new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
 
                             Guid vuDTId = vudautuRef.Id;
-
+                            traceService.Trace("1");
                             StringBuilder qChinhSach = new StringBuilder();
                             qChinhSach.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
                             qChinhSach.AppendFormat("<entity name='new_chinhsachdautu'>");
@@ -80,14 +84,14 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                             qChinhSach.AppendFormat("<attribute name='{0}' />", "new_loaisohuudat_vl");
                             qChinhSach.AppendFormat("<attribute name='{0}' />", "new_chinhsachdautuid");
                             qChinhSach.AppendFormat("<order attribute='new_ngayapdung' descending='true' />");
-
+                            traceService.Trace("2");
                             qChinhSach.AppendFormat("<filter type='and'>");
-                            qChinhSach.AppendFormat("     <condition attribute='statecode' operator='eq' value='0' />");
-                            qChinhSach.AppendFormat("     <condition attribute='new_mucdichdautu' operator='eq' value='100000000' />");
-                            qChinhSach.AppendFormat("     <condition attribute='new_loaihopdong' operator='eq' value='100000000' />");
-                            qChinhSach.AppendFormat("     <condition attribute='new_ngayapdung' operator='on-or-before' value='{0}' />  ", ngaytao);
-                            qChinhSach.AppendFormat("     <condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{1}' />   ", vuDTId);
-
+                            qChinhSach.AppendFormat("<condition attribute='statecode' operator='eq' value='0' />");
+                            qChinhSach.AppendFormat("<condition attribute='new_mucdichdautu' operator='eq' value='100000000' />");
+                            qChinhSach.AppendFormat("<condition attribute='new_loaihopdong' operator='eq' value='100000000' />");
+                            qChinhSach.AppendFormat("<condition attribute='new_ngayapdung' operator='on-or-before' value='{0}' />  ", ngaytao);
+                            qChinhSach.AppendFormat("<condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{0}' />   ", vuDTId);
+                            traceService.Trace("3");
                             if (ChiTietNTTrongMia.Contains("new_mucdichsanxuatmia"))
                             {
                                 qChinhSach.AppendFormat("<filter type='or'>");
@@ -97,16 +101,19 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                             }
 
                             qChinhSach.AppendFormat("</filter>");
+                            qChinhSach.AppendFormat("</entity>");
+                            qChinhSach.AppendFormat("</fetch>");
 
                             EntityCollection result = service.RetrieveMultiple(new FetchExpression(qChinhSach.ToString()));
                             List<Entity> CSDT = result.Entities.ToList<Entity>();
-
+                            traceService.Trace("2");
                             Entity mCSDT = null;
 
                             if (CSDT != null && CSDT.Count() > 0)
                             {
                                 foreach (Entity a in CSDT)
                                 {
+                                    traceService.Trace(a["new_name"].ToString());
                                     if (a.Contains("new_vutrong_vl"))  // Vu trong
                                     {
                                         if (ChiTietNTTrongMia.Contains("new_vutrong"))
@@ -117,6 +124,8 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                         else
                                             continue;
                                     }
+
+                                    traceService.Trace("Pass vu trong");
 
                                     if (a.Contains("new_nhomdat_vl"))  // Nhom dat
                                     {
@@ -130,7 +139,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                             continue;
                                         }
                                     }
-
+                                    traceService.Trace("Pass nhom dat");
                                     if (a.Contains("new_loaisohuudat_vl"))  // Loai chu so huu
                                     {
                                         if (thuadatObj.Attributes.Contains("new_loaisohuudat"))
@@ -143,7 +152,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                             continue;
                                         }
                                     }
-
+                                    traceService.Trace("Pass loai chu so huu");
                                     if (a.Contains("new_nhomgiongmia_vl"))  // Nhom giong mia
                                     {
                                         if (giongmiaObj.Attributes.Contains("new_nhomgiong"))
@@ -156,6 +165,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                             continue;
                                         }
                                     }
+                                    traceService.Trace("nhom giong mia");
 
                                     if (a.Contains("new_loaigocmia_vl"))  // Loai goc mia
                                     {
@@ -169,7 +179,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                             continue;
                                         }
                                     }
-
+                                    traceService.Trace("loai goc mia");
                                     // NHom khach hang
                                     bool co = false;
                                     if (NTtrongmiaObj.Attributes.Contains("new_khachhang"))
@@ -208,6 +218,8 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                         }
                                     }
 
+
+
                                     if (NTtrongmiaObj.Attributes.Contains("new_khachhangdoanhnghiep"))
                                     {
                                         Guid khId = NTtrongmiaObj.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
@@ -242,6 +254,8 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                                 co = true;
                                             }
                                         }
+
+                                        traceService.Trace("pass nhom khach hang");
                                     }
 
                                     if (co == false)
@@ -276,6 +290,8 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                         }
                                         if (co == false)
                                             continue;
+
+                                        traceService.Trace("pass vung dia li ");
                                     }
 
                                     // Nhom cu ly
@@ -313,6 +329,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                     if (co == false)
                                         continue;
 
+                                    traceService.Trace("pass nhom cu ly");
                                     // NHom nang suat
                                     co = false;
 
@@ -394,31 +411,66 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                     if (co == false)
                                         continue;
 
+                                    traceService.Trace("pass nang suat");
+
                                     mCSDT = a;
                                     break;
                                 }
                             }
                             else
                                 throw new InvalidPluginExecutionException("Chưa có Chính sách Đầu tư NT trồng mía nào cho vụ đầu tư này");
-
+                            traceService.Trace("3");
                             if (mCSDT != null && mCSDT.Id != Guid.Empty)
                             {
-                                // ------Gan vao Chi tiet NT trong mia
+                                //check so lan nghiem thu
+                                QueryExpression q1 = new QueryExpression("new_dinhmucdautu");
+                                q1.ColumnSet = new ColumnSet(true);
+                                q1.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, mCSDT.Id));
+                                EntityCollection entc = service.RetrieveMultiple(q1);
+                                int solangiaingan = entc.Entities.Count;
+                                int solannt = NTtrongmiaObj.Contains("new_lannghiemthu_global")
+                                    ? ((OptionSetValue)NTtrongmiaObj["new_lannghiemthu_global"]).Value
+                                    : 0;
+                                solannt = solannt - 100000000 + 1;
+                                if (solannt > solangiaingan)
+                                {
+                                    throw new Exception("Số lần nghiệm thu vượt quá số lần giải ngân");
+                                }
+
+                                // ------Gan vao Chi tiet HDDT mia
                                 Entity en = new Entity(ChiTietNTTrongMia.LogicalName);
                                 en.Id = ChiTietNTTrongMia.Id;
 
                                 EntityReference csdtRef = new EntityReference("new_chinhsachdautu", mCSDT.Id);
                                 en["new_chinhsachdautu"] = csdtRef;
 
+                                Entity cthd = GetThuadatcanhtacfromThuadat(thuadatObj, HDDTmia);
                                 Guid csdtKQ = mCSDT.Id;
                                 Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ, new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name" }));
+                                bool yeucau = (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]);
+                                solannt = NTtrongmiaObj.Contains("new_lannghiemthu_global")
+                                   ? ((OptionSetValue)NTtrongmiaObj["new_lannghiemthu_global"]).Value
+                                   : 0;
 
                                 // --------  Gan Dinh muc
-                                if (csdtKQEntity.Attributes.Contains("new_dinhmucdautuhoanlai"))
-                                {
-                                    Money dinhmucDT = csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautuhoanlai");
+                                QueryExpression q = new QueryExpression("new_dinhmucdautu");
+                                q.ColumnSet = new ColumnSet(true);
+                                q.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, mCSDT.Id));
 
-                                    en["new_dinhmuc"] = dinhmucDT;
+                                foreach (Entity a in service.RetrieveMultiple(q).Entities)
+                                {
+                                    if (!a.Contains("new_yeucauphanbon"))
+                                        continue;
+
+                                    if (((OptionSetValue)a["new_yeucauphanbon"]).Value == solannt + 2)
+                                    {
+                                        if (!yeucau)
+                                            en["new_dinhmuc"] = a["new_sotien"];
+                                        else
+                                            en["new_dinhmuc"] = a["new_sotienyc"];
+
+                                        service.Update(en);
+                                    }
                                 }
                                 // -------- End  Gan Dinh muc
 
@@ -450,6 +502,20 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
             EntityCollection collRecords = service.RetrieveMultiple(query);
 
             return collRecords;
+        }
+
+        Entity GetThuadatcanhtacfromThuadat(Entity Thuadat, Entity hopdong)
+        {
+            QueryExpression q = new QueryExpression("new_thuadatcanhtac");
+            q.ColumnSet = new ColumnSet(new string[] { "new_yeucaudacbiet" });
+            q.Criteria = new FilterExpression();
+            q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hopdong.Id));
+            q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, Thuadat.Id));
+            q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
+
+            EntityCollection entc = service.RetrieveMultiple(q);
+
+            return entc.Entities.FirstOrDefault();
         }
     }
 }

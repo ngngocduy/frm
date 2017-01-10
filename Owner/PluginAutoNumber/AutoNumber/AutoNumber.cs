@@ -45,6 +45,7 @@ namespace AutoNumber
                             EntityCollection enc = this.RetrieveAutoNumbers(en.LogicalName);
                             foreach (Entity e in enc.Entities)
                             {
+                                service.Update(e);
                                 int length = e.Attributes.Contains("bsd_length") ? (int)e["bsd_length"] : 0;
                                 if (length < 0)
                                     return;
@@ -2554,6 +2555,7 @@ namespace AutoNumber
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;
@@ -2568,6 +2570,7 @@ namespace AutoNumber
                                 middle += "0";
 
                             eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                            eField["new_name"] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
                             eAu["bsd_currentposition"] = currentPos.ToString();
                             flag = true;
                             service.Update(eAu);
@@ -2661,6 +2664,7 @@ namespace AutoNumber
                                 middle += "0";
 
                             eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                            eField["new_name"] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
                             eAu["bsd_currentposition"] = currentPos.ToString();
                             flag = true;
                             service.Update(eAu);
@@ -2677,7 +2681,6 @@ namespace AutoNumber
                         Entity ld = service.Retrieve(ldRef.LogicalName, ldRef.Id, new ColumnSet(new string[] { "new_vudautu" }));
                         if (ld == null)
                             throw new Exception(string.Format("Lệnh đốn {0} không tồn tại hoăc bị xóa!", ldRef.Name));
-
 
                         if (!ld.Attributes.Contains("new_vudautu"))
                             throw new Exception(string.Format("Vui lòng chọn vụ đầu tư trên lệnh đốn {0}!", ldRef.Name));
@@ -2696,6 +2699,7 @@ namespace AutoNumber
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;
@@ -2710,6 +2714,7 @@ namespace AutoNumber
                                 middle += "0";
 
                             eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
+                            eField["new_name"] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
                             eAu["bsd_currentposition"] = currentPos.ToString();
                             flag = true;
                             service.Update(eAu);
@@ -3227,7 +3232,7 @@ namespace AutoNumber
 
                         string prefix = string.Format("DNTT{0}{1:yy}{2:yy}-", type, begin, end);
                         string sufix = "";
-                        
+
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
                         string middle = "";
 
@@ -3252,7 +3257,7 @@ namespace AutoNumber
                                 eAu["bsd_currentposition"] = currentPos.ToString();
                                 flag = true;
                                 service.Update(eAu);
-                                CreateAutoNumberdetail(currentPos,eAu,key);
+                                CreateAutoNumberdetail(currentPos, eAu, key);
                             }
                         }
                         else
@@ -3612,6 +3617,7 @@ namespace AutoNumber
                         string sufix = "";
                         ulong currentPos = eAu.Attributes.Contains("bsd_currentposition") ? ulong.Parse(eAu["bsd_currentposition"].ToString()) : 0;
                         string field = eAu.Attributes.Contains("bsd_fieldlogical") ? eAu["bsd_fieldlogical"].ToString() : string.Empty;
+
                         if (!string.IsNullOrWhiteSpace(field))
                         {
                             currentPos++;

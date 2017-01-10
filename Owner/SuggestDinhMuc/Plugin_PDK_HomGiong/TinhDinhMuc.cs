@@ -118,6 +118,8 @@ namespace Plugin_PDK_HomGiong
                     dmhlvt += dmhlvtT;
                     dm0hl += dm0hlT;
 
+                    traceService.Trace(tyleGNtienmat.ToString() + "-" + dmhlT.ToString());
+                    traceService.Trace(tyleGNVattu.ToString() + "-" + dmhlvt.ToString());
                     #region Them chi tiet hop va phieu dang ky
 
                     string ct_name = cthd.Contains("new_name") ? (cthd["new_name"].ToString() + "-") : "";
@@ -141,9 +143,9 @@ namespace Plugin_PDK_HomGiong
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                    traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + tyleGNVattu.ToString() + tyleGNtienmat.ToString());
+                    traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + "-" + tyleGNVattu.ToString() + "-" + tyleGNtienmat.ToString());
                 }
-                
+
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
             }
@@ -274,11 +276,18 @@ namespace Plugin_PDK_HomGiong
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
 
-            //decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
-            //decimal deNghiVt = dmhlvt - gnhlvt;
-            decimal deNghiTmHl = 0;
+            decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
             decimal deNghiVt = dmhl - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
+
+            if (deNghiTmHl < 0)
+                deNghiTmHl = 0;
+
+            if (deNghiVt < 0)
+                deNghiVt = 0;
+
+            if (deNghiKhl < 0)
+                deNghiKhl = 0;
 
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);

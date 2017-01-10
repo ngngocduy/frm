@@ -36,7 +36,7 @@ namespace CreateYCGC_DNRutHoso
                     if (!en.Contains("new_hopdongthechap"))
                         continue;
 
-                    Entity updateDenghi = service.Retrieve(en.LogicalName, en.Id,
+                    Entity updateDenghi = service.Retrieve(en.LogicalName, en.Id,w
                         new ColumnSet(new string[] {"statuscode"}));
 
                     updateDenghi["statuscode"] = new OptionSetValue(100000001);
@@ -47,6 +47,7 @@ namespace CreateYCGC_DNRutHoso
 
                     Entity taisanthechap = service.Retrieve("new_taisanthechap", ((EntityReference)en["new_taisanthechap"]).Id,
                         new ColumnSet(new string[] { "new_taisan", "new_name" }));
+
                     Entity taisan = service.Retrieve("new_taisan", ((EntityReference)taisanthechap["new_taisan"]).Id, new ColumnSet(true));
                     k["new_taisan"] = taisan.ToEntityReference();
                     k["new_ngaylapphieu"] = DateTime.Now;
@@ -54,7 +55,6 @@ namespace CreateYCGC_DNRutHoso
                     service.Update(updateDenghi);
                 }
             }
-
         }
         List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column, string condition, object value)
         {

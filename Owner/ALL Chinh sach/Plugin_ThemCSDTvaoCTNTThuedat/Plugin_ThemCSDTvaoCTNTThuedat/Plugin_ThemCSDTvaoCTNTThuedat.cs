@@ -22,7 +22,7 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
             factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             service = factory.CreateOrganizationService(context.UserId);
             ITracingService traceService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
-            
+
             traceService.Trace(string.Format("Context Depth {0}", context.Depth));
             if (context.Depth > 1)
                 return;
@@ -33,17 +33,19 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                 Guid targetId = target.Id;
 
                 if (target.LogicalName == "new_chitietnghiemthuthuedat")
-                {                    
+                {
                     if (context.MessageName.ToUpper() == "CREATE" || context.MessageName.ToUpper() == "UPDATE")
                     {
                         Entity ChiTietNTTD = service.Retrieve("new_chitietnghiemthuthuedat", targetId, new ColumnSet(true));
                         DateTime ngaytao = ChiTietNTTD.GetAttributeValue<DateTime>("createdon");
-                        
+
                         EntityReference ThuadatRef = ChiTietNTTD.GetAttributeValue<EntityReference>("new_thuadat");
                         Entity thuadatObj = service.Retrieve("new_thuadat", ThuadatRef.Id, new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy", "new_nhomculy", "new_diachi", "new_dientich" }));
 
                         EntityReference NTTDref = ChiTietNTTD.GetAttributeValue<EntityReference>("new_nghiemthuthuedat");
-                        Entity NTTD = service.Retrieve("new_nghiemthuthuedat", NTTDref.Id, new ColumnSet(new string[] { "new_hopdongdaututhuedat", "new_datthue", "new_lannghiemthu_global", "new_khachhang", "new_khachhangdoanhnghiep" }));
+                        Entity NTTD = service.Retrieve("new_nghiemthuthuedat", NTTDref.Id,
+                            new ColumnSet(new string[] { "new_hopdongdaututhuedat", "new_datthue",
+                                "new_lannghiemthu_global", "new_khachhang", "new_khachhangdoanhnghiep" }));
 
                         EntityReference HDDTThuedatRef = NTTD.GetAttributeValue<EntityReference>("new_hopdongdaututhuedat");
                         Entity HDDTThuedat = service.Retrieve("new_hopdongthuedat", HDDTThuedatRef.Id, new ColumnSet(new string[] { "new_vudautu", "new_khachhang", "new_khachhangdoanhnghiep" }));
@@ -382,13 +384,31 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
 
                             if (mCSDT != null && mCSDT.Id != Guid.Empty)
                             {
+
                                 traceService.Trace("Tim duoc CSDT");
+
+                                //check so lan nghiem thu
+                                QueryExpression q1 = new QueryExpression("new_dinhmucdautu");
+                                q1.ColumnSet = new ColumnSet(true);
+                                q1.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, mCSDT.Id));
+                                EntityCollection entc = service.RetrieveMultiple(q1);
+                                int solangiaingan = entc.Entities.Count;
+                                int solannt = NTTD.Contains("new_lannghiemthu_global")
+                                    ? ((OptionSetValue)NTTD["new_lannghiemthu_global"]).Value
+                                    : 0;
+                                solannt = solannt - 100000000 + 1;
+                                if (solannt > solangiaingan)
+                                {
+                                    throw new Exception("Số lần nghiệm thu vượt quá số lần giải ngân");
+                                }
+
                                 // ------Gan vao Chi tiet PDN giải ngân 
                                 EntityReference csdtRef = new EntityReference("new_chinhsachdautu", mCSDT.Id);
                                 en["new_chinhsachdautu"] = csdtRef;
 
                                 Guid csdtKQ = mCSDT.Id;
-                                Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ, new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name", "new_dinhmucdautukhonghoanlai" }));
+                                Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ,
+                                    new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name", "new_dinhmucdautukhonghoanlai" }));
 
                                 decimal lanNT = NTTD.GetAttributeValue<OptionSetValue>("new_lannghiemthu_global").Value + 2;
                                 traceService.Trace("lanNT " + lanNT);
@@ -416,23 +436,38 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                                 }
 
                                 traceService.Trace("tyle " + tyle);
+                                solannt = NTTD.Contains("new_lannghiemthu_global")
+                                   ? ((OptionSetValue)NTTD["new_lannghiemthu_global"]).Value
+                                   : 0;
+                                decimal tienHL = 0;
 
-                                decimal tienHL = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? ((Money)csdtKQEntity["new_dinhmucdautuhoanlai"]).Value : 0) * tyle / 100;
+                                // --------  Gan Dinh muc
+                                QueryExpression q = new QueryExpression("new_dinhmucdautu");
+                                q.ColumnSet = new ColumnSet(true);
+                                q.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, mCSDT.Id));
 
-                                //if (tienHL == 0)
-                                //    throw new Exception("Định mức đầu tư hoàn lại bằng 0 , không được nghiệm thu nữa");
+                                foreach (Entity a in service.RetrieveMultiple(q).Entities)
+                                {
+                                    if (!a.Contains("new_yeucau"))
+                                        continue;
 
-                                traceService.Trace("Tien HL " + tienHL);
-                                //traceService.Trace("So nam thue dat " + ChiTietNTTD["new_thoigianthue"].ToString());
-                                //traceService.Trace("Dien tich thuc thue " + ctHDTDTD["new_dientichthucthue"].ToString());
+                                    if (((OptionSetValue)a["new_yeucau"]).Value == solannt + 2)
+                                    {
+                                        tienHL = ((Money)a["new_sotien"]).Value;
+                                    }
+                                }
+                                // -------- End  Gan Dinh muc
 
-                                decimal sotiendautu = (ChiTietNTTD.Contains("new_thoigianthue") ? (int)ChiTietNTTD["new_thoigianthue"] : 0) * tienHL * (ChiTietNTTD.Contains("new_dientichnghiemthu") ? (decimal)ChiTietNTTD["new_dientichnghiemthu"] : 0);
+                                decimal sotiendautu = (ChiTietNTTD.Contains("new_thoigianthue")
+                                    ? (int)ChiTietNTTD["new_thoigianthue"] : 0) * tienHL * (ChiTietNTTD.Contains("new_dientichnghiemthu")
+                                    ? (decimal)ChiTietNTTD["new_dientichnghiemthu"] : 0);
+
                                 traceService.Trace("So tien dau tu " + sotiendautu);
 
-                                en["new_tyle"] = tyle;
+                                //en["new_tyle"] = tyle;
                                 en["new_dinhmuc"] = new Money(tienHL);
-                                en["new_sotiendautu"] = new Money(sotiendautu);
-                                
+                                //en["new_sotiendautu"] = new Money(sotiendautu);
+
                                 service.Update(en);
                             }
                             else
@@ -542,6 +577,20 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
             EntityCollection entc = crmservices.RetrieveMultiple(new FetchExpression(fetchXml));
 
             return entc;
+        }
+
+        Entity GetThuadatcanhtacfromThuadat(Entity Thuadat, Entity hopdong)
+        {
+            QueryExpression q = new QueryExpression("new_thuadatcanhtac");
+            q.ColumnSet = new ColumnSet(new string[] { "new_yeucaudacbiet" });
+            q.Criteria = new FilterExpression();
+            q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hopdong.Id));
+            q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, Thuadat.Id));
+            q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
+
+            EntityCollection entc = service.RetrieveMultiple(q);
+
+            return entc.Entities.FirstOrDefault();
         }
     }
 }

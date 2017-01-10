@@ -1,105 +1,207 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Query;
 
 namespace TongGTTaiSan_DeNghiRutHoSo
 {
     public class TongGTTaiSan_DeNghiRutHoSo : IPlugin
     {
-        private IOrganizationServiceFactory serviceProxy;
         private IOrganizationService service;
+        private IOrganizationServiceFactory serviceProxy;
+
         public void Execute(IServiceProvider serviceProvider)
         {
-            IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             serviceProxy = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             service = serviceProxy.CreateOrganizationService(context.UserId);
-            ITracingService trace= (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+            var trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
+            Entity target = null;
+            EntityReference Enftarget = null;
 
+            trace.Trace("1");
             if (context.Depth > 1)
             {
                 return;
             }
-
-            if (context.MessageName == "Create" || context.MessageName == "Update")
+            if (context.MessageName != "Delete")
             {
-                Entity target = (Entity)context.InputParameters["Target"];
-                if (target.Contains("new_hopdongthechap"))
-                {
-                    Entity ctDenghiruthoso = service.Retrieve(target.LogicalName, target.Id,
-                        new ColumnSet(new string[] { "new_hopdongthechap", "new_denghiruthoso" }));
-
-                    Entity denghiruthoso = service.Retrieve("new_denghiruthoso", ((EntityReference)ctDenghiruthoso["new_denghiruthoso"]).Id,
-                            new ColumnSet(new string[] { "new_tonggiatritaisandangthechap" }));
-
-                    List<Entity> lstctDenghiruthoso = RetrieveMultiRecord(service, "new_chitietdenghiruthoso",
-                        new ColumnSet(new string[] { "new_taisanthechap" }), "new_denghiruthoso", denghiruthoso.Id);
-                    decimal tonggiatri = 0;
-
-                    foreach (Entity k in lstctDenghiruthoso)
-                    {
-                        List<Entity> lstTaisanthechap = RetrieveMultiRecord(service, "new_taisanthechap",
-                        new ColumnSet(new string[] { "statuscode", "new_giatridinhgiagiatrithechap" }), "new_hopdongthechap", ((EntityReference)ctDenghiruthoso["new_hopdongthechap"]).Id);
-
-
-                        foreach (Entity en in lstTaisanthechap)
-                        {
-                            decimal gtdinhgia = ((Money)en["new_giatridinhgiagiatrithechap"]).Value;
-                            tonggiatri += gtdinhgia;
-                        }
-                    }
-                    
-                    denghiruthoso["new_tonggiatritaisandangthechap"] = new Money(tonggiatri);
-                    service.Update(denghiruthoso);
-                }
+                target = (Entity)context.InputParameters["Target"];
             }
-            else if (context.MessageName == "Delete")
-            {
-                Entity target = new Entity(((EntityReference)context.InputParameters["Target"]).LogicalName);
-                target.Id = ((EntityReference)context.InputParameters["Target"]).Id;
 
-                Entity ctDenghiruthoso = service.Retrieve(target.LogicalName, target.Id,
-                    new ColumnSet(true));
-                trace.Trace("2");
-                Entity denghiruthoso = service.Retrieve("new_denghiruthoso", ((EntityReference)ctDenghiruthoso["new_denghiruthoso"]).Id,
+
+            if (target != null && target.LogicalName == "new_denghiruthoso")
+            {
+                if (target.Contains("new_tinhtrangduyet") && ((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000007)
+                {
+                    List<Entity> lstCtdenghi = RetrieveMultiRecord(service,"new_chitietdenghiruthoso",
+                             new ColumnSet(new string[] { "statuscode" }),
+                             "new_denghiruthoso", target.Id);
+
+                    foreach (Entity en in lstCtdenghi)
+                    {
+                        en["statuscode"] = new OptionSetValue(100000001); // rut
+                        service.Update(en);
+                    }
+                }
+
+                EntityReference nguoidenghi = null;
+                decimal tongtien2ben = 0;
+                decimal tongtien3ben = 0;
+
+                if (target.Contains("new_nguoidenghikh"))
+                    nguoidenghi = (EntityReference)target["new_nguoidenghikh"];
+                else if (target.Contains("new_nguoidenghikhdn"))
+                    nguoidenghi = (EntityReference)target["new_nguoidenghikhdn"];
+
+                if (nguoidenghi != null)
+                {
+                    QueryExpression q = new QueryExpression("new_hopdongthechap");
+                    q.ColumnSet = new ColumnSet(true);
+                    q.Criteria = new FilterExpression();
+                    q.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+
+                    if (nguoidenghi.LogicalName == "contact") // kh
+                        q.Criteria.AddCondition(new ConditionExpression("new_chuhopdong", ConditionOperator.Equal, nguoidenghi.Id));
+                    else
+                        q.Criteria.AddCondition(new ConditionExpression("new_chuhopdongdoanhnghiep", ConditionOperator.Equal, nguoidenghi.Id));
+                    q.Criteria.AddCondition(new ConditionExpression("new_benthuba", ConditionOperator.Equal, false));
+
+                    EntityCollection entc = service.RetrieveMultiple(q);
+
+                    foreach (Entity en in entc.Entities)
+                    {
+                        tongtien2ben += Tinhtongtaisanfromhdthechap(en);
+                    }
+
+                    QueryExpression q1 = new QueryExpression("new_hopdongthechap");
+                    q1.ColumnSet = new ColumnSet(true);
+                    q1.Criteria = new FilterExpression();
+                    q1.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+
+                    if (nguoidenghi.LogicalName == "contact") // kh
+                        q1.Criteria.AddCondition(new ConditionExpression("new_nguoidambaochinhkhcn", ConditionOperator.Equal, nguoidenghi.Id));
+                    else
+                        q1.Criteria.AddCondition(new ConditionExpression("new_nguoiduocdambaochinhkhdn", ConditionOperator.Equal, nguoidenghi.Id));
+                    q1.Criteria.AddCondition(new ConditionExpression("new_benthuba", ConditionOperator.Equal, true));
+
+                    EntityCollection entc1 = service.RetrieveMultiple(q1);
+
+                    foreach (Entity en in entc1.Entities)
+                    {
+                        tongtien3ben += Tinhtongtaisanfromhdthechap(en);
+                    }
+
+                    Entity updateDenghi = service.Retrieve(target.LogicalName, target.Id,
                         new ColumnSet(new string[] { "new_tonggiatritaisandangthechap" }));
-                trace.Trace("2");
-                List<Entity> lstctDenghiruthoso = RetrieveMultiRecord(service, "new_chitietdenghiruthoso",
-                    new ColumnSet(new string[] { "new_taisanthechap" }), "new_denghiruthoso", denghiruthoso.Id);
-                decimal tonggiatri = denghiruthoso.Contains("new_tonggiatritaisandangthechap") ? ((Money)denghiruthoso["new_tonggiatritaisandangthechap"]).Value : 0;
-                trace.Trace("2");
-                foreach (Entity k in lstctDenghiruthoso)
-                {
-                    List<Entity> lstTaisanthechap = RetrieveMultiRecord(service, "new_taisanthechap",
-                    new ColumnSet(new string[] { "statuscode", "new_giatridinhgiagiatrithechap" }), "new_hopdongthechap", ((EntityReference)ctDenghiruthoso["new_hopdongthechap"]).Id);
 
-                    foreach (Entity en in lstTaisanthechap)
+                    updateDenghi["new_tonggiatritaisandangthechap"] = new Money(tongtien2ben + tongtien3ben);
+                    service.Update(updateDenghi);
+
+
+                }
+                trace.Trace("5");
+            }
+            else if (context.MessageName == "Delete" || (target != null && target.LogicalName == "new_chitietdenghiruthoso"))
+            {
+                if (context.MessageName == "Create" || context.MessageName == "Update")
+                {
+                    Entity ctdenghiruthoso = service.Retrieve(target.LogicalName, target.Id,
+                        new ColumnSet(new string[] { "new_denghiruthoso" }));
+                    decimal gtdenghirut = 0;
+
+                    if (ctdenghiruthoso.Contains("new_denghiruthoso"))
                     {
-                        decimal gtdinhgia = ((Money)en["new_giatridinhgiagiatrithechap"]).Value;
-                        tonggiatri -= gtdinhgia;
+
+                        Entity dnruthoso = service.Retrieve("new_denghiruthoso", ((EntityReference)ctdenghiruthoso["new_denghiruthoso"]).Id,
+                            new ColumnSet(new string[] { "new_tonggiatritaisandangthechap", "new_giatridenghirut", "new_giatritstcconlai" }));
+
+                        List<Entity> lstCtdenghi = RetrieveMultiRecord(service, target.LogicalName,
+                            new ColumnSet(new string[] { "new_giatrithechap" }),
+                            "new_denghiruthoso", dnruthoso.Id);
+
+                        foreach (Entity en in lstCtdenghi)
+                        {
+                            gtdenghirut += en.Contains("new_giatrithechap") ? ((Money)en["new_giatrithechap"]).Value : 0;
+                        }
+
+                        decimal tonggttaisanthechap = dnruthoso.Contains("new_tonggiatritaisandangthechap") ?
+                            ((Money)dnruthoso["new_tonggiatritaisandangthechap"]).Value : 0;
+                        decimal gtconlai = tonggttaisanthechap - gtdenghirut;
+
+                        if (gtconlai < 0)
+                            throw new Exception("Giá trị đề nghị rút đã vượt quá tổng gt tài sản thế chấp");
+
+                        dnruthoso["new_giatridenghirut"] = new Money(gtdenghirut);
+                        dnruthoso["new_giatritstcconlai"] = new Money(gtconlai);
+
+                        service.Update(dnruthoso);
                     }
                 }
-                
-                denghiruthoso["new_tonggiatritaisandangthechap"] = new Money(tonggiatri);
-                service.Update(denghiruthoso);
+                else if (context.MessageName == "Delete")
+                {
+                    trace.Trace("2");
+                    Entity fullEntity = (Entity)context.PreEntityImages["PreImg"];
 
+                    if (fullEntity.Contains("new_denghiruthoso"))
+                    {
+                        trace.Trace("2");
+                        Entity dnruthoso = service.Retrieve("new_denghiruthoso", ((EntityReference)fullEntity["new_denghiruthoso"]).Id,
+                            new ColumnSet(new string[] { "new_tonggiatritaisandangthechap", "new_giatridenghirut", "new_giatritstcconlai" }));
+                        decimal gtdenghirut = 0;
+
+                        List<Entity> lstCtdenghi = RetrieveMultiRecord(service, fullEntity.LogicalName,
+                            new ColumnSet(new string[] { "new_giatrithechap" }),
+                            "new_denghiruthoso", dnruthoso.Id);
+                        trace.Trace("3");
+                        foreach (Entity en in lstCtdenghi)
+                        {
+                            gtdenghirut += en.Contains("new_giatrithechap") ? ((Money)en["new_giatrithechap"]).Value : 0;
+                        }
+
+                        decimal tonggttaisanthechap = dnruthoso.Contains("new_tonggiatritaisandangthechap") ?
+                            ((Money)dnruthoso["new_tonggiatritaisandangthechap"]).Value : 0;
+                        decimal gtconlai = tonggttaisanthechap - gtdenghirut;
+
+                        if (gtconlai < 0)
+                            throw new Exception("Giá trị đề nghị rút đã vượt quá tổng gt tài sản thế chấp");
+
+                        dnruthoso["new_giatridenghirut"] = new Money(gtdenghirut);
+                        dnruthoso["new_giatritstcconlai"] = new Money(gtconlai);
+
+                        service.Update(dnruthoso);
+                    }
+                }
             }
-
         }
 
-        List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column, string condition, object value)
+        private List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column,
+            string condition, object value)
         {
-            QueryExpression q = new QueryExpression(entity);
+            var q = new QueryExpression(entity);
             q.ColumnSet = column;
             q.Criteria = new FilterExpression();
             q.Criteria.AddCondition(new ConditionExpression(condition, ConditionOperator.Equal, value));
-            EntityCollection entc = service.RetrieveMultiple(q);
+            var entc = service.RetrieveMultiple(q);
 
-            return entc.Entities.ToList<Entity>();
+            return entc.Entities.ToList();
+        }
+
+        decimal Tinhtongtaisanfromhdthechap(Entity hdtc)
+        {
+            decimal result = 0;
+            List<Entity> lstTaisanthechap = RetrieveMultiRecord(service, "new_taisanthechap",
+                        new ColumnSet(new string[] { "new_giatridinhgiagiatrithechap" }), "new_hopdongthechap", hdtc.Id);
+
+            foreach (Entity en in lstTaisanthechap)
+            {
+                result += en.Contains("new_giatridinhgiagiatrithechap")
+                    ? ((Money)en["new_giatridinhgiagiatrithechap"]).Value
+                    : 0;
+            }
+
+            return result;
         }
     }
 }

@@ -4,3 +4,9 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TongGTTaiSan_DeNghiRutHoSo
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\bin\Debug\Microsoft.Xrm.Sdk.xml
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\obj\Debug\TongGTTaiSan_DeNghiRutHoSo.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\obj\Debug\TongGTTaiSan_DeNghiRutHoSo.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\bin\Debug\TongGTTaiSan_DeNghiRutHoSo.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\bin\Debug\TongGTTaiSan_DeNghiRutHoSo.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\obj\Debug\TongGTTaiSan_DeNghiRutHoSo.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\obj\Debug\TongGTTaiSan_DeNghiRutHoSo.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\TongGTTaiSan_DeNghiRutHoSo\TongGTTaiSan_DeNghiRutHoSo\obj\Debug\TongGTTaiSan_DeNghiRutHoSo.pdb

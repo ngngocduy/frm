@@ -519,7 +519,8 @@ namespace Plugin_ThemCSDTvaoNTThamCanh
                                     en["new_chinhsachdautu"] = csdtRef;
 
                                     Guid csdtKQ = mCSDT.Id;
-                                    Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ, new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_dinhmucdautukhonghoanlai", "new_dinhmucphanbontoithieu", "new_name" }));
+                                    Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ,
+                                        new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_dinhmucdautukhonghoanlai", "new_dinhmucphanbontoithieu", "new_name" }));
 
                                     // -------- Gan nhom du lieu  Dinh muc
 

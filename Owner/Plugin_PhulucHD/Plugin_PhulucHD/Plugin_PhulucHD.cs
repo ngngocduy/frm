@@ -154,6 +154,7 @@ namespace Plugin_PhulucHD
                             if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000001")
                             {
                                 EntityCollection dsChitietHD = FindchitietHD(service, HDDTmia);
+
                                 if (dsChitietHD != null && dsChitietHD.Entities.Count > 0)
                                 {
                                     foreach (Entity ctHD in dsChitietHD.Entities)
