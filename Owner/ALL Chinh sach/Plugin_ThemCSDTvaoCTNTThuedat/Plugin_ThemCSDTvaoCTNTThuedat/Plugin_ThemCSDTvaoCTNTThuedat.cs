@@ -370,18 +370,17 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                                         }
                                     }
 
-                                    traceService.Trace("Pass Nhom nang suat");
-                                    traceService.Trace("co " + co.ToString());
-
                                     if (co == false)
                                         continue;
 
+                                    traceService.Trace("Pass Nhom nang suat");
+                                    traceService.Trace("co " + co.ToString());
 
                                     mCSDT = a;
                                     break;
                                 }
                             }
-
+                            
                             if (mCSDT != null && mCSDT.Id != Guid.Empty)
                             {
 

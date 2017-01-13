@@ -413,13 +413,38 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
 
                                     traceService.Trace("pass nang suat");
 
+                                    co = false;
+                                    EntityCollection lstHopdongmia = RetrieveNNRecord(service, "new_hopdongdautumia", "new_chinhsachdautu",
+                                        "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(true), "new_chinhsachdautuid", a.Id);
+
+                                    if (lstHopdongmia.Entities.Count <= 0)
+                                    {
+                                        co = true;
+                                    }
+                                    else
+                                    {
+                                        foreach (Entity hd in lstHopdongmia.Entities)
+                                        {
+                                            if (hd.Id == HDDTmia.Id)
+                                            {
+                                                co = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    if (co == false)
+                                        continue;
+
+                                    traceService.Trace("pass hop dong ung von");
+
                                     mCSDT = a;
                                     break;
                                 }
                             }
                             else
                                 throw new InvalidPluginExecutionException("Chưa có Chính sách Đầu tư NT trồng mía nào cho vụ đầu tư này");
-                            traceService.Trace("3");
+                            
                             if (mCSDT != null && mCSDT.Id != Guid.Empty)
                             {
                                 //check so lan nghiem thu

@@ -104,14 +104,38 @@ namespace Plugin_PDN_GiaiNgan
 
                     foreach (Entity cthd in cthds.Entities)
                     {
-                        decimal tyle = GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id, ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value, (cthd.Contains("new_yeucaudacbiet") ? (bool)cthd["new_yeucaudacbiet"] : false));
+                        traceService.Trace(cthd["new_name"].ToString());
+                        if (!cthd.Contains("new_chinhsachdautu"))
+                            throw new Exception("Chi tiết không có chính sách đầu tư");
 
-                        dmhl += tyle / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
-                        dmhlvt += tyle / 100 * (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
-                        dm0hl += tyle / 100 * (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
+                        if (!cthd.Contains("new_trangthainghiemthu"))
+                            throw new Exception("Chi tiết không có trạng thái nghiệm thu");
+
+                        decimal tyleGNVattu = 0;
+                        decimal tyleGNtienmat = 0;
+
+                        GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
+                            ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value,
+                            (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNtienmat, ref tyleGNVattu);
+
+                        decimal dmhlT = tyleGNtienmat / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                        decimal dmhlvtT = (100-tyleGNtienmat) / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                        decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
+                        decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
+
+                        //if (tyleGNtienmat == 100)
+                        //{
+                        //    dmhlvtT = dmphanbontoithieu;
+                        //}
+
+                        dmhl += (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                        dmhlvt += dmhlvtT;
+                        dm0hl += dm0hlT;
+
+                        traceService.Trace(tyleGNtienmat.ToString() + "-" + dmhlT.ToString());
+                        traceService.Trace(tyleGNVattu.ToString() + "-" + dmhlvtT.ToString());
 
                         #region Them chi tiet hop va phieu dang ky
-
                         string ct_name = cthd.Contains("new_name") ? (cthd["new_name"].ToString() + "-") : "";
 
                         Entity ct_pdk = new Entity("new_thuadat_pdngiaingan");
@@ -127,17 +151,18 @@ namespace Plugin_PDN_GiaiNgan
 
                         gnhltm += cthd.Contains("new_dachihoanlai_tienmat") ? ((Money)cthd["new_dachihoanlai_tienmat"]).Value : 0;
                         gnhltm += cthd.Contains("new_dachihoanlai_dichvu") ? ((Money)cthd["new_dachihoanlai_dichvu"]).Value : 0;
-
-                        gnhlvt = cthd.Contains("new_dachihoanlai_homgiong") ? ((Money)cthd["new_dachihoanlai_homgiong"]).Value : 0;
+                        gnhlvt += cthd.Contains("new_dachihoanlai_homgiong") ? ((Money)cthd["new_dachihoanlai_homgiong"]).Value : 0;
                         gnhlvt += cthd.Contains("new_dachihoanlai_phanbon") ? ((Money)cthd["new_dachihoanlai_phanbon"]).Value : 0;
                         gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                         gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                         gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
+                        
                     }
-
+                    
                     Sum_pdn(ref gnhltm, ref gn0hl, hdRef, ((EntityReference)pdk["new_phieudenghigiaingan"]).Id);
+                    traceService.Trace(gnhltm.ToString());
                     sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-
+                    traceService.Trace(gnhltm.ToString());
                     #endregion
                 }
                 else
@@ -343,15 +368,15 @@ namespace Plugin_PDN_GiaiNgan
                 traceService.Trace("start");
                 EntityReference hdRef = (EntityReference)PDNGN["new_hopdongdautummtb"];
                 Entity hd = service.Retrieve(hdRef.LogicalName, hdRef.Id, new ColumnSet(true));
-                
+
                 #region NT MMTB
 
                 if (!pdk.Contains("new_nghiemthummtb"))
                     throw new Exception("Chưa nhập thông tin phiếu Nghiệm thu MMTB !");
-                                
+
                 Entity NT = service.Retrieve("new_nghiemthumaymocthietbi", ((EntityReference)pdk["new_nghiemthummtb"]).Id,
                     new ColumnSet(true));
-                
+
                 query = new QueryExpression("new_chitietnghiemthummtb");
                 query.ColumnSet = new ColumnSet(new string[] { "new_maymocthietbi", "new_giamua" });
                 query.Criteria.AddCondition(new ConditionExpression("new_nghiemthummtb", ConditionOperator.Equal, NT.Id));
@@ -359,11 +384,11 @@ namespace Plugin_PDN_GiaiNgan
                 EntityCollection rs = service.RetrieveMultiple(query);
                 Dictionary<Guid, Entity> tds = new Dictionary<Guid, Entity>();
                 List<Guid> td = new List<Guid>();
-                
+
                 foreach (Entity a in rs.Entities)
                 {
                     traceService.Trace(CheckDuplicateGuid(td, a.Id).ToString());
-                    
+
                     if (CheckDuplicateGuid(td, a.Id) == true)
                     {
                         td.Add(a.Id);
@@ -402,21 +427,22 @@ namespace Plugin_PDN_GiaiNgan
             tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
-
+            
             tmpPdk["new_giaingan_hoanlai_tienmat"] = new Money(gnhltm);
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-
+            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + gnhltm.ToString());
             decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
+            
+            //decimal deNghiTmHl = 0;
             decimal deNghiVt = dmhlvt - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
-
+            
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);
             tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);
-
-            tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
+            //tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
 
             if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
                 tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
@@ -433,7 +459,6 @@ namespace Plugin_PDN_GiaiNgan
             decimal sumhlTM = 0;
             decimal sumhlVT = 0;
             decimal sumKHL = 0;
-
             #region sub
             //dang ky hom giong
             StringBuilder fetch = new StringBuilder();
@@ -444,7 +469,7 @@ namespace Plugin_PDN_GiaiNgan
             fetch.AppendFormat("<attribute name='new_denghi_khonghoanlai' alias='khl' aggregate='sum' />");
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkyhomgiong")
                 fetch.AppendFormat("<condition attribute='new_phieudangkyhomgiongid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -473,7 +498,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-
+            traceService.Trace("hg: " + sumhlTM);
             //dang ky phan bon
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -483,7 +508,7 @@ namespace Plugin_PDN_GiaiNgan
             fetch.AppendFormat("<attribute name='new_denghi_khonghoanlai' alias='khl' aggregate='sum' />");
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkyphanbon")
                 fetch.AppendFormat("<condition attribute='new_phieudangkyphanbonid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -512,7 +537,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-
+            traceService.Trace("pb: " + sumhlTM);
             //dang ky thuoc
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -523,7 +548,7 @@ namespace Plugin_PDN_GiaiNgan
 
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkythuoc")
                 fetch.AppendFormat("<condition attribute='new_phieudangkythuocid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -553,7 +578,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-
+            traceService.Trace("thuoc: " + sumhlTM);
             //dang ky vat tu
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -564,7 +589,7 @@ namespace Plugin_PDN_GiaiNgan
 
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkyvattu")
                 fetch.AppendFormat("<condition attribute='new_phieudangkyvattuid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -593,7 +618,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-
+            traceService.Trace("vat tu: " + sumhlTM);
             //dang ky dich vu
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -604,7 +629,7 @@ namespace Plugin_PDN_GiaiNgan
 
             fetch.AppendFormat("<filter type='and'>");
             fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
-            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
             if (pdkRef.LogicalName == "new_phieudangkydichvu")
                 fetch.AppendFormat("<condition attribute='new_phieudangkydichvuid' operator='neq' value='{0}'/>", pdkRef.Id);
             fetch.AppendFormat("</filter>");
@@ -635,7 +660,7 @@ namespace Plugin_PDN_GiaiNgan
                 }
             }
             #endregion
-
+            traceService.Trace("dv: " + sumhlTM);
             hlTM += sumhlTM;
             hlVT += sumhlVT;
             KHL += sumKHL;
@@ -1036,6 +1061,26 @@ namespace Plugin_PDN_GiaiNgan
                 }
 
                 return true;
+            }
+        }
+
+        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNtienmat, ref decimal tyleGNvattu)
+        {
+            //decimal tyle = 0;
+
+            QueryExpression q2 = new QueryExpression("new_dinhmucdautu");
+            q2.ColumnSet = new ColumnSet(true);
+            q2.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
+            q2.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
+
+            foreach (Entity a in service.RetrieveMultiple(q2).Entities)
+            {
+                if (!yeucau)
+                    tyleGNtienmat += (decimal)a["new_phantramtilegiaingan"];
+                else
+                {
+                    tyleGNtienmat += (decimal)a["new_tyleyc"];
+                }
             }
         }
     }

@@ -68,3 +68,9 @@ E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachayth
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb

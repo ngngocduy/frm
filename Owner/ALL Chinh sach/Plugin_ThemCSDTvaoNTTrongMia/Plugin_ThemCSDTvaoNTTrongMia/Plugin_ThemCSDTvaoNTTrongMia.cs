@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Activities;
+using System.Net;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Query;
@@ -52,7 +53,8 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
 
                             EntityReference HDDTmiaRef = NTtrongmiaObj.GetAttributeValue<EntityReference>("new_hopdongtrongmia");
                             Guid DHDTmiaId = HDDTmiaRef.Id;
-                            Entity HDDTmia = service.Retrieve("new_hopdongdautumia", DHDTmiaId, new ColumnSet(new string[] { "new_vudautu" }));
+                            Entity HDDTmia = service.Retrieve("new_hopdongdautumia", DHDTmiaId,
+                                new ColumnSet(new string[] { "new_vudautu" }));
 
                             EntityReference thuadatEntityRef = ChiTietNTTrongMia.GetAttributeValue<EntityReference>("new_thuadat");
                             EntityReference giongmiaEntityRef = ChiTietNTTrongMia.GetAttributeValue<EntityReference>("new_giongmia");
@@ -412,6 +414,31 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                         continue;
 
                                     traceService.Trace("pass nang suat");
+                                    
+                                    co = false;
+                                    EntityCollection lstHopdongmia = RetrieveNNRecord(service, "new_hopdongdautumia", "new_chinhsachdautu",
+                                        "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(true), "new_chinhsachdautuid", a.Id);
+                                    traceService.Trace("hop dong ung von : " + lstHopdongmia.Entities.Count.ToString());
+                                    if (lstHopdongmia.Entities.Count <= 0)
+                                    {
+                                        co = true;
+                                    }
+                                    else
+                                    {
+                                        foreach (Entity hd in lstHopdongmia.Entities)
+                                        {
+                                            if (hd.Id == HDDTmia.Id)
+                                            {
+                                                co = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    if (co == false)
+                                        continue;
+
+                                    traceService.Trace("pass hop dong ung von");
 
                                     mCSDT = a;
                                     break;
@@ -419,7 +446,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                             }
                             else
                                 throw new InvalidPluginExecutionException("Chưa có Chính sách Đầu tư NT trồng mía nào cho vụ đầu tư này");
-                            traceService.Trace("3");
+                            
                             if (mCSDT != null && mCSDT.Id != Guid.Empty)
                             {
                                 //check so lan nghiem thu
@@ -436,7 +463,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                 {
                                     throw new Exception("Số lần nghiệm thu vượt quá số lần giải ngân");
                                 }
-
+                                
                                 // ------Gan vao Chi tiet HDDT mia
                                 Entity en = new Entity(ChiTietNTTrongMia.LogicalName);
                                 en.Id = ChiTietNTTrongMia.Id;
@@ -461,7 +488,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
 
                                 foreach (Entity a in service.RetrieveMultiple(q).Entities)
                                 {
-                                    if(!a.Contains("new_yeucauphanbon"))
+                                    if (!a.Contains("new_yeucauphanbon"))
                                         continue;
 
                                     if (((OptionSetValue)a["new_yeucauphanbon"]).Value == solannt + 2)
@@ -471,11 +498,11 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                                         else
                                             en["new_dinhmuc"] = a["new_sotienyc"];
 
-                                        service.Update(en);
+                                        
                                     }
                                 }
                                 // -------- End  Gan Dinh muc
-                                
+                                service.Update(en);
 
                             }  //if (mCSDT != null && mCSDT.Id != Guid.Empty)
                             else

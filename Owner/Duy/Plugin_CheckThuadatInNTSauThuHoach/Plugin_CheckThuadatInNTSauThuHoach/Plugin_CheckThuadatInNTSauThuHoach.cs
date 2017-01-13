@@ -15,11 +15,13 @@ namespace Plugin_CheckThuadatInNTSauThuHoach
         // moi nhat
         IOrganizationService service = null;
         IOrganizationServiceFactory factory = null;
+        private ITracingService trace = null;
         void IPlugin.Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             service = factory.CreateOrganizationService(context.UserId);
+            trace= (ITracingService)serviceProvider.GetService(typeof(ITracingService));
 
             if (context.MessageName.ToLower().Trim() == "create" || context.MessageName.ToLower().Trim() == "update")
             {
@@ -27,15 +29,21 @@ namespace Plugin_CheckThuadatInNTSauThuHoach
 
                 if (target.Contains("new_nghiemthusauthuhoach") && target.Contains("new_thuadat"))
                 {
-                    Entity ctnghiemthusauthuhoach = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(true));
+                    Entity ctnghiemthusauthuhoach = service.Retrieve(target.LogicalName, target.Id,
+                        new ColumnSet(true));
                     int count = 0;
                     int count1 = 0;
-
-                    Entity thuadat = service.Retrieve("new_thuadat", ((EntityReference)ctnghiemthusauthuhoach["new_thuadat"]).Id, new ColumnSet(true));
-                    Entity nghiemthusauthuhoach = service.Retrieve("new_nghiemthuchatsatgoc", ((EntityReference)ctnghiemthusauthuhoach["new_nghiemthusauthuhoach"]).Id, new ColumnSet(true));
+                    trace.Trace("1");
+                    Entity thuadat = service.Retrieve("new_thuadat", ((EntityReference)ctnghiemthusauthuhoach["new_thuadat"]).Id,
+                        new ColumnSet(new string[] {"new_thuadatid"}));
+                    Entity nghiemthusauthuhoach = service.Retrieve("new_nghiemthuchatsatgoc",
+                        ((EntityReference)ctnghiemthusauthuhoach["new_nghiemthusauthuhoach"]).Id, new ColumnSet(true));
                     Entity hopdongdautumia = service.Retrieve("new_hopdongdautumia", ((EntityReference)nghiemthusauthuhoach["new_hopdongdautumia"]).Id, new ColumnSet(true));
                     Entity vudautu = service.Retrieve("new_vudautu", ((EntityReference)hopdongdautumia["new_vudautu"]).Id, new ColumnSet(true));
-                    List<Entity> lstCtnghiemthusauthuhoach = RetrieveMultiRecord(service, "new_chitietnghiemthusauthuhoach", new ColumnSet(true), "new_nghiemthusauthuhoach", nghiemthusauthuhoach.Id);
+
+                    List<Entity> lstCtnghiemthusauthuhoach = RetrieveMultiRecord(service, "new_chitietnghiemthusauthuhoach",
+                        new ColumnSet(true), "new_nghiemthusauthuhoach", nghiemthusauthuhoach.Id);
+                    trace.Trace("2");
                     string status = ((OptionSetValue)nghiemthusauthuhoach["statuscode"]).Value.ToString();
 
                     foreach (Entity en in lstCtnghiemthusauthuhoach)
@@ -46,22 +54,29 @@ namespace Plugin_CheckThuadatInNTSauThuHoach
 
                     if (count > 1)
                         throw new Exception("Thửa đất đã tồn tại trong chi tiết nghiệm thu chặt sát gốc  khác !!!");
-
+                    trace.Trace("3");
                     QueryExpression q = new QueryExpression("new_chitietnghiemthusauthuhoach");
                     q.ColumnSet = new ColumnSet(new string[] { "new_nghiemthusauthuhoach", "new_thuadat", "new_name" });
                     LinkEntity linkEntity1 = new LinkEntity("new_chitietnghiemthusauthuhoach", "new_nghiemthuchatsatgoc", "new_nghiemthusauthuhoach", "activityid", JoinOperator.Inner);
                     LinkEntity linkEntity2 = new LinkEntity("new_nghiemthuchatsatgoc", "new_hopdongdautumia", "new_hopdongdautumia", "new_hopdongdautumiaid", JoinOperator.Inner);
                     q.LinkEntities.Add(linkEntity1);
+
                     linkEntity1.LinkCriteria = new FilterExpression();
                     linkEntity1.LinkCriteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+
                     linkEntity2.LinkCriteria.AddCondition(new ConditionExpression("new_vudautu", ConditionOperator.Equal, vudautu.Id));
+                    trace.Trace("4");
+                    q.Criteria = new FilterExpression();
+                    q.Criteria.AddCondition(new ConditionExpression("new_hopdongthuhoach",ConditionOperator.Equal,
+                        ((EntityReference)ctnghiemthusauthuhoach["new_hopdongthuhoach"]).Id));
                     q.LinkEntities.Add(linkEntity2);
                     EntityCollection entc = service.RetrieveMultiple(q);
                     List<Entity> lstCtnghiemthusauthuhoach1 = entc.Entities.ToList();
-
+                    trace.Trace("5");
                     foreach (Entity en in lstCtnghiemthusauthuhoach1)
                     {
-                        Entity ntsth = service.Retrieve("new_nghiemthuchatsatgoc", ((EntityReference)en["new_nghiemthusauthuhoach"]).Id, new ColumnSet(true));
+                        //Entity ntsth = service.Retrieve("new_nghiemthuchatsatgoc", ((EntityReference)en["new_nghiemthusauthuhoach"]).Id,
+                        //    new ColumnSet(true));
 
                         if (thuadat.Id == ((EntityReference)en["new_thuadat"]).Id)
                             count1++;

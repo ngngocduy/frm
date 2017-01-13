@@ -27,7 +27,7 @@ namespace UpdateTinhtrangthuhoach
             if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // da duyet
             {
                 Entity lenhdon = service.Retrieve(target.LogicalName, target.Id,
-                    new ColumnSet(new string[] { "new_thuacanhtac", "new_lenhdoncuoi","new_loaihopdong" }));
+                    new ColumnSet(new string[] { "new_thuacanhtac", "new_lenhdoncuoi", "new_loaihopdong" }));
 
                 if (lenhdon.Contains("new_loaihopdong") && ((OptionSetValue)lenhdon["new_loaihopdong"]).Value == 100000000)
                 {
@@ -38,13 +38,31 @@ namespace UpdateTinhtrangthuhoach
                         new ColumnSet(new string[] { "new_tinhtrangthuhoach" }));
 
                     if (lenhdon.Contains("new_lenhdoncuoi") && (bool)lenhdon["new_lenhdoncuoi"] == true)
-                        chitiethdmia["new_tinhtrangthuhoach"] = new OptionSetValue(100000002);
+                    {
+                        chitiethdmia["new_tinhtrangthuhoach"] = new OptionSetValue(100000002); // da thu hoach
+                    }
                     else
-                        chitiethdmia["new_tinhtrangthuhoach"] = new OptionSetValue(100000001);
+                        chitiethdmia["new_tinhtrangthuhoach"] = new OptionSetValue(100000001); // dang thu hoach
 
                     service.Update(chitiethdmia);
                 }
+                else if (lenhdon.Contains("new_khoiluongthanhtoan"))
+                {
+                    Entity lenhdon = service.Retrieve("new_thuacanhtac", target.Id,
+                    new ColumnSet(new string[] { "new_thuacanhtac", "new_lenhdoncuoi", "new_loaihopdong" }));
+                }
             }
+        }
+
+        List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column, string condition, object value)
+        {
+            QueryExpression q = new QueryExpression(entity);
+            q.ColumnSet = column;
+            q.Criteria = new FilterExpression();
+            q.Criteria.AddCondition(new ConditionExpression(condition, ConditionOperator.Equal, value));
+            EntityCollection entc = service.RetrieveMultiple(q);
+
+            return entc.Entities.ToList<Entity>();
         }
     }
 }

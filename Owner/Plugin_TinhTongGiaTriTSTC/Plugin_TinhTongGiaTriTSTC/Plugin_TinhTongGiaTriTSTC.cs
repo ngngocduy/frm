@@ -72,8 +72,8 @@ namespace Plugin_TinhTongGiaTriTSTC
                 {
                     foreach (Entity en in DSTaisanthechap)
                     {
-                        if (en.Contains("new_giatridinhgiagiatrithechap"))                        
-                            sumgiatrithechap += ((Money)en["new_giatridinhgiagiatrithechap"]).Value;                        
+                        if (en.Contains("new_giatridinhgiagiatrithechap"))
+                            sumgiatrithechap += ((Money)en["new_giatridinhgiagiatrithechap"]).Value;
 
                         //Entity k = new Entity(en.LogicalName);
                         //k.Id = en.Id;

@@ -48,11 +48,5 @@ E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongM
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Plugin_ThemCSDTvaoNTTrongMia.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Microsoft.Xrm.Sdk.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb

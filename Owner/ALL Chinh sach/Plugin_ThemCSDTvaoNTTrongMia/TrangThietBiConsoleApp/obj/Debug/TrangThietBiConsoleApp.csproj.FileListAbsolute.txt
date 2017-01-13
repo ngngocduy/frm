@@ -69,9 +69,4 @@ C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
-C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache

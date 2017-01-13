@@ -34,7 +34,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     co = true;
             }
             else if (context.MessageName == "Update")
-            {F
+            {
                 target = (Entity)context.InputParameters["Target"];
                 co = CheckRunUpdate(target);
             }
@@ -84,7 +84,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
                 EntityCollection CSThoa = GetCSDTFromHDMia(service, "new_chinhsachdautu", "new_hopdongdautumia",
                     "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(new string[] { "new_ngayapdung", "new_thutuuutien",
-                        "new_cantrutoithieu", "new_dinhmucdautukhonghoanlai", "new_dinhmuctamung", "new_dinhmucphanbontoithieu" }),
+                        "new_cantrutoithieu", "new_dinhmucdautukhonghoanlai", "new_dinhmuctamung", "new_dinhmucphanbontoithieu","new_mucdichdautu" }),
                     "new_hopdongdautumiaid", HDDTMia.Id, "new_ngayapdung", ((EntityReference)HDDTMia["new_vudautu"]).Id);
 
                 if (CSThoa.Entities.Count > 0)
@@ -94,8 +94,6 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     DateTime maxdate0 = new DateTime(1, 1, 1);
                     DateTime maxdate1 = new DateTime(1, 1, 1);
                     DateTime maxdate4 = new DateTime(1, 1, 1);
-
-                    traceService.Trace("maxdate ");
 
                     foreach (Entity m in CSThoa.Entities)
                     {
@@ -120,7 +118,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                         }
                     }
                 }
-
+                
                 if (CSDautu == null || CSTamUng == null || CSThamCanh == null)
                 {
                     StringBuilder qChinhSach = new StringBuilder();
@@ -408,9 +406,37 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
                             traceService.Trace("Pass mô hình khuyến nông");
 
+                            
+                            EntityCollection lstHopdongmia = RetrieveNNRecord(service, "new_hopdongdautumia", "new_chinhsachdautu",
+                                "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(true), "new_chinhsachdautuid", cs.Id);
+                            traceService.Trace("hop dong ung von : " + lstHopdongmia.Entities.Count.ToString());
+                            
+                            if(lstHopdongmia.Entities.Count > 0)
+                            {
+                                bool check = false;
+
+                                foreach (Entity hd in lstHopdongmia.Entities)
+                                {
+                                    if (hd.Id == HDDTMia.Id)
+                                    {
+                                        check = true;
+                                        break;
+                                    }
+                                }
+
+                                if (!check)
+                                {
+                                    result.Entities.RemoveAt(i);
+                                    i--;
+                                    continue;
+                                }
+                            }
+
+                            traceService.Trace("pass hop dong ung von");
+
                             #endregion
                         }
-
+                        //throw new Exception("dsa");
                         DateTime maxdate0 = new DateTime(1, 1, 1);
                         DateTime maxdate1 = new DateTime(1, 1, 1);
                         DateTime maxdate4 = new DateTime(1, 1, 1);
@@ -703,7 +729,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                         service.Associate("new_thuadatcanhtac", CTHDMia.Id, new Relationship("new_new_thuadatcanhtac_new_chinhsachdautuct"), fCSBS);
 
                     #endregion
-
+                    
                     /////////////// Lay CSDT bổ sung điền field Định mức bổ sung tối đa, không xét đk nghiệm thu
                     StringBuilder qCSBS_bstoida = new StringBuilder();
                     qCSBS_bstoida.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
@@ -1067,7 +1093,6 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
             return entc;
         }
-
 
     }
 }

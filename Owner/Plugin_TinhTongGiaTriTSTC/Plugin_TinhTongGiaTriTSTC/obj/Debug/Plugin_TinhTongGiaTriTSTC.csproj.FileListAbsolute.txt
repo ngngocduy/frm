@@ -5,3 +5,8 @@ C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_TinhTongGiaTriTSTC\
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\obj\Debug\Plugin_TinhTongGiaTriTSTC.csprojResolveAssemblyReference.cache
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\obj\Debug\Plugin_TinhTongGiaTriTSTC.dll
 C:\Users\Mr Duy\Documents\Visual Studio 2015\Projects\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\obj\Debug\Plugin_TinhTongGiaTriTSTC.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\bin\Debug\Plugin_TinhTongGiaTriTSTC.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\bin\Debug\Plugin_TinhTongGiaTriTSTC.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\obj\Debug\Plugin_TinhTongGiaTriTSTC.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\obj\Debug\Plugin_TinhTongGiaTriTSTC.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_TinhTongGiaTriTSTC\Plugin_TinhTongGiaTriTSTC\obj\Debug\Plugin_TinhTongGiaTriTSTC.pdb

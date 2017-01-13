@@ -19,17 +19,19 @@ namespace NTThueDat_DienTich
             ITracingService trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             Entity target = (Entity)context.InputParameters["Target"];
 
-            if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value.ToString() == "100000000")
+            if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value.ToString() == "100000000") // da duyet
             {
                 factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
                 service = factory.CreateOrganizationService(context.UserId);
 
-                Entity nghiemthuthuedat = service.Retrieve(target.LogicalName, target.Id, new ColumnSet(new string[] { "new_datthue" }));
-                trace.Trace("1");
-                Entity chitiethddtthuedat = service.Retrieve("new_datthue", ((EntityReference)nghiemthuthuedat["new_datthue"]).Id, new ColumnSet(true));
-                trace.Trace("2");
-                List<Entity> lstChitietntthuedat = RetrieveMultiRecord(service, "new_chitietnghiemthuthuedat", new ColumnSet(true), "new_nghiemthuthuedat", target.Id);
-                trace.Trace("3");
+                Entity nghiemthuthuedat = service.Retrieve(target.LogicalName, target.Id,
+                    new ColumnSet(new string[] { "new_datthue" }));
+
+                Entity chitiethddtthuedat = service.Retrieve("new_datthue", ((EntityReference)nghiemthuthuedat["new_datthue"]).Id,
+                    new ColumnSet(true));
+
+                List<Entity> lstChitietntthuedat = RetrieveMultiRecord(service, "new_chitietnghiemthuthuedat",
+                    new ColumnSet(true), "new_nghiemthuthuedat", target.Id);
                 EntityReferenceCollection ErCl = new EntityReferenceCollection();
                 EntityCollection lstThuadat = RetrieveNNRecord(service, "new_thuadat", "new_datthue", "new_new_datthue_new_thuadat", new ColumnSet(true), "new_datthueid", chitiethddtthuedat.Id);
 
@@ -55,7 +57,6 @@ namespace NTThueDat_DienTich
 
                         service.Update(t);
                     }
-
                 }
             }
         }

@@ -102,10 +102,10 @@ namespace Plugin_PDK_HomGiong
 
                     GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
                         ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value,
-                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNtienmat, ref tyleGNVattu);
-
-                    decimal dmhlT = tyleGNtienmat / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNVattu);
+                    
                     decimal dmhlvtT = tyleGNVattu / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    decimal dmhlT = (100 - tyleGNVattu) / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                     decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
 
@@ -143,11 +143,14 @@ namespace Plugin_PDK_HomGiong
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                    traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + "-" + tyleGNVattu.ToString() + "-" + tyleGNtienmat.ToString());
+                    //traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + "-" + tyleGNVattu.ToString() + "-" + tyleGNtienmat.ToString());
+                    traceService.Trace(gnhlvt.ToString());
                 }
 
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
+                traceService.Trace(gnhlvt.ToString());
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
+                traceService.Trace(gnhlvt.ToString());
             }
             else
             {
@@ -264,7 +267,7 @@ namespace Plugin_PDK_HomGiong
                     sum_pdkNT(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl, 100000003, "new_nghiemthukhac", NT.Id);
                 }
             }
-            
+            //throw  new Exception("asd");
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
@@ -327,7 +330,6 @@ namespace Plugin_PDK_HomGiong
                 tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
 
             service.Update(tmpPdk);
-
         }
 
         private void sum_pdk(EntityReference hd, EntityReference pdkRef, ref decimal hlTM, ref decimal hlVT, ref decimal KHL)
@@ -620,7 +622,7 @@ namespace Plugin_PDK_HomGiong
             khl = tmp0hl;
         }
 
-        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNtienmat, ref decimal tyleGNvattu)
+        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNvattu)
         {
             //decimal tyle = 0;
 
@@ -636,21 +638,6 @@ namespace Plugin_PDK_HomGiong
                 else
                 {
                     tyleGNvattu += (decimal)a["new_tyleyc"];
-                }
-            }
-
-            QueryExpression q2 = new QueryExpression("new_dinhmucdautu");
-            q2.ColumnSet = new ColumnSet(true);
-            q2.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
-            q2.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
-
-            foreach (Entity a in service.RetrieveMultiple(q2).Entities)
-            {
-                if (!yeucau)
-                    tyleGNtienmat += (decimal)a["new_phantramtilegiaingan"];
-                else
-                {
-                    tyleGNtienmat += (decimal)a["new_tyleyc"];
                 }
             }
         }

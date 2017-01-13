@@ -56,7 +56,8 @@ namespace Action_Tinhthuongmiachaythap
                                         decimal tylemiachay = 0;
                                         decimal tylemiachayCSTM = 0;
 
-                                        Entity Thuadat = service.Retrieve("new_thuadat", ((EntityReference)CTNTsauTH["new_thuadat"]).Id, new ColumnSet(new string[] { "new_name" }));
+                                        Entity Thuadat = service.Retrieve("new_thuadat", ((EntityReference)CTNTsauTH["new_thuadat"]).Id,
+                                             new ColumnSet(new string[] { "new_name" }));
                                         Guid ThuadatID = Thuadat.Id;
                                         bool co = false;
 
@@ -183,7 +184,7 @@ namespace Action_Tinhthuongmiachaythap
 
                     } // if(dsNTsauTH != null && dsNTsauTH.Entities.Count > 0)
                     else
-                        throw new InvalidPluginExecutionException("Không có đầu công nào được thưởng tỷ lệ mía cháy thấp.");
+                        throw new InvalidPluginExecutionException("Không tìm được đầu công nào thỏa điều kiện.");
 
                 } // if (Bangkechitiencuoivu.Contains("new_vudautu") && Bangkechitiencuoivu.Contains("new_loaibangke"))
             } // if (target.LogicalName == "new_bangkechitiencuoivu")

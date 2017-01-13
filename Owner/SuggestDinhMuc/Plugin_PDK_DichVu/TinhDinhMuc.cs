@@ -301,26 +301,26 @@ namespace Plugin_PDK_DichVu
             tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);
 
             decimal tongtiendv = sum_current_ct_pdk(pdkRef);
-            if (tongtiendv > 0)
-            {
-                if (tongtiendv <= deNghiTmHl)
-                    tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(tongtiendv);
-                else
-                {
-                    decimal t1 = tongtiendv - deNghiTmHl;
-                    tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
-                    if (t1 <= deNghiVt)
-                        tmpPdk["new_denghi_hoanlai_vattu"] = new Money(t1);
-                    else
-                    {
-                        decimal t2 = t1 - deNghiVt;
-                        tmpPdk["new_denghi_hoanlai_vattu"] = new Money(deNghiVt);
-                        if (t2 <= deNghiKhl)
-                            tmpPdk["new_denghi_khonghoanlai"] = new Money(t2);
-                        else tmpPdk["new_denghi_khonghoanlai"] = new Money(deNghiKhl);
-                    }
-                }
-            }
+            //if (tongtiendv > 0)
+            //{
+            //    if (tongtiendv <= deNghiTmHl)
+            //        tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(tongtiendv);
+            //    else
+            //    {
+            //        decimal t1 = tongtiendv - deNghiTmHl;
+            //        tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
+            //        if (t1 <= deNghiVt)
+            //            tmpPdk["new_denghi_hoanlai_vattu"] = new Money(t1);
+            //        else
+            //        {
+            //            decimal t2 = t1 - deNghiVt;
+            //            tmpPdk["new_denghi_hoanlai_vattu"] = new Money(deNghiVt);
+            //            if (t2 <= deNghiKhl)
+            //                tmpPdk["new_denghi_khonghoanlai"] = new Money(t2);
+            //            else tmpPdk["new_denghi_khonghoanlai"] = new Money(deNghiKhl);
+            //        }
+            //    }
+            //}
             if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
                 tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
             if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))

@@ -9,3 +9,9 @@ D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\Micro
 D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.dll
 D:\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\UpdateTinhtrangthuhoach.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\UpdateTinhtrangthuhoach.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\UpdateTinhtrangthuhoach\UpdateTinhtrangthuhoach\obj\Debug\UpdateTinhtrangthuhoach.pdb

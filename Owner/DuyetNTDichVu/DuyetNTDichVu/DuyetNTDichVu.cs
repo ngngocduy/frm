@@ -50,7 +50,7 @@ namespace DuyetNTDichVu
                         new ColumnSet(new string[] { "new_thuadat", "new_tienthanhtoan", "new_tieuchuancongviec" }), "new_nghiemthudichvu", ntdichvu.Id);
 
                     Entity vudautuhientai = getVDThientai();
-                    
+
                     if (!ntdichvu.Contains("new_hopdongdautumia"))
                         throw new Exception("NT dịch vụ không có hợp đồng đầu tư mía ");
 
@@ -76,11 +76,11 @@ namespace DuyetNTDichVu
                         service.Update(tdctUpdate);
                         tylethanhtoan += en.Contains("new_tieuchuancongviec") ? (decimal)en["new_tieuchuancongviec"] : 0;
                     }
-                    
+
                     decimal danghiemthu = pdkDichvu.Contains("new_danghiemthu") ? (decimal)pdkDichvu["new_danghiemthu"] : 0;
 
-                    if (danghiemthu >= 100)                    
-                        throw new Exception(pdkDichvu["new_name"].ToString() + " đã nghiệm thu xong");                    
+                    if (danghiemthu >= 100)
+                        throw new Exception(pdkDichvu["new_name"].ToString() + " đã nghiệm thu xong");
 
                     danghiemthu += tylethanhtoan;
 
@@ -98,95 +98,105 @@ namespace DuyetNTDichVu
                 else
                 {
                     traceService.Trace("chay else");
-                    if (target.Contains("new_phieudangkydichvu"))
+                    Entity ntdichvu = service.Retrieve(target.LogicalName, target.Id,
+                        new ColumnSet(new string[] { "new_phieudangkydichvu", "new_hopdongcungungdichvu", "subject" }));
+
+                    Entity hdcudv = service.Retrieve("new_hopdongcungungdichvu",
+                        ((EntityReference)ntdichvu["new_hopdongcungungdichvu"]).Id, new ColumnSet(new string[] { "new_sohopdong" }));
+
+                    traceService.Trace("lay nt dich vu");
+                    if (!ntdichvu.Contains("new_phieudangkydichvu") || ntdichvu["new_phieudangkydichvu"] == null)
                     {
-                        Entity ntdichvu = service.Retrieve(target.LogicalName, target.Id,
-                            new ColumnSet(new string[] { "new_phieudangkydichvu", "new_hopdongcungungdichvu", "subject" }));
-
-                        Entity hdcudv = service.Retrieve("new_hopdongcungungdichvu",
-                            ((EntityReference)ntdichvu["new_hopdongcungungdichvu"]).Id, new ColumnSet(new string[] { "new_sohopdong" }));
-
-                        traceService.Trace("lay nt dich vu");
-                        if (!ntdichvu.Contains("new_phieudangkydichvu") || ntdichvu["new_phieudangkydichvu"] == null)
-                        {
-                            return;
-                        }
-
-                        Entity pdkDichvu = service.Retrieve("new_phieudangkydichvu", ((EntityReference)ntdichvu["new_phieudangkydichvu"]).Id,
-                            new ColumnSet(new string[] { "new_danghiemthu", "new_name" }));
-                        traceService.Trace("lay pdk dich vu");
-                        if (pdkDichvu.Contains("new_danghiemthu") && (decimal)pdkDichvu["new_danghiemthu"] >= 100)
-                            throw new Exception(pdkDichvu["new_name"].ToString() + " đã nghiệm thu xong");
-
-                        QueryExpression q = new QueryExpression("new_chitietdangkydichvu");
-                        q.ColumnSet = new ColumnSet(true);
-                        q.Criteria = new FilterExpression();
-                        q.Criteria.AddCondition(new ConditionExpression("new_phieudangkydichvu", ConditionOperator.Equal, pdkDichvu.Id));
-                        //q.Criteria.AddCondition(new ConditionExpression("new_danghiemthu", ConditionOperator.Equal, false));
-                        EntityCollection entc = service.RetrieveMultiple(q);
-                        traceService.Trace("retrieve chi tiet dk dich vu");
-                        //throw new Exception(entc.Entities.Count.ToString());
-                        List<Entity> lstChitietDKDVCu = RetrieveMultiRecord(service, "new_chitietnghiemthudichvu",
-                            new ColumnSet(new string[] { "new_chitietnghiemthudichvuid" }), "new_nghiemthudichvu", ntdichvu.Id);
-
-                        foreach (Entity en in lstChitietDKDVCu)
-                        {
-                            service.Delete(en.LogicalName, en.Id);
-                        }
-
-                        int i = 1;
-                        string[] ntdvName = ntdichvu["subject"].ToString().Split('-');
-                        foreach (Entity t in entc.Entities)
-                        {
-                            Entity temp = new Entity("new_chitietnghiemthudichvu");
-                            StringBuilder str = new StringBuilder();
-                            str.Append("CTNTDV-" + hdcudv["new_sohopdong"].ToString());
-
-                            if (ntdvName.Length >= 4)
-                            {
-                                str.Append(ntdvName[3] + "-CT" + i);
-                            }
-
-                            temp["new_name"] = str.ToString();
-
-                            if (t.Contains("new_dichvu"))
-                                temp["new_dichvu"] = t["new_dichvu"];
-
-                            temp["new_nghiemthudichvu"] = ntdichvu.ToEntityReference();
-
-                            if (t.Contains("new_uom")) // don vi tinh
-                                temp["new_uom"] = t["new_uom"];
-
-                            if (t.Contains("new_dongia")) // don gia
-                                temp["new_dongia"] = t["new_dongia"];
-                            
-
-                            if (t.Contains("new_soluong")) // so luong
-                                temp["new_khoiluongthuchien"] = t["new_soluong"];
-
-                            if (t.Contains("new_thanhtien")) // thanh tien
-                                temp["new_thanhtien"] = t["new_thanhtien"];
-
-                            if (t.Contains("new_thuadat")) // thua dat
-                                temp["new_thuadat"] = t["new_thuadat"];
-
-                            int solan = 0;
-
-                            if (t.Contains("new_solan"))
-                            {
-                                solan = (int)t["new_solan"];
-                                temp["new_solanthuchien"] = solan;
-                                //throw new Exception(solan.ToString());
-                            }
-
-                            service.Create(temp);
-                            i++;
-                            JavaScriptSerializer js = new JavaScriptSerializer();
-                            //throw new Exception(js.Serialize(temp));
-                            //throw new Exception(((EntityReference)temp["new_nghiemthudichvu"]).LogicalName + "-" + ((Money)temp["new_thanhtien"]).Value.ToString()
-                            //    + ntdichvu["subject"].ToString());
-                        }
+                        return;
                     }
+
+                    Entity pdkDichvu = service.Retrieve("new_phieudangkydichvu", ((EntityReference)ntdichvu["new_phieudangkydichvu"]).Id,
+                        new ColumnSet(new string[] { "new_danghiemthu", "new_name" }));
+                    traceService.Trace("lay pdk dich vu");
+                    if (pdkDichvu.Contains("new_danghiemthu") && (decimal)pdkDichvu["new_danghiemthu"] >= 100)
+                        throw new Exception(pdkDichvu["new_name"].ToString() + " đã nghiệm thu xong");
+
+                    QueryExpression q = new QueryExpression("new_chitietdangkydichvu");
+                    q.ColumnSet = new ColumnSet(true);
+                    q.Criteria = new FilterExpression();
+                    q.Criteria.AddCondition(new ConditionExpression("new_phieudangkydichvu", ConditionOperator.Equal, pdkDichvu.Id));
+                    //q.Criteria.AddCondition(new ConditionExpression("new_danghiemthu", ConditionOperator.Equal, false));
+                    EntityCollection entc = service.RetrieveMultiple(q);
+                    traceService.Trace("retrieve chi tiet dk dich vu");
+                    //throw new Exception(entc.Entities.Count.ToString());
+                    List<Entity> lstChitietDKDVCu = RetrieveMultiRecord(service, "new_chitietnghiemthudichvu",
+                        new ColumnSet(new string[] { "new_chitietnghiemthudichvuid" }), "new_nghiemthudichvu", ntdichvu.Id);
+
+                    foreach (Entity en in lstChitietDKDVCu)
+                    {
+                        service.Delete(en.LogicalName, en.Id);
+                    }
+
+                    int i = 1;
+                    string[] ntdvName = ntdichvu["subject"].ToString().Split('-');
+                    traceService.Trace(entc.Entities.Count.ToString());
+                    foreach (Entity t in entc.Entities)
+                    {
+                        Entity temp = new Entity("new_chitietnghiemthudichvu");
+                        StringBuilder str = new StringBuilder();
+                        str.Append("CTNTDV-" + hdcudv["new_sohopdong"].ToString());
+
+                        if (ntdvName.Length >= 4)
+                        {
+                            str.Append(ntdvName[3] + "-CT" + i);
+                        }
+
+                        temp["new_name"] = str.ToString();
+
+                        if (t.Contains("new_dichvu"))
+                            temp["new_dichvu"] = t["new_dichvu"];
+
+                        temp["new_nghiemthudichvu"] = ntdichvu.ToEntityReference();
+
+                        if (t.Contains("new_uom")) // don vi tinh
+                            temp["new_uom"] = t["new_uom"];
+
+                        if (t.Contains("new_dongia")) // don gia
+                            temp["new_dongia"] = t["new_dongia"];
+
+
+                        if (t.Contains("new_soluong")) // so luong
+                            temp["new_khoiluongthuchien"] = t["new_soluong"];
+
+                        if (t.Contains("new_thanhtien")) // thanh tien
+                            temp["new_thanhtien"] = t["new_thanhtien"];
+
+                        if (t.Contains("new_thuadat")) // thua dat
+                            temp["new_thuadat"] = t["new_thuadat"];
+
+                        int solan = 0;
+
+                        if (t.Contains("new_solan"))
+                        {
+                            solan = (int)t["new_solan"];
+                            temp["new_solanthuchien"] = solan;
+                            //throw new Exception(solan.ToString());
+                        }
+
+                        if (t.Contains("new_sotienhl"))
+                        {
+                            temp["new_sotienhl"] = t["new_sotienhl"];
+                        }
+
+                        if (t.Contains("new_sotienkhl"))
+                        {
+                            temp["new_sotienkhl"] = t["new_sotienkhl"];
+                        }
+
+                        service.Create(temp);
+                        i++;
+                        JavaScriptSerializer js = new JavaScriptSerializer();
+                        //throw new Exception(js.Serialize(temp));
+                        //throw new Exception(((EntityReference)temp["new_nghiemthudichvu"]).LogicalName + "-" + ((Money)temp["new_thanhtien"]).Value.ToString()
+                        //    + ntdichvu["subject"].ToString());
+                    }
+
+
                 }
             }
         }

@@ -10,3 +10,9 @@ D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.xml
 D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.dll
 D:\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\DuyetNTDichVu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\DuyetNTDichVu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\DuyetNTDichVu\DuyetNTDichVu\obj\Debug\DuyetNTDichVu.pdb

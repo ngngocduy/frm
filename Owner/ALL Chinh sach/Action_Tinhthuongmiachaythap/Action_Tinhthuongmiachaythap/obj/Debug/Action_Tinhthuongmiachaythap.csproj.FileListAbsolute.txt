@@ -26,3 +26,7 @@ E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachayth
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\obj\Debug\Action_Tinhthuongmiachaythap.csprojResolveAssemblyReference.cache
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\obj\Debug\Action_Tinhthuongmiachaythap.dll
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\obj\Debug\Action_Tinhthuongmiachaythap.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\bin\Debug\Action_Tinhthuongmiachaythap.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\bin\Debug\Action_Tinhthuongmiachaythap.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\obj\Debug\Action_Tinhthuongmiachaythap.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Action_Tinhthuongmiachaythap\Action_Tinhthuongmiachaythap\obj\Debug\Action_Tinhthuongmiachaythap.pdb

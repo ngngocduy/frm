@@ -10,7 +10,7 @@ function btn_CopyBangGia() {
                 , "new_ActionCopy_BangGiaDichVu"
                 , null//[{ name: 'ReturnId', type: 'string', value: null }]
                 , function (result) {
-                    //debugger;
+                    debugger;
                     //alert("a");
                     if (result != null && result.status != null) {
                         if (result.status == "error")

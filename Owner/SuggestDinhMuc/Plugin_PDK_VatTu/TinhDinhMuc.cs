@@ -102,10 +102,10 @@ namespace Plugin_PDK_VatTu
 
                     GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
                         ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value,
-                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNtienmat, ref tyleGNVattu);
+                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNVattu);
 
-                    decimal dmhlT = tyleGNtienmat / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     decimal dmhlvtT = tyleGNVattu / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    decimal dmhlT = (100 - tyleGNVattu) / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                     decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
 
@@ -617,7 +617,7 @@ namespace Plugin_PDK_VatTu
             khl = tmp0hl;
         }
 
-        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNtienmat, ref decimal tyleGNvattu)
+        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNvattu)
         {
             //decimal tyle = 0;
 
@@ -633,21 +633,6 @@ namespace Plugin_PDK_VatTu
                 else
                 {
                     tyleGNvattu += (decimal)a["new_tyleyc"];
-                }
-            }
-
-            QueryExpression q2 = new QueryExpression("new_dinhmucdautu");
-            q2.ColumnSet = new ColumnSet(true);
-            q2.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
-            q2.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
-
-            foreach (Entity a in service.RetrieveMultiple(q2).Entities)
-            {
-                if (!yeucau)
-                    tyleGNtienmat += (decimal)a["new_phantramtilegiaingan"];
-                else
-                {
-                    tyleGNtienmat += (decimal)a["new_tyleyc"];
                 }
             }
         }

@@ -94,3 +94,14 @@ C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat
 C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
 C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
 C:\Users\7506113\Desktop\FRM_Plugin\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
