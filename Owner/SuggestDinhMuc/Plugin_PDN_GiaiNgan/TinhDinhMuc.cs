@@ -123,10 +123,11 @@ namespace Plugin_PDN_GiaiNgan
                         decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                         decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
 
-                        //if (tyleGNtienmat == 100)
-                        //{
-                        //    dmhlvtT = dmphanbontoithieu;
-                        //}
+                        if (tyleGNtienmat == 100)
+                        {
+                            dmhlvtT = dmphanbontoithieu;
+                            dmhlT = (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0) - dmhlvt;
+                        }
 
                         dmhl += (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                         dmhlvt += dmhlvtT;
@@ -156,13 +157,13 @@ namespace Plugin_PDN_GiaiNgan
                         gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                         gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                         gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                        
+                        traceService.Trace("da chi : " + gnhlvt.ToString());
                     }
                     
                     Sum_pdn(ref gnhltm, ref gn0hl, hdRef, ((EntityReference)pdk["new_phieudenghigiaingan"]).Id);
-                    traceService.Trace(gnhltm.ToString());
+                    traceService.Trace(gnhltm.ToString() + "-" + gnhlvt.ToString());
                     sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-                    traceService.Trace(gnhltm.ToString());
+                    traceService.Trace(gnhltm.ToString() + "-" + gnhlvt.ToString());
                     #endregion
                 }
                 else
@@ -432,7 +433,7 @@ namespace Plugin_PDN_GiaiNgan
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + gnhltm.ToString());
+            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + gnhlvt.ToString());
             decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
             
             //decimal deNghiTmHl = 0;
@@ -444,12 +445,12 @@ namespace Plugin_PDN_GiaiNgan
             tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);
             //tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
 
-            if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
-                tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
-            if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))
-                tmpPdk["new_denghi_hoanlai_vattu"] = new Money(0);
-            if (!tmpPdk.Contains("new_denghi_khonghoanlai"))
-                tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
+            //    tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))
+            //    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_khonghoanlai"))
+            //    tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
 
             service.Update(tmpPdk);
         }
@@ -498,7 +499,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-            traceService.Trace("hg: " + sumhlTM);
+            traceService.Trace("hg: " + sumhlVT);
             //dang ky phan bon
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -537,7 +538,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-            traceService.Trace("pb: " + sumhlTM);
+            traceService.Trace("pb: " + sumhlVT);
             //dang ky thuoc
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -578,7 +579,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-            traceService.Trace("thuoc: " + sumhlTM);
+            traceService.Trace("thuoc: " + sumhlVT);
             //dang ky vat tu
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -618,7 +619,7 @@ namespace Plugin_PDN_GiaiNgan
                         sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
                 }
             }
-            traceService.Trace("vat tu: " + sumhlTM);
+            traceService.Trace("vat tu: " + sumhlVT);
             //dang ky dich vu
             fetch.Clear();
             fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
@@ -660,7 +661,7 @@ namespace Plugin_PDN_GiaiNgan
                 }
             }
             #endregion
-            traceService.Trace("dv: " + sumhlTM);
+            traceService.Trace("dv: " + sumhlVT);
             hlTM += sumhlTM;
             hlVT += sumhlVT;
             KHL += sumKHL;
@@ -1082,6 +1083,7 @@ namespace Plugin_PDN_GiaiNgan
                     tyleGNtienmat += (decimal)a["new_tyleyc"];
                 }
             }
+            traceService.Trace("ty le giai ngan tien mat : " + tyleGNtienmat.ToString());
         }
     }
 }

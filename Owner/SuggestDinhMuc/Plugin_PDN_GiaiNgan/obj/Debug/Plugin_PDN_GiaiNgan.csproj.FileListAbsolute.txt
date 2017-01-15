@@ -16,3 +16,8 @@ C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debu
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\bin\Debug\Plugin_PDN_GiaiNgan.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\SuggestDinhMuc\Plugin_PDN_GiaiNgan\obj\Debug\Plugin_PDN_GiaiNgan.pdb

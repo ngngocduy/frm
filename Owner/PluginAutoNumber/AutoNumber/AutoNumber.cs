@@ -15,15 +15,15 @@ namespace AutoNumber
         private IOrganizationServiceFactory serviceProxy;
         private IOrganizationService service;
         public ITracingService tracingService;
-        private System.Threading.Mutex mtx = null;
+        
         public void Execute(IServiceProvider serviceProvider)
         {
             IPluginExecutionContext context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
             //ITracingService tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             tracingService = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
-
+            
             if (context.MessageName == "Create")
-            {
+            {                
                 if (context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity)
                 {
                     serviceProxy = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
@@ -41,7 +41,7 @@ namespace AutoNumber
                     {
                         bool flag = false;
                         if (Count(en.LogicalName) > 0)
-                        {
+                        {                            
                             EntityCollection enc = this.RetrieveAutoNumbers(en.LogicalName);
                             foreach (Entity e in enc.Entities)
                             {
@@ -69,7 +69,7 @@ namespace AutoNumber
                                                 currentPos = 1;
                                                 crLength = length - 1;
                                             }
-
+                                            
                                             for (int i = 0; i < crLength; i++)
                                                 middle += "0";
                                             en[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
@@ -83,7 +83,9 @@ namespace AutoNumber
                                 }
                                 else
                                 {
+                                    
                                     Update(ref flag, e, length, ref en);
+                                    tracingService.Trace("End");
                                 }
                             }
                             //if (flag)
@@ -91,6 +93,7 @@ namespace AutoNumber
                         }
                     }
                 }
+                tracingService.Trace("End");
             }
         }
 
@@ -720,7 +723,7 @@ namespace AutoNumber
                         EntityReference dtRef = (EntityReference)eField["new_vudautu"];
                         Entity dt = service.Retrieve(dtRef.LogicalName, dtRef.Id,
                             new ColumnSet(new string[] { "new_ngaybatdau", "new_mavudautu" }));
-
+                        tracingService.Trace("1");
                         if (dt == null)
                             throw new Exception("Vụ đầu tư không tồn tại hoặc bị xóa!");
                         if (!dt.Attributes.Contains("new_ngaybatdau"))
@@ -739,6 +742,7 @@ namespace AutoNumber
 
                         if (Autonumberdetail == null)
                         {
+                            tracingService.Trace("2");
                             ulong currentPos = 0;
 
                             if (!string.IsNullOrWhiteSpace(field))
@@ -755,12 +759,13 @@ namespace AutoNumber
                                     middle += "0";
 
                                 eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
-                                flag = true;
+                                //flag = true;
                                 CreateAutoNumberdetail(currentPos, eAu, key);
                             }
                         }
                         else
                         {
+                            tracingService.Trace("3");
                             ulong currentPos = Autonumberdetail.Attributes.Contains("bsd_currentposition") ? ulong.Parse(Autonumberdetail["bsd_currentposition"].ToString()) : 0;
                             currentPos++;
 
@@ -776,14 +781,14 @@ namespace AutoNumber
                                 for (int i = 0; i < crLength; i++)
                                     middle += "0";
 
+                                //throw new Exception(eField.LogicalName.ToString() + "-" + field.ToString());
                                 eField[field] = string.Format("{0}{1}{2}{3}", prefix, middle, currentPos, sufix);
-                                flag = true;
-                                Autonumberdetail["bsd_currentposition"] = currentPos + "";
-                                service.Update(Autonumberdetail);
-                                tracingService.Trace(currentPos.ToString());
+                                
+                                UpdateAutoNumberdetail(Autonumberdetail, currentPos);                                
                             }
                         }
                     }
+                    
                     break;
                 #endregion
                 #region new_hopdongthuedat
@@ -1438,7 +1443,7 @@ namespace AutoNumber
                         EntityReference hdRef = (EntityReference)eField["new_hopdongdautumia"];
                         Entity hd = service.Retrieve(hdRef.LogicalName, hdRef.Id,
                             new ColumnSet(new string[] { "new_vudautu" }));
-
+                        
                         if (hd == null)
                             throw new Exception(string.Format("Hợp đồng đầu tư mía '{0}' không tồn tại hoặc bị xóa!", hdRef.Name));
                         if (!hd.Attributes.Contains("new_vudautu"))
@@ -3398,6 +3403,7 @@ namespace AutoNumber
                 #region new_phieutinhtienmia
                 case "new_phieutinhtienmia":
                     {
+                        //throw new Exception("Vui lòng chờ trong ít phút , mã phiếu đang được xử lí ");
                         if (!eField.Attributes.Contains("new_vudautu"))
                             throw new Exception("Vui lòng chọn vụ đầu tư!");
                         EntityReference vdtRef = (EntityReference)eField["new_vudautu"];

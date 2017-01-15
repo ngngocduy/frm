@@ -34,7 +34,7 @@ namespace Plugin_ThemCSDTvaoPLHDtangDT
                     if (context.MessageName.ToUpper() == "CREATE" || context.MessageName.ToUpper() == "UPDATE")
                     {
                         traceService.Trace("Nhan duoc su kien");
-                        PLHDtangDT = service.Retrieve("new_phuluchopdong_tangdientich", entityId, new ColumnSet(new string[] { "createdon", "new_vutrong", "new_loaigocmia", "new_luugoc", "new_mucdichsanxuatmia", "new_giongmiadangky", "new_phuluchopdong", "new_thuadat" , "new_dientichhopdong" }));
+                        PLHDtangDT = service.Retrieve("new_phuluchopdong_tangdientich", entityId, new ColumnSet(new string[] { "createdon", "new_vutrong", "new_loaigocmia", "new_luugoc", "new_mucdichsanxuatmia", "new_giongmiadangky", "new_phuluchopdong", "new_thuadat", "new_dientichhopdong" }));
 
                         DateTime ngaytao = DateTime.Now;
                         if (PLHDtangDT.Contains("createdon"))
@@ -99,6 +99,7 @@ namespace Plugin_ThemCSDTvaoPLHDtangDT
                         {
                             foreach (Entity a in resultCol.Entities)
                             {
+                                traceService.Trace(a["new_name"].ToString());
                                 if (a.Contains("new_vutrong_vl"))  // Vu trong
                                 {
                                     if (PLHDtangDT.Contains("new_vutrong"))
@@ -438,11 +439,36 @@ namespace Plugin_ThemCSDTvaoPLHDtangDT
 
                                 traceService.Trace("Pass nhom NS");
 
+                                co = false;
+                                EntityCollection lstHopdongmia = RetrieveNNRecord(service, "new_hopdongdautumia", "new_chinhsachdautu",
+                                    "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(true), "new_chinhsachdautuid", a.Id);
+                                traceService.Trace("hop dong ung von : " + lstHopdongmia.Entities.Count.ToString());
+                                if (lstHopdongmia.Entities.Count <= 0)
+                                {
+                                    co = true;
+                                }
+                                else
+                                {
+                                    foreach (Entity hd in lstHopdongmia.Entities)
+                                    {
+                                        if (hd.Id == HDDTmia.Id)
+                                        {
+                                            co = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (co == false)
+                                    continue;
+
+                                traceService.Trace("pass hop dong ung von");
+
                                 mCSDT = a;
                                 break;
                             }
                         }
-
+                        
                         if (mCSDT != null && mCSDT.Id != Guid.Empty)
                         {
                             traceService.Trace("Lay duoc CSDT " + mCSDT.Id);
@@ -518,7 +544,8 @@ namespace Plugin_ThemCSDTvaoPLHDtangDT
                                           <condition attribute='new_loaihopdong' operator='eq' value='100000000'/>
                                           <condition attribute='new_mucdichdautu' operator='eq' value='100000000' />
                                           <condition attribute='new_ngayapdung' operator='le' value='{0}' />
-                                          <condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{1}' />                                       
+                                          <condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{1}' />
+                                            <condition attribute='statecode' operator='eq' uitype='new_vudautu' value='0' />                                          
                                         </filter>
                                       </entity>
                                     </fetch>";

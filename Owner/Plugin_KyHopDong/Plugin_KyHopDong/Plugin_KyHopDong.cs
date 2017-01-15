@@ -49,19 +49,19 @@ namespace Plugin_KyHopDong
                 if (target.Contains("new_tinhtrangduyet"))
                     if (((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000006)
                     {
-                        QueryExpression q = new QueryExpression("new_taisanthechap");
-                        q.ColumnSet = new ColumnSet(new string[] { "new_taisanthechapid", "new_taisan" });
-                        q.Criteria = new FilterExpression();
-                        q.Criteria.AddCondition(new ConditionExpression("new_hopdongthechap", ConditionOperator.Equal, target.Id));
-                        EntityCollection entc = service.RetrieveMultiple(q);
+                        //QueryExpression q = new QueryExpression("new_taisanthechap");
+                        //q.ColumnSet = new ColumnSet(new string[] { "new_taisanthechapid", "new_taisan" });
+                        //q.Criteria = new FilterExpression();
+                        //q.Criteria.AddCondition(new ConditionExpression("new_hopdongthechap", ConditionOperator.Equal, target.Id));
+                        //EntityCollection entc = service.RetrieveMultiple(q);
 
-                        foreach (Entity a in entc.Entities)
-                        {
-                            Entity TS = new Entity("new_taisan");
-                            TS.Id = ((EntityReference)a["new_taisan"]).Id;
-                            TS["new_trangthaitaisan"] = new OptionSetValue(100000002);
-                            service.Update(TS);
-                        }
+                        //foreach (Entity a in entc.Entities)
+                        //{
+                        //    Entity TS = new Entity("new_taisan");
+                        //    TS.Id = ((EntityReference)a["new_taisan"]).Id;
+                        //    TS["new_trangthaitaisan"] = new OptionSetValue(100000002);
+                        //    service.Update(TS);
+                        //}
 
                         Entity uHD = new Entity("new_hopdongthechap");
                         uHD.Id = HD.Id;

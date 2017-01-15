@@ -97,3 +97,9 @@ C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAp
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache

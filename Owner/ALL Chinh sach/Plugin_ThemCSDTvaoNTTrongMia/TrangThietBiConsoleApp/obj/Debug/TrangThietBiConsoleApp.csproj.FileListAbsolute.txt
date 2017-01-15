@@ -70,3 +70,9 @@ C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe.config
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.exe
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.exe
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\bin\Debug\TrangThietBiConsoleApp.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\TrangThietBiConsoleApp\obj\Debug\TrangThietBiConsoleApp.csprojResolveAssemblyReference.cache

@@ -69,7 +69,7 @@ namespace ActionCopy_PGNPhanbon
 
                 pgnphanbon["new_lannhan"] = count;
                 pgnphanbon["new_name"] = "PGNPB-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-" + "L" + count;
-                pgnphanbon["new_phieudangkyphanbon"] = new EntityReference(phieudkphanbon.LogicalName, phieudkphanbon.Id);
+                pgnphanbon["new_phieudangkyphanbon"] = phieudkphanbon.ToEntityReference();
                 pgnphanbon["new_hopdongdautumia"] = phieudkphanbon.Contains("new_hopdongdautumia") ? phieudkphanbon["new_hopdongdautumia"] : "";
                 pgnphanbon["new_tram"] = phieudkphanbon.Contains("new_tram") ? phieudkphanbon["new_tram"] : "";
                 pgnphanbon["new_canbonongvu"] = phieudkphanbon.Contains("new_canbonongvu") ? phieudkphanbon["new_canbonongvu"] : "";
@@ -77,18 +77,19 @@ namespace ActionCopy_PGNPhanbon
                 pgnphanbon["new_dinhmuc_khonghoanlai"] = phieudkphanbon.Contains("new_denghi_khonghoanlai") ? phieudkphanbon["new_denghi_khonghoanlai"] : new Money(0);
                 pgnphanbon["new_dinhmuc_hoanlai_vattu"] = phieudkphanbon.Contains("new_denghi_hoanlai_vattu") ? phieudkphanbon["new_denghi_hoanlai_vattu"] : new Money(0);
                 pgnphanbon["new_dinhmuc_hoanlai_tienmat"] = phieudkphanbon.Contains("new_denghi_hoanlai_tienmat") ? phieudkphanbon["new_denghi_hoanlai_tienmat"] : new Money(0);
-                pgnphanbon["new_laytupdk"] = true;
-                Guid idPGNPB = service.Create(pgnphanbon);
 
+                Guid idPGNPB = service.Create(pgnphanbon);
+                
                 Entity temp = service.Retrieve(pgnphanbon.LogicalName, idPGNPB, new ColumnSet(new string[] { "new_masophieu" }));
-                string maphieu = temp["new_masophieu"].ToString();
+                string maphieu = temp.Contains("new_masophieu") ?  temp["new_masophieu"].ToString() : "";
 
                 List<Entity> DSchitietcu = RetrieveMultiRecord(service, "new_chitietgiaonhanphanbon", new ColumnSet(true), "new_phieugiaonhanphanbon", idPGNPB);
                 foreach (Entity a in DSchitietcu)
                     service.Delete(a.LogicalName, a.Id);
 
-                List<Entity> DSCtPhanBon = RetrieveMultiRecord(service, "new_chitietdangkyphanbon", new ColumnSet(true), "new_phieudangkyphanbon", phieudkphanbon.Id);
-
+                List<Entity> DSCtPhanBon = RetrieveMultiRecord(service, "new_chitietdangkyphanbon", new ColumnSet(true),
+                    "new_phieudangkyphanbon", phieudkphanbon.Id);
+                
                 decimal i = 0;
                 foreach (Entity a in DSCtPhanBon)
                 {

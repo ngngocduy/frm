@@ -21,3 +21,8 @@ D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTr
 D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.csprojResolveAssemblyReference.cache
 D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
 D:\Duy\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_DuyetNghiemThuTrongMia\bin\Debug\Plugin_DuyetNghiemThuTrongMia.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_DuyetNghiemThuTrongMia\obj\Debug\Plugin_DuyetNghiemThuTrongMia.pdb

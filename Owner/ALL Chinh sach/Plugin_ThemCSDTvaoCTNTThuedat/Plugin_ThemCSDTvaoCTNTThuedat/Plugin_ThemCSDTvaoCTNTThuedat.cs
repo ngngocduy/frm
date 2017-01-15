@@ -538,6 +538,7 @@ namespace Plugin_ThemCSDTvaoCTNTThuedat
                            <filter type='and'>
                                <condition attribute='new_loaihopdong' operator='eq' value='100000001' />
                                <condition attribute='new_mucdichdautu' operator='eq' value='100000005' />
+<condition attribute='statecode' operator='eq' value='0' />
                                <condition attribute='new_ngayapdung' operator='le' value='{0}' />
                                <condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{1}' />                                        
                            </filter>

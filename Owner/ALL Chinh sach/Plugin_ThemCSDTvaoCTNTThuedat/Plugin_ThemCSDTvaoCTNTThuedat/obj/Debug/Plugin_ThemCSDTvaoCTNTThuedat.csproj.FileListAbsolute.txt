@@ -49,3 +49,8 @@ C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThueda
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\bin\Debug\Plugin_ThemCSDTvaoCTNTThuedat.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\bin\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoCTNTThuedat\Plugin_ThemCSDTvaoCTNTThuedat\obj\Debug\Plugin_ThemCSDTvaoCTNTThuedat.pdb

@@ -27,3 +27,8 @@ C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\bin\Debug\Plugin_KyHopDong.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Plugin_KyHopDong\Plugin_KyHopDong\obj\Debug\Plugin_KyHopDong.pdb

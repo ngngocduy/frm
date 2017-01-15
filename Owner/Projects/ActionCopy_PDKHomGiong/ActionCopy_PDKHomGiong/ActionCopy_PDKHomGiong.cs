@@ -30,7 +30,8 @@ namespace ActionCopy_PDKHomGiong
                     throw new Exception("Phiếu đăng ký hom giống này không tồn tại !!!");
                 }
 
-                Entity hopdongdautumia = service.Retrieve("new_hopdongdautumia", ((EntityReference)phieudkhomgiong["new_hopdongdautumia"]).Id, new ColumnSet(new string[] { "new_masohopdong" }));
+                Entity hopdongdautumia = service.Retrieve("new_hopdongdautumia", ((EntityReference)phieudkhomgiong["new_hopdongdautumia"]).Id,
+                    new ColumnSet(new string[] { "new_masohopdong" }));
                 List<Entity> lstPGNHG = RetrieveMultiRecord(service, "new_phieugiaonhanphanbon", new ColumnSet(new string[] { "new_phieugiaonhanphanbonid" }), "new_hopdongdautumia", hopdongdautumia.Id);
                 string mahopdong = hopdongdautumia.Contains("new_masohopdong") ? (string)hopdongdautumia["new_masohopdong"] : "";
                 Entity pgnhomgiong = new Entity("new_phieugiaonhanhomgiong");
@@ -60,7 +61,7 @@ namespace ActionCopy_PDKHomGiong
 
                 pgnhomgiong["new_lannhan"] = count;
                 pgnhomgiong["new_name"] = "PGNHG-" + tenkhachhang + "-" + p3 + "-" + mahopdong + "-L" + count;
-                pgnhomgiong["new_hopdongdautumia"] = phieudkhomgiong["new_hopdongdautumia"];
+                pgnhomgiong["new_hopdongdautumia"] = phieudkhomgiong.Contains("new_hopdongdautumia") ? phieudkhomgiong["new_hopdongdautumia"] : "";
                 pgnhomgiong["new_tram"] = phieudkhomgiong.Contains("new_tram") ? phieudkhomgiong["new_tram"] : "";
                 pgnhomgiong["new_canbonongvu"] = phieudkhomgiong.Contains("new_canbonongvu") ? phieudkhomgiong["new_canbonongvu"] : "";
                 pgnhomgiong["new_phieudangkyhomgiong"] = new EntityReference(target.LogicalName, target.Id);
@@ -80,13 +81,16 @@ namespace ActionCopy_PDKHomGiong
 
                 Guid idPGNHG = service.Create(pgnhomgiong);
 
-                List<Entity> DSchitietcu = RetrieveMultiRecord(service, "new_chitietgiaonhanhomgiong", new ColumnSet(true), "new_phieugiaonhanhomgiong", idPGNHG);
+                List<Entity> DSchitietcu = RetrieveMultiRecord(service, "new_chitietgiaonhanhomgiong", new ColumnSet(true),
+                    "new_phieugiaonhanhomgiong", idPGNHG);
+
                 foreach (Entity a in DSchitietcu)
                     service.Delete(a.LogicalName, a.Id);
-
+                
                 Entity temp = service.Retrieve(pgnhomgiong.LogicalName, idPGNHG, new ColumnSet(new string[] { "new_masophieu" }));
-                string maphieu = temp["new_masophieu"].ToString();
-                List<Entity> DSCtHomGiong = RetrieveMultiRecord(service, "new_chitietdangkyhomgiong", new ColumnSet(true), "new_phieudangkyhomgiong", phieudkhomgiong.Id);
+                string maphieu = temp.Contains("new_masophieu") ? temp["new_masophieu"].ToString() : "";
+                List<Entity> DSCtHomGiong = RetrieveMultiRecord(service, "new_chitietdangkyhomgiong",
+                    new ColumnSet(true), "new_phieudangkyhomgiong", phieudkhomgiong.Id);
 
                 decimal i = 0;
                 foreach (Entity a in DSCtHomGiong)

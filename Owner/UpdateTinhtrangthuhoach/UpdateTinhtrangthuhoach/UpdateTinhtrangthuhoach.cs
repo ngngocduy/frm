@@ -23,12 +23,11 @@ namespace UpdateTinhtrangthuhoach
             trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
 
             Entity target = (Entity)context.InputParameters["Target"];
+            Entity lenhdon = service.Retrieve(target.LogicalName, target.Id,
+                    new ColumnSet(new string[] { "new_thuacanhtac", "new_lenhdoncuoi", "new_loaihopdong" }));
 
             if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // da duyet
             {
-                Entity lenhdon = service.Retrieve(target.LogicalName, target.Id,
-                    new ColumnSet(new string[] { "new_thuacanhtac", "new_lenhdoncuoi", "new_loaihopdong" }));
-
                 if (lenhdon.Contains("new_loaihopdong") && ((OptionSetValue)lenhdon["new_loaihopdong"]).Value == 100000000)
                 {
                     if (!lenhdon.Contains("new_thuacanhtac"))
@@ -48,8 +47,7 @@ namespace UpdateTinhtrangthuhoach
                 }
                 else if (lenhdon.Contains("new_khoiluongthanhtoan"))
                 {
-                    Entity lenhdon = service.Retrieve("new_thuacanhtac", target.Id,
-                    new ColumnSet(new string[] { "new_thuacanhtac", "new_lenhdoncuoi", "new_loaihopdong" }));
+                    
                 }
             }
         }

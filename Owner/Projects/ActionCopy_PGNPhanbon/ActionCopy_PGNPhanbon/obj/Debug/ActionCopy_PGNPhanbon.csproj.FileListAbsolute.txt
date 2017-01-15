@@ -17,3 +17,8 @@ C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_P
 C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\bin\Debug\ActionCopy_PGNPhanbon.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\Projects\ActionCopy_PGNPhanbon\ActionCopy_PGNPhanbon\obj\Debug\ActionCopy_PGNPhanbon.pdb

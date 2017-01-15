@@ -12,3 +12,13 @@ E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtang
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\obj\Debug\Plugin_ThemCSDTvaoPLHDtangDT.csprojResolveAssemblyReference.cache
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\obj\Debug\Plugin_ThemCSDTvaoPLHDtangDT.dll
 E:\PROJECTS\MIA DUONG\PLUGIN-CUSTOM_WF\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\obj\Debug\Plugin_ThemCSDTvaoPLHDtangDT.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\Plugin_ThemCSDTvaoPLHDtangDT.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\Plugin_ThemCSDTvaoPLHDtangDT.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\AntiXssLibrary.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\bin\Debug\Microsoft.Xrm.Sdk.Deployment.xml
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\obj\Debug\Plugin_ThemCSDTvaoPLHDtangDT.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\obj\Debug\Plugin_ThemCSDTvaoPLHDtangDT.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoPLHDtangDT\Plugin_ThemCSDTvaoPLHDtangDT\obj\Debug\Plugin_ThemCSDTvaoPLHDtangDT.pdb

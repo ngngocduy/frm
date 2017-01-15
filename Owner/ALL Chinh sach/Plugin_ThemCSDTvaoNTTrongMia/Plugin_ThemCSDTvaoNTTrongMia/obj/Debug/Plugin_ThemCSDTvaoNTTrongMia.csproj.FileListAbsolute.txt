@@ -50,3 +50,8 @@ C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Plugin_ThemCSDTvaoNTTrongMia.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\bin\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.csprojResolveAssemblyReference.cache
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.dll
+C:\Users\Mr Duy\Documents\GitHub\FRM\frm\Owner\ALL Chinh sach\Plugin_ThemCSDTvaoNTTrongMia\Plugin_ThemCSDTvaoNTTrongMia\obj\Debug\Plugin_ThemCSDTvaoNTTrongMia.pdb

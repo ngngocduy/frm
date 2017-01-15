@@ -91,6 +91,7 @@ namespace Plugin_ThemCSDTvaoNTTrongMia
                             qChinhSach.AppendFormat("<condition attribute='statecode' operator='eq' value='0' />");
                             qChinhSach.AppendFormat("<condition attribute='new_mucdichdautu' operator='eq' value='100000000' />");
                             qChinhSach.AppendFormat("<condition attribute='new_loaihopdong' operator='eq' value='100000000' />");
+                            qChinhSach.AppendFormat("<condition attribute='statecode' operator='eq' value='0' />");
                             qChinhSach.AppendFormat("<condition attribute='new_ngayapdung' operator='on-or-before' value='{0}' />  ", ngaytao);
                             qChinhSach.AppendFormat("<condition attribute='new_vudautu' operator='eq' uitype='new_vudautu' value='{0}' />   ", vuDTId);
                             traceService.Trace("3");
