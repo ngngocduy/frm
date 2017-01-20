@@ -104,10 +104,10 @@ namespace Plugin_PDK_DichVu
 
                     GetTyle(((EntityReference)cthd["new_chinhsachdautu"]).Id,
                         ((OptionSetValue)cthd["new_trangthainghiemthu"]).Value,
-                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNtienmat, ref tyleGNVattu);
+                        (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNVattu);
 
-                    decimal dmhlT = tyleGNtienmat / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     decimal dmhlvtT = tyleGNVattu / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                    decimal dmhlT = (100 - tyleGNVattu) / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                     decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                     decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
 
@@ -120,8 +120,8 @@ namespace Plugin_PDK_DichVu
                     dmhlvt += dmhlvtT;
                     dm0hl += dm0hlT;
 
-                    traceService.Trace(tyleGNtienmat.ToString() + "-" + dmhlT.ToString());
-                    traceService.Trace(tyleGNVattu.ToString() + "-" + dmhlvt.ToString());
+                    //traceService.Trace(tyleGNtienmat.ToString() + "-" + dmhlT.ToString());
+                    //traceService.Trace(tyleGNVattu.ToString() + "-" + dmhlvt.ToString());
                     #region Them chi tiet hop va phieu dang ky
                     string ct_name = cthd.Contains("new_name") ? (cthd["new_name"].ToString() + "-") : "";
 
@@ -144,13 +144,14 @@ namespace Plugin_PDK_DichVu
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                     gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                    traceService.Trace("gnhltm " + gnhltm.ToString());
+                    traceService.Trace("dmkhl : " + dm0hl.ToString());
                 }
-
+                
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
                 traceService.Trace("gnhltm " + gnhltm.ToString());
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
                 traceService.Trace("gnhltm " + gnhltm.ToString());
+                
                 #endregion
             }
             else
@@ -281,22 +282,13 @@ namespace Plugin_PDK_DichVu
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-
-            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString() + gnhltm.ToString());
+            //throw new Exception("asd");
+            
             decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
             decimal deNghiVt = dmhlvt - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
 
-            if (deNghiTmHl < 0)
-                deNghiTmHl = 0;
-
-            if (deNghiVt < 0)
-                deNghiVt = 0;
-
-            if (deNghiKhl < 0)
-                deNghiKhl = 0;
-
-            tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
+            tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(0);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);
             tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);
 
@@ -321,12 +313,12 @@ namespace Plugin_PDK_DichVu
             //        }
             //    }
             //}
-            if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
-                tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
-            if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))
-                tmpPdk["new_denghi_hoanlai_vattu"] = new Money(0);
-            if (!tmpPdk.Contains("new_denghi_khonghoanlai"))
-                tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
+            //    tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))
+            //    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_khonghoanlai"))
+            //    tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
 
             service.Update(tmpPdk);
         }
@@ -610,7 +602,7 @@ namespace Plugin_PDK_DichVu
             return result;
         }
 
-        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNtienmat, ref decimal tyleGNvattu)
+        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNvattu)
         {
             //decimal tyle = 0;
 
@@ -626,21 +618,6 @@ namespace Plugin_PDK_DichVu
                 else
                 {
                     tyleGNvattu += (decimal)a["new_tyleyc"];
-                }
-            }
-
-            QueryExpression q2 = new QueryExpression("new_dinhmucdautu");
-            q2.ColumnSet = new ColumnSet(true);
-            q2.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
-            q2.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
-
-            foreach (Entity a in service.RetrieveMultiple(q2).Entities)
-            {
-                if (!yeucau)
-                    tyleGNtienmat += (decimal)a["new_phantramtilegiaingan"];
-                else
-                {
-                    tyleGNtienmat += (decimal)a["new_tyleyc"];
                 }
             }
         }

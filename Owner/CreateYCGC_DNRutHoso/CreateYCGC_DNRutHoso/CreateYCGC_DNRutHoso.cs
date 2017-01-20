@@ -23,7 +23,7 @@ namespace CreateYCGC_DNRutHoso
 
             Entity target = (Entity)context.InputParameters["Target"];
 
-            if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // da duyet
+            if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000 && context.Depth < 2) // da duyet
             {
                 List<Entity> lstctDenghiruthoso = RetrieveMultiRecord(service, "new_chitietdenghiruthoso",
                         new ColumnSet(true), "new_denghiruthoso", target.Id);
@@ -36,10 +36,10 @@ namespace CreateYCGC_DNRutHoso
                     if (!en.Contains("new_hopdongthechap"))
                         continue;
 
-                    Entity updateDenghi = service.Retrieve(en.LogicalName, en.Id,w
-                        new ColumnSet(new string[] {"statuscode"}));
+                    //Entity updateDenghi = service.Retrieve(en.LogicalName, en.Id,
+                    //    new ColumnSet(new string[] {"statuscode"}));
 
-                    updateDenghi["statuscode"] = new OptionSetValue(100000001);
+                    //updateDenghi["statuscode"] = new OptionSetValue(100000001);
 
                     Entity k = new Entity("new_yeucaugiaichap");
                     k["new_name"] = "Yêu cầu giải chấp - " + DateTime.Now.Date.ToString();
@@ -52,7 +52,7 @@ namespace CreateYCGC_DNRutHoso
                     k["new_taisan"] = taisan.ToEntityReference();
                     k["new_ngaylapphieu"] = DateTime.Now;
                     service.Create(k);
-                    service.Update(updateDenghi);
+                    //service.Update(updateDenghi);
                 }
             }
         }

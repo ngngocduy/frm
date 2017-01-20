@@ -13,3 +13,8 @@ C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin
 C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.dll
 C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.pdb
 C:\Users\Mr Duy\Downloads\Duy\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\NTThueDat_DienTich\NTThueDat_DienTich\bin\Debug\NTThueDat_DienTich.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Projects\NTThueDat_DienTich\NTThueDat_DienTich\obj\Debug\NTThueDat_DienTich.pdb

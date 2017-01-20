@@ -71,13 +71,19 @@ namespace Plugin_PhulucHD
                                     Entity td = service.Retrieve("new_thuadat", ((EntityReference)en["new_thuadat"]).Id,
                                         new ColumnSet(new string[] { "new_name", "new_culyvanchuyen",
                                             "new_nhomdat", "new_nhomculy", "new_chusohuuchinhtd","new_chusohuuchinhtdkhdn","new_loaisohuudat" }));
+                                    traceService.Trace("0");
+                                    thuadatcanhtac["new_culy"] =td.Contains("new_culyvanchuyen") ?  td["new_culyvanchuyen"] : "";
+                                    thuadatcanhtac["new_nhomdat"] = td.Contains("new_nhomdat") ? td["new_nhomdat"] : "";
+                                    thuadatcanhtac["new_nhomculy"] = td.Contains("new_nhomculy") ? td["new_nhomculy"] : "";
 
-                                    thuadatcanhtac["new_culy"] = td["new_culyvanchuyen"];
-                                    thuadatcanhtac["new_nhomdat"] = td["new_nhomdat"];
-                                    thuadatcanhtac["new_nhomculy"] = td["new_nhomculy"];
-                                    thuadatcanhtac["new_chusohuuchinhtd"] = td["new_chusohuuchinhtd"];
-                                    thuadatcanhtac["new_chusohuuchinhtdkhdn"] = td["new_chusohuuchinhtdkhdn"];
-                                    thuadatcanhtac["new_loaisohuudat"] = td["new_loaisohuudat"];
+                                    if (td.Contains("new_chusohuuchinhtd"))
+                                        thuadatcanhtac["new_chusohuuchinhtd"] = td["new_chusohuuchinhtd"];
+                                    else
+                                        thuadatcanhtac["new_chusohuuchinhtdkhdn"] = td["new_chusohuuchinhtdkhdn"];
+
+                                    traceService.Trace("2");
+                                    thuadatcanhtac["new_loaisohuudat"] =td.Contains("new_loaisohuudat") ?  td["new_loaisohuudat"] : "";
+
                                     thuadatcanhtac["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + td["new_name"].ToString();
                                     thuadatcanhtac["new_thuadat"] = en["new_thuadat"];
                                     thuadatcanhtac["new_chinhsachdautu"] = en["new_chinhsachdautu"];

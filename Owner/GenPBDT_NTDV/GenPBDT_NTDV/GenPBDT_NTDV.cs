@@ -26,7 +26,7 @@ namespace GenPBDT_NTDV
 
             Entity target = (Entity)context.InputParameters["Target"];
             trace.Trace("1");
-            if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // da duyet
+            if (target.Contains("new_tinhtrangduyet") && ((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000006) // da duyet
             {
                 trace.Trace("Start");
 
@@ -34,7 +34,8 @@ namespace GenPBDT_NTDV
                     new ColumnSet(true));
 
                 EntityReference hdmiaRef = (EntityReference)ntdichvu["new_hopdongdautumia"];
-                Entity hddtmia = service.Retrieve(hdmiaRef.LogicalName, hdmiaRef.Id, new ColumnSet(new string[] { "new_masohopdong" }));
+                Entity hddtmia = service.Retrieve(hdmiaRef.LogicalName, hdmiaRef.Id,
+                    new ColumnSet(new string[] { "new_masohopdong", "new_vudautu" }));
                 EntityReference tram = null;
                 EntityReference cbnv = null;
                 DateTime ngayduyet = new DateTime();
@@ -59,9 +60,9 @@ namespace GenPBDT_NTDV
                 if (ntdichvu.Contains("actualstart"))
                     ngayduyet = (DateTime)ntdichvu["actualstart"];
                 trace.Trace("5");
-                decimal sotien = ((Money)ntdichvu["new_tongtien"]).Value;
-                if (ntdichvu.Contains("new_vudautu"))
-                    vudautu = (EntityReference)ntdichvu["new_vudautu"];
+                decimal sotien = ntdichvu.Contains("new_tongtien") ? ((Money)ntdichvu["new_tongtien"]).Value : 0;
+                if (hddtmia.Contains("new_vudautu"))
+                    vudautu = (EntityReference)hddtmia["new_vudautu"];
 
                 List<Entity> lstChitietntdichvu = RetrieveMultiRecord(service, "new_chitietnghiemthudichvu",
                     new ColumnSet(new string[] { "new_thuadat" }), "new_nghiemthudichvu", ntdichvu.Id);
@@ -89,9 +90,10 @@ namespace GenPBDT_NTDV
                         trace.Trace("so tien thu hoi : " + sotienthuhoi.ToString());
                         decimal sotienphanbo = sotienthuhoi - tiendaphanbo;
                         trace.Trace("so tien pb : " + sotienphanbo.ToString());
+                        trace.Trace("dinh muc : " + dinhmuc.ToString());
                         while (true)
                         {
-                            if (dinhmuc < sotienphanbo)
+                            if (dinhmuc <= sotienphanbo)
                             {
                                 trace.Trace("phan bo:" + dinhmuc.ToString());
                                 CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, dinhmuc,
@@ -122,7 +124,7 @@ namespace GenPBDT_NTDV
         {
             Entity thuadatcanhtac = service.Retrieve("new_thuadatcanhtac", tdct,
                 new ColumnSet(new string[] { "new_laisuat", "new_name", "new_loailaisuat", "new_dachihoanlai_dichvu", "new_dachikhonghoanlai_dichvu" }));
-
+            trace.Trace("start phan bo");
             int loailaisuat = ((OptionSetValue)thuadatcanhtac["new_loailaisuat"]).Value;
 
             // type = 1 - hl , type = 2 - khl
@@ -151,10 +153,11 @@ namespace GenPBDT_NTDV
                     phanbodautuKHL["new_khachhangdoanhnghiep"] = KH.ToEntityReference();
 
                 decimal dachihoanlai = thuadatcanhtac.Contains("new_dachihoanlai_dichvu") ? ((Money)thuadatcanhtac["new_dachihoanlai_dichvu"]).Value : new decimal(0);
-
+                trace.Trace("1");
                 thuadatcanhtac["new_dachihoanlai_dichvu"] = new Money(sotien + dachihoanlai);
                 phanbodautuKHL["new_loaihopdong"] = new OptionSetValue(100000000);
                 phanbodautuKHL["new_hopdongdautumia"] = hddtmia.ToEntityReference();
+                trace.Trace("2");
                 phanbodautuKHL["new_thuacanhtac"] = new EntityReference("new_thuadatcanhtac", tdct);
                 phanbodautuKHL["new_vudautu"] = vudautu;
                 phanbodautuKHL["new_vuthanhtoan"] = vuthanhtoan;
@@ -169,7 +172,7 @@ namespace GenPBDT_NTDV
                 phanbodautuKHL["new_mucdichdautu"] = new OptionSetValue(100000000);
                 phanbodautuKHL["new_sophieu"] = sophieu;
                 phanbodautuKHL["new_laisuat"] = Getlaisuat(vudautu, 100000000, ngayduyet);
-
+                trace.Trace("end phan bo");
                 service.Update(thuadatcanhtac);
                 service.Create(phanbodautuKHL);
                 #endregion
@@ -233,6 +236,7 @@ namespace GenPBDT_NTDV
 
         private decimal Getlaisuat(EntityReference vudautu, int mucdichdautu, DateTime ngaygiaonhan)
         {
+            trace.Trace("get lai suat");
             QueryExpression qbangLai = new QueryExpression("new_banglaisuatthaydoi");
             qbangLai.ColumnSet = new ColumnSet(new string[] { "new_name", "new_ngayapdung", "new_phantramlaisuat" });
             qbangLai.Criteria = new FilterExpression(LogicalOperator.And);
@@ -246,7 +250,7 @@ namespace GenPBDT_NTDV
             //Entity kq = null;
             decimal result = 0;
             int n = bls.Entities.Count;
-            trace.Trace(n.ToString());
+            trace.Trace("so bang lai " + n.ToString());
             for (int i = 0; i < n; i++)
             {
                 Entity q = bls[i];
@@ -254,19 +258,19 @@ namespace GenPBDT_NTDV
                 DateTime dt = (DateTime)q["new_ngayapdung"];
                 if (n == 1 && CompareDate(ngaygiaonhan, dt) == 0)
                 {
-                    trace.Trace("A");
+                    trace.Trace("A1");
                     result = (decimal)q["new_phantramlaisuat"];
                     break;
                 }
                 else if (n > 1 && CompareDate(ngaygiaonhan, dt) < 0)
                 {
-                    trace.Trace("B");
+                    trace.Trace("B1");
                     result = (decimal)bls[i - 1]["new_phantramlaisuat"];
                     break;
                 }
                 else if (i == n - 1)
                 {
-                    trace.Trace("C");
+                    trace.Trace("C1");
                     result = (decimal)bls[(i > 0 ? i : 1) - 1]["new_phantramlaisuat"];
                     break;
                 }

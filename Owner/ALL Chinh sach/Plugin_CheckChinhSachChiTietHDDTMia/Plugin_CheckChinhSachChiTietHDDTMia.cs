@@ -66,8 +66,9 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                 Entity CSThamCanh = null;
 
                 Entity CTHDMia = service.Retrieve("new_thuadatcanhtac", target.Id, new ColumnSet(new string[] {
-                    "new_hopdongdautumia","new_giongmia","new_thuadat","new_khachhang","new_khachhangdoanhnghiep","createdon","new_vutrong","new_mucdichsanxuatmia",
-                    "new_loaisohuudat", "new_loaigocmia","new_luugoc","new_thamgiamohinhkhuyennong","new_dientichhopdong", "new_nhomculy"  }));
+                    "new_hopdongdautumia","new_giongmia","new_thuadat","new_khachhang","new_khachhangdoanhnghiep","createdon",
+                    "new_loaisohuudat", "new_loaigocmia","new_luugoc","new_thamgiamohinhkhuyennong","new_vutrong","new_mucdichsanxuatmia",
+                    "new_dientichhopdong", "new_nhomculy","new_dongiahopdong","new_dongiahopdongkhl"  }));
                 if (!CTHDMia.Contains("new_hopdongdautumia")) throw new Exception("Chi tiết HĐĐT mía chưa gắn với hợp đồng ĐT mía !");
                 Entity HDDTMia = service.Retrieve("new_hopdongdautumia", ((EntityReference)CTHDMia["new_hopdongdautumia"]).Id, new ColumnSet(new string[] { "new_vudautu", "new_chinhantienmat" }));
                 if (!CTHDMia.Contains("new_giongmia")) throw new Exception("Chi tiết HĐĐT mía chưa có thông tin giống mía dự kiến !");
@@ -727,9 +728,10 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     }
                     if (dsCSBS.Entities.Count > 0)
                         service.Associate("new_thuadatcanhtac", CTHDMia.Id, new Relationship("new_new_thuadatcanhtac_new_chinhsachdautuct"), fCSBS);
-
-                    #endregion
+                    traceService.Trace(tBSHL.ToString() + "-" + tBSKHL.ToString());
                     
+                    #endregion
+
                     /////////////// Lay CSDT bổ sung điền field Định mức bổ sung tối đa, không xét đk nghiệm thu
                     StringBuilder qCSBS_bstoida = new StringBuilder();
                     qCSBS_bstoida.AppendFormat("<fetch mapping='logical' version='1.0' no-lock='true'>");
@@ -884,10 +886,18 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     //////////// END --- Lay CSDT bổ sung điền field Định mức bổ sung tối đa
 
                     up["new_dongiadautukhonghoanlai"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
-                    traceService.Trace("new_dongiadautukhonghoanlai");
-                    up["new_dongiahopdong"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
                     up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
-                    up["new_dongiahopdongkhl"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
+                    traceService.Trace("new_dongiadautukhonghoanlai");//"new_dongiahopdong","new_dongiahopdongkhl" 
+                    decimal dinhmuchlhientai = CTHDMia.Contains("new_dongiahopdong")
+                        ? ((Money) CTHDMia["new_dongiahopdong"]).Value
+                        : ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value;
+
+                    decimal dinhmuckhlhientai = CTHDMia.Contains("new_dongiahopdongkhl")
+                        ? ((Money)CTHDMia["new_dongiahopdongkhl"]).Value
+                        : ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value;
+
+                    up["new_dongiahopdong"] = new Money(tBSHL + dinhmuchlhientai);
+                    up["new_dongiahopdongkhl"] = new Money(tBSKHL + dinhmuckhlhientai);
                     up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautukhonghoanlai");
 

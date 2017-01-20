@@ -41,7 +41,7 @@ namespace Update_DienTichMiaToGoc
                    new ColumnSet(new string[] { "new_dientichmiato", "new_dientichmiagoc" }));
             }
 
-            if (target.Contains("new_hopdongdautumia") || target.Contains("new_loaigocmia"))
+            if (target.Contains("new_hopdongdautumia") || target.Contains("new_loaigocmia") || target.Contains("new_dientichhopdong"))
             {
                 decimal dientichmiato = 0;
                 decimal dientichmiagoc = 0;

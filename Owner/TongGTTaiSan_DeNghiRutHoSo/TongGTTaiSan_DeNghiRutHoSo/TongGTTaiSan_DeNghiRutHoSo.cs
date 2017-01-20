@@ -19,20 +19,15 @@ namespace TongGTTaiSan_DeNghiRutHoSo
             var trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             Entity target = null;
             EntityReference Enftarget = null;
-
-            trace.Trace("1");
-            if (context.Depth > 1)
-            {
-                return;
-            }
+            
             if (context.MessageName != "Delete")
             {
                 target = (Entity)context.InputParameters["Target"];
             }
 
-
-            if (target != null && target.LogicalName == "new_denghiruthoso")
+            if (target != null && target.LogicalName == "new_denghiruthoso" && context.Depth < 2)
             {
+                trace.Trace("A");
                 if (target.Contains("new_tinhtrangduyet") && ((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000007)
                 {
                     List<Entity> lstCtdenghi = RetrieveMultiRecord(service,"new_chitietdenghiruthoso",
@@ -99,12 +94,11 @@ namespace TongGTTaiSan_DeNghiRutHoSo
                     updateDenghi["new_tonggiatritaisandangthechap"] = new Money(tongtien2ben + tongtien3ben);
                     service.Update(updateDenghi);
 
-
                 }
-                trace.Trace("5");
             }
             else if (context.MessageName == "Delete" || (target != null && target.LogicalName == "new_chitietdenghiruthoso"))
             {
+                trace.Trace("B");
                 if (context.MessageName == "Create" || context.MessageName == "Update")
                 {
                     Entity ctdenghiruthoso = service.Retrieve(target.LogicalName, target.Id,
@@ -128,7 +122,10 @@ namespace TongGTTaiSan_DeNghiRutHoSo
 
                         decimal tonggttaisanthechap = dnruthoso.Contains("new_tonggiatritaisandangthechap") ?
                             ((Money)dnruthoso["new_tonggiatritaisandangthechap"]).Value : 0;
-                        decimal gtconlai = tonggttaisanthechap - gtdenghirut;
+                        decimal gtthevao = dnruthoso.Contains("new_giatritaisanthevao")
+                            ? (decimal)dnruthoso["new_giatritaisanthevao"]
+                            : 0;
+                        decimal gtconlai = tonggttaisanthechap - gtdenghirut + gtthevao;
 
                         if (gtconlai < 0)
                             throw new Exception("Giá trị đề nghị rút đã vượt quá tổng gt tài sản thế chấp");
@@ -141,12 +138,11 @@ namespace TongGTTaiSan_DeNghiRutHoSo
                 }
                 else if (context.MessageName == "Delete")
                 {
-                    trace.Trace("2");
+                    trace.Trace("C");
                     Entity fullEntity = (Entity)context.PreEntityImages["PreImg"];
 
                     if (fullEntity.Contains("new_denghiruthoso"))
                     {
-                        trace.Trace("2");
                         Entity dnruthoso = service.Retrieve("new_denghiruthoso", ((EntityReference)fullEntity["new_denghiruthoso"]).Id,
                             new ColumnSet(new string[] { "new_tonggiatritaisandangthechap", "new_giatridenghirut", "new_giatritstcconlai" }));
                         decimal gtdenghirut = 0;
@@ -154,7 +150,7 @@ namespace TongGTTaiSan_DeNghiRutHoSo
                         List<Entity> lstCtdenghi = RetrieveMultiRecord(service, fullEntity.LogicalName,
                             new ColumnSet(new string[] { "new_giatrithechap" }),
                             "new_denghiruthoso", dnruthoso.Id);
-                        trace.Trace("3");
+                        
                         foreach (Entity en in lstCtdenghi)
                         {
                             gtdenghirut += en.Contains("new_giatrithechap") ? ((Money)en["new_giatrithechap"]).Value : 0;
@@ -174,6 +170,7 @@ namespace TongGTTaiSan_DeNghiRutHoSo
                     }
                 }
             }
+            //throw new Exception("abc");
         }
 
         private List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column,

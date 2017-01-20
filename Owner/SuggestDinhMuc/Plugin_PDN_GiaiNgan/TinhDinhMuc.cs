@@ -119,7 +119,7 @@ namespace Plugin_PDN_GiaiNgan
                             (cthd.Contains("new_yeucaudacbiet") && (bool)cthd["new_yeucaudacbiet"]), ref tyleGNtienmat, ref tyleGNVattu);
 
                         decimal dmhlT = tyleGNtienmat / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
-                        decimal dmhlvtT = (100-tyleGNtienmat) / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
+                        decimal dmhlvtT = (100 - tyleGNtienmat) / 100 * (cthd.Contains("new_conlai_hoanlai") ? ((Money)cthd["new_conlai_hoanlai"]).Value : 0);
                         decimal dmphanbontoithieu = (cthd.Contains("new_conlai_phanbontoithieu") ? ((Money)cthd["new_conlai_phanbontoithieu"]).Value : 0);
                         decimal dm0hlT = (cthd.Contains("new_conlai_khonghoanlai") ? ((Money)cthd["new_conlai_khonghoanlai"]).Value : 0);
 
@@ -157,13 +157,12 @@ namespace Plugin_PDN_GiaiNgan
                         gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                         gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                         gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                        traceService.Trace("da chi : " + gnhlvt.ToString());
+
                     }
                     
                     Sum_pdn(ref gnhltm, ref gn0hl, hdRef, ((EntityReference)pdk["new_phieudenghigiaingan"]).Id);
-                    traceService.Trace(gnhltm.ToString() + "-" + gnhlvt.ToString());
                     sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-                    traceService.Trace(gnhltm.ToString() + "-" + gnhlvt.ToString());
+
                     #endregion
                 }
                 else
@@ -421,25 +420,25 @@ namespace Plugin_PDN_GiaiNgan
 
                 #endregion                
             }
-            
+
             Entity tmpPdk = new Entity(pdkRef.LogicalName);
             tmpPdk.Id = pdkRef.Id;
             tmpPdk["new_dinhmuc_hoanlai_tienmat"] = new Money(dmhl - dmhlvt);
             tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
-            
+
             tmpPdk["new_giaingan_hoanlai_tienmat"] = new Money(gnhltm);
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
             //-------------------------------------------------------
-            traceService.Trace(dmhl.ToString() + "-" + dmhlvt.ToString() + "-" + gnhlvt.ToString());
+
             decimal deNghiTmHl = dmhl - dmhlvt - gnhltm;
-            
+
             //decimal deNghiTmHl = 0;
             decimal deNghiVt = dmhlvt - gnhlvt;
             decimal deNghiKhl = dm0hl - gn0hl;
-            
+
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);
             tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);

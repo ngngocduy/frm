@@ -19,16 +19,18 @@ namespace NTThueDat_DienTich
             ITracingService trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
             Entity target = (Entity)context.InputParameters["Target"];
 
-            if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value.ToString() == "100000000") // da duyet
+            if (target.Contains("new_tinhtrangduyet") && ((OptionSetValue)target["new_tinhtrangduyet"]).Value.ToString() == "100000006") // da duyet
             {
                 factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
                 service = factory.CreateOrganizationService(context.UserId);
 
                 Entity nghiemthuthuedat = service.Retrieve(target.LogicalName, target.Id,
-                    new ColumnSet(new string[] { "new_datthue" }));
+                    new ColumnSet(new string[] { "new_datthue", "new_lannghiemthu_global" }));
 
                 Entity chitiethddtthuedat = service.Retrieve("new_datthue", ((EntityReference)nghiemthuthuedat["new_datthue"]).Id,
                     new ColumnSet(true));
+                int solannt = nghiemthuthuedat.Contains("new_lannghiemthu_global") ?
+                    ((OptionSetValue)nghiemthuthuedat["new_lannghiemthu_global"]).Value : 0;
 
                 List<Entity> lstChitietntthuedat = RetrieveMultiRecord(service, "new_chitietnghiemthuthuedat",
                     new ColumnSet(true), "new_nghiemthuthuedat", target.Id);
@@ -47,14 +49,14 @@ namespace NTThueDat_DienTich
 
                     if (chitietthuedat_thuadat != null && chitietthuedat_thuadat.Id != Guid.Empty)
                     {
-                        trace.Trace("5");
                         Entity t = service.Retrieve(chitietthuedat_thuadat.LogicalName, chitietthuedat_thuadat.Id,
-                            new ColumnSet(new string[] { "new_dientichthucthue", "new_name", "new_sotiendaututhucte" }));
-                        trace.Trace("6");
+                            new ColumnSet(new string[] { "new_dientichthucthue",
+                                "new_name", "new_sotiendaututhucte","new_trangthainghiemthu" }));
+                        
                         decimal dientichnghiemthu = en.Contains("new_dientichnghiemthu") ? (decimal)en["new_dientichnghiemthu"] : 0;
                         t["new_dientichthucthue"] = dientichnghiemthu;
                         t["new_sotiendaututhucte"] = new Money(en.Contains("new_sotiendautu") ? ((Money)en["new_sotiendautu"]).Value : new decimal(0));
-
+                        t["new_trangthainghiemthu"] = new OptionSetValue(solannt + 2);
                         service.Update(t);
                     }
                 }

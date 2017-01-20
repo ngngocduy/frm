@@ -31,7 +31,7 @@ namespace DuyetNTDichVu
             if (context.MessageName == "Create" || context.MessageName == "Update")
             {
                 traceService.Trace("chay if thu 1");
-                if (target.Contains("statuscode") && ((OptionSetValue)target["statuscode"]).Value == 100000000) // da duyet
+                if (target.Contains("new_tinhtrangduyet") && ((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000006) // da duyet
                 {
                     decimal tylethanhtoan = 0;
 
