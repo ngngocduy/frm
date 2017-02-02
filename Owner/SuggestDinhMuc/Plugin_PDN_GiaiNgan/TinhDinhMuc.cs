@@ -27,7 +27,6 @@ namespace Plugin_PDN_GiaiNgan
             if (!PDNGN.Contains("new_hopdongdautumia") && !PDNGN.Contains("new_hopdongdaututhuedat") && !PDNGN.Contains("new_hopdongdautummtb"))
                 throw new Exception("Vui lòng chọn loại hợp đồng trên phiếu đề nghị giải ngân !");
 
-            traceService.Trace(((OptionSetValue)PDNGN["new_loaihopdong"]).Value.ToString());
             if (pdk == null)
                 throw new Exception(string.Format("Chi tiết đề nghị giải ngân không tồn tại hoặc bị xóa!", pdkRef.Name));
 
@@ -86,6 +85,11 @@ namespace Plugin_PDN_GiaiNgan
                         "new_conlai_khonghoanlai",
                         //----------------------------
                         "new_dachikhonghoanlai_tienmat",
+                        "new_dachikhonghoanlai_dichvu",
+                        "new_dachikhonghoanlai_homgiong",
+                        "new_dachikhonghoanlai_phanbon",
+                        "new_dachikhonghoanlai_thuoc",
+                        "new_dachikhonghoanlai_vattukhac",
                         //----------------------------
                         "new_dachihoanlai_tienmat",
                         "new_dachihoanlai_homgiong",
@@ -157,13 +161,21 @@ namespace Plugin_PDN_GiaiNgan
                         gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                         gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
                         gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
+                        gn0hl += cthd.Contains("new_dachikhonghoanlai_dichvu") ? ((Money)cthd["new_dachikhonghoanlai_dichvu"]).Value : 0;
+                        gn0hl += cthd.Contains("new_dachikhonghoanlai_homgiong") ? ((Money)cthd["new_dachikhonghoanlai_homgiong"]).Value : 0;
+                        gn0hl += cthd.Contains("new_dachikhonghoanlai_phanbon") ? ((Money)cthd["new_dachikhonghoanlai_phanbon"]).Value : 0;
+                        gn0hl += cthd.Contains("new_dachikhonghoanlai_thuoc") ? ((Money)cthd["new_dachikhonghoanlai_thuoc"]).Value : 0;
+                        gn0hl += cthd.Contains("new_dachikhonghoanlai_vattukhac") ? ((Money)cthd["new_dachikhonghoanlai_vattukhac"]).Value : 0;
 
                     }
-                    
+                    traceService.Trace("gnhltm : " + gn0hl.ToString());
                     Sum_pdn(ref gnhltm, ref gn0hl, hdRef, ((EntityReference)pdk["new_phieudenghigiaingan"]).Id);
+                    traceService.Trace("gnhltm : " + gn0hl.ToString());
                     sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-
+                    traceService.Trace("gnhltm : " + gn0hl.ToString());
                     #endregion
+
+                    traceService.Trace("dm0hl : " + dm0hl.ToString());
                 }
                 else
                 {
@@ -427,7 +439,7 @@ namespace Plugin_PDN_GiaiNgan
             tmpPdk["new_dinhmuc_hoanlai_vattu"] = new Money(dmhlvt);
             tmpPdk["new_dinhmuc_khonghoanlai"] = new Money(dm0hl);
             //-------------------------------------------------------
-
+            
             tmpPdk["new_giaingan_hoanlai_tienmat"] = new Money(gnhltm);
             tmpPdk["new_giaingan_hoanlai_vattu"] = new Money(gnhlvt);
             tmpPdk["new_giaingan_khonghoanlai"] = new Money(gn0hl);
@@ -442,7 +454,6 @@ namespace Plugin_PDN_GiaiNgan
             tmpPdk["new_dinhmucchi_hoanlai_tienmat"] = new Money(deNghiTmHl);
             tmpPdk["new_dinhmucchi_hoanlai_vattu"] = new Money(deNghiVt);
             tmpPdk["new_dinhmucchi_khonghoanlai"] = new Money(deNghiKhl);
-            //tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
 
             //if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
             //    tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
@@ -453,7 +464,6 @@ namespace Plugin_PDN_GiaiNgan
 
             service.Update(tmpPdk);
         }
-
         private void sum_pdk(EntityReference hd, EntityReference pdkRef, ref decimal hlTM, ref decimal hlVT, ref decimal KHL)
         {
             decimal sumhlTM = 0;
@@ -1082,7 +1092,6 @@ namespace Plugin_PDN_GiaiNgan
                     tyleGNtienmat += (decimal)a["new_tyleyc"];
                 }
             }
-            traceService.Trace("ty le giai ngan tien mat : " + tyleGNtienmat.ToString());
         }
     }
 }

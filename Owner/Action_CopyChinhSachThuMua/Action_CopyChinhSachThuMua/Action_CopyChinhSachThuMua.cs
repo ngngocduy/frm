@@ -447,8 +447,51 @@ namespace Action_CopyChinhSachThuMua
                         }
                     }
 
+                    // Chính sách thu mua tạp chất thưởng chủ mía
+                    EntityCollection TapchatThuongChuMiaCol = FindcsTapChatThuongChuMia(service, CSTM);
+                    
+                    if (TapchatThuongChuMiaCol != null && TapchatThuongChuMiaCol.Entities.Count > 0)
+                    {
+                        foreach (Entity a in TapchatThuongChuMiaCol.Entities)
+                        {
+                            Entity tcthuong = new Entity("new_chinhsachthumuatapchatthuongchumia");
+                            EntityReference currencyRef = a.GetAttributeValue<EntityReference>("transactioncurrencyid");
+
+                            string ten = (a.Contains("new_name") ? (string)a["new_name"] : "Chính sách tạp chất thưởng");
+                            tcthuong["new_name"] = ten;
+
+                            //int nguontien = ((OptionSetValue)a["new_nguontien"]).Value;
+                            //tcthuong["new_nguontien"] = new OptionSetValue(nguontien);
+
+                            if (a.Attributes.Contains("new_operatortu"))
+                            {
+                                int pttu = ((OptionSetValue)a["new_operatortu"]).Value;
+                                tcthuong["new_operatortu"] = new OptionSetValue(pttu);
+                            }
+                            if (a.Attributes.Contains("new_operatorden"))
+                            {
+                                int ptden = ((OptionSetValue)a["new_operatorden"]).Value;
+                                tcthuong["new_operatorden"] = new OptionSetValue(ptden);
+                            }
+
+                            decimal tu = (a.Contains("new_tu") ? (decimal)a["new_tu"] : 0);
+                            decimal den = (a.Contains("new_den") ? (decimal)a["new_den"] : 0);
+                            decimal tienthuong = (a.Contains("new_tienthuong") ? ((Money)a["new_tienthuong"]).Value : 0);
+                            Money Mtienthuong = new Money(tienthuong);
+
+                            tcthuong["new_tu"] = tu;
+                            tcthuong["new_den"] = den;
+                            tcthuong["new_tienthuong"] = Mtienthuong;
+                            tcthuong["transactioncurrencyid"] = currencyRef;
+                            tcthuong["new_chinhsachthumua"] = cstmEntityRef;
+
+                            service.Create(tcthuong);
+                        }
+                    }
+
                     // Chính sách thu mua tạp chất trừ
                     EntityCollection TapchatTruCol = FindcsTapChatTru(service, CSTM);
+                    
                     if (TapchatTruCol != null && TapchatTruCol.Entities.Count > 0)
                     {
                         foreach (Entity a in TapchatTruCol.Entities)
@@ -486,7 +529,9 @@ namespace Action_CopyChinhSachThuMua
                             service.Create(tctru);
                         }
                     }
-
+                    //List<Entity> lstTapchattruNew = RetrieveMultiRecord(service, "new_chinhsachthumuatapchattru",
+                    //    new ColumnSet(true), "new_chinhsachthumua", cstmEntityRef.Id);
+                    //throw  new Exception(lstTapchattruNew.Count.ToString());
                     // Chính sách thu mua khuyến khích phát triển và NS đường cao
                     if (CSTM.Attributes.Contains("new_hoatdongapdung") && CSTM.GetAttributeValue<OptionSetValue>("new_hoatdongapdung").Value.ToString() == "100000004")
                     {
@@ -698,6 +743,32 @@ namespace Action_CopyChinhSachThuMua
             return entc;
         }
 
+        public static EntityCollection FindcsTapChatThuongChuMia(IOrganizationService crmservices, Entity CSTM)
+        {
+            string fetchXml =
+                   @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+                      <entity name='new_chinhsachthumuatapchatthuongchumia'>
+                        <attribute name='new_name' />
+                        <attribute name='new_tu' />
+                        <attribute name='new_tienthuong' />
+                        
+                        <attribute name='new_operatortu' />
+                        <attribute name='new_operatorden' />
+                        <attribute name='new_den' />
+                        <attribute name='new_chinhsachthumua' />
+                        <attribute name='new_chinhsachthumuatapchatthuongchumiaid' />
+                        <order attribute='new_tu' descending='false' />
+                        <filter type='and'>
+                          <condition attribute='statecode' operator='eq' value='0' />
+                          <condition attribute='new_chinhsachthumua' operator='eq' uitype='new_chinhsachthumua' value='{0}' />
+                        </filter>
+                      </entity>
+                    </fetch>";
+            fetchXml = string.Format(fetchXml, CSTM.Id);
+            EntityCollection entc = crmservices.RetrieveMultiple(new FetchExpression(fetchXml));
+            return entc;
+        }
+
         public static EntityCollection FindcsTapChatTru(IOrganizationService crmservices, Entity CSTM)
         {
             string fetchXml =
@@ -788,6 +859,17 @@ namespace Action_CopyChinhSachThuMua
             EntityCollection collRecords = crmservices.RetrieveMultiple(query);
 
             return collRecords;
+        }
+
+        private List<Entity> RetrieveMultiRecord(IOrganizationService crmservices, string entity, ColumnSet column, string condition, object value)
+        {
+            QueryExpression q = new QueryExpression(entity);
+            q.ColumnSet = column;
+            q.Criteria = new FilterExpression();
+            q.Criteria.AddCondition(new ConditionExpression(condition, ConditionOperator.Equal, value));
+            EntityCollection entc = service.RetrieveMultiple(q);
+
+            return entc.Entities.ToList<Entity>();
         }
     }
 }

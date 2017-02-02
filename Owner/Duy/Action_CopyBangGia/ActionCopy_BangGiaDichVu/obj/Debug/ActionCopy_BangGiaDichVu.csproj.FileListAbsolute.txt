@@ -8,3 +8,8 @@ D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaD
 D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.dll
 D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.pdb
 D:\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaDichVu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\bin\Debug\ActionCopy_BangGiaDichVu.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\ActionCopy_BangGiaDichVu\obj\Debug\ActionCopy_BangGiaDichVu.pdb

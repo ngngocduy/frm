@@ -61,7 +61,7 @@ namespace Action_CopyBangGia
                         service.Create(new_Chitietbgcd);
                     }
                 }
-
+                
                 List<Entity> lstTanggiamgiacongdon = RetrieveMultiRecord(service, "new_tanggiamgiacongdontheovung", new ColumnSet(true), "new_banggiacongdon", bgcd.Id);
                 if (lstTanggiamgiacongdon.Count > 0)
                 {
@@ -79,7 +79,7 @@ namespace Action_CopyBangGia
                         service.Create(new_tanggiamgiacongdon);
                     }
                 }
-
+                
                 List<Entity> lstTanggiamgiatrungchuyen = RetrieveMultiRecord(service, "new_tanggiamgiatrungchuyentheovung", new ColumnSet(true), "new_banggiacongdon", bgcd.Id);
 
                 if (lstTanggiamgiatrungchuyen.Count > 0)
@@ -98,7 +98,7 @@ namespace Action_CopyBangGia
                         service.Create(t);
                     }
                 }
-
+                
                 context.OutputParameters["ReturnId"] = new_bgcdID.ToString();
             }
         }

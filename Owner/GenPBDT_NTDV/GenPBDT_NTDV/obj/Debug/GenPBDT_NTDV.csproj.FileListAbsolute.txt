@@ -12,6 +12,5 @@ D:\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\obj\Debug\GenPBDT_NTDV.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\bin\Debug\GenPBDT_NTDV.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\bin\Debug\GenPBDT_NTDV.pdb
 C:\Users\Duy\Documents\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\bin\Debug\Microsoft.Xrm.Sdk.dll
-C:\Users\Duy\Documents\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\obj\Debug\GenPBDT_NTDV.csprojResolveAssemblyReference.cache
 C:\Users\Duy\Documents\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\obj\Debug\GenPBDT_NTDV.dll
 C:\Users\Duy\Documents\Duy\frm\Owner\GenPBDT_NTDV\GenPBDT_NTDV\obj\Debug\GenPBDT_NTDV.pdb

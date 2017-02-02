@@ -25,7 +25,8 @@ namespace GenPBDT_NTDV
             trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
 
             Entity target = (Entity)context.InputParameters["Target"];
-            trace.Trace("1");
+            int type;
+
             if (target.Contains("new_tinhtrangduyet") && ((OptionSetValue)target["new_tinhtrangduyet"]).Value == 100000006) // da duyet
             {
                 trace.Trace("Start");
@@ -41,7 +42,7 @@ namespace GenPBDT_NTDV
                 DateTime ngayduyet = new DateTime();
                 EntityReference vudautu = null;
                 string sophieu = (string)ntdichvu["new_manghiemthu"];
-                trace.Trace("2");
+
                 Entity KH = null;
 
                 if (ntdichvu.Contains("new_khachhangdautumia"))
@@ -50,33 +51,29 @@ namespace GenPBDT_NTDV
                 else if (ntdichvu.Contains("new_khachhangdoanhnghiepdautumia"))
                     KH = service.Retrieve("account", ((EntityReference)ntdichvu["new_khachhangdoanhnghiepdautumia"]).Id,
                         new ColumnSet(new string[] { "name" }));
-                trace.Trace("3");
+
                 if (ntdichvu.Contains("new_tram"))
                     tram = (EntityReference)ntdichvu["new_tram"];
                 if (ntdichvu.Contains("new_canbonongvu"))
                     cbnv = (EntityReference)ntdichvu["new_canbonongvu"];
 
-                trace.Trace("4");
                 if (ntdichvu.Contains("actualstart"))
                     ngayduyet = (DateTime)ntdichvu["actualstart"];
-                trace.Trace("5");
-                decimal sotien = ntdichvu.Contains("new_tongtien") ? ((Money)ntdichvu["new_tongtien"]).Value : 0;
+
                 if (hddtmia.Contains("new_vudautu"))
                     vudautu = (EntityReference)hddtmia["new_vudautu"];
 
                 List<Entity> lstChitietntdichvu = RetrieveMultiRecord(service, "new_chitietnghiemthudichvu",
-                    new ColumnSet(new string[] { "new_thuadat" }), "new_nghiemthudichvu", ntdichvu.Id);
-
-                trace.Trace(lstChitietntdichvu.Count.ToString());
+                    new ColumnSet(new string[] { "new_thuadat", "new_sotienhl", "new_sotienkhl" }), "new_nghiemthudichvu", ntdichvu.Id);
 
                 foreach (Entity en in lstChitietntdichvu)
                 {
                     EntityReference thuadat = (EntityReference)en["new_thuadat"];
                     Entity thuadatcanhtac = GetThuadatcanhtacfromthuadat(thuadat, hdmiaRef);
-
+                    decimal sotien = en.Contains("new_sotienhl") ? ((Money)en["new_sotienhl"]).Value : 0;
                     List<Entity> lstTylethuhoi = RetrieveMultiRecord(service, "new_tylethuhoivondukien",
                     new ColumnSet(new string[] { "new_sotienthuhoi", "new_tiendaphanbo", "new_vudautu", "new_tylephantram" }), "new_chitiethddtmia", thuadatcanhtac.Id);
-                    trace.Trace("A");
+
                     foreach (Entity tylethuhoivon in lstTylethuhoi)
                     {
                         EntityReference vuthuhoi = (EntityReference)tylethuhoivon["new_vudautu"];
@@ -84,20 +81,23 @@ namespace GenPBDT_NTDV
                         decimal dinhmuc = sotien * (decimal)tylethuhoivon["new_tylephantram"] / 100;
                         decimal tiendaphanbo = tylethuhoivon.Contains("new_tiendaphanbo") ?
                              ((Money)tylethuhoivon["new_tiendaphanbo"]).Value : new decimal(0);
-                        trace.Trace("tien da pb : " + tiendaphanbo.ToString());
+
                         decimal sotienthuhoi = tylethuhoivon.Contains("new_sotienthuhoi") ?
                             ((Money)tylethuhoivon["new_sotienthuhoi"]).Value : 0;
-                        trace.Trace("so tien thu hoi : " + sotienthuhoi.ToString());
+
                         decimal sotienphanbo = sotienthuhoi - tiendaphanbo;
-                        trace.Trace("so tien pb : " + sotienphanbo.ToString());
+
+                        trace.Trace("chi tiet : " + thuadatcanhtac["new_name"].ToString());
+                        trace.Trace("so tien thu hoi : "  + sotienthuhoi.ToString());
+                        trace.Trace("so tien phan bo : " + sotienphanbo.ToString());
                         trace.Trace("dinh muc : " + dinhmuc.ToString());
-                        while (true)
+                        while (sotienphanbo > 0 )
                         {
                             if (dinhmuc <= sotienphanbo)
                             {
                                 trace.Trace("phan bo:" + dinhmuc.ToString());
                                 CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, dinhmuc,
-                                    tram, cbnv, ngayduyet, ntdichvu, sophieu);
+                                    tram, cbnv, ngayduyet, ntdichvu, sophieu, type = 2);
                                 tiendaphanbo = tiendaphanbo + dinhmuc;
 
                                 break;
@@ -106,28 +106,64 @@ namespace GenPBDT_NTDV
                             {
                                 trace.Trace("phan bo:" + sotienphanbo.ToString());
                                 CreatePBDT(hddtmia, KH, thuadatcanhtac.Id, vudautu, vuthuhoi, sotienphanbo,
-                                    tram, cbnv, ngayduyet, ntdichvu, sophieu);
+                                    tram, cbnv, ngayduyet, ntdichvu, sophieu, type = 2);
                                 tiendaphanbo = tiendaphanbo + sotienphanbo;
+                                trace.Trace("tien da phan bo:" + tiendaphanbo.ToString());
                                 dinhmuc = dinhmuc - sotienphanbo;
+                                trace.Trace("dinh muc:" + dinhmuc.ToString());
                             }
 
                             tylethuhoivon["new_tiendaphanbo"] = new Money(tiendaphanbo);
                             //service.Update(tilethuhoivon);
                         }
+                        
+                    }
+                }
+
+                foreach (Entity en in lstChitietntdichvu)
+                {
+                    EntityReference thuadat = (EntityReference)en["new_thuadat"];
+                    Entity chitiet = GetThuadatcanhtacfromthuadat(thuadat, hdmiaRef);
+                    decimal sotienkhl = en.Contains("new_sotienkhl") ? ((Money)en["new_sotienkhl"]).Value : 0;
+
+                    Entity CSDT = service.Retrieve("new_chinhsachdautu", ((EntityReference)chitiet["new_chinhsachdautu"]).Id,
+                        new ColumnSet(new string[] { "new_new_thoihanthuhoivon_khl", "new_machinhsach" }));
+
+                    int sonamthuhoiKHL = CSDT.Contains("new_new_thoihanthuhoivon_khl") ? (int)CSDT["new_new_thoihanthuhoivon_khl"] : 3;
+                    decimal sotienphanboKHL = 0;
+
+                    if (sonamthuhoiKHL != 0)
+                        sotienphanboKHL = sotienkhl / sonamthuhoiKHL;
+                    else
+                        return;
+
+                    List<Entity> lst = RetrieveVudautu().Entities.OrderBy(p => p.GetAttributeValue<DateTime>("new_ngaybatdau")).
+                        ToList<Entity>();
+                    int curr = lst.FindIndex(p => p.Id == vudautu.Id);
+
+                    for (int k = 0; k < sonamthuhoiKHL; k++)
+                    {
+                        Entity vudaututhuhoi = lst[++curr];
+
+                        CreatePBDT(hddtmia, KH, chitiet.Id, vudautu, vudaututhuhoi.ToEntityReference(), sotienphanboKHL,
+                                    tram, cbnv, ngayduyet, ntdichvu, sophieu, type = 1);
+
+                        if (curr > lst.Count - 1)
+                            throw new Exception("Phân bổ không hoàn lại thất bại. Vui lòng tạo thêm vụ đầu tư mới để phân bổ");
                     }
                 }
             }
         }
         public void CreatePBDT(Entity hddtmia, Entity KH, Guid tdct,
            EntityReference vudautu, EntityReference vuthanhtoan, decimal sotien, EntityReference tram,
-           EntityReference cbnv, DateTime ngayduyet, Entity ntdichvu, string sophieu)
+           EntityReference cbnv, DateTime ngayduyet, Entity ntdichvu, string sophieu, int type)
         {
             Entity thuadatcanhtac = service.Retrieve("new_thuadatcanhtac", tdct,
                 new ColumnSet(new string[] { "new_laisuat", "new_name", "new_loailaisuat", "new_dachihoanlai_dichvu", "new_dachikhonghoanlai_dichvu" }));
             trace.Trace("start phan bo");
             int loailaisuat = ((OptionSetValue)thuadatcanhtac["new_loailaisuat"]).Value;
 
-            // type = 1 - hl , type = 2 - khl
+            // type = 1 - khl , type = 2 - hl
             if (sotien > 0)
             {
                 StringBuilder Name = new StringBuilder();
@@ -153,11 +189,21 @@ namespace GenPBDT_NTDV
                     phanbodautuKHL["new_khachhangdoanhnghiep"] = KH.ToEntityReference();
 
                 decimal dachihoanlai = thuadatcanhtac.Contains("new_dachihoanlai_dichvu") ? ((Money)thuadatcanhtac["new_dachihoanlai_dichvu"]).Value : new decimal(0);
-                trace.Trace("1");
-                thuadatcanhtac["new_dachihoanlai_dichvu"] = new Money(sotien + dachihoanlai);
+                decimal dachikhonghoanlai = thuadatcanhtac.Contains("new_dachikhonghoanlai_dichvu") ? ((Money)thuadatcanhtac["new_dachikhonghoanlai_dichvu"]).Value : new decimal(0);
+                trace.Trace("type : " + type.ToString());
+                if (type == 2)
+                {
+                    phanbodautuKHL["new_loaidautu"] = new OptionSetValue(100000000); // credit
+                    thuadatcanhtac["new_dachihoanlai_dichvu"] = new Money(sotien + dachihoanlai);
+                }
+                else if (type == 1)
+                {
+                    phanbodautuKHL["new_loaidautu"] = new OptionSetValue(100000002); // standard
+                    thuadatcanhtac["new_dachikhonghoanlai_dichvu"] = new Money(sotien + dachikhonghoanlai);
+                }
+
                 phanbodautuKHL["new_loaihopdong"] = new OptionSetValue(100000000);
                 phanbodautuKHL["new_hopdongdautumia"] = hddtmia.ToEntityReference();
-                trace.Trace("2");
                 phanbodautuKHL["new_thuacanhtac"] = new EntityReference("new_thuadatcanhtac", tdct);
                 phanbodautuKHL["new_vudautu"] = vudautu;
                 phanbodautuKHL["new_vuthanhtoan"] = vuthanhtoan;
@@ -165,7 +211,7 @@ namespace GenPBDT_NTDV
                 phanbodautuKHL["new_conlai"] = new Money(sotien);
                 phanbodautuKHL["new_tram"] = tram;
                 phanbodautuKHL["new_cbnv"] = cbnv;
-                phanbodautuKHL["new_loaidautu"] = new OptionSetValue(100000000);
+
                 phanbodautuKHL["new_ngayphatsinh"] = ngayduyet;
                 phanbodautuKHL["new_nghiemthudichvu"] = ntdichvu.ToEntityReference();
                 phanbodautuKHL["new_loailaisuat"] = new OptionSetValue(loailaisuat);
@@ -307,7 +353,7 @@ namespace GenPBDT_NTDV
             Entity rs = null;
 
             QueryExpression q = new QueryExpression("new_thuadatcanhtac");
-            q.ColumnSet = new ColumnSet(new string[] { "new_thuadatcanhtacid", "new_name" });
+            q.ColumnSet = new ColumnSet(new string[] { "new_thuadatcanhtacid", "new_name", "new_chinhsachdautu" });
             q.Criteria = new FilterExpression();
             q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, thuadat.Id));
             q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hdmia.Id));
@@ -319,6 +365,16 @@ namespace GenPBDT_NTDV
                 rs = entc.Entities[0];
 
             return rs;
+        }
+
+        EntityCollection RetrieveVudautu()
+        {
+            QueryExpression q = new QueryExpression("new_vudautu");
+            q.ColumnSet = new ColumnSet(true);
+
+            EntityCollection entc = service.RetrieveMultiple(q);
+
+            return entc;
         }
     }
 }

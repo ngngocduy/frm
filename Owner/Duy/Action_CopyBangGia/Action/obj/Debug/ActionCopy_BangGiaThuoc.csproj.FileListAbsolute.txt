@@ -8,3 +8,8 @@ D:\Duy\Action_CopyBangGia\Action\bin\Debug\Action.pdb
 D:\Duy\Action_CopyBangGia\Action\obj\Debug\Action.dll
 D:\Duy\Action_CopyBangGia\Action\obj\Debug\Action.pdb
 D:\Duy\Action_CopyBangGia\Action\obj\Debug\ActionCopy_BangGiaThuoc.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\Action\bin\Debug\Action.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\Action\bin\Debug\Action.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\Action\obj\Debug\ActionCopy_BangGiaThuoc.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\Action\obj\Debug\Action.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\Duy\Action_CopyBangGia\Action\obj\Debug\Action.pdb

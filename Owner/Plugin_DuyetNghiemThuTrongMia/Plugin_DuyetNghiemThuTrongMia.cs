@@ -44,6 +44,8 @@ namespace Plugin_DuyetNghiemThuTrongMia
                             q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, ((EntityReference)en["new_thuadat"]).Id));
                             q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hopdongdautumia.Id));
                             q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
+                            q.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+
                             EntityCollection entc = service.RetrieveMultiple(q);
 
                             if (entc.Entities.Count == 0)
@@ -68,14 +70,17 @@ namespace Plugin_DuyetNghiemThuTrongMia
                         trace.Trace("1");
                         QueryExpression q = new QueryExpression("new_thuadatcanhtac");
                         q.ColumnSet = new ColumnSet(new string[] { "new_chinhsachdautu", "new_dientichhopdong",
-                                "new_ngaytrong", "new_loaigocmia","new_dautuhoanlai","new_dautukhonghoanlai" });
+                                "new_ngaytrong", "new_loaigocmia","new_dautuhoanlai","new_dautukhonghoanlai","new_name" });
                         q.Criteria = new FilterExpression();
                         q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, ((EntityReference)a["new_thuadat"]).Id));
                         q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hopdongdautumia.Id));
+                        q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal,0));
+                        q.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+
                         EntityCollection entc = service.RetrieveMultiple(q);
 
                         Entity chitietHD = entc.Entities.ToList<Entity>().FirstOrDefault();
-
+                        
                         Entity newCT = service.Retrieve(chitietHD.LogicalName, chitietHD.Id,
                             new ColumnSet(new string[] { "new_tongchihoanlai", "new_dientichhopdong", "new_dientichthucte", "new_giongtrongthucte", "new_tongchikhonghoanlai",
                             "new_ngaythuhoachdukien","new_dinhmucdautuhoanlai_hientai",

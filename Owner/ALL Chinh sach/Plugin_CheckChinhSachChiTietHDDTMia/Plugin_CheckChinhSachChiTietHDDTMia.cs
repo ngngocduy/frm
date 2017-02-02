@@ -29,7 +29,64 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                 target = (Entity)context.InputParameters["Target"];
 
                 if (target.Contains("new_phuluchopdongid"))
+                {
                     co = false;
+
+                    Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", ((EntityReference)target["new_chinhsachdautu"]).Id,
+                        new ColumnSet(new string[] { "new_dinhmucdautuhoanlai" }));
+
+                    EntityCollection collTLTHV = FindTLTHVinCSDT(service, csdtKQEntity);
+
+                    //traceService.Trace("so record TLTHVDK " + collTLTHV.Entities.Count());
+                    //throw new Exception("chay plugin tim CSDT 1");
+
+                    if (collTLTHV != null && collTLTHV.Entities.Count > 0)
+                    {
+                        traceService.Trace("so record TLTHVDK " + collTLTHV.Entities.Count());
+
+                        foreach (Entity TLTHV in collTLTHV.Entities)
+                        {
+                            Entity tlthvdkHDCT = new Entity("new_tylethuhoivondukien");
+
+                            //EntityReference vudautuEntityRef = HDDTmia.GetAttributeValue<EntityReference>("new_vudautu");
+                            EntityReference hdctEntityRef = new EntityReference("new_thuadatcanhtac", target.Id);
+                            traceService.Trace("chi tiet HDDT ref");
+
+                            if (TLTHV.Contains("new_phantramtilethuhoi") && TLTHV.Contains("new_vuthuhoi") && csdtKQEntity.Contains("new_dinhmucdautuhoanlai"))
+                            {
+                                traceService.Trace("gen thu hoi du kien");
+
+                                EntityReference vdtRef = TLTHV.GetAttributeValue<EntityReference>("new_vuthuhoi");
+                                Entity vdt = service.Retrieve("new_vudautu", vdtRef.Id, new ColumnSet(new string[] { "new_name" }));
+
+                                traceService.Trace("gen thu hoi du kien 1");
+
+                                string tenvdt = vdt.Contains("new_name") ? vdt["new_name"].ToString() : "";
+                                string tenTLTHVDK = "Tỷ lệ thu hồi " + tenvdt;
+                                decimal tyle = (TLTHV.Contains("new_phantramtilethuhoi") ? (decimal)TLTHV["new_phantramtilethuhoi"] : 0);
+                                decimal sotienDTHL = (target.Contains("new_dautuhoanlai") ? target.GetAttributeValue<Money>("new_dautuhoanlai").Value : ((csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? ((Money)csdtKQEntity["new_dinhmucdautuhoanlai"]).Value : 0)) * (target.Contains("new_dientichhopdong") ? (decimal)target["new_dientichhopdong"] : (decimal)0));
+                                decimal sotien = (sotienDTHL * tyle) / 100;
+
+                                traceService.Trace("gen thu hoi du kien 2");
+
+                                Money sotienM = new Money(sotien);
+
+                                tlthvdkHDCT.Attributes.Add("new_name", tenTLTHVDK);
+                                tlthvdkHDCT.Attributes.Add("new_loaityle", new OptionSetValue(100000000));
+                                tlthvdkHDCT.Attributes.Add("new_chitiethddtmia", hdctEntityRef);
+                                tlthvdkHDCT.Attributes.Add("new_vudautu", vdtRef);
+                                tlthvdkHDCT.Attributes.Add("new_tylephantram", tyle);
+                                tlthvdkHDCT.Attributes.Add("new_sotienthuhoi", sotienM);
+
+                                service.Create(tlthvdkHDCT);
+                                traceService.Trace("tao xong thu hoi du kien");
+                            }
+                            traceService.Trace("tao xong thu hoi du kien  aa");
+                        }
+                        traceService.Trace("tao xong thu hoi du kien  bb");
+                    }
+                    //throw new Exception("Gan xong TLTHVDK");
+                }
                 else
                     co = true;
             }
@@ -68,7 +125,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                 Entity CTHDMia = service.Retrieve("new_thuadatcanhtac", target.Id, new ColumnSet(new string[] {
                     "new_hopdongdautumia","new_giongmia","new_thuadat","new_khachhang","new_khachhangdoanhnghiep","createdon",
                     "new_loaisohuudat", "new_loaigocmia","new_luugoc","new_thamgiamohinhkhuyennong","new_vutrong","new_mucdichsanxuatmia",
-                    "new_dientichhopdong", "new_nhomculy","new_dongiahopdong","new_dongiahopdongkhl"  }));
+                    "new_dientichhopdong", "new_nhomculy","new_dongiahopdong","new_dongiahopdongkhl" ,"new_dongiaphanbonhd" }));
                 if (!CTHDMia.Contains("new_hopdongdautumia")) throw new Exception("Chi tiết HĐĐT mía chưa gắn với hợp đồng ĐT mía !");
                 Entity HDDTMia = service.Retrieve("new_hopdongdautumia", ((EntityReference)CTHDMia["new_hopdongdautumia"]).Id, new ColumnSet(new string[] { "new_vudautu", "new_chinhantienmat" }));
                 if (!CTHDMia.Contains("new_giongmia")) throw new Exception("Chi tiết HĐĐT mía chưa có thông tin giống mía dự kiến !");
@@ -119,7 +176,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                         }
                     }
                 }
-                
+
                 if (CSDautu == null || CSTamUng == null || CSThamCanh == null)
                 {
                     StringBuilder qChinhSach = new StringBuilder();
@@ -272,7 +329,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                                     //traceService.Trace(n["new_path"].ToString() + " -" + diachi["new_path"].ToString().Contains(n["new_path"].ToString()));
                                     if (!diachi.Contains("new_path"))
                                         continue;
-                                    
+
                                     if (diachi["new_path"].ToString().Contains(n["new_path"].ToString()))
                                     {
                                         check = true;
@@ -407,12 +464,12 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
                             traceService.Trace("Pass mô hình khuyến nông");
 
-                            
+
                             EntityCollection lstHopdongmia = RetrieveNNRecord(service, "new_hopdongdautumia", "new_chinhsachdautu",
                                 "new_new_chinhsachdautu_new_hopdongdautumia", new ColumnSet(true), "new_chinhsachdautuid", cs.Id);
                             traceService.Trace("hop dong ung von : " + lstHopdongmia.Entities.Count.ToString());
-                            
-                            if(lstHopdongmia.Entities.Count > 0)
+
+                            if (lstHopdongmia.Entities.Count > 0)
                             {
                                 bool check = false;
 
@@ -437,7 +494,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
 
                             #endregion
                         }
-                        //throw new Exception("dsa");
+
                         DateTime maxdate0 = new DateTime(1, 1, 1);
                         DateTime maxdate1 = new DateTime(1, 1, 1);
                         DateTime maxdate4 = new DateTime(1, 1, 1);
@@ -729,7 +786,7 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     if (dsCSBS.Entities.Count > 0)
                         service.Associate("new_thuadatcanhtac", CTHDMia.Id, new Relationship("new_new_thuadatcanhtac_new_chinhsachdautuct"), fCSBS);
                     traceService.Trace(tBSHL.ToString() + "-" + tBSKHL.ToString());
-                    
+
                     #endregion
 
                     /////////////// Lay CSDT bổ sung điền field Định mức bổ sung tối đa, không xét đk nghiệm thu
@@ -889,33 +946,35 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
                     traceService.Trace("new_dongiadautukhonghoanlai");//"new_dongiahopdong","new_dongiahopdongkhl" 
                     decimal dinhmuchlhientai = CTHDMia.Contains("new_dongiahopdong")
-                        ? ((Money) CTHDMia["new_dongiahopdong"]).Value
-                        : ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value;
-
+                        ? ((Money)CTHDMia["new_dongiahopdong"]).Value
+                        : (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0);
+                    traceService.Trace("1");
                     decimal dinhmuckhlhientai = CTHDMia.Contains("new_dongiahopdongkhl")
                         ? ((Money)CTHDMia["new_dongiahopdongkhl"]).Value
-                        : ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value;
-
+                        : (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0);
+                    traceService.Trace("2");
+                    decimal dinhmucphanbonhientai = CTHDMia.Contains("new_dongiaphanbonhd")
+                        ? ((Money)CTHDMia["new_dongiaphanbonhd"]).Value
+                        : (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0);
+                    traceService.Trace("3");
                     up["new_dongiahopdong"] = new Money(tBSHL + dinhmuchlhientai);
                     up["new_dongiahopdongkhl"] = new Money(tBSKHL + dinhmuckhlhientai);
                     up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
-                    traceService.Trace("new_dinhmucdautukhonghoanlai");
-
-                    traceService.Trace("new_dongiadautuhoanlai");
+                    
                     up["new_dinhmucdautuhoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautuhoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautuhoanlai");
 
                     if (!(HDDTMia.Contains("new_chinhantienmat") && (bool)HDDTMia["new_chinhantienmat"]))
                     {
                         up["new_dongiaphanbontoithieu"] = new Money(tPB + (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0));
-                        up["new_dongiaphanbonhd"] = new Money(tPB + (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0));
+                        up["new_dongiaphanbonhd"] = new Money(tPB + dinhmucphanbonhientai);
                         traceService.Trace("new_dongiaphanbontoithieu");
                         up["new_dinhmucphanbontoithieu"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : new decimal(0)) * ((Money)up["new_dongiaphanbontoithieu"]).Value);
                         traceService.Trace("new_dinhmucphanbontoithieu");
                     }
 
                     up["new_dinhmucdautu"] = new Money(((Money)up["new_dinhmucdautukhonghoanlai"]).Value + ((Money)up["new_dinhmucdautuhoanlai"]).Value);
-                    
+
                     traceService.Trace("new_dinhmucdautu");
 
                     // Gen ty le thu hoi von du kien

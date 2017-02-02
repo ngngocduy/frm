@@ -292,43 +292,43 @@ namespace Plugin_PDK_PhanBon
             sum_current_ct_pdk(pdkRef, ref dkhl, ref dkkhl);
             decimal t1 = 0;
 
-            if (dkkhl > 0)
-            {
-                if (dkkhl <= deNghiKhl)
-                {
-                    tmpPdk["new_denghi_khonghoanlai"] = new Money(dkkhl);
-                    traceService.Trace("1");
-                }
-                else
-                {
-                    throw new Exception("Số tiền không được vượt quá định mức chi");
-                    tmpPdk["new_denghi_khonghoanlai"] = new Money(deNghiKhl);
-                    t1 = dkkhl - deNghiKhl;
-                }
-            }
-            dkhl = dkhl + t1;
-            if (dkhl > 0)
-            {
-                if (dkhl <= deNghiVt)
-                    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(dkhl);
-                else
-                {
-                    throw new Exception("Số tiền không được vượt quá định mức chi");
-                    decimal t2 = dkhl - deNghiVt;
-                    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(deNghiVt);
-                    if (t2 <= deNghiTmHl)
-                        tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(t2);
-                    else
-                        tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
-                }
-            }
+            //if (dkkhl > 0)
+            //{
+            //    if (dkkhl <= deNghiKhl)
+            //    {
+            //        tmpPdk["new_denghi_khonghoanlai"] = new Money(dkkhl);
+            //        traceService.Trace("1");
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("Số tiền không được vượt quá định mức chi");
+            //        tmpPdk["new_denghi_khonghoanlai"] = new Money(deNghiKhl);
+            //        t1 = dkkhl - deNghiKhl;
+            //    }
+            //}
+            //dkhl = dkhl + t1;
+            //if (dkhl > 0)
+            //{
+            //    if (dkhl <= deNghiVt)
+            //        tmpPdk["new_denghi_hoanlai_vattu"] = new Money(dkhl);
+            //    else
+            //    {
+            //        throw new Exception("Số tiền không được vượt quá định mức chi");
+            //        decimal t2 = dkhl - deNghiVt;
+            //        tmpPdk["new_denghi_hoanlai_vattu"] = new Money(deNghiVt);
+            //        if (t2 <= deNghiTmHl)
+            //            tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(t2);
+            //        else
+            //            tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(deNghiTmHl);
+            //    }
+            //}
 
-            if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
-                tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
-            if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))
-                tmpPdk["new_denghi_hoanlai_vattu"] = new Money(0);
-            if (!tmpPdk.Contains("new_denghi_khonghoanlai"))
-                tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_hoanlai_tienmat"))
+            //    tmpPdk["new_denghi_hoanlai_tienmat"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_hoanlai_vattu"))
+            //    tmpPdk["new_denghi_hoanlai_vattu"] = new Money(0);
+            //if (!tmpPdk.Contains("new_denghi_khonghoanlai"))
+            //    tmpPdk["new_denghi_khonghoanlai"] = new Money(0);
 
             service.Update(tmpPdk);
         }

@@ -5,3 +5,9 @@ c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM
 c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.csprojResolveAssemblyReference.cache
 c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.dll
 c:\users\duy\documents\visual studio 2015\Projects\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\PTTM_Phuongthucthanhtoan.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\PTTM_Phuongthucthanhtoan.pdb
+C:\Users\Duy\Documents\Duy\frm\Owner\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Duy\Documents\Duy\frm\Owner\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.csprojResolveAssemblyReference.cache
+C:\Users\Duy\Documents\Duy\frm\Owner\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.dll
+C:\Users\Duy\Documents\Duy\frm\Owner\PTTM_Phuongthucthanhtoan\PTTM_Phuongthucthanhtoan\obj\Debug\PTTM_Phuongthucthanhtoan.pdb

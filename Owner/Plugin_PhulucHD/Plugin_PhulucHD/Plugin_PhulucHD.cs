@@ -126,6 +126,15 @@ namespace Plugin_PhulucHD
                                     thuadatcanhtac["new_dautukhonghoanlai"] =
                                         en.Contains("new_dautukhonghoanlai") ? en["new_dautukhonghoanlai"] : new Money(0);
 
+                                    thuadatcanhtac["new_conlai_hoanlai"] =
+                                        en.Contains("new_dautuhoanlai") ? en["new_dautuhoanlai"] : new Money(0);
+
+                                    thuadatcanhtac["new_conlai_khonghoanlai"] =
+                                        en.Contains("new_dautukhonghoanlai") ? en["new_dautukhonghoanlai"] : new Money(0);
+
+                                    thuadatcanhtac["new_conlai_phanbontoithieu"] =
+                                        en.Contains("new_dinhmucphanbontoithieu") ? en["new_dinhmucphanbontoithieu"] : new Money(0);
+
                                     thuadatcanhtac["new_tongchiphidautu"] =
                                         en.Contains("new_tongchiphidautu") ? en["new_tongchiphidautu"] : new Money(0);
 
