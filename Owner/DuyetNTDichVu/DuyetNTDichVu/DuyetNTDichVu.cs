@@ -73,7 +73,7 @@ namespace DuyetNTDichVu
 
                         tdctUpdate["new_dachihoanlai_dichvu"] = en.Contains("new_tienthanhtoan") ? en["new_tienthanhtoan"] : new Money(0);
 
-                        service.Update(tdctUpdate);
+                        //service.Update(tdctUpdate);
                         tylethanhtoan += en.Contains("new_tieuchuancongviec") ? (decimal)en["new_tieuchuancongviec"] : 0;
                     }
 
@@ -99,20 +99,32 @@ namespace DuyetNTDichVu
                 {
                     traceService.Trace("chay else");
                     Entity ntdichvu = service.Retrieve(target.LogicalName, target.Id,
-                        new ColumnSet(new string[] { "new_phieudangkydichvu", "new_hopdongcungungdichvu", "subject" }));
-
-                    Entity hdcudv = service.Retrieve("new_hopdongcungungdichvu",
-                        ((EntityReference)ntdichvu["new_hopdongcungungdichvu"]).Id, new ColumnSet(new string[] { "new_sohopdong" }));
-
-                    traceService.Trace("lay nt dich vu");
+                        new ColumnSet(new string[] { "new_phieudangkydichvu",
+                            "new_hopdongcungungdichvu", "subject","new_doitactcungcapdichvu","new_doitactcungcapdichvukhdn" }));
+                    
                     if (!ntdichvu.Contains("new_phieudangkydichvu") || ntdichvu["new_phieudangkydichvu"] == null)
-                    {
                         return;
-                    }
 
                     Entity pdkDichvu = service.Retrieve("new_phieudangkydichvu", ((EntityReference)ntdichvu["new_phieudangkydichvu"]).Id,
-                        new ColumnSet(new string[] { "new_danghiemthu", "new_name" }));
-                    traceService.Trace("lay pdk dich vu");
+                        new ColumnSet(new string[] { "new_danghiemthu", "new_name",
+                            "new_hopdongcungcapdichvu","new_doitaccungcapdichvukh","new_doitaccungcapdichvukhdn" }));
+
+                    if (!pdkDichvu.Contains("new_hopdongcungcapdichvu"))
+                        throw new Exception("Phiếu đăng ký dịch vụ không có hợp đồng cung cấp dịch vụ");
+
+                    ntdichvu["new_hopdongcungungdichvu"] = pdkDichvu["new_hopdongcungcapdichvu"];
+
+                    if (pdkDichvu.Contains("new_doitaccungcapdichvukh"))
+                        ntdichvu["new_doitactcungcapdichvu"] = pdkDichvu["new_doitaccungcapdichvukh"];
+
+                    if (pdkDichvu.Contains("new_doitaccungcapdichvukhdn"))
+                        ntdichvu["new_doitactcungcapdichvukhdn"] = pdkDichvu["new_doitaccungcapdichvukhdn"];
+
+                    service.Update(ntdichvu);                    
+
+                    Entity hdcudv = service.Retrieve("new_hopdongcungungdichvu",
+                        ((EntityReference)pdkDichvu["new_hopdongcungcapdichvu"]).Id, new ColumnSet(new string[] { "new_sohopdong" }));
+
                     if (pdkDichvu.Contains("new_danghiemthu") && (decimal)pdkDichvu["new_danghiemthu"] >= 100)
                         throw new Exception(pdkDichvu["new_name"].ToString() + " đã nghiệm thu xong");
 
@@ -120,10 +132,10 @@ namespace DuyetNTDichVu
                     q.ColumnSet = new ColumnSet(true);
                     q.Criteria = new FilterExpression();
                     q.Criteria.AddCondition(new ConditionExpression("new_phieudangkydichvu", ConditionOperator.Equal, pdkDichvu.Id));
-                    //q.Criteria.AddCondition(new ConditionExpression("new_danghiemthu", ConditionOperator.Equal, false));
+                    
                     EntityCollection entc = service.RetrieveMultiple(q);
                     traceService.Trace("retrieve chi tiet dk dich vu");
-                    //throw new Exception(entc.Entities.Count.ToString());
+                    
                     List<Entity> lstChitietDKDVCu = RetrieveMultiRecord(service, "new_chitietnghiemthudichvu",
                         new ColumnSet(new string[] { "new_chitietnghiemthudichvuid" }), "new_nghiemthudichvu", ntdichvu.Id);
 
@@ -134,7 +146,7 @@ namespace DuyetNTDichVu
 
                     int i = 1;
                     string[] ntdvName = ntdichvu["subject"].ToString().Split('-');
-                    traceService.Trace(entc.Entities.Count.ToString());
+
                     foreach (Entity t in entc.Entities)
                     {
                         Entity temp = new Entity("new_chitietnghiemthudichvu");
@@ -159,7 +171,6 @@ namespace DuyetNTDichVu
                         if (t.Contains("new_dongia")) // don gia
                             temp["new_dongia"] = t["new_dongia"];
 
-
                         if (t.Contains("new_soluong")) // so luong
                             temp["new_khoiluongthuchien"] = t["new_soluong"];
 
@@ -179,14 +190,10 @@ namespace DuyetNTDichVu
                         }
 
                         if (t.Contains("new_sotienhl"))
-                        {
                             temp["new_sotienhl"] = t["new_sotienhl"];
-                        }
 
                         if (t.Contains("new_sotienkhl"))
-                        {
                             temp["new_sotienkhl"] = t["new_sotienkhl"];
-                        }
 
                         service.Create(temp);
                         i++;
@@ -195,8 +202,6 @@ namespace DuyetNTDichVu
                         //throw new Exception(((EntityReference)temp["new_nghiemthudichvu"]).LogicalName + "-" + ((Money)temp["new_thanhtien"]).Value.ToString()
                         //    + ntdichvu["subject"].ToString());
                     }
-
-
                 }
             }
         }

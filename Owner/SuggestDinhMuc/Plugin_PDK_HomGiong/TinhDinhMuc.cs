@@ -136,9 +136,8 @@ namespace Plugin_PDK_HomGiong
                     #endregion
 
                     gnhltm += cthd.Contains("new_dachihoanlai_tienmat") ? ((Money)cthd["new_dachihoanlai_tienmat"]).Value : 0;
-                    gnhltm += cthd.Contains("new_dachihoanlai_dichvu") ? ((Money)cthd["new_dachihoanlai_dichvu"]).Value : 0;
-
-                    gnhlvt = cthd.Contains("new_dachihoanlai_homgiong") ? ((Money)cthd["new_dachihoanlai_homgiong"]).Value : 0;
+                    gnhlvt += cthd.Contains("new_dachihoanlai_dichvu") ? ((Money)cthd["new_dachihoanlai_dichvu"]).Value : 0;
+                    gnhlvt += cthd.Contains("new_dachihoanlai_homgiong") ? ((Money)cthd["new_dachihoanlai_homgiong"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_phanbon") ? ((Money)cthd["new_dachihoanlai_phanbon"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
                     gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
@@ -622,24 +621,26 @@ namespace Plugin_PDK_HomGiong
             khl = tmp0hl;
         }
 
-        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tyleGNvattu)
+        private void GetTyle(Guid chinhsach, int ttNT, bool yeucau, ref decimal tylegnvattu)
         {
-            //decimal tyle = 0;
+            decimal tyle = 0;
 
             QueryExpression q1 = new QueryExpression("new_dinhmucdautu");
             q1.ColumnSet = new ColumnSet(true);
-            q1.Criteria.AddCondition(new ConditionExpression("new_yeucauphanbon", ConditionOperator.LessEqual, ttNT));
+            q1.Criteria.AddCondition(new ConditionExpression("new_yeucau", ConditionOperator.LessEqual, ttNT));
             q1.Criteria.AddCondition(new ConditionExpression("new_chinhsachdautu", ConditionOperator.Equal, chinhsach));
 
             foreach (Entity a in service.RetrieveMultiple(q1).Entities)
             {
                 if (!yeucau)
-                    tyleGNvattu += (decimal)a["new_phantramtilegiaingan"];
+                    tyle += (decimal)a["new_phantramtilegiaingan"];
                 else
                 {
-                    tyleGNvattu += (decimal)a["new_tyleyc"];
+                    tyle += (decimal)a["new_tyleyc"];
                 }
             }
+
+            tylegnvattu = 100 - tyle;
         }
 
         private void sum_pdkNT(EntityReference hd, EntityReference pdkRef, ref decimal hlTM, ref decimal hlVT, ref decimal KHL, int type, string fieldNT, Guid pNT)

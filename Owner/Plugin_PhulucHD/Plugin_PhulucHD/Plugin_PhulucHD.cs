@@ -166,33 +166,25 @@ namespace Plugin_PhulucHD
 
                             #region tang dinh muc
                             //Loại phụ lục Tăng định mức
-                            if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000001")
-                            {
-                                EntityCollection dsChitietHD = FindchitietHD(service, HDDTmia);
+                            List<Entity> lstPhuluctangdinhmuc = RetrieveMultiRecord(service, "new_phuluchopdong_tangdinhmuc",
+                                    new ColumnSet(true), "new_phuluchopdong", PhulucHD.Id);
 
-                                if (dsChitietHD != null && dsChitietHD.Entities.Count > 0)
-                                {
-                                    foreach (Entity ctHD in dsChitietHD.Entities)
-                                    {
-                                        decimal dtHL = (ctHD.Contains("new_dautuhoanlai") ? ctHD.GetAttributeValue<Money>("new_dautuhoanlai").Value : 0);
-                                        // Mía tơ
-                                        if (ctHD.Contains("new_loaigocmia") && ctHD.GetAttributeValue<OptionSetValue>("new_loaigocmia").Value.ToString() == "100000000")
-                                        {
-                                            dtHL += (PhulucHD.Contains("new_sotientangchomiato") ? PhulucHD.GetAttributeValue<Money>("new_sotientangchomiato").Value : 0);
-                                            Money MdtHL = new Money(dtHL);
-                                            ctHD["new_dautuhoanlai"] = MdtHL;
-                                        }
-                                        // Mía gốc
-                                        if (ctHD.Contains("new_loaigocmia") && ctHD.GetAttributeValue<OptionSetValue>("new_loaigocmia").Value.ToString() == "100000001")
-                                        {
-                                            dtHL += (PhulucHD.Contains("new_sotientangchomiagoc") ? PhulucHD.GetAttributeValue<Money>("new_sotientangchomiagoc").Value : 0);
-                                            Money MdtHL = new Money(dtHL);
-                                            ctHD["new_dautuhoanlai"] = MdtHL;
-                                        }
-                                        service.Update(ctHD);
-                                    }
-                                }
-                            } // End if Loại phụ lục Tăng định mức
+                            foreach (Entity en in lstPhuluctangdinhmuc)
+                            {
+                                QueryExpression q = new QueryExpression("new_thuadatcanhtac");
+                                q.ColumnSet = new ColumnSet(new string[] { "new_chinhsachdautu", "new_dientichhopdong",
+                                "new_ngaytrong", "new_loaigocmia","new_dautuhoanlai","new_dautukhonghoanlai","new_name" });
+                                q.Criteria = new FilterExpression();
+                                q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, ((EntityReference)en["new_thuadat"]).Id));
+                                q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, HDDTmiaRef.Id));
+                                q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
+                                q.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+
+                                EntityCollection entc = service.RetrieveMultiple(q);
+
+                                Entity chitietHD = entc.Entities.ToList<Entity>().FirstOrDefault();
+                            }
+
                             #endregion
 
                             // Loại phụ lục Gốc sang Tơ

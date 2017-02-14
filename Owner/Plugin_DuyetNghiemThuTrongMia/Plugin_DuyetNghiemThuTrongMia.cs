@@ -39,7 +39,8 @@ namespace Plugin_DuyetNghiemThuTrongMia
                         if (en.Contains("new_thuadat"))
                         {
                             QueryExpression q = new QueryExpression("new_thuadatcanhtac");
-                            q.ColumnSet = new ColumnSet(new string[] { "new_trangthainghiemthu", "statuscode", "new_name", "new_hopdongdautumia" });
+                            q.ColumnSet = new ColumnSet(new string[] { "new_trangthainghiemthu", "statuscode",
+                                "new_name", "new_hopdongdautumia" });
                             q.Criteria = new FilterExpression();
                             q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, ((EntityReference)en["new_thuadat"]).Id));
                             q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, hopdongdautumia.Id));
@@ -57,7 +58,7 @@ namespace Plugin_DuyetNghiemThuTrongMia
 
                             newCTHDDTM["new_trangthainghiemthu"] = new OptionSetValue(lannghiemthu + 2);
                             service.Update(newCTHDDTM);
-                            //throw new Exception(newCTHDDTM["new_name"].ToString());
+                            
                             trace.Trace("Update chi tiet thành công");
                         }
                     }

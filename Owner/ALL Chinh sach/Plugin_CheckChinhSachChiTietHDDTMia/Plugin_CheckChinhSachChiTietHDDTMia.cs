@@ -945,22 +945,27 @@ namespace Plugin_CheckChinhSachChiTietHDDTMia
                     up["new_dongiadautukhonghoanlai"] = new Money(tBSKHL + (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0));
                     up["new_dongiadautuhoanlai"] = new Money(tBSHL + (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0));
                     traceService.Trace("new_dongiadautukhonghoanlai");//"new_dongiahopdong","new_dongiahopdongkhl" 
-                    decimal dinhmuchlhientai = CTHDMia.Contains("new_dongiahopdong")
-                        ? ((Money)CTHDMia["new_dongiahopdong"]).Value
-                        : (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0);
-                    traceService.Trace("1");
-                    decimal dinhmuckhlhientai = CTHDMia.Contains("new_dongiahopdongkhl")
-                        ? ((Money)CTHDMia["new_dongiahopdongkhl"]).Value
-                        : (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0);
-                    traceService.Trace("2");
+                    //decimal dinhmuchlhientai = CTHDMia.Contains("new_dongiahopdong")
+                        //? ((Money)CTHDMia["new_dongiahopdong"]).Value
+                        //: (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0);
+
+                    decimal dinhmuchlhientai =
+                    (CSDautu.Contains("new_dinhmucdautuhoanlai") ? ((Money)CSDautu["new_dinhmucdautuhoanlai"]).Value : 0);
+
+                    //decimal dinhmuckhlhientai = CTHDMia.Contains("new_dongiahopdongkhl")
+                       //? ((Money)CTHDMia["new_dongiahopdongkhl"]).Value
+                        //: (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0);
+
+                    decimal dinhmuckhlhientai =
+                    (CSDautu.Contains("new_dinhmucdautukhonghoanlai") ? ((Money)CSDautu["new_dinhmucdautukhonghoanlai"]).Value : 0);
+                    
                     decimal dinhmucphanbonhientai = CTHDMia.Contains("new_dongiaphanbonhd")
                         ? ((Money)CTHDMia["new_dongiaphanbonhd"]).Value
                         : (CSDautu.Contains("new_dinhmucphanbontoithieu") ? ((Money)CSDautu["new_dinhmucphanbontoithieu"]).Value : 0);
-                    traceService.Trace("3");
+
                     up["new_dongiahopdong"] = new Money(tBSHL + dinhmuchlhientai);
                     up["new_dongiahopdongkhl"] = new Money(tBSKHL + dinhmuckhlhientai);
                     up["new_dinhmucdautukhonghoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautukhonghoanlai"]).Value);
-                    
                     up["new_dinhmucdautuhoanlai"] = new Money((CTHDMia.Contains("new_dientichhopdong") ? (decimal)CTHDMia["new_dientichhopdong"] : (decimal)0) * ((Money)up["new_dongiadautuhoanlai"]).Value);
                     traceService.Trace("new_dinhmucdautuhoanlai");
 
