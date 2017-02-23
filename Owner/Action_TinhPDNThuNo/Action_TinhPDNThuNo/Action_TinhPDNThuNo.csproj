@@ -37,10 +37,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xrm.Sdk">
-      <HintPath>..\..\..\..\..\Downloads\Duy\SDK\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
+      <HintPath>..\..\ALL Chinh sach\Plugin_ThemCSDTvaoCTGiaiNgan\Plugin_ThemCSDTvaoCTGiaiNgan\bin\Debug\Microsoft.Xrm.Sdk.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

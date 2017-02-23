@@ -285,7 +285,9 @@ namespace Workflow_TinhdiemKH
             bool isNoquahan = false;
 
             //Entity vudautuhientai = RetrieveSingleRecord(service, "new_vudautu", new ColumnSet(true), "new_danghoatdong", true);
-            Entity tieuchiphannhomKH = RetrieveSingleRecord(service, "new_tieuchiphannhomkhachhang", new ColumnSet(new string[] { "new_tytrong_tght", "new_tytrong_nsbq", "new_tytrong_clbq", "new_tytrong_qmdt", "new_tytrong_nqh", "new_tytrong_nltc", "new_name" }), "new_vudautu", target.Id);
+            Entity tieuchiphannhomKH = RetrieveSingleRecord(service, "new_tieuchiphannhomkhachhang",
+                new ColumnSet(new string[] { "new_tytrong_tght", "new_tytrong_nsbq", "new_tytrong_clbq",
+                    "new_tytrong_qmdt", "new_tytrong_nqh", "new_tytrong_nltc", "new_name" }), "new_vudautu", target.Id);
 
             if (tieuchiphannhomKH == null || tieuchiphannhomKH.Id == Guid.Empty)
                 throw new Exception("Không có tiêu chi phân nhóm khách hàng cho vụ hiện tại");

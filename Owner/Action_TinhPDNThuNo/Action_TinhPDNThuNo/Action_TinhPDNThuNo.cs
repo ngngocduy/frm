@@ -160,13 +160,12 @@ namespace Action_TinhPDNThuNo
             else if (target.Contains("new_khachhangdoanhnghiep"))
                 q.Criteria.AddCondition(new ConditionExpression("new_khachhangdoanhnghiep", ConditionOperator.Equal,
                     ((EntityReference)target["new_khachhangdoanhnghiep"]).Id));
+
             FilterExpression f1 = new FilterExpression(LogicalOperator.Or);
             f1.AddCondition(new ConditionExpression("new_conlai", ConditionOperator.Null));
             f1.AddCondition(new ConditionExpression("new_conlai", ConditionOperator.GreaterThan, decimal.Zero));
-            //FilterExpression f2 = new FilterExpression(LogicalOperator.And);
-            //f2.AddCondition(new ConditionExpression("new_loaidautu", ConditionOperator.Equal, 100000000));
+
             q.Criteria.AddFilter(f1);
-            //q.Criteria.AddFilter(f2);
             q.AddOrder("new_ngayphatsinh", OrderType.Ascending);
             q.Criteria.AddCondition("statecode", ConditionOperator.Equal, 0);
 

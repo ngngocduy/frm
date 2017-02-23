@@ -134,22 +134,16 @@ namespace Plugin_PDK_HomGiong
                     service.Create(ct_pdk);
 
                     #endregion
-
-                    gnhltm += cthd.Contains("new_dachihoanlai_tienmat") ? ((Money)cthd["new_dachihoanlai_tienmat"]).Value : 0;
-                    gnhlvt += cthd.Contains("new_dachihoanlai_dichvu") ? ((Money)cthd["new_dachihoanlai_dichvu"]).Value : 0;
-                    gnhlvt += cthd.Contains("new_dachihoanlai_homgiong") ? ((Money)cthd["new_dachihoanlai_homgiong"]).Value : 0;
-                    gnhlvt += cthd.Contains("new_dachihoanlai_phanbon") ? ((Money)cthd["new_dachihoanlai_phanbon"]).Value : 0;
-                    gnhlvt += cthd.Contains("new_dachihoanlai_thuoc") ? ((Money)cthd["new_dachihoanlai_thuoc"]).Value : 0;
-                    gnhlvt += cthd.Contains("new_dachihoanlai_vattukhac") ? ((Money)cthd["new_dachihoanlai_vattukhac"]).Value : 0;
-                    gn0hl += cthd.Contains("new_dachikhonghoanlai_tienmat") ? ((Money)cthd["new_dachikhonghoanlai_tienmat"]).Value : 0;
-                    //traceService.Trace(dmhlvtT.ToString() + "-" + dmhl.ToString() + "-" + tyleGNVattu.ToString() + "-" + tyleGNtienmat.ToString());
-                    traceService.Trace(gnhlvt.ToString());
+                    
                 }
 
+                traceService.Trace("gn0hl : " + gn0hl.ToString());
                 Sum_pdn(ref gnhltm, ref gn0hl, hdRef);
-                traceService.Trace(gnhlvt.ToString());
+                traceService.Trace("gn0hl : " + gn0hl.ToString());
                 sum_pdk(hdRef, pdkRef, ref gnhltm, ref gnhlvt, ref gn0hl);
-                traceService.Trace(gnhlvt.ToString());
+                traceService.Trace("gn0hl : " + gn0hl.ToString());
+                sum_pgn(hdRef, ref gnhlvt, ref gn0hl);
+                traceService.Trace("gn0hl : " + gn0hl.ToString());
             }
             else
             {
@@ -582,6 +576,186 @@ namespace Plugin_PDK_HomGiong
             }
             tm += sum_tm;
             khl += sum_khl;
+        }
+
+        private void sum_pgn(EntityReference hd, ref decimal hlVT, ref decimal KHL)
+        {
+            decimal sumhlTM = 0;
+            decimal sumhlVT = 0;
+            decimal sumKHL = 0;
+            #region sub
+            //dang ky hom giong
+            StringBuilder fetch = new StringBuilder();
+            fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
+            fetch.AppendFormat("<entity name='new_phieugiaonhanhomgiong'>");
+            fetch.AppendFormat("<attribute name='new_tongsotienhl' alias='hlvt' aggregate='sum' />");
+            fetch.AppendFormat("<attribute name='new_tongsotienkhl' alias='khl' aggregate='sum' />");
+            fetch.AppendFormat("<filter type='and'>");
+            fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+
+            fetch.AppendFormat("</filter>");
+            fetch.AppendFormat("</entity>");
+            fetch.AppendFormat("</fetch>");
+            EntityCollection etnc = service.RetrieveMultiple(new FetchExpression(fetch.ToString()));
+            if (etnc.Entities.Count > 0)
+            {
+                Entity tmp = etnc.Entities[0];
+
+                if (tmp.Contains("hlvt"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["hlvt"];
+                    if (als.Value != null)
+                        sumhlVT += ((Money)((AliasedValue)tmp["hlvt"]).Value).Value;
+                }
+                if (tmp.Contains("khl"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["khl"];
+                    if (als.Value != null)
+                        sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
+                }
+            }
+
+            //dang ky phan bon
+            fetch.Clear();
+            fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
+            fetch.AppendFormat("<entity name='new_phieugiaonhanphanbon'>");
+
+            fetch.AppendFormat("<attribute name='new_tongsotienhl' alias='hlvt' aggregate='sum' />");
+            fetch.AppendFormat("<attribute name='new_tongsotienkhl' alias='khl' aggregate='sum' />");
+            fetch.AppendFormat("<filter type='and'>");
+            fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+
+            fetch.AppendFormat("</filter>");
+            fetch.AppendFormat("</entity>");
+            fetch.AppendFormat("</fetch>");
+            etnc = service.RetrieveMultiple(new FetchExpression(fetch.ToString()));
+            if (etnc.Entities.Count > 0)
+            {
+                Entity tmp = etnc.Entities[0];
+
+                if (tmp.Contains("hlvt"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["hlvt"];
+                    if (als.Value != null)
+                        sumhlVT += ((Money)((AliasedValue)tmp["hlvt"]).Value).Value;
+                }
+                if (tmp.Contains("khl"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["khl"];
+                    if (als.Value != null)
+                        sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
+                }
+            }
+
+            //dang ky thuoc
+            fetch.Clear();
+            fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
+            fetch.AppendFormat("<entity name='new_phieugiaonhanthuoc'>");
+            fetch.AppendFormat("<attribute name='new_tongsotienhl' alias='hlvt' aggregate='sum' />");
+            fetch.AppendFormat("<attribute name='new_tongsotienkhl' alias='khl' aggregate='sum' />");
+
+            fetch.AppendFormat("<filter type='and'>");
+            fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+
+            fetch.AppendFormat("</filter>");
+            fetch.AppendFormat("</entity>");
+            fetch.AppendFormat("</fetch>");
+            etnc = service.RetrieveMultiple(new FetchExpression(fetch.ToString()));
+            if (etnc.Entities.Count > 0)
+            {
+                Entity tmp = etnc.Entities[0];
+
+                if (tmp.Contains("hlvt"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["hlvt"];
+                    if (als.Value != null)
+                        sumhlVT += ((Money)((AliasedValue)tmp["hlvt"]).Value).Value;
+                }
+                if (tmp.Contains("khl"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["khl"];
+                    if (als.Value != null)
+                        sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
+                }
+            }
+
+            //dang ky vat tu
+            fetch.Clear();
+            fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
+            fetch.AppendFormat("<entity name='new_phieugiaonhanvattu'>");
+
+            fetch.AppendFormat("<attribute name='new_tongsotienhl' alias='hlvt' aggregate='sum' />");
+            fetch.AppendFormat("<attribute name='new_tongsotienkhl' alias='khl' aggregate='sum' />");
+
+            fetch.AppendFormat("<filter type='and'>");
+            fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+
+            fetch.AppendFormat("</filter>");
+            fetch.AppendFormat("</entity>");
+            fetch.AppendFormat("</fetch>");
+            etnc = service.RetrieveMultiple(new FetchExpression(fetch.ToString()));
+            if (etnc.Entities.Count > 0)
+            {
+                Entity tmp = etnc.Entities[0];
+
+                if (tmp.Contains("hlvt"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["hlvt"];
+                    if (als.Value != null)
+                        sumhlVT += ((Money)((AliasedValue)tmp["hlvt"]).Value).Value;
+                }
+                if (tmp.Contains("khl"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["khl"];
+                    if (als.Value != null)
+                        sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
+                }
+            }
+
+            //dang ky dich vu
+            fetch.Clear();
+            fetch.AppendFormat("<fetch mapping='logical' aggregate='true' version='1.0'>");
+            fetch.AppendFormat("<entity name='new_nghiemthudichvu'>");
+            fetch.AppendFormat("<attribute name='new_qd_dautuhl_vattu' alias='hlvt' aggregate='sum' />");
+            fetch.AppendFormat("<attribute name='new_qd_dautukhl' alias='khl' aggregate='sum' />");
+
+            fetch.AppendFormat("<filter type='and'>");
+            fetch.AppendFormat("<condition attribute='new_hopdongdautumia' operator='eq' value='{0}'/>", hd.Id);
+            fetch.AppendFormat("</filter>");
+
+            fetch.AppendFormat("<filter type='or'>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='1'/>");
+            fetch.AppendFormat("<condition attribute='statuscode' operator='eq' value='100000000'/>");
+            fetch.AppendFormat("</filter>");
+
+            fetch.AppendFormat("</entity>");
+            fetch.AppendFormat("</fetch>");
+            etnc = service.RetrieveMultiple(new FetchExpression(fetch.ToString()));
+            if (etnc.Entities.Count > 0)
+            {
+                Entity tmp = etnc.Entities[0];
+
+                if (tmp.Contains("hlvt"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["hlvt"];
+                    if (als.Value != null)
+                        sumhlVT += ((Money)((AliasedValue)tmp["hlvt"]).Value).Value;
+                }
+                if (tmp.Contains("khl"))
+                {
+                    AliasedValue als = (AliasedValue)tmp["khl"];
+                    if (als.Value != null)
+                        sumKHL += ((Money)((AliasedValue)tmp["khl"]).Value).Value;
+                }
+            }
+            #endregion
+
+            hlVT += sumhlVT;
+            KHL += sumKHL;
         }
 
         private void sum_current_ct_pdk(EntityReference pdkRef, ref decimal hl, ref decimal khl)

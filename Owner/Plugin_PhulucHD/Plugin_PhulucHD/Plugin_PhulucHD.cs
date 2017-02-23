@@ -72,7 +72,7 @@ namespace Plugin_PhulucHD
                                         new ColumnSet(new string[] { "new_name", "new_culyvanchuyen",
                                             "new_nhomdat", "new_nhomculy", "new_chusohuuchinhtd","new_chusohuuchinhtdkhdn","new_loaisohuudat" }));
                                     traceService.Trace("0");
-                                    thuadatcanhtac["new_culy"] =td.Contains("new_culyvanchuyen") ?  td["new_culyvanchuyen"] : "";
+                                    thuadatcanhtac["new_culy"] = td.Contains("new_culyvanchuyen") ? td["new_culyvanchuyen"] : "";
                                     thuadatcanhtac["new_nhomdat"] = td.Contains("new_nhomdat") ? td["new_nhomdat"] : "";
                                     thuadatcanhtac["new_nhomculy"] = td.Contains("new_nhomculy") ? td["new_nhomculy"] : "";
 
@@ -82,7 +82,7 @@ namespace Plugin_PhulucHD
                                         thuadatcanhtac["new_chusohuuchinhtdkhdn"] = td["new_chusohuuchinhtdkhdn"];
 
                                     traceService.Trace("2");
-                                    thuadatcanhtac["new_loaisohuudat"] =td.Contains("new_loaisohuudat") ?  td["new_loaisohuudat"] : "";
+                                    thuadatcanhtac["new_loaisohuudat"] = td.Contains("new_loaisohuudat") ? td["new_loaisohuudat"] : "";
 
                                     thuadatcanhtac["new_name"] = "PLHD - " + HDDTmia["new_masohopdong"].ToString() + " - " + td["new_name"].ToString();
                                     thuadatcanhtac["new_thuadat"] = en["new_thuadat"];
@@ -144,16 +144,16 @@ namespace Plugin_PhulucHD
                                     if (PhulucHD.Contains("new_khachhangdoanhnghiep"))
                                         thuadatcanhtac["new_khachhangdoanhnghiep"] = PhulucHD["new_khachhangdoanhnghiep"];
 
-                                    thuadatcanhtac["new_loaitrong"] = en["new_loaitrong"];
-                                    thuadatcanhtac["new_vutrong"] = en["new_vutrong"];
-                                    thuadatcanhtac["new_loaigocmia"] = en["new_loaigocmia"];
-                                    thuadatcanhtac["new_tuoimia"] = en["new_tuoimia"];
-                                    thuadatcanhtac["new_mucdichsanxuatmia"] = en["new_mucdichsanxuatmia"];
-                                    thuadatcanhtac["new_giongmia"] = en["new_giongmiadangky"];
-                                    thuadatcanhtac["new_ngaytrongdukien"] = en["new_ngaytrongdukien"];
-                                    thuadatcanhtac["new_loaisohuudat"] = en["new_nguongocdat"];
-                                    thuadatcanhtac["new_dientichhopdong"] = en["new_dientichhopdong"];
-                                    thuadatcanhtac["new_dientichconlai"] = en["new_dientichhopdong"];
+                                    thuadatcanhtac["new_loaitrong"] = en.Contains("new_loaitrong") ? en["new_loaitrong"] : null;
+                                    thuadatcanhtac["new_vutrong"] = en.Contains("new_vutrong") ? en["new_vutrong"] : null;
+                                    thuadatcanhtac["new_loaigocmia"] = en.Contains("new_loaigocmia") ? en["new_loaigocmia"] : null;
+                                    thuadatcanhtac["new_tuoimia"] = en.Contains("new_tuoimia") ? en["new_tuoimia"] : null;
+                                    thuadatcanhtac["new_mucdichsanxuatmia"] = en.Contains("new_mucdichsanxuatmia") ? en["new_mucdichsanxuatmia"] : null;
+                                    thuadatcanhtac["new_giongmia"] = en.Contains("new_giongmiadangky") ? en["new_giongmiadangky"] : null;
+                                    thuadatcanhtac["new_ngaytrongdukien"] = en.Contains("new_ngaytrongdukien") ? en["new_ngaytrongdukien"] : null;
+                                    thuadatcanhtac["new_loaisohuudat"] = en.Contains("new_nguongocdat") ? en["new_nguongocdat"] : null;
+                                    thuadatcanhtac["new_dientichhopdong"] = en.Contains("new_dientichhopdong") ? en["new_dientichhopdong"] : null;
+                                    thuadatcanhtac["new_dientichconlai"] = en.Contains("new_dientichhopdong") ? en["new_dientichhopdong"] : null;
                                     thuadatcanhtac["statuscode"] = new OptionSetValue(100000000);
                                     thuadatcanhtac["new_trangthainghiemthu"] = new OptionSetValue(100000001);
                                     thuadatcanhtac["new_sonamthuedatconlai"] = en.Contains("new_thoihanthuedatconlai") ? en["new_thoihanthuedatconlai"] : null;
@@ -164,31 +164,59 @@ namespace Plugin_PhulucHD
                             } // End if Loại phụ lục Tăng diện tích
                             #endregion
 
-                            #region tang dinh muc
-                            //Loại phụ lục Tăng định mức
-                            List<Entity> lstPhuluctangdinhmuc = RetrieveMultiRecord(service, "new_phuluchopdong_tangdinhmuc",
-                                    new ColumnSet(true), "new_phuluchopdong", PhulucHD.Id);
-
-                            foreach (Entity en in lstPhuluctangdinhmuc)
+                            else if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() ==
+                                "100000001")
                             {
-                                QueryExpression q = new QueryExpression("new_thuadatcanhtac");
-                                q.ColumnSet = new ColumnSet(new string[] { "new_chinhsachdautu", "new_dientichhopdong",
-                                "new_ngaytrong", "new_loaigocmia","new_dautuhoanlai","new_dautukhonghoanlai","new_name" });
-                                q.Criteria = new FilterExpression();
-                                q.Criteria.AddCondition(new ConditionExpression("new_thuadat", ConditionOperator.Equal, ((EntityReference)en["new_thuadat"]).Id));
-                                q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia", ConditionOperator.Equal, HDDTmiaRef.Id));
-                                q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal, 0));
-                                q.Criteria.AddCondition(new ConditionExpression("statuscode", ConditionOperator.Equal, 100000000));
+                                #region tang dinh muc
 
-                                EntityCollection entc = service.RetrieveMultiple(q);
+                                //Loại phụ lục Tăng định mức
+                                traceService.Trace("tang dinh muc");
 
-                                Entity chitietHD = entc.Entities.ToList<Entity>().FirstOrDefault();
+                                List<Entity> lstPhuluctangdinhmuc = RetrieveMultiRecord(service,
+                                    "new_phuluchopdong_tangdinhmuc",
+                                    new ColumnSet(new string[] { "new_sotientang", "new_thuadat" }), "new_phuluchopdong",
+                                    PhulucHD.Id);
+
+                                foreach (Entity en in lstPhuluctangdinhmuc)
+                                {
+                                    Entity chitietHD = null;
+                                    decimal sotientang = en.Contains("new_sotientang")
+                                        ? ((Money)en["new_sotientang"]).Value
+                                        : 0;
+                                    traceService.Trace("1");
+                                    QueryExpression q = new QueryExpression("new_thuadatcanhtac");
+                                    q.ColumnSet = new ColumnSet(new string[] { "new_dongiahopdong" });
+                                    q.Criteria = new FilterExpression();
+                                    q.Criteria.AddCondition(new ConditionExpression("new_thuadat",
+                                        ConditionOperator.Equal, ((EntityReference)en["new_thuadat"]).Id));
+                                    q.Criteria.AddCondition(new ConditionExpression("new_hopdongdautumia",
+                                        ConditionOperator.Equal, HDDTmiaRef.Id));
+                                    q.Criteria.AddCondition(new ConditionExpression("statecode", ConditionOperator.Equal,
+                                        0));
+                                    q.Criteria.AddCondition(new ConditionExpression("statuscode",
+                                        ConditionOperator.Equal, 100000000));
+                                    EntityCollection entc = service.RetrieveMultiple(q);
+
+                                    if (entc.Entities.Count > 0)
+                                    {
+                                        chitietHD = entc[0];
+
+                                        decimal dongiahl = chitietHD.Contains("new_dongiahopdong")
+                                            ? ((Money)chitietHD["new_dongiahopdong"]).Value
+                                            : 0;
+                                        traceService.Trace("2");
+                                        dongiahl += sotientang;
+
+                                        chitietHD["new_dongiahopdong"] = new Money(dongiahl);
+                                        service.Update(chitietHD);
+                                        traceService.Trace("3");
+                                    }
+                                }
+                                #endregion
                             }
-
-                            #endregion
-
                             // Loại phụ lục Gốc sang Tơ
-                            if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() == "100000002")
+                            else if (PhulucHD.GetAttributeValue<OptionSetValue>("new_loaiphuluc").Value.ToString() ==
+                                     "100000002")
                             {
                                 traceService.Trace("start goc sang to");
                                 EntityCollection dsPLGocsangTo = FindPLHDGocsangTo(service, PhulucHD);
@@ -196,16 +224,25 @@ namespace Plugin_PhulucHD
                                 {
                                     foreach (Entity plgocto in dsPLGocsangTo.Entities)
                                     {
-                                        Entity plgocsangto = service.Retrieve("new_phuluchopdong_gocsangto", plgocto.Id, new ColumnSet(true));
+                                        Entity plgocsangto = service.Retrieve("new_phuluchopdong_gocsangto", plgocto.Id,
+                                            new ColumnSet(true));
 
-                                        EntityReference ctHDDTmiaRef = plgocsangto.GetAttributeValue<EntityReference>("new_chitiethopdongdautumia");
+                                        EntityReference ctHDDTmiaRef =
+                                            plgocsangto.GetAttributeValue<EntityReference>("new_chitiethopdongdautumia");
                                         Entity ChiTietHD = service.Retrieve("new_thuadatcanhtac", ctHDDTmiaRef.Id,
-                                            new ColumnSet(new string[] { "new_vutrong", "new_loaigocmia", "new_mucdichsanxuatmia",
-                                                "new_giongmia", "new_thuadat", "createdon", "new_hopdongdautumia", "new_khachhang",
-                                                "new_khachhangdoanhnghiep", "new_thamgiamohinhkhuyennong", "new_dientichthucte",
-                                                "new_tuoimia", "new_dientichhopdong", "new_dinhmucphanbontoithieu", "new_chinhsachdautu",
-                                                "new_luugoc","new_name","new_culy","new_nhomdat","new_nhomculy","new_sonamthuedatconlai",
-                                                "new_loaitrong" }));
+                                            new ColumnSet(new string[]
+                                            {
+                                                "new_vutrong", "new_loaigocmia", "new_mucdichsanxuatmia",
+                                                "new_giongmia", "new_thuadat", "createdon", "new_hopdongdautumia",
+                                                "new_khachhang",
+                                                "new_khachhangdoanhnghiep", "new_thamgiamohinhkhuyennong",
+                                                "new_dientichthucte",
+                                                "new_tuoimia", "new_dientichhopdong", "new_dinhmucphanbontoithieu",
+                                                "new_chinhsachdautu",
+                                                "new_luugoc", "new_name", "new_culy", "new_nhomdat", "new_nhomculy",
+                                                "new_sonamthuedatconlai",
+                                                "new_loaitrong"
+                                            }));
 
                                         DateTime ngaytao = DateTime.Now;
 
@@ -218,11 +255,15 @@ namespace Plugin_PhulucHD
 
                                         if (ChiTietHD.Attributes.Contains("new_thuadat"))
                                         {
-                                            thuadatEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_thuadat");
+                                            thuadatEntityRef =
+                                                ChiTietHD.GetAttributeValue<EntityReference>("new_thuadat");
                                             thuadatId = thuadatEntityRef.Id;
                                             thuadatObj = service.Retrieve("new_thuadat", thuadatId,
-                                                new ColumnSet(new string[] { "new_nhomdat", "new_loaisohuudat", "new_vungdialy",
-                                                    "new_nhomculy","new_culyvanchuyen","new_name" }));
+                                                new ColumnSet(new string[]
+                                                {
+                                                    "new_nhomdat", "new_loaisohuudat", "new_vungdialy",
+                                                    "new_nhomculy", "new_culyvanchuyen", "new_name"
+                                                }));
                                         }
 
                                         EntityReference giongmiaEntityRef = new EntityReference();
@@ -231,16 +272,23 @@ namespace Plugin_PhulucHD
 
                                         if (ChiTietHD.Attributes.Contains("new_giongmia"))
                                         {
-                                            giongmiaEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_giongmia");
+                                            giongmiaEntityRef =
+                                                ChiTietHD.GetAttributeValue<EntityReference>("new_giongmia");
                                             giongmiaId = giongmiaEntityRef.Id;
                                             giongmiaObj = service.Retrieve("new_giongmia", giongmiaId,
                                                 new ColumnSet(new string[] { "new_nhomgiong", "new_name" }));
                                         }
 
-                                        EntityReference CSDTRef = plgocsangto.GetAttributeValue<EntityReference>("new_chinhsachdautu");
+                                        EntityReference CSDTRef =
+                                            plgocsangto.GetAttributeValue<EntityReference>("new_chinhsachdautu");
                                         Guid csdtKQ = CSDTRef.Id;
                                         Entity csdtKQEntity = service.Retrieve("new_chinhsachdautu", csdtKQ,
-                                            new ColumnSet(new string[] { "new_dinhmucdautuhoanlai", "new_name", "new_loailaisuatcodinhthaydoi", "new_muclaisuatdautu", "new_cachtinhlai", "new_dinhmucdautukhonghoanlai", "new_dinhmucphanbontoithieu" }));
+                                            new ColumnSet(new string[]
+                                            {
+                                                "new_dinhmucdautuhoanlai", "new_name", "new_loailaisuatcodinhthaydoi",
+                                                "new_muclaisuatdautu", "new_cachtinhlai", "new_dinhmucdautukhonghoanlai",
+                                                "new_dinhmucphanbontoithieu"
+                                            }));
 
                                         Entity en = new Entity(ChiTietHD.LogicalName);
                                         en.Id = ChiTietHD.Id;
@@ -272,14 +320,27 @@ namespace Plugin_PhulucHD
                                             {
                                                 Entity tlthvdkHDCT = new Entity("new_tylethuhoivondukien");
 
-                                                EntityReference hdctEntityRef = new EntityReference("new_thuadatcanhtac", ChiTietHD.Id);
+                                                EntityReference hdctEntityRef = new EntityReference(
+                                                    "new_thuadatcanhtac", ChiTietHD.Id);
 
-                                                if (TLTHV.Attributes.Contains("new_phantramtilethuhoi") && TLTHV.Attributes.Contains("new_nam") && csdtKQEntity.Attributes.Contains("new_dinhmucdautuhoanlai"))
+                                                if (TLTHV.Attributes.Contains("new_phantramtilethuhoi") &&
+                                                    TLTHV.Attributes.Contains("new_nam") &&
+                                                    csdtKQEntity.Attributes.Contains("new_dinhmucdautuhoanlai"))
                                                 {
-                                                    string tenTLTHVDK = "Năm " + TLTHV.GetAttributeValue<int>("new_nam").ToString();
-                                                    decimal tyle = (TLTHV.Contains("new_phantramtilethuhoi") ? (decimal)TLTHV["new_phantramtilethuhoi"] : 0);
-                                                    decimal dientichtt = (ChiTietHD.Contains("new_dientichthucte") ? (decimal)ChiTietHD["new_dientichthucte"] : 0);
-                                                    decimal dinhmucDThl = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautuhoanlai").Value : 0);
+                                                    string tenTLTHVDK = "Năm " +
+                                                                        TLTHV.GetAttributeValue<int>("new_nam")
+                                                                            .ToString();
+                                                    decimal tyle = (TLTHV.Contains("new_phantramtilethuhoi")
+                                                        ? (decimal)TLTHV["new_phantramtilethuhoi"]
+                                                        : 0);
+                                                    decimal dientichtt = (ChiTietHD.Contains("new_dientichthucte")
+                                                        ? (decimal)ChiTietHD["new_dientichthucte"]
+                                                        : 0);
+                                                    decimal dinhmucDThl =
+                                                    (csdtKQEntity.Contains("new_dinhmucdautuhoanlai")
+                                                        ? csdtKQEntity.GetAttributeValue<Money>(
+                                                            "new_dinhmucdautuhoanlai").Value
+                                                        : 0);
                                                     decimal sotien = 0;
                                                     traceService.Trace("1");
                                                     sotien = (dinhmucDThl * dientichtt * tyle) / 100;
@@ -287,7 +348,8 @@ namespace Plugin_PhulucHD
                                                     Money sotienM = new Money(sotien);
 
                                                     tlthvdkHDCT.Attributes.Add("new_name", tenTLTHVDK);
-                                                    tlthvdkHDCT.Attributes.Add("new_loaityle", new OptionSetValue(100000000));
+                                                    tlthvdkHDCT.Attributes.Add("new_loaityle",
+                                                        new OptionSetValue(100000000));
                                                     tlthvdkHDCT.Attributes.Add("new_chitiethddtmia", hdctEntityRef);
                                                     tlthvdkHDCT.Attributes.Add("new_vudautu", vudautuRef);
                                                     tlthvdkHDCT.Attributes.Add("new_tylephantram", tyle);
@@ -309,11 +371,12 @@ namespace Plugin_PhulucHD
                                             // Loai lai suat
                                             if (csdtKQEntity.Attributes.Contains("new_loailaisuatcodinhthaydoi"))
                                             {
-                                                bool loails = csdtKQEntity.GetAttributeValue<bool>("new_loailaisuatcodinhthaydoi");
+                                                bool loails =
+                                                    csdtKQEntity.GetAttributeValue<bool>("new_loailaisuatcodinhthaydoi");
 
                                                 if (loails == false) // ls thay doi
                                                     en["new_loailaisuat"] = new OptionSetValue(100000001);
-                                                else   // ls co dinh
+                                                else // ls co dinh
                                                     en["new_loailaisuat"] = new OptionSetValue(100000000);
                                             }
 
@@ -321,10 +384,13 @@ namespace Plugin_PhulucHD
                                             // Muc lai suat
                                             if (csdtKQEntity.Attributes.Contains("new_loailaisuatcodinhthaydoi"))
                                             {
-                                                bool loails = csdtKQEntity.GetAttributeValue<bool>("new_loailaisuatcodinhthaydoi");
-                                                if (loails == false)   // ls thay doi
+                                                bool loails =
+                                                    csdtKQEntity.GetAttributeValue<bool>("new_loailaisuatcodinhthaydoi");
+                                                if (loails == false) // ls thay doi
                                                 {
-                                                    decimal mucls = (csdtKQEntity.Contains("new_muclaisuatdautu") ? (decimal)csdtKQEntity["new_muclaisuatdautu"] : 0);
+                                                    decimal mucls = (csdtKQEntity.Contains("new_muclaisuatdautu")
+                                                        ? (decimal)csdtKQEntity["new_muclaisuatdautu"]
+                                                        : 0);
                                                     en["new_laisuat"] = mucls;
 
                                                 }
@@ -332,11 +398,13 @@ namespace Plugin_PhulucHD
                                                 {
                                                     foreach (Entity TSVDT in collTSVDT.Entities)
                                                     {
-                                                        if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000001) //100,000,001 : Loai ls
+                                                        if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value ==
+                                                            100000001) //100,000,001 : Loai ls
                                                         {
                                                             if (TSVDT.Attributes.Contains("new_giatri"))
                                                             {
-                                                                decimal mucls = TSVDT.GetAttributeValue<decimal>("new_giatri");
+                                                                decimal mucls =
+                                                                    TSVDT.GetAttributeValue<decimal>("new_giatri");
                                                                 en["new_laisuat"] = mucls;
 
                                                                 break;
@@ -348,7 +416,8 @@ namespace Plugin_PhulucHD
                                             traceService.Trace("cach tinh lai");
                                             if (csdtKQEntity.Attributes.Contains("new_cachtinhlai"))
                                             {
-                                                OptionSetValue cachlinhlai = csdtKQEntity.GetAttributeValue<OptionSetValue>("new_cachtinhlai");
+                                                OptionSetValue cachlinhlai =
+                                                    csdtKQEntity.GetAttributeValue<OptionSetValue>("new_cachtinhlai");
                                                 en["new_cachtinhlai"] = cachlinhlai;
                                             }
 
@@ -356,9 +425,10 @@ namespace Plugin_PhulucHD
 
                                             // -------- Gan nhom du lieu  Dinh muc
 
-                                            foreach (Entity TSVDT in collTSVDT.Entities)       // Gia mia du kien
+                                            foreach (Entity TSVDT in collTSVDT.Entities) // Gia mia du kien
                                             {
-                                                if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value == 100000004) //100,000,004 : Gia mia du kien
+                                                if (TSVDT.GetAttributeValue<OptionSetValue>("new_loai").Value ==
+                                                    100000004) //100,000,004 : Gia mia du kien
                                                 {
                                                     if (TSVDT.Attributes.Contains("new_giatien"))
                                                     {
@@ -390,21 +460,28 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (csdtbs.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        EntityReference nhomkhCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_nhomkhachhang");
-                                                        Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                        Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nhomkhachhang" }));
+                                                        EntityReference nhomkhCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>(
+                                                                "new_nhomkhachhang");
+                                                        Guid khId =
+                                                            ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang")
+                                                                .Id;
+                                                        Entity khObj = service.Retrieve("contact", khId,
+                                                            new ColumnSet(new string[] { "fullname", "new_nhomkhachhang" }));
 
                                                         if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                         {
                                                             Guid nhomkhCSDTBSId = nhomkhCSDTBSRef.Id;
-                                                            Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
+                                                            Guid nhomkhId =
+                                                                khObj.GetAttributeValue<EntityReference>(
+                                                                    "new_nhomkhachhang").Id;
 
                                                             if (nhomkhId != nhomkhCSDTBSId)
                                                             {
                                                                 phuhop = false;
                                                             }
                                                         }
-                                                        else   //neu khong co NHomKH trong CTHD
+                                                        else //neu khong co NHomKH trong CTHD
                                                         {
                                                             phuhop = false;
                                                         }
@@ -416,21 +493,28 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (csdtbs.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        EntityReference nhomkhCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_nhomkhachhang");
-                                                        Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                        Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
+                                                        EntityReference nhomkhCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>(
+                                                                "new_nhomkhachhang");
+                                                        Guid khId =
+                                                            ChiTietHD.GetAttributeValue<EntityReference>(
+                                                                "new_khachhangdoanhnghiep").Id;
+                                                        Entity khObj = service.Retrieve("account", khId,
+                                                            new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
 
                                                         if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                         {
                                                             Guid nhomkhCSDTBSId = nhomkhCSDTBSRef.Id;
-                                                            Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
+                                                            Guid nhomkhId =
+                                                                khObj.GetAttributeValue<EntityReference>(
+                                                                    "new_nhomkhachhang").Id;
 
                                                             if (nhomkhId != nhomkhCSDTBSId)
                                                             {
                                                                 phuhop = false;
                                                             }
                                                         }
-                                                        else   //neu khong co NHomKH trong CTHD
+                                                        else //neu khong co NHomKH trong CTHD
                                                         {
                                                             phuhop = false;
                                                         }
@@ -445,7 +529,8 @@ namespace Plugin_PhulucHD
                                                 phuhop = true;
                                                 if (csdtbs.Attributes.Contains("new_giongmia"))
                                                 {
-                                                    EntityReference giongmiaCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_giongmia");
+                                                    EntityReference giongmiaCSDTBSRef =
+                                                        csdtbs.GetAttributeValue<EntityReference>("new_giongmia");
                                                     if (giongmiaEntityRef != null && giongmiaEntityRef.Id != Guid.Empty)
                                                     {
                                                         Guid giongmiaCSDTBSId = giongmiaCSDTBSRef.Id;
@@ -455,7 +540,7 @@ namespace Plugin_PhulucHD
                                                             phuhop = false;
                                                         }
                                                     }
-                                                    else   //neu khong co Giongmia trong CTHD
+                                                    else //neu khong co Giongmia trong CTHD
                                                     {
                                                         phuhop = false;
                                                     }
@@ -471,20 +556,39 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (csdtbs.Attributes.Contains("new_nhomnangsuat"))
                                                     {
-                                                        EntityReference nhomnangsuatCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_nhomnangsuat");
+                                                        EntityReference nhomnangsuatCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>("new_nhomnangsuat");
                                                         Guid nhomnangsuatCSDTBSRefId = nhomnangsuatCSDTBSRef.Id;
-                                                        Entity nhomnangsuatCSDTBS = service.Retrieve("new_nhomnangsuat", nhomnangsuatCSDTBSRefId, new ColumnSet(new string[] { "new_nangsuattu", "new_nangsuatden" }));
+                                                        Entity nhomnangsuatCSDTBS = service.Retrieve(
+                                                            "new_nhomnangsuat", nhomnangsuatCSDTBSRefId,
+                                                            new ColumnSet(new string[]
+                                                                {"new_nangsuattu", "new_nangsuatden"}));
 
-                                                        Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                        Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nhomkhachhang", "new_nangsuatbinhquan" }));
+                                                        Guid khId =
+                                                            ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang")
+                                                                .Id;
+                                                        Entity khObj = service.Retrieve("contact", khId,
+                                                            new ColumnSet(new string[]
+                                                            {
+                                                                "fullname", "new_nhomkhachhang", "new_nangsuatbinhquan"
+                                                            }));
 
-                                                        if (khObj.Attributes.Contains("new_nangsuatbinhquan") && nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuattu") && nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuatden"))
+                                                        if (khObj.Attributes.Contains("new_nangsuatbinhquan") &&
+                                                            nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuattu") &&
+                                                            nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuatden"))
                                                         {
-                                                            decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
-                                                            decimal nangsuattu = nhomnangsuatCSDTBS.GetAttributeValue<decimal>("new_nangsuattu");
-                                                            decimal nangsuatden = nhomnangsuatCSDTBS.GetAttributeValue<decimal>("new_nangsuatden");
+                                                            decimal nangsuatbq =
+                                                                khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                            decimal nangsuattu =
+                                                                nhomnangsuatCSDTBS.GetAttributeValue<decimal>(
+                                                                    "new_nangsuattu");
+                                                            decimal nangsuatden =
+                                                                nhomnangsuatCSDTBS.GetAttributeValue<decimal>(
+                                                                    "new_nangsuatden");
 
-                                                            if (!((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden)))
+                                                            if (
+                                                                !((nangsuatbq >= nangsuattu) &&
+                                                                  (nangsuatbq <= nangsuatden)))
                                                             {
                                                                 phuhop = false;
                                                             }
@@ -500,20 +604,36 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (csdtbs.Attributes.Contains("new_nhomnangsuat"))
                                                     {
-                                                        EntityReference nhomnangsuatCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_nhomnangsuat");
+                                                        EntityReference nhomnangsuatCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>("new_nhomnangsuat");
                                                         Guid nhomnangsuatCSDTBSRefId = nhomnangsuatCSDTBSRef.Id;
-                                                        Entity nhomnangsuatCSDTBS = service.Retrieve("new_nhomnangsuat", nhomnangsuatCSDTBSRefId, new ColumnSet(new string[] { "new_nangsuattu", "new_nangsuatden" }));
+                                                        Entity nhomnangsuatCSDTBS = service.Retrieve(
+                                                            "new_nhomnangsuat", nhomnangsuatCSDTBSRefId,
+                                                            new ColumnSet(new string[]
+                                                                {"new_nangsuattu", "new_nangsuatden"}));
 
-                                                        Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                        Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
+                                                        Guid khId =
+                                                            ChiTietHD.GetAttributeValue<EntityReference>(
+                                                                "new_khachhangdoanhnghiep").Id;
+                                                        Entity khObj = service.Retrieve("account", khId,
+                                                            new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
 
-                                                        if (khObj.Attributes.Contains("new_nangsuatbinhquan") && nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuattu") && nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuatden"))
+                                                        if (khObj.Attributes.Contains("new_nangsuatbinhquan") &&
+                                                            nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuattu") &&
+                                                            nhomnangsuatCSDTBS.Attributes.Contains("new_nangsuatden"))
                                                         {
-                                                            decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
-                                                            decimal nangsuattu = nhomnangsuatCSDTBS.GetAttributeValue<decimal>("new_nangsuattu");
-                                                            decimal nangsuatden = nhomnangsuatCSDTBS.GetAttributeValue<decimal>("new_nangsuatden");
+                                                            decimal nangsuatbq =
+                                                                khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                            decimal nangsuattu =
+                                                                nhomnangsuatCSDTBS.GetAttributeValue<decimal>(
+                                                                    "new_nangsuattu");
+                                                            decimal nangsuatden =
+                                                                nhomnangsuatCSDTBS.GetAttributeValue<decimal>(
+                                                                    "new_nangsuatden");
 
-                                                            if (!((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden)))
+                                                            if (
+                                                                !((nangsuatbq >= nangsuattu) &&
+                                                                  (nangsuatbq <= nangsuatden)))
                                                             {
                                                                 phuhop = false;
                                                             }
@@ -531,11 +651,17 @@ namespace Plugin_PhulucHD
                                                 // Khuyen khich phat trien
 
                                                 phuhop = true;
-                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_khuyenkhichpt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_thuadatcanhtacid", ChiTietHD.Id);
+                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_thuadatcanhtac",
+                                                    "new_new_chitiethddtmia_new_khuyenkhichpt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_thuadatcanhtacid", ChiTietHD.Id);
 
                                                 if (csdtbs.Attributes.Contains("new_khuyenkhichphattrien"))
                                                 {
-                                                    EntityReference kkptCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_khuyenkhichphattrien");
+                                                    EntityReference kkptCSDTBSRef =
+                                                        csdtbs.GetAttributeValue<EntityReference>(
+                                                            "new_khuyenkhichphattrien");
                                                     if (dsKKPTHDCT.Entities.Count > 0)
                                                     {
                                                         foreach (Entity kkptHDCT in dsKKPTHDCT.Entities)
@@ -564,8 +690,12 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (ChiTietHD.Attributes.Contains("new_thamgiamohinhkhuyennong"))
                                                     {
-                                                        EntityReference mhknEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_thamgiamohinhkhuyennong");
-                                                        EntityReference mhknCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_mohinhkhuyennong");
+                                                        EntityReference mhknEntityRef =
+                                                            ChiTietHD.GetAttributeValue<EntityReference>(
+                                                                "new_thamgiamohinhkhuyennong");
+                                                        EntityReference mhknCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>(
+                                                                "new_mohinhkhuyennong");
 
                                                         if (mhknCSDTBSRef.Id != mhknEntityRef.Id)
                                                             phuhop = false;
@@ -587,8 +717,10 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_nhomculy"))
                                                     {
-                                                        EntityReference nhomclEntityRef = thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy");
-                                                        EntityReference nhomclCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_nhomculy");
+                                                        EntityReference nhomclEntityRef =
+                                                            thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy");
+                                                        EntityReference nhomclCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>("new_nhomculy");
                                                         if (nhomclEntityRef.Id != nhomclCSDTBSRef.Id)
                                                         {
                                                             phuhop = false;
@@ -610,8 +742,11 @@ namespace Plugin_PhulucHD
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_vungdialy"))
                                                     {
-                                                        EntityReference vungdlEntityRef = thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy");
-                                                        EntityReference vungdlCSDTBSRef = csdtbs.GetAttributeValue<EntityReference>("new_vungdialy");
+                                                        EntityReference vungdlEntityRef =
+                                                            thuadatObj.GetAttributeValue<EntityReference>(
+                                                                "new_vungdialy");
+                                                        EntityReference vungdlCSDTBSRef =
+                                                            csdtbs.GetAttributeValue<EntityReference>("new_vungdialy");
                                                         if (vungdlEntityRef.Id != vungdlCSDTBSRef.Id)
                                                         {
                                                             phuhop = false;
@@ -626,10 +761,18 @@ namespace Plugin_PhulucHD
                                                     continue;
                                                 //break;
 
-                                                dongiabsKHL += (csdtbs.Contains("new_sotienbosung_khl") ? csdtbs.GetAttributeValue<Money>("new_sotienbosung_khl").Value : 0);
-                                                dongiabsHL += (csdtbs.Contains("new_sotienbosung") ? csdtbs.GetAttributeValue<Money>("new_sotienbosung").Value : 0);
-                                                dongiabsPB += (csdtbs.Contains("new_bosungphanbon") ? csdtbs.GetAttributeValue<Money>("new_bosungphanbon").Value : 0);
-                                                dongiabsTM += (csdtbs.Contains("new_bosungtienmat") ? csdtbs.GetAttributeValue<Money>("new_bosungtienmat").Value : 0);
+                                                dongiabsKHL += (csdtbs.Contains("new_sotienbosung_khl")
+                                                    ? csdtbs.GetAttributeValue<Money>("new_sotienbosung_khl").Value
+                                                    : 0);
+                                                dongiabsHL += (csdtbs.Contains("new_sotienbosung")
+                                                    ? csdtbs.GetAttributeValue<Money>("new_sotienbosung").Value
+                                                    : 0);
+                                                dongiabsPB += (csdtbs.Contains("new_bosungphanbon")
+                                                    ? csdtbs.GetAttributeValue<Money>("new_bosungphanbon").Value
+                                                    : 0);
+                                                dongiabsTM += (csdtbs.Contains("new_bosungtienmat")
+                                                    ? csdtbs.GetAttributeValue<Money>("new_bosungtienmat").Value
+                                                    : 0);
 
                                                 EntityCollection tlthvBScol = FindTLTHVbosung(service, csdtbs);
                                                 if (tlthvBScol != null && tlthvBScol.Entities.Count() > 0)
@@ -638,13 +781,22 @@ namespace Plugin_PhulucHD
                                                     {
                                                         Entity tlthvdkBS = new Entity("new_tylethuhoivondukien");
 
-                                                        EntityReference hdctEntityRef = new EntityReference("new_thuadatcanhtac", ChiTietHD.Id);
+                                                        EntityReference hdctEntityRef =
+                                                            new EntityReference("new_thuadatcanhtac", ChiTietHD.Id);
 
-                                                        if (tlthvbs.Attributes.Contains("new_phantramtilethuhoi") && tlthvbs.Attributes.Contains("new_nam"))
+                                                        if (tlthvbs.Attributes.Contains("new_phantramtilethuhoi") &&
+                                                            tlthvbs.Attributes.Contains("new_nam"))
                                                         {
-                                                            string tenTLTHVbs = "Bổ sung năm " + tlthvbs.GetAttributeValue<int>("new_nam").ToString();
-                                                            decimal tyle = (tlthvbs.Contains("new_phantramtilethuhoi") ? (decimal)tlthvbs["new_phantramtilethuhoi"] : 0);
-                                                            decimal dientichtt = (ChiTietHD.Contains("new_dientichthucte") ? (decimal)ChiTietHD["new_dientichthucte"] : 0);
+                                                            string tenTLTHVbs = "Bổ sung năm " +
+                                                                                tlthvbs.GetAttributeValue<int>("new_nam")
+                                                                                    .ToString();
+                                                            decimal tyle = (tlthvbs.Contains("new_phantramtilethuhoi")
+                                                                ? (decimal)tlthvbs["new_phantramtilethuhoi"]
+                                                                : 0);
+                                                            decimal dientichtt =
+                                                            (ChiTietHD.Contains("new_dientichthucte")
+                                                                ? (decimal)ChiTietHD["new_dientichthucte"]
+                                                                : 0);
                                                             decimal dinhmucDThl = dongiabsHL + dongiabsPB + dongiabsTM;
                                                             decimal sotien = 0;
 
@@ -653,7 +805,8 @@ namespace Plugin_PhulucHD
                                                             Money sotienM = new Money(sotien);
 
                                                             tlthvdkBS.Attributes.Add("new_name", tenTLTHVbs);
-                                                            tlthvdkBS.Attributes.Add("new_loaityle", new OptionSetValue(100000000));
+                                                            tlthvdkBS.Attributes.Add("new_loaityle",
+                                                                new OptionSetValue(100000000));
                                                             tlthvdkBS.Attributes.Add("new_chitiethddtmia", hdctEntityRef);
                                                             tlthvdkBS.Attributes.Add("new_vudautu", vudautuRef);
                                                             tlthvdkBS.Attributes.Add("new_tylephantram", tyle);
@@ -668,10 +821,19 @@ namespace Plugin_PhulucHD
 
                                         // ----------------- DINH MUC KHONG HOAN LAI
 
-                                        decimal dientichhd = (ChiTietHD.Contains("new_dientichhopdong") ? (decimal)ChiTietHD["new_dientichhopdong"] : 0);
-                                        decimal dongiaDTKHL = (csdtKQEntity.Contains("new_dinhmucdautukhonghoanlai") ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautukhonghoanlai").Value : 0);
-                                        decimal dongiaDTHL = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai") ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautuhoanlai").Value : 0);
-                                        decimal dongiaPhanbon = (csdtKQEntity.Contains("new_dinhmucphanbontoithieu") ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucphanbontoithieu").Value : 0);
+                                        decimal dientichhd = (ChiTietHD.Contains("new_dientichhopdong")
+                                            ? (decimal)ChiTietHD["new_dientichhopdong"]
+                                            : 0);
+                                        decimal dongiaDTKHL = (csdtKQEntity.Contains("new_dinhmucdautukhonghoanlai")
+                                            ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautukhonghoanlai")
+                                                .Value
+                                            : 0);
+                                        decimal dongiaDTHL = (csdtKQEntity.Contains("new_dinhmucdautuhoanlai")
+                                            ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucdautuhoanlai").Value
+                                            : 0);
+                                        decimal dongiaPhanbon = (csdtKQEntity.Contains("new_dinhmucphanbontoithieu")
+                                            ? csdtKQEntity.GetAttributeValue<Money>("new_dinhmucphanbontoithieu").Value
+                                            : 0);
 
                                         dongiaDTKHL += dongiabsKHL;
                                         Money MdongiaDTKHL = new Money(dongiaDTKHL);
@@ -702,7 +864,9 @@ namespace Plugin_PhulucHD
 
                                         decimal tongDMPB = 0;
 
-                                        if (!HDDTmia.Contains("new_chinhantienmat") || (HDDTmia.Contains("new_chinhantienmat") && (bool)HDDTmia["new_chinhantienmat"] == false))
+                                        if (!HDDTmia.Contains("new_chinhantienmat") ||
+                                            (HDDTmia.Contains("new_chinhantienmat") &&
+                                             (bool)HDDTmia["new_chinhantienmat"] == false))
                                         {
                                             Money MdongiaPhanbon = new Money(dongiaPhanbon);
                                             tongDMPB = dongiaPhanbon * dientichhd;
@@ -737,33 +901,54 @@ namespace Plugin_PhulucHD
                                         en["new_loaitrong"] = plgocsangto.Contains("new_loaitrong")
                                             ? plgocsangto["new_loaitrong"]
                                             : null;
-                                        en["new_mucdichsanxuatmia"] = plgocsangto.Contains("new_mucdichsanxuatmia") ? plgocsangto["new_mucdichsanxuatmia"] : null;
-                                        en["new_giongmia"] = plgocsangto.Contains("new_giongmiadangky") ? plgocsangto["new_giongmiadangky"] : null;
-                                        en["new_dongiahopdong"] = plgocsangto.Contains("new_dongiahopdong") ? (Money)plgocsangto["new_dongiahopdong"] : new Money(0);
+                                        en["new_mucdichsanxuatmia"] = plgocsangto.Contains("new_mucdichsanxuatmia")
+                                            ? plgocsangto["new_mucdichsanxuatmia"]
+                                            : null;
+                                        en["new_giongmia"] = plgocsangto.Contains("new_giongmiadangky")
+                                            ? plgocsangto["new_giongmiadangky"]
+                                            : null;
+                                        en["new_dongiahopdong"] = plgocsangto.Contains("new_dongiahopdong")
+                                            ? (Money)plgocsangto["new_dongiahopdong"]
+                                            : new Money(0);
                                         traceService.Trace("3");
-                                        en["new_dongiahopdongkhl"] = plgocsangto.Contains("new_dongiahopdongkhl") ? (Money)plgocsangto["new_dongiahopdongkhl"] : new Money(0);
+                                        en["new_dongiahopdongkhl"] = plgocsangto.Contains("new_dongiahopdongkhl")
+                                            ? (Money)plgocsangto["new_dongiahopdongkhl"]
+                                            : new Money(0);
                                         traceService.Trace("4");
-                                        en["new_dongiaphanbonhd"] = plgocsangto.Contains("new_dongiaphanbonhd") ? (Money)plgocsangto["new_dongiaphanbonhd"] : new Money(0);
+                                        en["new_dongiaphanbonhd"] = plgocsangto.Contains("new_dongiaphanbonhd")
+                                            ? (Money)plgocsangto["new_dongiaphanbonhd"]
+                                            : new Money(0);
                                         traceService.Trace("5");
-                                        en["new_dautuhoanlai"] = plgocsangto.Contains("new_dautuhoanlai") ? (Money)plgocsangto["new_dautuhoanlai"] : new Money(0);
+                                        en["new_dautuhoanlai"] = plgocsangto.Contains("new_dautuhoanlai")
+                                            ? (Money)plgocsangto["new_dautuhoanlai"]
+                                            : new Money(0);
                                         traceService.Trace("6");
-                                        en["new_dautukhonghoanlai"] = plgocsangto.Contains("new_dautukhonghoanlai") ? (Money)plgocsangto["new_dautukhonghoanlai"] : new Money(0);
+                                        en["new_dautukhonghoanlai"] = plgocsangto.Contains("new_dautukhonghoanlai")
+                                            ? (Money)plgocsangto["new_dautukhonghoanlai"]
+                                            : new Money(0);
                                         traceService.Trace("7");
-                                        en["new_tongchiphidautu"] = plgocsangto.Contains("new_tongchiphidautu") ? (Money)plgocsangto["new_tongchiphidautu"] : new Money(0);
-                                        en["new_sotienphanbontoithieu"] = (Money)plgocsangto["new_sotienphanbontoithieu"];
+                                        en["new_tongchiphidautu"] = plgocsangto.Contains("new_tongchiphidautu")
+                                            ? (Money)plgocsangto["new_tongchiphidautu"]
+                                            : new Money(0);
+                                        en["new_sotienphanbontoithieu"] =
+                                            (Money)plgocsangto["new_sotienphanbontoithieu"];
 
                                         // --- End ----  Load Đầu tư
                                         service.Update(en);
 
                                         EntityReferenceCollection OldlistCSDTRef = new EntityReferenceCollection();
-                                        EntityCollection OldlistCSDT = RetrieveNNRecord(service, "new_chinhsachdautu", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_chinhsachdautu", new ColumnSet(new string[] { "new_chinhsachdautuid" }), "new_thuadatcanhtacid", ChiTietHD.Id);
+                                        EntityCollection OldlistCSDT = RetrieveNNRecord(service, "new_chinhsachdautu",
+                                            "new_thuadatcanhtac", "new_new_chitiethddtmia_new_chinhsachdautu",
+                                            new ColumnSet(new string[] { "new_chinhsachdautuid" }), "new_thuadatcanhtacid",
+                                            ChiTietHD.Id);
                                         foreach (Entity oldCSDT in OldlistCSDT.Entities)
                                         {
                                             OldlistCSDTRef.Add(oldCSDT.ToEntityReference());
                                         }
 
                                         service.Disassociate("new_thuadatcanhtac", ChiTietHD.Id,
-                                            new Relationship("new_new_chitiethddtmia_new_chinhsachdautu"), OldlistCSDTRef);
+                                            new Relationship("new_new_chitiethddtmia_new_chinhsachdautu"),
+                                            OldlistCSDTRef);
 
                                         EntityReferenceCollection listCSDT = new EntityReferenceCollection();
                                         listCSDT.Add(csdtKQEntity.ToEntityReference());
@@ -777,18 +962,22 @@ namespace Plugin_PhulucHD
                                         {
                                             foreach (Entity a in csdtThamcanhCol.Entities)
                                             {
-                                                if (a.Contains("new_vutrong_vl"))  // Vu trong
+                                                if (a.Contains("new_vutrong_vl")) // Vu trong
                                                 {
                                                     if (ChiTietHD.Contains("new_vutrong"))
                                                     {
-                                                        if (a["new_vutrong_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_vutrong"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_vutrong_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_vutrong"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_loaigocmia_vl"))  // Loai goc mia
+                                                if (a.Contains("new_loaigocmia_vl")) // Loai goc mia
                                                 {
                                                     if (ChiTietHD.Contains("new_loaigocmia"))
                                                     {
@@ -800,44 +989,60 @@ namespace Plugin_PhulucHD
                                                 }
 
 
-                                                if (a.Contains("new_mucdichsanxuatmia_vl"))  // Muc dich san xuat mia
+                                                if (a.Contains("new_mucdichsanxuatmia_vl")) // Muc dich san xuat mia
                                                 {
                                                     if (ChiTietHD.Contains("new_mucdichsanxuatmia"))
                                                     {
-                                                        if (a["new_mucdichsanxuatmia_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_mucdichsanxuatmia"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_mucdichsanxuatmia_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_mucdichsanxuatmia"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_nhomdat_vl"))  // Nhom dat
+                                                if (a.Contains("new_nhomdat_vl")) // Nhom dat
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_nhomdat"))
                                                     {
-                                                        if (a["new_nhomdat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_nhomdat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomdat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_nhomdat"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_loaisohuudat_vl"))  // Loai chu so huu
+                                                if (a.Contains("new_loaisohuudat_vl")) // Loai chu so huu
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_loaisohuudat"))
                                                     {
-                                                        if (a["new_loaisohuudat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_loaisohuudat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_loaisohuudat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_loaisohuudat"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_nhomgiongmia_vl"))  // Nhom giong mia
+                                                if (a.Contains("new_nhomgiongmia_vl")) // Nhom giong mia
                                                 {
                                                     if (giongmiaObj.Attributes.Contains("new_nhomgiong"))
                                                     {
-                                                        if (a["new_nhomgiongmia_vl"].ToString().IndexOf(((OptionSetValue)giongmiaObj["new_nhomgiong"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomgiongmia_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)giongmiaObj["new_nhomgiong"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
@@ -848,15 +1053,25 @@ namespace Plugin_PhulucHD
                                                 bool co = false;
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nhomkhachhang", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[]
+                                                            {"fullname", "new_nhomkhachhang", "new_nangsuatbinhquan"}));
 
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -871,7 +1086,7 @@ namespace Plugin_PhulucHD
                                                         else
                                                             co = true;
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
                                                             co = true;
@@ -879,15 +1094,25 @@ namespace Plugin_PhulucHD
                                                 }
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
 
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -902,7 +1127,7 @@ namespace Plugin_PhulucHD
                                                         else
                                                             co = true;
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
                                                             co = true;
@@ -915,12 +1140,18 @@ namespace Plugin_PhulucHD
                                                 //Vung dia ly
                                                 co = false;
 
-                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung",
+                                                    new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid",
+                                                    a.Id);
 
                                                 if (thuadatObj.Attributes.Contains("new_vungdialy"))
                                                 {
-                                                    Guid vungdlId = thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy").Id;
-                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid vungdlId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy")
+                                                            .Id;
+                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsVungDL != null && dsVungDL.Entities.Count > 0)
                                                     {
@@ -936,7 +1167,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co VungDiaLy trong CTHD
+                                                else //neu khong co VungDiaLy trong CTHD
                                                 {
                                                     if (dsVungDL == null || dsVungDL.Entities.Count() == 0)
                                                         co = true;
@@ -946,7 +1177,10 @@ namespace Plugin_PhulucHD
 
                                                 // Giong mia
                                                 co = false;
-                                                EntityCollection dsGiongmia = RetrieveNNRecord(service, "new_giongmia", "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia", new ColumnSet(new string[] { "new_giongmiaid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsGiongmia = RetrieveNNRecord(service, "new_giongmia",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia",
+                                                    new ColumnSet(new string[] { "new_giongmiaid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (dsGiongmia != null && dsGiongmia.Entities.Count > 0)
                                                 {
                                                     foreach (Entity giongmia in dsGiongmia.Entities)
@@ -966,8 +1200,16 @@ namespace Plugin_PhulucHD
 
                                                 // Khuyen khich phat trien
                                                 co = false;
-                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_khuyenkhichpt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_thuadatcanhtacid", ChiTietHD.Id);
-                                                EntityCollection dsKKPTCSDT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_chinhsachdautu", "new_new_chinhsachdautu_new_khuyenkhichphatt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_thuadatcanhtac",
+                                                    "new_new_chitiethddtmia_new_khuyenkhichpt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_thuadatcanhtacid", ChiTietHD.Id);
+                                                EntityCollection dsKKPTCSDT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_chinhsachdautu",
+                                                    "new_new_chinhsachdautu_new_khuyenkhichphatt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (dsKKPTHDCT != null && dsKKPTHDCT.Entities.Count > 0)
                                                 {
@@ -985,13 +1227,13 @@ namespace Plugin_PhulucHD
                                                                 }
                                                             }
                                                             if (co)
-                                                                break;  //thoat vong for thu 1
+                                                                break; //thoat vong for thu 1
                                                         }
                                                     }
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co KKPT trong CTHD
+                                                else //neu khong co KKPT trong CTHD
                                                 {
                                                     if (dsKKPTCSDT == null || dsKKPTCSDT.Entities.Count() == 0)
                                                         co = true;
@@ -1002,11 +1244,16 @@ namespace Plugin_PhulucHD
                                                 // Nhom cu ly
                                                 co = false;
 
-                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy", new ColumnSet(new string[] { "new_nhomculyid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy",
+                                                    new ColumnSet(new string[] { "new_nhomculyid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (thuadatObj.Attributes.Contains("new_nhomculy"))
                                                 {
-                                                    Guid nhomclId = thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
-                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid nhomclId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
+                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsNHomCL != null && dsNHomCL.Entities.Count > 0)
                                                     {
@@ -1022,7 +1269,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co NHomCL trong CTHD
+                                                else //neu khong co NHomCL trong CTHD
                                                 {
                                                     if (dsNHomCL == null || dsNHomCL.Entities.Count() == 0)
                                                         co = true;
@@ -1033,12 +1280,19 @@ namespace Plugin_PhulucHD
                                                 // Mo hinh khuyen nong
                                                 co = false;
 
-                                                EntityCollection dsMHKN = RetrieveNNRecord(service, "new_mohinhkhuyennong", "new_chinhsachdautu", "new_new_chinhsachdautu_new_mohinhkhuyennong", new ColumnSet(new string[] { "new_mohinhkhuyennongid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsMHKN = RetrieveNNRecord(service,
+                                                    "new_mohinhkhuyennong", "new_chinhsachdautu",
+                                                    "new_new_chinhsachdautu_new_mohinhkhuyennong",
+                                                    new ColumnSet(new string[] { "new_mohinhkhuyennongid" }),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (ChiTietHD.Attributes.Contains("new_thamgiamohinhkhuyennong"))
                                                 {
-                                                    Guid mhknId = ChiTietHD.GetAttributeValue<EntityReference>("new_thamgiamohinhkhuyennong").Id;
-                                                    Entity mhkn = service.Retrieve("new_mohinhkhuyennong", mhknId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid mhknId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_thamgiamohinhkhuyennong").Id;
+                                                    Entity mhkn = service.Retrieve("new_mohinhkhuyennong", mhknId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsMHKN != null && dsMHKN.Entities.Count() > 0)
                                                     {
@@ -1054,7 +1308,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co MNKH trong CTHD
+                                                else //neu khong co MNKH trong CTHD
                                                 {
                                                     if (dsMHKN == null || dsMHKN.Entities.Count() == 0)
                                                         co = true;
@@ -1066,21 +1320,32 @@ namespace Plugin_PhulucHD
                                                 co = false;
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
-                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
+                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service,
+                                                        "new_nhomnangsuat", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                        new ColumnSet(new string[]
+                                                            {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                decimal nangsuattu =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
+                                                                decimal nangsuatden =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
 
-                                                                if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                if ((nangsuatbq >= nangsuattu) &&
+                                                                    (nangsuatbq <= nangsuatden))
                                                                 {
                                                                     co = true;
                                                                     break;
@@ -1098,21 +1363,33 @@ namespace Plugin_PhulucHD
                                                 }
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
-                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
+                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service,
+                                                        "new_nhomnangsuat", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                        new ColumnSet(new string[]
+                                                            {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                decimal nangsuattu =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
+                                                                decimal nangsuatden =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
 
-                                                                if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                if ((nangsuatbq >= nangsuattu) &&
+                                                                    (nangsuatbq <= nangsuatden))
                                                                 {
                                                                     co = true;
                                                                     break;
@@ -1150,44 +1427,60 @@ namespace Plugin_PhulucHD
                                         {
                                             foreach (Entity a in csdtTuoimiaCol.Entities)
                                             {
-                                                if (a.Contains("new_mucdichtuoi_vl"))  // Muc dich tuoi
+                                                if (a.Contains("new_mucdichtuoi_vl")) // Muc dich tuoi
                                                 {
                                                     if (ChiTietHD.Attributes.Contains("new_mucdichtuoi"))
                                                     {
-                                                        if (a["new_mucdichtuoi_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_mucdichtuoi"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_mucdichtuoi_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_mucdichtuoi"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_phuongphaptuoi_vl"))  // Phuong phap tuoi
+                                                if (a.Contains("new_phuongphaptuoi_vl")) // Phuong phap tuoi
                                                 {
                                                     if (ChiTietHD.Attributes.Contains("new_phuongphaptuoi"))
                                                     {
-                                                        if (a["new_phuongphaptuoi_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_phuongphaptuoi"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_phuongphaptuoi_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_phuongphaptuoi"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_nhomdat_vl"))  // Nhom dat
+                                                if (a.Contains("new_nhomdat_vl")) // Nhom dat
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_nhomdat"))
                                                     {
-                                                        if (a["new_nhomdat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_nhomdat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomdat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_nhomdat"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_loaisohuudat_vl"))  // Loai chu so huu
+                                                if (a.Contains("new_loaisohuudat_vl")) // Loai chu so huu
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_loaisohuudat"))
                                                     {
-                                                        if (a["new_loaisohuudat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_loaisohuudat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_loaisohuudat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_loaisohuudat"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
@@ -1199,15 +1492,25 @@ namespace Plugin_PhulucHD
                                                 bool co = false;
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nhomkhachhang", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[]
+                                                            {"fullname", "new_nhomkhachhang", "new_nangsuatbinhquan"}));
 
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -1222,7 +1525,7 @@ namespace Plugin_PhulucHD
                                                         else
                                                             co = true;
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
                                                             co = true;
@@ -1231,15 +1534,25 @@ namespace Plugin_PhulucHD
 
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
 
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -1254,7 +1567,7 @@ namespace Plugin_PhulucHD
                                                         else
                                                             co = true;
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
                                                             co = true;
@@ -1267,12 +1580,18 @@ namespace Plugin_PhulucHD
                                                 //Vung dia ly
                                                 co = false;
 
-                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung",
+                                                    new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid",
+                                                    a.Id);
 
                                                 if (thuadatObj.Attributes.Contains("new_vungdialy"))
                                                 {
-                                                    Guid vungdlId = thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy").Id;
-                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid vungdlId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy")
+                                                            .Id;
+                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsVungDL != null && dsVungDL.Entities.Count > 0)
                                                     {
@@ -1288,7 +1607,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co VungDiaLy trong CTHD
+                                                else //neu khong co VungDiaLy trong CTHD
                                                 {
                                                     if (dsVungDL == null || dsVungDL.Entities.Count() == 0)
                                                         co = true;
@@ -1301,11 +1620,16 @@ namespace Plugin_PhulucHD
                                                 // Nhom cu ly
                                                 co = false;
 
-                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy", new ColumnSet(new string[] { "new_nhomculyid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy",
+                                                    new ColumnSet(new string[] { "new_nhomculyid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (thuadatObj.Attributes.Contains("new_nhomculy"))
                                                 {
-                                                    Guid nhomclId = thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
-                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid nhomclId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
+                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsNHomCL != null && dsNHomCL.Entities.Count > 0)
                                                     {
@@ -1319,7 +1643,7 @@ namespace Plugin_PhulucHD
                                                         }
                                                     }
                                                 }
-                                                else   //neu khong co NHomCL trong CTHD
+                                                else //neu khong co NHomCL trong CTHD
                                                 {
                                                     if (dsNHomCL == null || dsNHomCL.Entities.Count() == 0)
                                                         co = true;
@@ -1332,21 +1656,32 @@ namespace Plugin_PhulucHD
                                                 co = false;
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
-                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
+                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service,
+                                                        "new_nhomnangsuat", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                        new ColumnSet(new string[]
+                                                            {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                decimal nangsuattu =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
+                                                                decimal nangsuatden =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
 
-                                                                if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                if ((nangsuatbq >= nangsuattu) &&
+                                                                    (nangsuatbq <= nangsuatden))
                                                                 {
                                                                     co = true;
                                                                     break;
@@ -1365,21 +1700,33 @@ namespace Plugin_PhulucHD
 
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
-                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
+                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service,
+                                                        "new_nhomnangsuat", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                        new ColumnSet(new string[]
+                                                            {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                decimal nangsuattu =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
+                                                                decimal nangsuatden =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
 
-                                                                if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                if ((nangsuatbq >= nangsuattu) &&
+                                                                    (nangsuatbq <= nangsuatden))
                                                                 {
                                                                     co = true;
                                                                     break;
@@ -1419,18 +1766,22 @@ namespace Plugin_PhulucHD
                                         {
                                             foreach (Entity a in csdtBocLamiaCol.Entities)
                                             {
-                                                if (a.Contains("new_vutrong_vl"))  // Vu trong
+                                                if (a.Contains("new_vutrong_vl")) // Vu trong
                                                 {
                                                     if (ChiTietHD.Contains("new_vutrong"))
                                                     {
-                                                        if (a["new_vutrong_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_vutrong"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_vutrong_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_vutrong"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_loaigocmia_vl"))  // Loai goc mia
+                                                if (a.Contains("new_loaigocmia_vl")) // Loai goc mia
                                                 {
                                                     if (ChiTietHD.Contains("new_loaigocmia"))
                                                     {
@@ -1441,44 +1792,60 @@ namespace Plugin_PhulucHD
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_mucdichsanxuatmia_vl"))  // Muc dich san xuat mia
+                                                if (a.Contains("new_mucdichsanxuatmia_vl")) // Muc dich san xuat mia
                                                 {
                                                     if (ChiTietHD.Contains("new_mucdichsanxuatmia"))
                                                     {
-                                                        if (a["new_mucdichsanxuatmia_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_mucdichsanxuatmia"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_mucdichsanxuatmia_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_mucdichsanxuatmia"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_nhomdat_vl"))  // Nhom dat
+                                                if (a.Contains("new_nhomdat_vl")) // Nhom dat
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_nhomdat"))
                                                     {
-                                                        if (a["new_nhomdat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_nhomdat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomdat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_nhomdat"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_loaisohuudat_vl"))  // Loai chu so huu
+                                                if (a.Contains("new_loaisohuudat_vl")) // Loai chu so huu
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_loaisohuudat"))
                                                     {
-                                                        if (a["new_loaisohuudat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_loaisohuudat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_loaisohuudat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_loaisohuudat"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_nhomgiongmia_vl"))  // Nhom giong mia
+                                                if (a.Contains("new_nhomgiongmia_vl")) // Nhom giong mia
                                                 {
                                                     if (giongmiaObj.Attributes.Contains("new_nhomgiong"))
                                                     {
-                                                        if (a["new_nhomgiongmia_vl"].ToString().IndexOf(((OptionSetValue)giongmiaObj["new_nhomgiong"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomgiongmia_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)giongmiaObj["new_nhomgiong"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
@@ -1489,15 +1856,25 @@ namespace Plugin_PhulucHD
                                                 bool co = false;
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nhomkhachhang", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[]
+                                                            {"fullname", "new_nhomkhachhang", "new_nangsuatbinhquan"}));
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -1512,7 +1889,7 @@ namespace Plugin_PhulucHD
                                                         else
                                                             co = true;
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
                                                             co = true;
@@ -1521,15 +1898,25 @@ namespace Plugin_PhulucHD
 
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -1544,7 +1931,7 @@ namespace Plugin_PhulucHD
                                                         else
                                                             co = true;
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
                                                             co = true;
@@ -1557,12 +1944,18 @@ namespace Plugin_PhulucHD
                                                 //Vung dia ly
                                                 co = false;
 
-                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung",
+                                                    new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid",
+                                                    a.Id);
 
                                                 if (thuadatObj.Attributes.Contains("new_vungdialy"))
                                                 {
-                                                    Guid vungdlId = thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy").Id;
-                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid vungdlId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy")
+                                                            .Id;
+                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsVungDL != null && dsVungDL.Entities.Count > 0)
                                                     {
@@ -1578,7 +1971,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co VungDiaLy trong CTHD
+                                                else //neu khong co VungDiaLy trong CTHD
                                                 {
                                                     if (dsVungDL == null || dsVungDL.Entities.Count() == 0)
                                                         co = true;
@@ -1589,7 +1982,10 @@ namespace Plugin_PhulucHD
                                                 // Giong mia
                                                 co = false;
 
-                                                EntityCollection dsGiongmia = RetrieveNNRecord(service, "new_giongmia", "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia", new ColumnSet(new string[] { "new_giongmiaid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsGiongmia = RetrieveNNRecord(service, "new_giongmia",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia",
+                                                    new ColumnSet(new string[] { "new_giongmiaid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (dsGiongmia != null && dsGiongmia.Entities.Count > 0)
                                                 {
                                                     foreach (Entity giongmia in dsGiongmia.Entities)
@@ -1609,8 +2005,16 @@ namespace Plugin_PhulucHD
 
                                                 // Khuyen khich phat trien
                                                 co = false;
-                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_khuyenkhichpt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_thuadatcanhtacid", ChiTietHD.Id);
-                                                EntityCollection dsKKPTCSDT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_chinhsachdautu", "new_new_chinhsachdautu_new_khuyenkhichphatt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_thuadatcanhtac",
+                                                    "new_new_chitiethddtmia_new_khuyenkhichpt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_thuadatcanhtacid", ChiTietHD.Id);
+                                                EntityCollection dsKKPTCSDT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_chinhsachdautu",
+                                                    "new_new_chinhsachdautu_new_khuyenkhichphatt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (dsKKPTHDCT != null && dsKKPTHDCT.Entities.Count > 0)
                                                 {
@@ -1635,7 +2039,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co KKPT trong CTHD
+                                                else //neu khong co KKPT trong CTHD
                                                 {
                                                     if (dsKKPTCSDT == null || dsKKPTCSDT.Entities.Count() == 0)
                                                         co = true;
@@ -1646,11 +2050,16 @@ namespace Plugin_PhulucHD
                                                 // Nhom cu ly
                                                 co = false;
 
-                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy", new ColumnSet(new string[] { "new_nhomculyid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy",
+                                                    new ColumnSet(new string[] { "new_nhomculyid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (thuadatObj.Attributes.Contains("new_nhomculy"))
                                                 {
-                                                    Guid nhomclId = thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
-                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid nhomclId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
+                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsNHomCL != null && dsNHomCL.Entities.Count > 0)
                                                     {
@@ -1666,7 +2075,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co NHomCL trong CTHD
+                                                else //neu khong co NHomCL trong CTHD
                                                 {
                                                     if (dsNHomCL == null || dsNHomCL.Entities.Count() == 0)
                                                         co = true;
@@ -1677,12 +2086,19 @@ namespace Plugin_PhulucHD
                                                 // Mo hinh khuyen nong
                                                 co = false;
 
-                                                EntityCollection dsMHKN = RetrieveNNRecord(service, "new_mohinhkhuyennong", "new_chinhsachdautu", "new_new_chinhsachdautu_new_mohinhkhuyennong", new ColumnSet(new string[] { "new_mohinhkhuyennongid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsMHKN = RetrieveNNRecord(service,
+                                                    "new_mohinhkhuyennong", "new_chinhsachdautu",
+                                                    "new_new_chinhsachdautu_new_mohinhkhuyennong",
+                                                    new ColumnSet(new string[] { "new_mohinhkhuyennongid" }),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (ChiTietHD.Attributes.Contains("new_thamgiamohinhkhuyennong"))
                                                 {
-                                                    Guid mhknId = ChiTietHD.GetAttributeValue<EntityReference>("new_thamgiamohinhkhuyennong").Id;
-                                                    Entity mhkn = service.Retrieve("new_mohinhkhuyennong", mhknId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid mhknId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_thamgiamohinhkhuyennong").Id;
+                                                    Entity mhkn = service.Retrieve("new_mohinhkhuyennong", mhknId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsMHKN != null && dsMHKN.Entities.Count() > 0)
                                                     {
@@ -1701,7 +2117,7 @@ namespace Plugin_PhulucHD
                                                     else
                                                         co = true;
                                                 }
-                                                else   //neu khong co MNKH trong CTHD
+                                                else //neu khong co MNKH trong CTHD
                                                 {
                                                     if (dsMHKN == null || dsMHKN.Entities.Count() == 0)
                                                         co = true;
@@ -1713,22 +2129,33 @@ namespace Plugin_PhulucHD
                                                 co = false;
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
 
-                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service,
+                                                        "new_nhomnangsuat", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                        new ColumnSet(new string[]
+                                                            {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                decimal nangsuattu =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
+                                                                decimal nangsuatden =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
 
-                                                                if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                if ((nangsuatbq >= nangsuattu) &&
+                                                                    (nangsuatbq <= nangsuatden))
                                                                 {
                                                                     co = true;
                                                                     break;
@@ -1746,22 +2173,34 @@ namespace Plugin_PhulucHD
                                                 }
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
 
-                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomNS = RetrieveNNRecord(service,
+                                                        "new_nhomnangsuat", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                        new ColumnSet(new string[]
+                                                            {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                        "new_chinhsachdautuid", a.Id);
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                decimal nangsuattu =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
+                                                                decimal nangsuatden =
+                                                                    mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
 
-                                                                if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                if ((nangsuatbq >= nangsuattu) &&
+                                                                    (nangsuatbq <= nangsuatden))
                                                                 {
                                                                     co = true;
                                                                     break;
@@ -1799,18 +2238,22 @@ namespace Plugin_PhulucHD
                                         {
                                             foreach (Entity a in csdtUngCol.Entities)
                                             {
-                                                if (a.Contains("new_vutrong_vl"))  // Vu trong
+                                                if (a.Contains("new_vutrong_vl")) // Vu trong
                                                 {
                                                     if (ChiTietHD.Contains("new_vutrong"))
                                                     {
-                                                        if (a["new_vutrong_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_vutrong"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_vutrong_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_vutrong"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_loaigocmia_vl"))  // Loai goc mia
+                                                if (a.Contains("new_loaigocmia_vl")) // Loai goc mia
                                                 {
                                                     if (ChiTietHD.Contains("new_loaigocmia"))
                                                     {
@@ -1821,22 +2264,30 @@ namespace Plugin_PhulucHD
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_mucdichsanxuatmia_vl"))  // Muc dich san xuat mia
+                                                if (a.Contains("new_mucdichsanxuatmia_vl")) // Muc dich san xuat mia
                                                 {
                                                     if (ChiTietHD.Contains("new_mucdichsanxuatmia"))
                                                     {
-                                                        if (a["new_mucdichsanxuatmia_vl"].ToString().IndexOf(((OptionSetValue)ChiTietHD["new_mucdichsanxuatmia"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_mucdichsanxuatmia_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)ChiTietHD["new_mucdichsanxuatmia"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
                                                         continue;
                                                 }
 
-                                                if (a.Contains("new_nhomdat_vl"))  // Nhom dat
+                                                if (a.Contains("new_nhomdat_vl")) // Nhom dat
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_nhomdat"))
                                                     {
-                                                        if (a["new_nhomdat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_nhomdat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomdat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_nhomdat"]).Value
+                                                                        .ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
@@ -1845,11 +2296,15 @@ namespace Plugin_PhulucHD
                                                     }
                                                 }
 
-                                                if (a.Contains("new_loaisohuudat_vl"))  // Loai chu so huu
+                                                if (a.Contains("new_loaisohuudat_vl")) // Loai chu so huu
                                                 {
                                                     if (thuadatObj.Attributes.Contains("new_loaisohuudat"))
                                                     {
-                                                        if (a["new_loaisohuudat_vl"].ToString().IndexOf(((OptionSetValue)thuadatObj["new_loaisohuudat"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_loaisohuudat_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)thuadatObj["new_loaisohuudat"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
@@ -1858,11 +2313,15 @@ namespace Plugin_PhulucHD
                                                     }
                                                 }
 
-                                                if (a.Contains("new_nhomgiongmia_vl"))  // Nhom giong mia
+                                                if (a.Contains("new_nhomgiongmia_vl")) // Nhom giong mia
                                                 {
                                                     if (giongmiaObj.Attributes.Contains("new_nhomgiong"))
                                                     {
-                                                        if (a["new_nhomgiongmia_vl"].ToString().IndexOf(((OptionSetValue)giongmiaObj["new_nhomgiong"]).Value.ToString()) == -1)
+                                                        if (
+                                                            a["new_nhomgiongmia_vl"].ToString()
+                                                                .IndexOf(
+                                                                    ((OptionSetValue)giongmiaObj["new_nhomgiong"])
+                                                                        .Value.ToString()) == -1)
                                                             continue;
                                                     }
                                                     else
@@ -1876,15 +2335,25 @@ namespace Plugin_PhulucHD
 
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nhomkhachhang", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[]
+                                                            {"fullname", "new_nhomkhachhang", "new_nangsuatbinhquan"}));
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -1901,7 +2370,7 @@ namespace Plugin_PhulucHD
                                                             co = true;
                                                         }
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
 
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
@@ -1913,15 +2382,25 @@ namespace Plugin_PhulucHD
 
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service, "new_nhomkhachhang", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomkhachhang", new ColumnSet(new string[] { "new_nhomkhachhangid" }), "new_chinhsachdautuid", a.Id);
+                                                    EntityCollection dsNhomKH = RetrieveNNRecord(service,
+                                                        "new_nhomkhachhang", "new_chinhsachdautu",
+                                                        "new_new_chinhsachdautu_new_nhomkhachhang",
+                                                        new ColumnSet(new string[] { "new_nhomkhachhangid" }),
+                                                        "new_chinhsachdautuid", a.Id);
 
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nhomkhachhang" }));
 
                                                     if (khObj.Attributes.Contains("new_nhomkhachhang"))
                                                     {
-                                                        Guid nhomkhId = khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang").Id;
-                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang", nhomkhId, new ColumnSet(new string[] { "new_name" }));
+                                                        Guid nhomkhId =
+                                                            khObj.GetAttributeValue<EntityReference>("new_nhomkhachhang")
+                                                                .Id;
+                                                        Entity nhomKHHDCT = service.Retrieve("new_nhomkhachhang",
+                                                            nhomkhId, new ColumnSet(new string[] { "new_name" }));
                                                         if (dsNhomKH != null && dsNhomKH.Entities.Count > 0)
                                                         {
                                                             foreach (Entity nhomKH in dsNhomKH.Entities)
@@ -1938,7 +2417,7 @@ namespace Plugin_PhulucHD
                                                             co = true;
                                                         }
                                                     }
-                                                    else   //neu khong co NHomKH trong CTHD
+                                                    else //neu khong co NHomKH trong CTHD
                                                     {
 
                                                         if (dsNhomKH == null || dsNhomKH.Entities.Count() == 0)
@@ -1953,12 +2432,18 @@ namespace Plugin_PhulucHD
                                                 //Vung dia ly
                                                 co = false;
 
-                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung", "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung", new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsVungDL = RetrieveNNRecord(service, "new_vung",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_vung",
+                                                    new ColumnSet(new string[] { "new_vungid" }), "new_chinhsachdautuid",
+                                                    a.Id);
 
                                                 if (thuadatObj.Attributes.Contains("new_vungdialy"))
                                                 {
-                                                    Guid vungdlId = thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy").Id;
-                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid vungdlId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_vungdialy")
+                                                            .Id;
+                                                    Entity vungDL = service.Retrieve("new_vung", vungdlId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsVungDL != null && dsVungDL.Entities.Count > 0)
                                                     {
@@ -1976,7 +2461,7 @@ namespace Plugin_PhulucHD
                                                         co = true;
                                                     }
                                                 }
-                                                else   //neu khong co VungDiaLy trong CTHD
+                                                else //neu khong co VungDiaLy trong CTHD
                                                 {
 
                                                     if (dsVungDL == null || dsVungDL.Entities.Count() == 0)
@@ -1990,7 +2475,10 @@ namespace Plugin_PhulucHD
                                                 // Giong mia
                                                 co = false;
 
-                                                EntityCollection dsGiongmia = RetrieveNNRecord(service, "new_giongmia", "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia", new ColumnSet(new string[] { "new_giongmiaid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsGiongmia = RetrieveNNRecord(service, "new_giongmia",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_giongmia",
+                                                    new ColumnSet(new string[] { "new_giongmiaid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (dsGiongmia != null && dsGiongmia.Entities.Count > 0)
                                                 {
                                                     foreach (Entity giongmia in dsGiongmia.Entities)
@@ -2011,8 +2499,16 @@ namespace Plugin_PhulucHD
 
                                                 // Khuyen khich phat trien
                                                 co = false;
-                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_thuadatcanhtac", "new_new_chitiethddtmia_new_khuyenkhichpt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_thuadatcanhtacid", ChiTietHD.Id);
-                                                EntityCollection dsKKPTCSDT = RetrieveNNRecord(service, "new_khuyenkhichphattrien", "new_chinhsachdautu", "new_new_chinhsachdautu_new_khuyenkhichphatt", new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsKKPTHDCT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_thuadatcanhtac",
+                                                    "new_new_chitiethddtmia_new_khuyenkhichpt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_thuadatcanhtacid", ChiTietHD.Id);
+                                                EntityCollection dsKKPTCSDT = RetrieveNNRecord(service,
+                                                    "new_khuyenkhichphattrien", "new_chinhsachdautu",
+                                                    "new_new_chinhsachdautu_new_khuyenkhichphatt",
+                                                    new ColumnSet(new string[] { "new_khuyenkhichphattrienid" }),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (dsKKPTHDCT != null && dsKKPTHDCT.Entities.Count > 0)
                                                 {
@@ -2041,7 +2537,7 @@ namespace Plugin_PhulucHD
                                                         co = true;
                                                     }
                                                 }
-                                                else   //neu khong co KKPT trong CTHD
+                                                else //neu khong co KKPT trong CTHD
                                                 {
 
                                                     if (dsKKPTCSDT == null || dsKKPTCSDT.Entities.Count() == 0)
@@ -2055,11 +2551,16 @@ namespace Plugin_PhulucHD
                                                 // Nhom cu ly
                                                 co = false;
 
-                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy", new ColumnSet(new string[] { "new_nhomculyid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsNHomCL = RetrieveNNRecord(service, "new_nhomculy",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomculy",
+                                                    new ColumnSet(new string[] { "new_nhomculyid" }),
+                                                    "new_chinhsachdautuid", a.Id);
                                                 if (thuadatObj.Attributes.Contains("new_nhomculy"))
                                                 {
-                                                    Guid nhomclId = thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
-                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId, new ColumnSet(new string[] { "new_name" }));
+                                                    Guid nhomclId =
+                                                        thuadatObj.GetAttributeValue<EntityReference>("new_nhomculy").Id;
+                                                    Entity nhomCL = service.Retrieve("new_nhomculy", nhomclId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsNHomCL != null && dsNHomCL.Entities.Count > 0)
                                                     {
@@ -2077,7 +2578,7 @@ namespace Plugin_PhulucHD
                                                         co = true;
                                                     }
                                                 }
-                                                else   //neu khong co NHomCL trong CTHD
+                                                else //neu khong co NHomCL trong CTHD
                                                 {
 
                                                     if (dsNHomCL == null || dsNHomCL.Entities.Count() == 0)
@@ -2091,13 +2592,20 @@ namespace Plugin_PhulucHD
                                                 // Mo hinh khuyen nong
                                                 co = false;
 
-                                                EntityCollection dsMHKN = RetrieveNNRecord(service, "new_mohinhkhuyennong", "new_chinhsachdautu", "new_new_chinhsachdautu_new_mohinhkhuyennong", new ColumnSet(new string[] { "new_mohinhkhuyennongid" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsMHKN = RetrieveNNRecord(service,
+                                                    "new_mohinhkhuyennong", "new_chinhsachdautu",
+                                                    "new_new_chinhsachdautu_new_mohinhkhuyennong",
+                                                    new ColumnSet(new string[] { "new_mohinhkhuyennongid" }),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (ChiTietHD.Attributes.Contains("new_thamgiamohinhkhuyennong"))
                                                 {
-                                                    EntityReference mhknEntityRef = ChiTietHD.GetAttributeValue<EntityReference>("new_thamgiamohinhkhuyennong");
+                                                    EntityReference mhknEntityRef =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_thamgiamohinhkhuyennong");
                                                     Guid mhknId = mhknEntityRef.Id;
-                                                    Entity mhkn = service.Retrieve("new_mohinhkhuyennong", mhknId, new ColumnSet(new string[] { "new_name" }));
+                                                    Entity mhkn = service.Retrieve("new_mohinhkhuyennong", mhknId,
+                                                        new ColumnSet(new string[] { "new_name" }));
 
                                                     if (dsMHKN != null && dsMHKN.Entities.Count() > 0)
                                                     {
@@ -2115,7 +2623,7 @@ namespace Plugin_PhulucHD
                                                         co = true;
                                                     }
                                                 }
-                                                else   //neu khong co MNKH trong CTHD
+                                                else //neu khong co MNKH trong CTHD
                                                 {
                                                     if (dsMHKN == null || dsMHKN.Entities.Count() == 0)
                                                     {
@@ -2128,26 +2636,39 @@ namespace Plugin_PhulucHD
                                                 // NHom nang suat
                                                 co = false;
 
-                                                EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat", "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat", new ColumnSet(new string[] { "new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden" }), "new_chinhsachdautuid", a.Id);
+                                                EntityCollection dsNhomNS = RetrieveNNRecord(service, "new_nhomnangsuat",
+                                                    "new_chinhsachdautu", "new_new_chinhsachdautu_new_nhomnangsuat",
+                                                    new ColumnSet(new string[]
+                                                        {"new_nhomnangsuatid", "new_nangsuattu", "new_nangsuatden"}),
+                                                    "new_chinhsachdautuid", a.Id);
 
                                                 if (ChiTietHD.Attributes.Contains("new_khachhang"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
-                                                    Entity khObj = service.Retrieve("contact", khId, new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>("new_khachhang").Id;
+                                                    Entity khObj = service.Retrieve("contact", khId,
+                                                        new ColumnSet(new string[] { "fullname", "new_nangsuatbinhquan" }));
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                if (mhkn1.Attributes.Contains("new_nangsuattu") && mhkn1.Attributes.Contains("new_nangsuatden"))
+                                                                if (mhkn1.Attributes.Contains("new_nangsuattu") &&
+                                                                    mhkn1.Attributes.Contains("new_nangsuatden"))
                                                                 {
-                                                                    decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                    decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                    decimal nangsuattu =
+                                                                        mhkn1.GetAttributeValue<decimal>(
+                                                                            "new_nangsuattu");
+                                                                    decimal nangsuatden =
+                                                                        mhkn1.GetAttributeValue<decimal>(
+                                                                            "new_nangsuatden");
 
-                                                                    if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                    if ((nangsuatbq >= nangsuattu) &&
+                                                                        (nangsuatbq <= nangsuatden))
                                                                     {
                                                                         co = true;
                                                                         break;
@@ -2170,22 +2691,32 @@ namespace Plugin_PhulucHD
                                                 }
                                                 if (ChiTietHD.Attributes.Contains("new_khachhangdoanhnghiep"))
                                                 {
-                                                    Guid khId = ChiTietHD.GetAttributeValue<EntityReference>("new_khachhangdoanhnghiep").Id;
-                                                    Entity khObj = service.Retrieve("account", khId, new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
+                                                    Guid khId =
+                                                        ChiTietHD.GetAttributeValue<EntityReference>(
+                                                            "new_khachhangdoanhnghiep").Id;
+                                                    Entity khObj = service.Retrieve("account", khId,
+                                                        new ColumnSet(new string[] { "name", "new_nangsuatbinhquan" }));
 
                                                     if (khObj.Attributes.Contains("new_nangsuatbinhquan"))
                                                     {
-                                                        decimal nangsuatbq = khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
+                                                        decimal nangsuatbq =
+                                                            khObj.GetAttributeValue<decimal>("new_nangsuatbinhquan");
                                                         if (dsNhomNS != null && dsNhomNS.Entities.Count() > 0)
                                                         {
                                                             foreach (Entity mhkn1 in dsNhomNS.Entities)
                                                             {
-                                                                if (mhkn1.Attributes.Contains("new_nangsuattu") && mhkn1.Attributes.Contains("new_nangsuatden"))
+                                                                if (mhkn1.Attributes.Contains("new_nangsuattu") &&
+                                                                    mhkn1.Attributes.Contains("new_nangsuatden"))
                                                                 {
-                                                                    decimal nangsuattu = mhkn1.GetAttributeValue<decimal>("new_nangsuattu");
-                                                                    decimal nangsuatden = mhkn1.GetAttributeValue<decimal>("new_nangsuatden");
+                                                                    decimal nangsuattu =
+                                                                        mhkn1.GetAttributeValue<decimal>(
+                                                                            "new_nangsuattu");
+                                                                    decimal nangsuatden =
+                                                                        mhkn1.GetAttributeValue<decimal>(
+                                                                            "new_nangsuatden");
 
-                                                                    if ((nangsuatbq >= nangsuattu) && (nangsuatbq <= nangsuatden))
+                                                                    if ((nangsuatbq >= nangsuattu) &&
+                                                                        (nangsuatbq <= nangsuatden))
                                                                     {
                                                                         co = true;
                                                                         break;
@@ -2220,7 +2751,8 @@ namespace Plugin_PhulucHD
                                         traceService.Trace("vi trí add  ứng");
                                         //----END---- Tìm CSDT ứng --------------------
 
-                                        service.Associate("new_thuadatcanhtac", ChiTietHD.Id, new Relationship("new_new_chitiethddtmia_new_chinhsachdautu"), listCSDT);
+                                        service.Associate("new_thuadatcanhtac", ChiTietHD.Id,
+                                            new Relationship("new_new_chitiethddtmia_new_chinhsachdautu"), listCSDT);
 
                                         traceService.Trace("add  xong het");
                                     } // foreach (Entity plgocto in dsPLGocsangTo.Entities)
